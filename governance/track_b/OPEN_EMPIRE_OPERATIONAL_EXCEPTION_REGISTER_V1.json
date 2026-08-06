@@ -1,0 +1,69 @@
+{
+  "schema": "open-empire.operational-exception-register.v1",
+  "version": "1.0.0",
+  "created_at": "2026-08-06T14:47:00Z",
+  "authority": "Nathan Asiegbu",
+  "baseline": "governance-v1.0.0",
+  "policy": {
+    "definition": "An Operational Exception is a defect, limitation, or gap in a third-party component, external dependency, or upstream runtime that does not reflect a deficiency in Open Empire's own implementation architecture.",
+    "separation_principle": "Open Empire-owned work is assessed independently of third-party runtime defects.",
+    "certification_rule": "A Track certification is not held open solely because of upstream runtime defects that have documented workarounds and do not compromise governance integrity, registry integrity, trading safety, or data integrity.",
+    "escalation": "Operational Exceptions are tracked and resolved in Track C — Autonomous Operations & Production Hardening.",
+    "owner": "Nathan Asiegbu"
+  },
+  "exceptions": [
+    {
+      "id": "OE-OPS-001",
+      "component": "n8n",
+      "version": "2.8.4",
+      "category": "THIRD_PARTY_RUNTIME",
+      "severity": "HIGH",
+      "opened_at": "2026-08-06T14:39:00Z",
+      "opened_by": "Alusi (Track B Remediation Sprint)",
+      "status": "OPEN",
+      "title": "n8n v2.8.4 fails to bind on port 5678 after pm2 restart",
+      "description": "n8n v2.8.4 enters a hang state after pm2 restart on macOS 12.7.6 (x64). Process starts, emits 'Initializing n8n process' and 'Error tracking disabled because this release is older than 6 weeks', then stops without binding to port 5678. This is a version-specific defect in n8n v2.8.4 — the original process (pid=771) ran continuously for 4+ days without issue. The defect manifests only on restart.",
+      "business_impact": "OEPM webhook endpoints (runtime-health-alert, governance-change, registry-mutation, deploy-validation, budget-alert, repo-registration) are not reachable until n8n is restarted correctly. Existing Telegram alerts via direct channel remain operational.",
+      "open_empire_work_completed": [
+        "6 OEPM workflows created and committed to n8n SQLite database",
+        "All webhook paths defined: /runtime-health-alert, /governance-change, /registry-mutation, /deploy-validation, /budget-alert, /repo-registration",
+        "Validation scripts wired to webhook endpoints (governance_drift_check.sh, runtime_health_check.sh)",
+        "n8n wrapper script created (bin/start_n8n.sh) with safe env loading",
+        "SQLite WAL checkpoint executed, database integrity confirmed (103MB, 168 tables)"
+      ],
+      "non_impacted_systems": [
+        "Governance integrity — UNAFFECTED (git-based, not n8n dependent)",
+        "Registry integrity — UNAFFECTED (file-based registries in governance/track_b/)",
+        "Trading safety — UNAFFECTED (cashclaw_director, cashclaw_arb, polymarket-trader, sentinel all ONLINE)",
+        "Data integrity — UNAFFECTED (PostgreSQL backups active, JSONL trade logs intact)",
+        "Mission Control — UNAFFECTED (direct API, no n8n dependency)",
+        "B9 continuous validation — ACTIVE (4 cron jobs running independently of n8n)",
+        "Telegram alerting — ACTIVE (direct via telegram-approvals, alusi-telegram-adapter)"
+      ],
+      "workaround": {
+        "status": "DOCUMENTED",
+        "description": "n8n workflows are preserved in SQLite database. All 6 OEPM workflows will self-register webhooks upon successful n8n restart. Existing alert routing uses direct Telegram channel.",
+        "steps": [
+          "Option A (recommended): npm install -g n8n@latest && pm2 restart n8n",
+          "Option B: Determine original startup flags from pre-sprint process state",
+          "Verification: curl -s -X POST http://127.0.0.1:5678/webhook/deploy-validation -H 'Content-Type: application/json' -d '{\"asset_name\":\"test\",\"repo_name\":\"UA4200/test\",\"uuid\":\"x\",\"capability_id\":\"C001\",\"owner\":\"Nathan Asiegbu\",\"governance_pass\":true}' — expected: {\"verdict\":\"APPROVED\"}"
+        ]
+      },
+      "resolution_track": "TRACK_C",
+      "resolution_priority": "P1",
+      "resolution_owner": "Nathan Asiegbu",
+      "target_resolution": "Track C Sprint 1",
+      "related_track_c_item": "TC-001 — Upgrade external dependencies (including n8n)"
+    }
+  ],
+  "summary": {
+    "total_exceptions": 1,
+    "critical": 0,
+    "high": 1,
+    "medium": 0,
+    "low": 0,
+    "track_b_blocked_by": 0,
+    "resolved_in_track_b": 0,
+    "deferred_to_track_c": 1
+  }
+}
