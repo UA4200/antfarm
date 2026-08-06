@@ -1,0 +1,144 @@
+{
+  "schema": "open_empire.pm2_repair_queue.v1",
+  "generated_at": "2026-08-06T11:40:00-05:00",
+  "generator": "Alusi Gate A Finalization Directive",
+  "generator_version": "1.0.0",
+  "note": "No automatic restarts performed. All items require Nathan approval before execution.",
+  "repair_items": [
+    {
+      "item_id": "REPAIR-001",
+      "pm2_id": 33,
+      "name": "open-empire-federation-staging",
+      "classification": "DEGRADED_REQUIRES_REPAIR",
+      "priority": "HIGH",
+      "restart_count": 11,
+      "issue": "Process crash-looped 11 times before PM2 stopped it. Root cause unknown.",
+      "diagnosis_command": "pm2 logs open-empire-federation-staging --lines 100 2>/dev/null",
+      "likely_causes": [
+        "Import error in federation_coordinator.py",
+        "Missing dependency or configuration file",
+        "Database connection failure (clawdb/PostgreSQL)",
+        "Incompatible Python version"
+      ],
+      "recovery_steps": [
+        "1. Run diagnosis_command to review crash logs",
+        "2. Identify specific error from last crash",
+        "3. Apply targeted fix (code or config)",
+        "4. Test: python3 /Users/NeoOC/.openclaw/empire/federation/federation_coordinator.py --test",
+        "5. Nathan approval for restart",
+        "6. pm2 restart 33",
+        "7. Monitor for 3 cycles (15 minutes) for stability"
+      ],
+      "approval_required": true,
+      "do_not_restart_without_fix": true,
+      "business_impact": "Federation state coordination unavailable. No immediate impact on trading or core comms.",
+      "agents_md_discrepancy": "AGENTS.md shows id=45 OK; live id=33 STOPPED"
+    },
+    {
+      "item_id": "REPAIR-002",
+      "pm2_id": 34,
+      "name": "open-empire-lifecycle-staging",
+      "classification": "DEGRADED_REQUIRES_REPAIR",
+      "priority": "HIGH",
+      "restart_count": 9,
+      "issue": "Process crash-looped 9 times before PM2 stopped it. Root cause unknown.",
+      "diagnosis_command": "pm2 logs open-empire-lifecycle-staging --lines 100 2>/dev/null",
+      "likely_causes": [
+        "Import error in lifecycle_manager.py",
+        "Missing dependency on federation_coordinator (id=33 also stopped)",
+        "Database connection failure",
+        "Missing governance artifact reference"
+      ],
+      "recovery_steps": [
+        "1. Repair REPAIR-001 (federation) first — lifecycle may depend on it",
+        "2. Run diagnosis_command to review crash logs",
+        "3. Apply targeted fix",
+        "4. Test standalone",
+        "5. Nathan approval for restart",
+        "6. pm2 restart 34",
+        "7. Monitor for stability"
+      ],
+      "approval_required": true,
+      "do_not_restart_without_fix": true,
+      "business_impact": "Lifecycle state management unavailable. Governance lifecycle transitions must be managed manually.",
+      "agents_md_discrepancy": "AGENTS.md shows id=46 OK; live id=34 STOPPED"
+    },
+    {
+      "item_id": "REPAIR-003",
+      "pm2_id": 35,
+      "name": "dynamics51",
+      "classification": "DEGRADED_REQUIRES_REPAIR",
+      "priority": "MEDIUM",
+      "restart_count": 12,
+      "issue": "Process crash-looped 12 times (highest count). Not listed in AGENTS.md. Venture unclear.",
+      "diagnosis_command": "pm2 logs dynamics51 --lines 100 2>/dev/null && ls -la /Users/NeoOC/.openclaw/ventures/51dynamics/ 2>/dev/null",
+      "likely_causes": [
+        "Abandoned venture codebase with broken dependencies",
+        "Missing API credentials for 51dynamics",
+        "Venture discontinued without cleanup"
+      ],
+      "recovery_steps": [
+        "1. Review logs and code",
+        "2. Nathan decision: active venture or deprecated?",
+        "3. If deprecated: pm2 delete 35 (requires Nathan approval)",
+        "4. If active: diagnose and fix, then restart with approval"
+      ],
+      "approval_required": true,
+      "do_not_restart_without_fix": true,
+      "business_impact": "Unknown — venture not documented in AGENTS.md",
+      "recommended_decision": "Nathan review required to determine if 51dynamics is still active"
+    },
+    {
+      "item_id": "REVIEW-001",
+      "pm2_id": 6,
+      "name": "skill-sync",
+      "classification": "UNKNOWN_REQUIRES_REVIEW",
+      "priority": "LOW",
+      "restart_count": 1,
+      "issue": "CWD is /Users/NeoOC/Downloads/OC 1 (stale path from old installation). Status unclear.",
+      "diagnosis_command": "cat /Users/NeoOC/.openclaw/bin/sync-skills.sh 2>/dev/null",
+      "recovery_steps": [
+        "1. Review sync-skills.sh content",
+        "2. Determine if skill sync is still needed",
+        "3. If needed: update PM2 ecosystem file with correct CWD and restart",
+        "4. If not needed: pm2 delete 6"
+      ],
+      "approval_required": true,
+      "business_impact": "Low — skill sync appears non-critical"
+    },
+    {
+      "item_id": "MONITOR-001",
+      "pm2_id": 25,
+      "name": "alpaca-demo",
+      "classification": "OPTIONAL",
+      "priority": "LOW",
+      "restart_count": 4,
+      "issue": "Online but 4 restarts suggests periodic crashes. Demo trader not in AGENTS.md.",
+      "diagnosis_command": "pm2 logs alpaca-demo --lines 50 2>/dev/null",
+      "recovery_steps": [
+        "1. Review logs for restart cause",
+        "2. Confirm Nathan intent (still needed?)",
+        "3. If demo only and unstable: pm2 stop 25 or pm2 delete 25"
+      ],
+      "approval_required": true,
+      "business_impact": "Low — demo/paper trading only"
+    }
+  ],
+  "maintenance_items": [
+    {
+      "item_id": "MAINT-001",
+      "type": "agents_md_update",
+      "description": "AGENTS.md PM2 IDs are stale for 9 processes and status incorrect for 2 (federation-staging, lifecycle-staging). Update AGENTS.md to reflect live PM2 topology.",
+      "priority": "MEDIUM",
+      "approval_required": true
+    },
+    {
+      "item_id": "MAINT-002",
+      "type": "cwd_migration",
+      "affected_pids": [6, 7, 11, 20],
+      "description": "Several processes have CWD set to /Users/NeoOC/Downloads/OC 1 (legacy install path). Migrate to canonical paths.",
+      "priority": "LOW",
+      "approval_required": true
+    }
+  ]
+}

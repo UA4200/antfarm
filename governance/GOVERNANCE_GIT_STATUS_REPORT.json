@@ -1,0 +1,36 @@
+{
+  "schema": "open_empire.governance.git_status_report.v1",
+  "generated_at": "2026-08-06T11:40:00-05:00",
+  "generator": "Alusi Gate A Finalization Directive",
+  "generator_version": "1.0.0",
+  "governance_dir": "/Users/NeoOC/.openclaw/workspace/governance",
+  "workspace_dir": "/Users/NeoOC/.openclaw/workspace",
+  "governance_in_git_repo": false,
+  "workspace_in_git_repo": false,
+  "git_init_already_present": false,
+  "remote_detected": false,
+  "branch": null,
+  "last_commit": null,
+  "staged_files": [],
+  "unstaged_files": [],
+  "untracked_files": [],
+  "secret_scan_result": "NOT_APPLICABLE (no git repo present)",
+  "pii_scan_result": "NOT_APPLICABLE (no git repo present)",
+  "finding": "The governance directory (~/.openclaw/workspace/governance) is not inside any Git repository. The workspace directory (~/.openclaw/workspace) is also not a Git repository.",
+  "recommendation": "Do not run git init autonomously. Proceed per GOVERNANCE_VERSION_CONTROL_PLAN.md — identify correct canonical Open Empire repository and request Nathan approval before any repository creation or remote push.",
+  "open_empire_candidate_repos": [
+    {
+      "repo": "alusi-core",
+      "remote": "UA4200/alusi-core",
+      "status": "DEPLOYED v0.1.0-deploy-20260730",
+      "notes": "Core alusi agent — may not be appropriate for governance artifacts"
+    },
+    {
+      "repo": "open-empire-core",
+      "remote": "UA4200/open-empire-core",
+      "status": "DEPLOYED v0.1.0-deploy-20260730",
+      "notes": "Open Empire core repo — most likely candidate for governance artifacts"
+    }
+  ],
+  "risk_note": "Governance files contain no secrets, API keys, or PII per review. Safe for version control once correct repository is identified and approved."
+}

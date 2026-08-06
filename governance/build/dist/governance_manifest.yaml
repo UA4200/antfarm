@@ -1,0 +1,162 @@
+baseline_version: "1.0.0"
+pipeline_version: "1.0.0"
+generated_at: "2026-08-06T11:39:36.421064+00:00"
+documents:
+  GOV-01:
+    filename: "OPEN_EMPIRE_CONSTITUTION_V1.md"
+    version: "1.0.0"
+    status: "Draft — Pending Validation"
+    owner: "Nathan (Sovereign Operator)"
+    source: "`~/.openclaw/workspace/CONSTITUTION.md` (V1.2), `~/.openclaw/workspace/governance/OPEN_EMPIRE_ASSET_TAXONOMY_V1.md` (V1.0.0), `~/.openclaw/workspace/AGENTS.md` (V5.0)"
+    materialization_date: "2026-08-05"
+    sha256: "cac8674be27ffc29a729d9c367bd92952eda1cfc3dae93bf8b61a70e15eeda10"
+    size_bytes: "14131"
+    dependencies:
+  GOV-02:
+    filename: "OPEN_EMPIRE_ASSET_TAXONOMY_V1.md"
+    version: "1.0.0"
+    status: "Active — Versioned Standard"
+    owner: "Nathan (Sovereign Operator)"
+    source: "Open Empire sovereign doctrine (~/.openempire/), operational history, SOUL.md, MEMORY.md"
+    materialization_date: "2026-08-04"
+    sha256: "6f6dce10d95d3e025db63a6a5ae6fdb616672645521c64e8b80efefe44bdc737"
+    size_bytes: "118363"
+    dependencies:
+      - GOV-01
+  GOV-03:
+    filename: "OPEN_EMPIRE_ONTOLOGY_V1.md"
+    version: "1.0.0"
+    status: "Draft — Pending Validation"
+    owner: "Nathan (Sovereign Operator)"
+    source: "`~/.openclaw/workspace/governance/OPEN_EMPIRE_ASSET_TAXONOMY_V1.md`"
+    materialization_date: "2026-08-05"
+    sha256: "9287001d5bba5e93d4090c076dfcfe4efb8e0b74efe77881179ebb5fc4bd335e"
+    size_bytes: "61663"
+    dependencies:
+      - GOV-02
+  GOV-04:
+    filename: "OPEN_EMPIRE_SCHEMA_V1.md"
+    version: "1.0.0"
+    status: "Draft — Pending Validation"
+    owner: "Nathan (Sovereign Operator)"
+    source: "OPEN_EMPIRE_ASSET_TAXONOMY_V1.md"
+    materialization_date: "2026-08-05"
+    sha256: "0b2ebf932113ad707f15c63cbd7096da5240dff02ed6f6e3cae741892f955ea6"
+    size_bytes: "57278"
+    dependencies:
+      - GOV-02
+      - GOV-03
+  GOV-05:
+    filename: "OPEN_EMPIRE_GLOSSARY_V1.md"
+    version: "1.0.0"
+    status: "Draft — Pending Validation"
+    owner: "Nathan (Sovereign Operator)"
+    source: "`~/.openclaw/workspace/governance/OPEN_EMPIRE_ASSET_TAXONOMY_V1.md` (V1.0.0)"
+    materialization_date: "2026-08-05"
+    sha256: "7a1b76673548b9857c848356fda3dbbb0e076e957b9b91176aa45fd490141695"
+    size_bytes: "26071"
+    dependencies:
+      - GOV-02
+  GOV-06:
+    filename: "OPEN_EMPIRE_ADR_INDEX_V1.md"
+    version: "1.0.0"
+    status: "Draft — Pending Validation"
+    owner: "Nathan (Sovereign Operator)"
+    source: "`~/.openclaw/workspace/AGENTS.md` (V5.0), `~/.openclaw/workspace/CONSTITUTION.md` (V1.2), `~/.openclaw/workspace/governance/OPEN_EMPIRE_ASSET_TAXONOMY_V1.md` (V1.0.0), project history 2026-07-30 through 2026-08-05"
+    materialization_date: "2026-08-05"
+    sha256: "12f2e28812a6786a6c47b4238b531df798909fc505a61028812842ccda2e0351"
+    size_bytes: "23525"
+    dependencies:
+      - GOV-01
+  GOV-07:
+    filename: "OPEN_EMPIRE_LIFECYCLE_STATE_MACHINE_V1.md"
+    version: "1.0.0"
+    status: "Draft — Pending Validation"
+    owner: "Nathan (Sovereign Operator)"
+    source: "`~/.openclaw/workspace/governance/OPEN_EMPIRE_ASSET_TAXONOMY_V1.md`"
+    materialization_date: "2026-08-05"
+    sha256: "3d05a4973aecbe53a4486e70a066eebfd3936c781bd1402a41750aa7babbf7ac"
+    size_bytes: "89084"
+    dependencies:
+      - GOV-02
+  GOV-08:
+    filename: "OPEN_EMPIRE_POLICY_ENGINE_V1.md"
+    version: "1.0.0"
+    status: "Draft — Pending Validation"
+    owner: "Nathan (Sovereign Operator)"
+    source: "`~/.openclaw/workspace/CONSTITUTION.md` · `~/.openclaw/workspace/governance/OPEN_EMPIRE_ASSET_TAXONOMY_V1.md` · AGENTS.md operational context"
+    materialization_date: "2026-08-05"
+    sha256: "590a9833aef474066e89083a255ac495b044c3c5e01da8db9fef7cebf51effa4"
+    size_bytes: "20319"
+    dependencies:
+      - GOV-01
+      - GOV-02
+      - GOV-04
+      - GOV-07
+  GOV-09:
+    filename: "OPEN_EMPIRE_EXECUTIVE_COMMAND_LANGUAGE_V1.md"
+    version: "1.0.0"
+    status: "Draft — Pending Validation"
+    owner: "Nathan (Sovereign Operator)"
+    source: "`~/.openclaw/workspace/CONSTITUTION.md` · SOUL.md (archived, source for shorthand interpretation) · Open Empire operational history (2026-07 through 2026-08)"
+    materialization_date: "2026-08-05"
+    sha256: "6d94a335fc3a3f77339497262720ed3eabac5c08ea4cacb6e2d1448748b1c40b"
+    size_bytes: "16527"
+    dependencies:
+      - GOV-01
+      - GOV-08
+  GOV-10:
+    filename: "OPEN_EMPIRE_OEPM_MANIFEST_STANDARD_V1.md"
+    version: "1.0.0"
+    status: "Draft — Pending Validation"
+    owner: "Nathan (Sovereign Operator)"
+    source: "`~/.openclaw/workspace/governance/OPEN_EMPIRE_ASSET_TAXONOMY_V1.md` · AGENTS.MD operational context · `OPEN_EMPIRE_POLICY_ENGINE_V1.md`"
+    materialization_date: "2026-08-05"
+    sha256: "7a39cbb2c20c4413bc5b54b3dddb162bb8fc62a097ca2bc47bce7c7d2857774b"
+    size_bytes: "24186"
+    dependencies:
+      - GOV-02
+      - GOV-04
+      - GOV-07
+      - GOV-08
+  GOV-11:
+    filename: "OPEN_EMPIRE_DEPENDENCY_MAP_V1.md"
+    version: "1.0.0"
+    status: "Draft — Pending Validation"
+    owner: "Nathan (Sovereign Operator)"
+    source: "All 12 canonical governance documents in `~/.openclaw/workspace/governance/`"
+    materialization_date: "2026-08-05"
+    sha256: "baa712fc11b198377e5b805ffe9bcdc76c1712b3d8657ec7966170784be2c7b9"
+    size_bytes: "12894"
+    dependencies:
+      - GOV-01
+      - GOV-02
+      - GOV-03
+      - GOV-04
+      - GOV-05
+      - GOV-06
+      - GOV-07
+      - GOV-08
+      - GOV-09
+      - GOV-10
+  GOV-12:
+    filename: "OPEN_EMPIRE_VALIDATION_SUITE_V1.md"
+    version: "1.0.0"
+    status: "Draft — Pending Validation"
+    owner: "Nathan (Sovereign Operator)"
+    source: "All 12 canonical governance documents"
+    materialization_date: "2026-08-05"
+    sha256: "bd5c580195cf4160fd0e7df7d0a7bb7e2187f588e2f911e02a1da07da3082dbc"
+    size_bytes: "12725"
+    dependencies:
+      - GOV-01
+      - GOV-02
+      - GOV-03
+      - GOV-04
+      - GOV-05
+      - GOV-06
+      - GOV-07
+      - GOV-08
+      - GOV-09
+      - GOV-10
+      - GOV-11

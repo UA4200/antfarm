@@ -1,0 +1,58 @@
+digraph OpenEmpireGovernance {
+  rankdir=TB;
+  node [shape=box, style=filled, fillcolor=lightblue];
+  // Root nodes
+  GOV_01 [label="GOV-01\nConstitution", fillcolor=gold];
+  GOV_02 [label="GOV-02\nTaxonomy (ROOT)", fillcolor=gold];
+  // Leaf nodes
+  GOV_11 [label="GOV-11\nDependency Map", fillcolor=lightgreen];
+  GOV_12 [label="GOV-12\nValidation Suite", fillcolor=lightgreen];
+
+  GOV_03 [label="GOV-03\nOntology"];
+  GOV_04 [label="GOV-04\nSchema"];
+  GOV_05 [label="GOV-05\nGlossary"];
+  GOV_06 [label="GOV-06\nAdr Index"];
+  GOV_07 [label="GOV-07\nLifecycle State Machine"];
+  GOV_08 [label="GOV-08\nPolicy Engine"];
+  GOV_09 [label="GOV-09\nExecutive Command Language"];
+  GOV_10 [label="GOV-10\nOepm Manifest Standard"];
+
+  GOV_01 -> GOV_02;
+  GOV_02 -> GOV_03;
+  GOV_02 -> GOV_04;
+  GOV_03 -> GOV_04;
+  GOV_02 -> GOV_05;
+  GOV_01 -> GOV_06;
+  GOV_02 -> GOV_07;
+  GOV_01 -> GOV_08;
+  GOV_02 -> GOV_08;
+  GOV_04 -> GOV_08;
+  GOV_07 -> GOV_08;
+  GOV_01 -> GOV_09;
+  GOV_08 -> GOV_09;
+  GOV_02 -> GOV_10;
+  GOV_04 -> GOV_10;
+  GOV_07 -> GOV_10;
+  GOV_08 -> GOV_10;
+  GOV_01 -> GOV_11;
+  GOV_02 -> GOV_11;
+  GOV_03 -> GOV_11;
+  GOV_04 -> GOV_11;
+  GOV_05 -> GOV_11;
+  GOV_06 -> GOV_11;
+  GOV_07 -> GOV_11;
+  GOV_08 -> GOV_11;
+  GOV_09 -> GOV_11;
+  GOV_10 -> GOV_11;
+  GOV_01 -> GOV_12;
+  GOV_02 -> GOV_12;
+  GOV_03 -> GOV_12;
+  GOV_04 -> GOV_12;
+  GOV_05 -> GOV_12;
+  GOV_06 -> GOV_12;
+  GOV_07 -> GOV_12;
+  GOV_08 -> GOV_12;
+  GOV_09 -> GOV_12;
+  GOV_10 -> GOV_12;
+  GOV_11 -> GOV_12;
+}

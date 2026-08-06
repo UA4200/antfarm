@@ -1,0 +1,58 @@
+{
+  "schema": "open_empire.governance.determinism_report.v1",
+  "generated_at": "2026-08-06T11:40:00-05:00",
+  "generator": "Alusi Gate A Finalization Directive",
+  "generator_version": "1.0.0",
+  "build_pipeline_version": "1.0.0",
+  "determinism_status": "STRUCTURALLY_DETERMINISTIC",
+  "overall_result": "DETERMINISM_CONFIRMED",
+  "runs_compared": 2,
+  "run_1_timestamp": "2026-08-06T11:39:00Z",
+  "run_2_timestamp": "2026-08-06T11:39:30Z",
+  "source_hashes_identical": true,
+  "source_hash_notes": "All 12 canonical governance files unchanged between runs",
+  "structural_content_analysis": {
+    "governance_manifest_json": {
+      "structural_keys_identical": true,
+      "document_entries_identical": true,
+      "dependency_structure_identical": true,
+      "timestamp_field_varies": true,
+      "timestamp_field": "generated_at",
+      "verdict": "STRUCTURALLY_IDENTICAL"
+    },
+    "dependency_graph_json": {
+      "adjacency_list_identical": true,
+      "node_set_identical": true,
+      "edge_set_identical": true,
+      "timestamp_field_varies": false,
+      "verdict": "BYTE_IDENTICAL"
+    },
+    "glossary_json": {
+      "entry_count_identical": true,
+      "term_set_identical": true,
+      "definition_content_identical": true,
+      "timestamp_field_varies": false,
+      "verdict": "STRUCTURALLY_IDENTICAL"
+    },
+    "sha256sums": {
+      "file_list_identical": true,
+      "all_hashes_identical": true,
+      "verdict": "BYTE_IDENTICAL"
+    }
+  },
+  "timestamp_variance_explanation": {
+    "expected": true,
+    "explanation": "The build_pipeline.py embeds ISO 8601 timestamps in generated_at, release_timestamp, and generation_timestamp fields of JSON and YAML outputs. These fields represent when the file was generated and are expected to differ between runs by design.",
+    "impact": "Byte-level hashes of timestamp-bearing JSON/YAML files will differ between runs. This is not a defect.",
+    "mitigation": "Governance artifact integrity is verified via SHA-256 of canonical Markdown source files (which are immutable inputs), not of timestamp-bearing generated outputs.",
+    "precedent": "Standard practice per build reproducibility guidance. Content-addressable builds may strip timestamps; this pipeline treats timestamps as expected variance."
+  },
+  "validation_consistency": {
+    "run_1_rules_passed": 240,
+    "run_1_rules_failed": 0,
+    "run_2_rules_passed": 240,
+    "run_2_rules_failed": 0,
+    "validation_results_deterministic": true
+  },
+  "conclusion": "The governance build pipeline is STRUCTURALLY_DETERMINISTIC. Given identical canonical source files, the pipeline produces structurally identical outputs with expected timestamp variance in generated metadata fields. Validation results are fully reproducible (240/240 PASS on both runs). Status: BUILD_DETERMINISTIC_WITH_EXPECTED_TIMESTAMP_VARIANCE."
+}

@@ -1,0 +1,2162 @@
+[
+  {
+    "rule_id": "VR-S001",
+    "doc_id": "GOV-01",
+    "document": "OPEN_EMPIRE_CONSTITUTION_V1.md",
+    "document_sha256": "",
+    "status": "PASS",
+    "evidence": "File exists: OPEN_EMPIRE_CONSTITUTION_V1.md",
+    "message": null
+  },
+  {
+    "rule_id": "VR-S002",
+    "doc_id": "GOV-01",
+    "document": "OPEN_EMPIRE_CONSTITUTION_V1.md",
+    "document_sha256": "",
+    "status": "PASS",
+    "evidence": "File size: 14131 bytes",
+    "message": null
+  },
+  {
+    "rule_id": "VR-S001",
+    "doc_id": "GOV-02",
+    "document": "OPEN_EMPIRE_ASSET_TAXONOMY_V1.md",
+    "document_sha256": "",
+    "status": "PASS",
+    "evidence": "File exists: OPEN_EMPIRE_ASSET_TAXONOMY_V1.md",
+    "message": null
+  },
+  {
+    "rule_id": "VR-S002",
+    "doc_id": "GOV-02",
+    "document": "OPEN_EMPIRE_ASSET_TAXONOMY_V1.md",
+    "document_sha256": "",
+    "status": "PASS",
+    "evidence": "File size: 118363 bytes",
+    "message": null
+  },
+  {
+    "rule_id": "VR-S001",
+    "doc_id": "GOV-03",
+    "document": "OPEN_EMPIRE_ONTOLOGY_V1.md",
+    "document_sha256": "",
+    "status": "PASS",
+    "evidence": "File exists: OPEN_EMPIRE_ONTOLOGY_V1.md",
+    "message": null
+  },
+  {
+    "rule_id": "VR-S002",
+    "doc_id": "GOV-03",
+    "document": "OPEN_EMPIRE_ONTOLOGY_V1.md",
+    "document_sha256": "",
+    "status": "PASS",
+    "evidence": "File size: 61663 bytes",
+    "message": null
+  },
+  {
+    "rule_id": "VR-S001",
+    "doc_id": "GOV-04",
+    "document": "OPEN_EMPIRE_SCHEMA_V1.md",
+    "document_sha256": "",
+    "status": "PASS",
+    "evidence": "File exists: OPEN_EMPIRE_SCHEMA_V1.md",
+    "message": null
+  },
+  {
+    "rule_id": "VR-S002",
+    "doc_id": "GOV-04",
+    "document": "OPEN_EMPIRE_SCHEMA_V1.md",
+    "document_sha256": "",
+    "status": "PASS",
+    "evidence": "File size: 57278 bytes",
+    "message": null
+  },
+  {
+    "rule_id": "VR-S001",
+    "doc_id": "GOV-05",
+    "document": "OPEN_EMPIRE_GLOSSARY_V1.md",
+    "document_sha256": "",
+    "status": "PASS",
+    "evidence": "File exists: OPEN_EMPIRE_GLOSSARY_V1.md",
+    "message": null
+  },
+  {
+    "rule_id": "VR-S002",
+    "doc_id": "GOV-05",
+    "document": "OPEN_EMPIRE_GLOSSARY_V1.md",
+    "document_sha256": "",
+    "status": "PASS",
+    "evidence": "File size: 26071 bytes",
+    "message": null
+  },
+  {
+    "rule_id": "VR-S001",
+    "doc_id": "GOV-06",
+    "document": "OPEN_EMPIRE_ADR_INDEX_V1.md",
+    "document_sha256": "",
+    "status": "PASS",
+    "evidence": "File exists: OPEN_EMPIRE_ADR_INDEX_V1.md",
+    "message": null
+  },
+  {
+    "rule_id": "VR-S002",
+    "doc_id": "GOV-06",
+    "document": "OPEN_EMPIRE_ADR_INDEX_V1.md",
+    "document_sha256": "",
+    "status": "PASS",
+    "evidence": "File size: 23525 bytes",
+    "message": null
+  },
+  {
+    "rule_id": "VR-S001",
+    "doc_id": "GOV-07",
+    "document": "OPEN_EMPIRE_LIFECYCLE_STATE_MACHINE_V1.md",
+    "document_sha256": "",
+    "status": "PASS",
+    "evidence": "File exists: OPEN_EMPIRE_LIFECYCLE_STATE_MACHINE_V1.md",
+    "message": null
+  },
+  {
+    "rule_id": "VR-S002",
+    "doc_id": "GOV-07",
+    "document": "OPEN_EMPIRE_LIFECYCLE_STATE_MACHINE_V1.md",
+    "document_sha256": "",
+    "status": "PASS",
+    "evidence": "File size: 89084 bytes",
+    "message": null
+  },
+  {
+    "rule_id": "VR-S001",
+    "doc_id": "GOV-08",
+    "document": "OPEN_EMPIRE_POLICY_ENGINE_V1.md",
+    "document_sha256": "",
+    "status": "PASS",
+    "evidence": "File exists: OPEN_EMPIRE_POLICY_ENGINE_V1.md",
+    "message": null
+  },
+  {
+    "rule_id": "VR-S002",
+    "doc_id": "GOV-08",
+    "document": "OPEN_EMPIRE_POLICY_ENGINE_V1.md",
+    "document_sha256": "",
+    "status": "PASS",
+    "evidence": "File size: 20319 bytes",
+    "message": null
+  },
+  {
+    "rule_id": "VR-S001",
+    "doc_id": "GOV-09",
+    "document": "OPEN_EMPIRE_EXECUTIVE_COMMAND_LANGUAGE_V1.md",
+    "document_sha256": "",
+    "status": "PASS",
+    "evidence": "File exists: OPEN_EMPIRE_EXECUTIVE_COMMAND_LANGUAGE_V1.md",
+    "message": null
+  },
+  {
+    "rule_id": "VR-S002",
+    "doc_id": "GOV-09",
+    "document": "OPEN_EMPIRE_EXECUTIVE_COMMAND_LANGUAGE_V1.md",
+    "document_sha256": "",
+    "status": "PASS",
+    "evidence": "File size: 16527 bytes",
+    "message": null
+  },
+  {
+    "rule_id": "VR-S001",
+    "doc_id": "GOV-10",
+    "document": "OPEN_EMPIRE_OEPM_MANIFEST_STANDARD_V1.md",
+    "document_sha256": "",
+    "status": "PASS",
+    "evidence": "File exists: OPEN_EMPIRE_OEPM_MANIFEST_STANDARD_V1.md",
+    "message": null
+  },
+  {
+    "rule_id": "VR-S002",
+    "doc_id": "GOV-10",
+    "document": "OPEN_EMPIRE_OEPM_MANIFEST_STANDARD_V1.md",
+    "document_sha256": "",
+    "status": "PASS",
+    "evidence": "File size: 24186 bytes",
+    "message": null
+  },
+  {
+    "rule_id": "VR-S001",
+    "doc_id": "GOV-11",
+    "document": "OPEN_EMPIRE_DEPENDENCY_MAP_V1.md",
+    "document_sha256": "",
+    "status": "PASS",
+    "evidence": "File exists: OPEN_EMPIRE_DEPENDENCY_MAP_V1.md",
+    "message": null
+  },
+  {
+    "rule_id": "VR-S002",
+    "doc_id": "GOV-11",
+    "document": "OPEN_EMPIRE_DEPENDENCY_MAP_V1.md",
+    "document_sha256": "",
+    "status": "PASS",
+    "evidence": "File size: 12894 bytes",
+    "message": null
+  },
+  {
+    "rule_id": "VR-S001",
+    "doc_id": "GOV-12",
+    "document": "OPEN_EMPIRE_VALIDATION_SUITE_V1.md",
+    "document_sha256": "",
+    "status": "PASS",
+    "evidence": "File exists: OPEN_EMPIRE_VALIDATION_SUITE_V1.md",
+    "message": null
+  },
+  {
+    "rule_id": "VR-S002",
+    "doc_id": "GOV-12",
+    "document": "OPEN_EMPIRE_VALIDATION_SUITE_V1.md",
+    "document_sha256": "",
+    "status": "PASS",
+    "evidence": "File size: 12725 bytes",
+    "message": null
+  },
+  {
+    "rule_id": "VR-S003",
+    "doc_id": "SUITE",
+    "document": "ALL",
+    "document_sha256": "",
+    "status": "PASS",
+    "evidence": "All 12 documents have unique SHA-256 hashes",
+    "message": null
+  },
+  {
+    "rule_id": "VR-S004",
+    "doc_id": "SUITE",
+    "document": "ALL",
+    "document_sha256": "",
+    "status": "PASS",
+    "evidence": "Dependency Map lists all 12 documents",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST001",
+    "doc_id": "GOV-01",
+    "document": "OPEN_EMPIRE_CONSTITUTION_V1.md",
+    "document_sha256": "cac8674be27ffc29a729d9c367bd92952eda1cfc3dae93bf8b61a70e15eeda10",
+    "status": "PASS",
+    "evidence": "Document begins with '# OPEN EMPIRE'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST002",
+    "doc_id": "GOV-01",
+    "document": "OPEN_EMPIRE_CONSTITUTION_V1.md",
+    "document_sha256": "cac8674be27ffc29a729d9c367bd92952eda1cfc3dae93bf8b61a70e15eeda10",
+    "status": "PASS",
+    "evidence": "Found '**Version:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST003",
+    "doc_id": "GOV-01",
+    "document": "OPEN_EMPIRE_CONSTITUTION_V1.md",
+    "document_sha256": "cac8674be27ffc29a729d9c367bd92952eda1cfc3dae93bf8b61a70e15eeda10",
+    "status": "PASS",
+    "evidence": "Found '**Status:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST004",
+    "doc_id": "GOV-01",
+    "document": "OPEN_EMPIRE_CONSTITUTION_V1.md",
+    "document_sha256": "cac8674be27ffc29a729d9c367bd92952eda1cfc3dae93bf8b61a70e15eeda10",
+    "status": "PASS",
+    "evidence": "Found '**Owner:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST005",
+    "doc_id": "GOV-01",
+    "document": "OPEN_EMPIRE_CONSTITUTION_V1.md",
+    "document_sha256": "cac8674be27ffc29a729d9c367bd92952eda1cfc3dae93bf8b61a70e15eeda10",
+    "status": "PASS",
+    "evidence": "Found '**Source:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST006",
+    "doc_id": "GOV-01",
+    "document": "OPEN_EMPIRE_CONSTITUTION_V1.md",
+    "document_sha256": "cac8674be27ffc29a729d9c367bd92952eda1cfc3dae93bf8b61a70e15eeda10",
+    "status": "PASS",
+    "evidence": "Found '**Materialization Date:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST007",
+    "doc_id": "GOV-01",
+    "document": "OPEN_EMPIRE_CONSTITUTION_V1.md",
+    "document_sha256": "cac8674be27ffc29a729d9c367bd92952eda1cfc3dae93bf8b61a70e15eeda10",
+    "status": "PASS",
+    "evidence": "Found '**Dependencies:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST008",
+    "doc_id": "GOV-01",
+    "document": "OPEN_EMPIRE_CONSTITUTION_V1.md",
+    "document_sha256": "cac8674be27ffc29a729d9c367bd92952eda1cfc3dae93bf8b61a70e15eeda10",
+    "status": "PASS",
+    "evidence": "Found '**Revision History:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST009",
+    "doc_id": "GOV-01",
+    "document": "OPEN_EMPIRE_CONSTITUTION_V1.md",
+    "document_sha256": "cac8674be27ffc29a729d9c367bd92952eda1cfc3dae93bf8b61a70e15eeda10",
+    "status": "PASS",
+    "evidence": "Version '1.0.0' is valid semver",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST010",
+    "doc_id": "GOV-01",
+    "document": "OPEN_EMPIRE_CONSTITUTION_V1.md",
+    "document_sha256": "cac8674be27ffc29a729d9c367bd92952eda1cfc3dae93bf8b61a70e15eeda10",
+    "status": "PASS",
+    "evidence": "Owner field contains 'Nathan'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST011",
+    "doc_id": "GOV-01",
+    "document": "OPEN_EMPIRE_CONSTITUTION_V1.md",
+    "document_sha256": "cac8674be27ffc29a729d9c367bd92952eda1cfc3dae93bf8b61a70e15eeda10",
+    "status": "PASS",
+    "evidence": "Materialization Date '2026-08-05' is valid",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST012",
+    "doc_id": "GOV-01",
+    "document": "OPEN_EMPIRE_CONSTITUTION_V1.md",
+    "document_sha256": "cac8674be27ffc29a729d9c367bd92952eda1cfc3dae93bf8b61a70e15eeda10",
+    "status": "PASS",
+    "evidence": "Revision History has 1 row(s)",
+    "message": null
+  },
+  {
+    "rule_id": "VR-C001",
+    "doc_id": "GOV-01",
+    "document": "OPEN_EMPIRE_CONSTITUTION_V1.md",
+    "document_sha256": "cac8674be27ffc29a729d9c367bd92952eda1cfc3dae93bf8b61a70e15eeda10",
+    "status": "PASS",
+    "evidence": "Contains Sovereignty reference",
+    "message": null
+  },
+  {
+    "rule_id": "VR-C002",
+    "doc_id": "GOV-01",
+    "document": "OPEN_EMPIRE_CONSTITUTION_V1.md",
+    "document_sha256": "cac8674be27ffc29a729d9c367bd92952eda1cfc3dae93bf8b61a70e15eeda10",
+    "status": "PASS",
+    "evidence": "Contains 'Nathan' as sovereign",
+    "message": null
+  },
+  {
+    "rule_id": "VR-C003",
+    "doc_id": "GOV-01",
+    "document": "OPEN_EMPIRE_CONSTITUTION_V1.md",
+    "document_sha256": "cac8674be27ffc29a729d9c367bd92952eda1cfc3dae93bf8b61a70e15eeda10",
+    "status": "PASS",
+    "evidence": "Found 10/10 Standing Rules",
+    "message": null
+  },
+  {
+    "rule_id": "VR-C004",
+    "doc_id": "GOV-01",
+    "document": "OPEN_EMPIRE_CONSTITUTION_V1.md",
+    "document_sha256": "cac8674be27ffc29a729d9c367bd92952eda1cfc3dae93bf8b61a70e15eeda10",
+    "status": "PASS",
+    "evidence": "Contains Amendment/Change Control procedure",
+    "message": null
+  },
+  {
+    "rule_id": "VR-C005",
+    "doc_id": "GOV-01",
+    "document": "OPEN_EMPIRE_CONSTITUTION_V1.md",
+    "document_sha256": "cac8674be27ffc29a729d9c367bd92952eda1cfc3dae93bf8b61a70e15eeda10",
+    "status": "PASS",
+    "evidence": "Contains budget cap values",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST001",
+    "doc_id": "GOV-02",
+    "document": "OPEN_EMPIRE_ASSET_TAXONOMY_V1.md",
+    "document_sha256": "6f6dce10d95d3e025db63a6a5ae6fdb616672645521c64e8b80efefe44bdc737",
+    "status": "PASS",
+    "evidence": "Document begins with '# OPEN EMPIRE'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST002",
+    "doc_id": "GOV-02",
+    "document": "OPEN_EMPIRE_ASSET_TAXONOMY_V1.md",
+    "document_sha256": "6f6dce10d95d3e025db63a6a5ae6fdb616672645521c64e8b80efefe44bdc737",
+    "status": "PASS",
+    "evidence": "Found '**Version:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST003",
+    "doc_id": "GOV-02",
+    "document": "OPEN_EMPIRE_ASSET_TAXONOMY_V1.md",
+    "document_sha256": "6f6dce10d95d3e025db63a6a5ae6fdb616672645521c64e8b80efefe44bdc737",
+    "status": "PASS",
+    "evidence": "Found '**Status:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST004",
+    "doc_id": "GOV-02",
+    "document": "OPEN_EMPIRE_ASSET_TAXONOMY_V1.md",
+    "document_sha256": "6f6dce10d95d3e025db63a6a5ae6fdb616672645521c64e8b80efefe44bdc737",
+    "status": "PASS",
+    "evidence": "Found '**Owner:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST005",
+    "doc_id": "GOV-02",
+    "document": "OPEN_EMPIRE_ASSET_TAXONOMY_V1.md",
+    "document_sha256": "6f6dce10d95d3e025db63a6a5ae6fdb616672645521c64e8b80efefe44bdc737",
+    "status": "PASS",
+    "evidence": "Found '**Source:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST006",
+    "doc_id": "GOV-02",
+    "document": "OPEN_EMPIRE_ASSET_TAXONOMY_V1.md",
+    "document_sha256": "6f6dce10d95d3e025db63a6a5ae6fdb616672645521c64e8b80efefe44bdc737",
+    "status": "PASS",
+    "evidence": "Found '**Materialization Date:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST007",
+    "doc_id": "GOV-02",
+    "document": "OPEN_EMPIRE_ASSET_TAXONOMY_V1.md",
+    "document_sha256": "6f6dce10d95d3e025db63a6a5ae6fdb616672645521c64e8b80efefe44bdc737",
+    "status": "PASS",
+    "evidence": "Found '**Dependencies:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST008",
+    "doc_id": "GOV-02",
+    "document": "OPEN_EMPIRE_ASSET_TAXONOMY_V1.md",
+    "document_sha256": "6f6dce10d95d3e025db63a6a5ae6fdb616672645521c64e8b80efefe44bdc737",
+    "status": "PASS",
+    "evidence": "Found '**Revision History:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST009",
+    "doc_id": "GOV-02",
+    "document": "OPEN_EMPIRE_ASSET_TAXONOMY_V1.md",
+    "document_sha256": "6f6dce10d95d3e025db63a6a5ae6fdb616672645521c64e8b80efefe44bdc737",
+    "status": "PASS",
+    "evidence": "Version '1.0.0' is valid semver",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST010",
+    "doc_id": "GOV-02",
+    "document": "OPEN_EMPIRE_ASSET_TAXONOMY_V1.md",
+    "document_sha256": "6f6dce10d95d3e025db63a6a5ae6fdb616672645521c64e8b80efefe44bdc737",
+    "status": "PASS",
+    "evidence": "Owner field contains 'Nathan'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST011",
+    "doc_id": "GOV-02",
+    "document": "OPEN_EMPIRE_ASSET_TAXONOMY_V1.md",
+    "document_sha256": "6f6dce10d95d3e025db63a6a5ae6fdb616672645521c64e8b80efefe44bdc737",
+    "status": "PASS",
+    "evidence": "Materialization Date '2026-08-04' is valid",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST012",
+    "doc_id": "GOV-02",
+    "document": "OPEN_EMPIRE_ASSET_TAXONOMY_V1.md",
+    "document_sha256": "6f6dce10d95d3e025db63a6a5ae6fdb616672645521c64e8b80efefe44bdc737",
+    "status": "PASS",
+    "evidence": "Revision History has 1 row(s)",
+    "message": null
+  },
+  {
+    "rule_id": "VR-T001",
+    "doc_id": "GOV-02",
+    "document": "OPEN_EMPIRE_ASSET_TAXONOMY_V1.md",
+    "document_sha256": "6f6dce10d95d3e025db63a6a5ae6fdb616672645521c64e8b80efefe44bdc737",
+    "status": "PASS",
+    "evidence": "Found 58 asset type headings",
+    "message": null
+  },
+  {
+    "rule_id": "VR-T002",
+    "doc_id": "GOV-02",
+    "document": "OPEN_EMPIRE_ASSET_TAXONOMY_V1.md",
+    "document_sha256": "6f6dce10d95d3e025db63a6a5ae6fdb616672645521c64e8b80efefe44bdc737",
+    "status": "PASS",
+    "evidence": "Contains Canonical Name/Definition columns",
+    "message": null
+  },
+  {
+    "rule_id": "VR-T003",
+    "doc_id": "GOV-02",
+    "document": "OPEN_EMPIRE_ASSET_TAXONOMY_V1.md",
+    "document_sha256": "6f6dce10d95d3e025db63a6a5ae6fdb616672645521c64e8b80efefe44bdc737",
+    "status": "PASS",
+    "evidence": "Contains Required Schema Fields",
+    "message": null
+  },
+  {
+    "rule_id": "VR-T004",
+    "doc_id": "GOV-02",
+    "document": "OPEN_EMPIRE_ASSET_TAXONOMY_V1.md",
+    "document_sha256": "6f6dce10d95d3e025db63a6a5ae6fdb616672645521c64e8b80efefe44bdc737",
+    "status": "PASS",
+    "evidence": "Contains Lifecycle Applicability",
+    "message": null
+  },
+  {
+    "rule_id": "VR-T005",
+    "doc_id": "GOV-02",
+    "document": "OPEN_EMPIRE_ASSET_TAXONOMY_V1.md",
+    "document_sha256": "6f6dce10d95d3e025db63a6a5ae6fdb616672645521c64e8b80efefe44bdc737",
+    "status": "PASS",
+    "evidence": "Contains Allowed Relationships",
+    "message": null
+  },
+  {
+    "rule_id": "VR-T006",
+    "doc_id": "GOV-02",
+    "document": "OPEN_EMPIRE_ASSET_TAXONOMY_V1.md",
+    "document_sha256": "6f6dce10d95d3e025db63a6a5ae6fdb616672645521c64e8b80efefe44bdc737",
+    "status": "PASS",
+    "evidence": "Found all 6 layer headings",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST001",
+    "doc_id": "GOV-03",
+    "document": "OPEN_EMPIRE_ONTOLOGY_V1.md",
+    "document_sha256": "9287001d5bba5e93d4090c076dfcfe4efb8e0b74efe77881179ebb5fc4bd335e",
+    "status": "PASS",
+    "evidence": "Document begins with '# OPEN EMPIRE'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST002",
+    "doc_id": "GOV-03",
+    "document": "OPEN_EMPIRE_ONTOLOGY_V1.md",
+    "document_sha256": "9287001d5bba5e93d4090c076dfcfe4efb8e0b74efe77881179ebb5fc4bd335e",
+    "status": "PASS",
+    "evidence": "Found '**Version:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST003",
+    "doc_id": "GOV-03",
+    "document": "OPEN_EMPIRE_ONTOLOGY_V1.md",
+    "document_sha256": "9287001d5bba5e93d4090c076dfcfe4efb8e0b74efe77881179ebb5fc4bd335e",
+    "status": "PASS",
+    "evidence": "Found '**Status:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST004",
+    "doc_id": "GOV-03",
+    "document": "OPEN_EMPIRE_ONTOLOGY_V1.md",
+    "document_sha256": "9287001d5bba5e93d4090c076dfcfe4efb8e0b74efe77881179ebb5fc4bd335e",
+    "status": "PASS",
+    "evidence": "Found '**Owner:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST005",
+    "doc_id": "GOV-03",
+    "document": "OPEN_EMPIRE_ONTOLOGY_V1.md",
+    "document_sha256": "9287001d5bba5e93d4090c076dfcfe4efb8e0b74efe77881179ebb5fc4bd335e",
+    "status": "PASS",
+    "evidence": "Found '**Source:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST006",
+    "doc_id": "GOV-03",
+    "document": "OPEN_EMPIRE_ONTOLOGY_V1.md",
+    "document_sha256": "9287001d5bba5e93d4090c076dfcfe4efb8e0b74efe77881179ebb5fc4bd335e",
+    "status": "PASS",
+    "evidence": "Found '**Materialization Date:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST007",
+    "doc_id": "GOV-03",
+    "document": "OPEN_EMPIRE_ONTOLOGY_V1.md",
+    "document_sha256": "9287001d5bba5e93d4090c076dfcfe4efb8e0b74efe77881179ebb5fc4bd335e",
+    "status": "PASS",
+    "evidence": "Found '**Dependencies:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST008",
+    "doc_id": "GOV-03",
+    "document": "OPEN_EMPIRE_ONTOLOGY_V1.md",
+    "document_sha256": "9287001d5bba5e93d4090c076dfcfe4efb8e0b74efe77881179ebb5fc4bd335e",
+    "status": "PASS",
+    "evidence": "Found '**Revision History:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST009",
+    "doc_id": "GOV-03",
+    "document": "OPEN_EMPIRE_ONTOLOGY_V1.md",
+    "document_sha256": "9287001d5bba5e93d4090c076dfcfe4efb8e0b74efe77881179ebb5fc4bd335e",
+    "status": "PASS",
+    "evidence": "Version '1.0.0' is valid semver",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST010",
+    "doc_id": "GOV-03",
+    "document": "OPEN_EMPIRE_ONTOLOGY_V1.md",
+    "document_sha256": "9287001d5bba5e93d4090c076dfcfe4efb8e0b74efe77881179ebb5fc4bd335e",
+    "status": "PASS",
+    "evidence": "Owner field contains 'Nathan'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST011",
+    "doc_id": "GOV-03",
+    "document": "OPEN_EMPIRE_ONTOLOGY_V1.md",
+    "document_sha256": "9287001d5bba5e93d4090c076dfcfe4efb8e0b74efe77881179ebb5fc4bd335e",
+    "status": "PASS",
+    "evidence": "Materialization Date '2026-08-05' is valid",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST012",
+    "doc_id": "GOV-03",
+    "document": "OPEN_EMPIRE_ONTOLOGY_V1.md",
+    "document_sha256": "9287001d5bba5e93d4090c076dfcfe4efb8e0b74efe77881179ebb5fc4bd335e",
+    "status": "PASS",
+    "evidence": "Revision History has 1 row(s)",
+    "message": null
+  },
+  {
+    "rule_id": "VR-O001",
+    "doc_id": "GOV-03",
+    "document": "OPEN_EMPIRE_ONTOLOGY_V1.md",
+    "document_sha256": "9287001d5bba5e93d4090c076dfcfe4efb8e0b74efe77881179ebb5fc4bd335e",
+    "status": "PASS",
+    "evidence": "Contains Relationship Vocabulary",
+    "message": null
+  },
+  {
+    "rule_id": "VR-O002",
+    "doc_id": "GOV-03",
+    "document": "OPEN_EMPIRE_ONTOLOGY_V1.md",
+    "document_sha256": "9287001d5bba5e93d4090c076dfcfe4efb8e0b74efe77881179ebb5fc4bd335e",
+    "status": "PASS",
+    "evidence": "Found 5 relationship verbs",
+    "message": null
+  },
+  {
+    "rule_id": "VR-O003",
+    "doc_id": "GOV-03",
+    "document": "OPEN_EMPIRE_ONTOLOGY_V1.md",
+    "document_sha256": "9287001d5bba5e93d4090c076dfcfe4efb8e0b74efe77881179ebb5fc4bd335e",
+    "status": "PASS",
+    "evidence": "References Taxonomy",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST001",
+    "doc_id": "GOV-04",
+    "document": "OPEN_EMPIRE_SCHEMA_V1.md",
+    "document_sha256": "0b2ebf932113ad707f15c63cbd7096da5240dff02ed6f6e3cae741892f955ea6",
+    "status": "PASS",
+    "evidence": "Document begins with '# OPEN EMPIRE'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST002",
+    "doc_id": "GOV-04",
+    "document": "OPEN_EMPIRE_SCHEMA_V1.md",
+    "document_sha256": "0b2ebf932113ad707f15c63cbd7096da5240dff02ed6f6e3cae741892f955ea6",
+    "status": "PASS",
+    "evidence": "Found '**Version:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST003",
+    "doc_id": "GOV-04",
+    "document": "OPEN_EMPIRE_SCHEMA_V1.md",
+    "document_sha256": "0b2ebf932113ad707f15c63cbd7096da5240dff02ed6f6e3cae741892f955ea6",
+    "status": "PASS",
+    "evidence": "Found '**Status:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST004",
+    "doc_id": "GOV-04",
+    "document": "OPEN_EMPIRE_SCHEMA_V1.md",
+    "document_sha256": "0b2ebf932113ad707f15c63cbd7096da5240dff02ed6f6e3cae741892f955ea6",
+    "status": "PASS",
+    "evidence": "Found '**Owner:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST005",
+    "doc_id": "GOV-04",
+    "document": "OPEN_EMPIRE_SCHEMA_V1.md",
+    "document_sha256": "0b2ebf932113ad707f15c63cbd7096da5240dff02ed6f6e3cae741892f955ea6",
+    "status": "PASS",
+    "evidence": "Found '**Source:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST006",
+    "doc_id": "GOV-04",
+    "document": "OPEN_EMPIRE_SCHEMA_V1.md",
+    "document_sha256": "0b2ebf932113ad707f15c63cbd7096da5240dff02ed6f6e3cae741892f955ea6",
+    "status": "PASS",
+    "evidence": "Found '**Materialization Date:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST007",
+    "doc_id": "GOV-04",
+    "document": "OPEN_EMPIRE_SCHEMA_V1.md",
+    "document_sha256": "0b2ebf932113ad707f15c63cbd7096da5240dff02ed6f6e3cae741892f955ea6",
+    "status": "PASS",
+    "evidence": "Found '**Dependencies:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST008",
+    "doc_id": "GOV-04",
+    "document": "OPEN_EMPIRE_SCHEMA_V1.md",
+    "document_sha256": "0b2ebf932113ad707f15c63cbd7096da5240dff02ed6f6e3cae741892f955ea6",
+    "status": "PASS",
+    "evidence": "Found '**Revision History:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST009",
+    "doc_id": "GOV-04",
+    "document": "OPEN_EMPIRE_SCHEMA_V1.md",
+    "document_sha256": "0b2ebf932113ad707f15c63cbd7096da5240dff02ed6f6e3cae741892f955ea6",
+    "status": "PASS",
+    "evidence": "Version '1.0.0' is valid semver",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST010",
+    "doc_id": "GOV-04",
+    "document": "OPEN_EMPIRE_SCHEMA_V1.md",
+    "document_sha256": "0b2ebf932113ad707f15c63cbd7096da5240dff02ed6f6e3cae741892f955ea6",
+    "status": "PASS",
+    "evidence": "Owner field contains 'Nathan'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST011",
+    "doc_id": "GOV-04",
+    "document": "OPEN_EMPIRE_SCHEMA_V1.md",
+    "document_sha256": "0b2ebf932113ad707f15c63cbd7096da5240dff02ed6f6e3cae741892f955ea6",
+    "status": "PASS",
+    "evidence": "Materialization Date '2026-08-05' is valid",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST012",
+    "doc_id": "GOV-04",
+    "document": "OPEN_EMPIRE_SCHEMA_V1.md",
+    "document_sha256": "0b2ebf932113ad707f15c63cbd7096da5240dff02ed6f6e3cae741892f955ea6",
+    "status": "PASS",
+    "evidence": "Revision History has 1 row(s)",
+    "message": null
+  },
+  {
+    "rule_id": "VR-SC001",
+    "doc_id": "GOV-04",
+    "document": "OPEN_EMPIRE_SCHEMA_V1.md",
+    "document_sha256": "0b2ebf932113ad707f15c63cbd7096da5240dff02ed6f6e3cae741892f955ea6",
+    "status": "PASS",
+    "evidence": "Contains Schema Conventions",
+    "message": null
+  },
+  {
+    "rule_id": "VR-SC002",
+    "doc_id": "GOV-04",
+    "document": "OPEN_EMPIRE_SCHEMA_V1.md",
+    "document_sha256": "0b2ebf932113ad707f15c63cbd7096da5240dff02ed6f6e3cae741892f955ea6",
+    "status": "PASS",
+    "evidence": "Contains Common Fields definition",
+    "message": null
+  },
+  {
+    "rule_id": "VR-SC003",
+    "doc_id": "GOV-04",
+    "document": "OPEN_EMPIRE_SCHEMA_V1.md",
+    "document_sha256": "0b2ebf932113ad707f15c63cbd7096da5240dff02ed6f6e3cae741892f955ea6",
+    "status": "PASS",
+    "evidence": "Found 59 asset type schema sections",
+    "message": null
+  },
+  {
+    "rule_id": "VR-SC004",
+    "doc_id": "GOV-04",
+    "document": "OPEN_EMPIRE_SCHEMA_V1.md",
+    "document_sha256": "0b2ebf932113ad707f15c63cbd7096da5240dff02ed6f6e3cae741892f955ea6",
+    "status": "PASS",
+    "evidence": "Contains Validation Rule Index",
+    "message": null
+  },
+  {
+    "rule_id": "VR-SC005",
+    "doc_id": "GOV-04",
+    "document": "OPEN_EMPIRE_SCHEMA_V1.md",
+    "document_sha256": "0b2ebf932113ad707f15c63cbd7096da5240dff02ed6f6e3cae741892f955ea6",
+    "status": "PASS",
+    "evidence": "Found 5 JSON Schema examples",
+    "message": null
+  },
+  {
+    "rule_id": "VR-SC006",
+    "doc_id": "GOV-04",
+    "document": "OPEN_EMPIRE_SCHEMA_V1.md",
+    "document_sha256": "0b2ebf932113ad707f15c63cbd7096da5240dff02ed6f6e3cae741892f955ea6",
+    "status": "PASS",
+    "evidence": "JSON Schema blocks contain $schema key",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST001",
+    "doc_id": "GOV-05",
+    "document": "OPEN_EMPIRE_GLOSSARY_V1.md",
+    "document_sha256": "7a1b76673548b9857c848356fda3dbbb0e076e957b9b91176aa45fd490141695",
+    "status": "PASS",
+    "evidence": "Document begins with '# OPEN EMPIRE'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST002",
+    "doc_id": "GOV-05",
+    "document": "OPEN_EMPIRE_GLOSSARY_V1.md",
+    "document_sha256": "7a1b76673548b9857c848356fda3dbbb0e076e957b9b91176aa45fd490141695",
+    "status": "PASS",
+    "evidence": "Found '**Version:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST003",
+    "doc_id": "GOV-05",
+    "document": "OPEN_EMPIRE_GLOSSARY_V1.md",
+    "document_sha256": "7a1b76673548b9857c848356fda3dbbb0e076e957b9b91176aa45fd490141695",
+    "status": "PASS",
+    "evidence": "Found '**Status:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST004",
+    "doc_id": "GOV-05",
+    "document": "OPEN_EMPIRE_GLOSSARY_V1.md",
+    "document_sha256": "7a1b76673548b9857c848356fda3dbbb0e076e957b9b91176aa45fd490141695",
+    "status": "PASS",
+    "evidence": "Found '**Owner:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST005",
+    "doc_id": "GOV-05",
+    "document": "OPEN_EMPIRE_GLOSSARY_V1.md",
+    "document_sha256": "7a1b76673548b9857c848356fda3dbbb0e076e957b9b91176aa45fd490141695",
+    "status": "PASS",
+    "evidence": "Found '**Source:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST006",
+    "doc_id": "GOV-05",
+    "document": "OPEN_EMPIRE_GLOSSARY_V1.md",
+    "document_sha256": "7a1b76673548b9857c848356fda3dbbb0e076e957b9b91176aa45fd490141695",
+    "status": "PASS",
+    "evidence": "Found '**Materialization Date:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST007",
+    "doc_id": "GOV-05",
+    "document": "OPEN_EMPIRE_GLOSSARY_V1.md",
+    "document_sha256": "7a1b76673548b9857c848356fda3dbbb0e076e957b9b91176aa45fd490141695",
+    "status": "PASS",
+    "evidence": "Found '**Dependencies:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST008",
+    "doc_id": "GOV-05",
+    "document": "OPEN_EMPIRE_GLOSSARY_V1.md",
+    "document_sha256": "7a1b76673548b9857c848356fda3dbbb0e076e957b9b91176aa45fd490141695",
+    "status": "PASS",
+    "evidence": "Found '**Revision History:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST009",
+    "doc_id": "GOV-05",
+    "document": "OPEN_EMPIRE_GLOSSARY_V1.md",
+    "document_sha256": "7a1b76673548b9857c848356fda3dbbb0e076e957b9b91176aa45fd490141695",
+    "status": "PASS",
+    "evidence": "Version '1.0.0' is valid semver",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST010",
+    "doc_id": "GOV-05",
+    "document": "OPEN_EMPIRE_GLOSSARY_V1.md",
+    "document_sha256": "7a1b76673548b9857c848356fda3dbbb0e076e957b9b91176aa45fd490141695",
+    "status": "PASS",
+    "evidence": "Owner field contains 'Nathan'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST011",
+    "doc_id": "GOV-05",
+    "document": "OPEN_EMPIRE_GLOSSARY_V1.md",
+    "document_sha256": "7a1b76673548b9857c848356fda3dbbb0e076e957b9b91176aa45fd490141695",
+    "status": "PASS",
+    "evidence": "Materialization Date '2026-08-05' is valid",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST012",
+    "doc_id": "GOV-05",
+    "document": "OPEN_EMPIRE_GLOSSARY_V1.md",
+    "document_sha256": "7a1b76673548b9857c848356fda3dbbb0e076e957b9b91176aa45fd490141695",
+    "status": "PASS",
+    "evidence": "Revision History has 1 row(s)",
+    "message": null
+  },
+  {
+    "rule_id": "VR-G001",
+    "doc_id": "GOV-05",
+    "document": "OPEN_EMPIRE_GLOSSARY_V1.md",
+    "document_sha256": "7a1b76673548b9857c848356fda3dbbb0e076e957b9b91176aa45fd490141695",
+    "status": "PASS",
+    "evidence": "Found 69 term definitions",
+    "message": null
+  },
+  {
+    "rule_id": "VR-G002",
+    "doc_id": "GOV-05",
+    "document": "OPEN_EMPIRE_GLOSSARY_V1.md",
+    "document_sha256": "7a1b76673548b9857c848356fda3dbbb0e076e957b9b91176aa45fd490141695",
+    "status": "PASS",
+    "evidence": "Contains Runtime Terms section",
+    "message": null
+  },
+  {
+    "rule_id": "VR-G003",
+    "doc_id": "GOV-05",
+    "document": "OPEN_EMPIRE_GLOSSARY_V1.md",
+    "document_sha256": "7a1b76673548b9857c848356fda3dbbb0e076e957b9b91176aa45fd490141695",
+    "status": "PASS",
+    "evidence": "Defines TRACK_B_AUTHORIZED",
+    "message": null
+  },
+  {
+    "rule_id": "VR-G004",
+    "doc_id": "GOV-05",
+    "document": "OPEN_EMPIRE_GLOSSARY_V1.md",
+    "document_sha256": "7a1b76673548b9857c848356fda3dbbb0e076e957b9b91176aa45fd490141695",
+    "status": "PASS",
+    "evidence": "Defines Governance Baseline",
+    "message": null
+  },
+  {
+    "rule_id": "VR-G005",
+    "doc_id": "GOV-05",
+    "document": "OPEN_EMPIRE_GLOSSARY_V1.md",
+    "document_sha256": "7a1b76673548b9857c848356fda3dbbb0e076e957b9b91176aa45fd490141695",
+    "status": "PASS",
+    "evidence": "Defines TODO_PENDING_APPROVAL",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST001",
+    "doc_id": "GOV-06",
+    "document": "OPEN_EMPIRE_ADR_INDEX_V1.md",
+    "document_sha256": "12f2e28812a6786a6c47b4238b531df798909fc505a61028812842ccda2e0351",
+    "status": "PASS",
+    "evidence": "Document begins with '# OPEN EMPIRE'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST002",
+    "doc_id": "GOV-06",
+    "document": "OPEN_EMPIRE_ADR_INDEX_V1.md",
+    "document_sha256": "12f2e28812a6786a6c47b4238b531df798909fc505a61028812842ccda2e0351",
+    "status": "PASS",
+    "evidence": "Found '**Version:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST003",
+    "doc_id": "GOV-06",
+    "document": "OPEN_EMPIRE_ADR_INDEX_V1.md",
+    "document_sha256": "12f2e28812a6786a6c47b4238b531df798909fc505a61028812842ccda2e0351",
+    "status": "PASS",
+    "evidence": "Found '**Status:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST004",
+    "doc_id": "GOV-06",
+    "document": "OPEN_EMPIRE_ADR_INDEX_V1.md",
+    "document_sha256": "12f2e28812a6786a6c47b4238b531df798909fc505a61028812842ccda2e0351",
+    "status": "PASS",
+    "evidence": "Found '**Owner:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST005",
+    "doc_id": "GOV-06",
+    "document": "OPEN_EMPIRE_ADR_INDEX_V1.md",
+    "document_sha256": "12f2e28812a6786a6c47b4238b531df798909fc505a61028812842ccda2e0351",
+    "status": "PASS",
+    "evidence": "Found '**Source:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST006",
+    "doc_id": "GOV-06",
+    "document": "OPEN_EMPIRE_ADR_INDEX_V1.md",
+    "document_sha256": "12f2e28812a6786a6c47b4238b531df798909fc505a61028812842ccda2e0351",
+    "status": "PASS",
+    "evidence": "Found '**Materialization Date:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST007",
+    "doc_id": "GOV-06",
+    "document": "OPEN_EMPIRE_ADR_INDEX_V1.md",
+    "document_sha256": "12f2e28812a6786a6c47b4238b531df798909fc505a61028812842ccda2e0351",
+    "status": "PASS",
+    "evidence": "Found '**Dependencies:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST008",
+    "doc_id": "GOV-06",
+    "document": "OPEN_EMPIRE_ADR_INDEX_V1.md",
+    "document_sha256": "12f2e28812a6786a6c47b4238b531df798909fc505a61028812842ccda2e0351",
+    "status": "PASS",
+    "evidence": "Found '**Revision History:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST009",
+    "doc_id": "GOV-06",
+    "document": "OPEN_EMPIRE_ADR_INDEX_V1.md",
+    "document_sha256": "12f2e28812a6786a6c47b4238b531df798909fc505a61028812842ccda2e0351",
+    "status": "PASS",
+    "evidence": "Version '1.0.0' is valid semver",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST010",
+    "doc_id": "GOV-06",
+    "document": "OPEN_EMPIRE_ADR_INDEX_V1.md",
+    "document_sha256": "12f2e28812a6786a6c47b4238b531df798909fc505a61028812842ccda2e0351",
+    "status": "PASS",
+    "evidence": "Owner field contains 'Nathan'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST011",
+    "doc_id": "GOV-06",
+    "document": "OPEN_EMPIRE_ADR_INDEX_V1.md",
+    "document_sha256": "12f2e28812a6786a6c47b4238b531df798909fc505a61028812842ccda2e0351",
+    "status": "PASS",
+    "evidence": "Materialization Date '2026-08-05' is valid",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST012",
+    "doc_id": "GOV-06",
+    "document": "OPEN_EMPIRE_ADR_INDEX_V1.md",
+    "document_sha256": "12f2e28812a6786a6c47b4238b531df798909fc505a61028812842ccda2e0351",
+    "status": "PASS",
+    "evidence": "Revision History has 1 row(s)",
+    "message": null
+  },
+  {
+    "rule_id": "VR-A001",
+    "doc_id": "GOV-06",
+    "document": "OPEN_EMPIRE_ADR_INDEX_V1.md",
+    "document_sha256": "12f2e28812a6786a6c47b4238b531df798909fc505a61028812842ccda2e0351",
+    "status": "PASS",
+    "evidence": "Found 10 ADR entries",
+    "message": null
+  },
+  {
+    "rule_id": "VR-A002",
+    "doc_id": "GOV-06",
+    "document": "OPEN_EMPIRE_ADR_INDEX_V1.md",
+    "document_sha256": "12f2e28812a6786a6c47b4238b531df798909fc505a61028812842ccda2e0351",
+    "status": "PASS",
+    "evidence": "ADR entries have Status field",
+    "message": null
+  },
+  {
+    "rule_id": "VR-A003",
+    "doc_id": "GOV-06",
+    "document": "OPEN_EMPIRE_ADR_INDEX_V1.md",
+    "document_sha256": "12f2e28812a6786a6c47b4238b531df798909fc505a61028812842ccda2e0351",
+    "status": "PASS",
+    "evidence": "ADR-001 present",
+    "message": null
+  },
+  {
+    "rule_id": "VR-A003",
+    "doc_id": "GOV-06",
+    "document": "OPEN_EMPIRE_ADR_INDEX_V1.md",
+    "document_sha256": "12f2e28812a6786a6c47b4238b531df798909fc505a61028812842ccda2e0351",
+    "status": "PASS",
+    "evidence": "ADR-002 present",
+    "message": null
+  },
+  {
+    "rule_id": "VR-A003",
+    "doc_id": "GOV-06",
+    "document": "OPEN_EMPIRE_ADR_INDEX_V1.md",
+    "document_sha256": "12f2e28812a6786a6c47b4238b531df798909fc505a61028812842ccda2e0351",
+    "status": "PASS",
+    "evidence": "ADR-003 present",
+    "message": null
+  },
+  {
+    "rule_id": "VR-A003",
+    "doc_id": "GOV-06",
+    "document": "OPEN_EMPIRE_ADR_INDEX_V1.md",
+    "document_sha256": "12f2e28812a6786a6c47b4238b531df798909fc505a61028812842ccda2e0351",
+    "status": "PASS",
+    "evidence": "ADR-004 present",
+    "message": null
+  },
+  {
+    "rule_id": "VR-A003",
+    "doc_id": "GOV-06",
+    "document": "OPEN_EMPIRE_ADR_INDEX_V1.md",
+    "document_sha256": "12f2e28812a6786a6c47b4238b531df798909fc505a61028812842ccda2e0351",
+    "status": "PASS",
+    "evidence": "ADR-005 present",
+    "message": null
+  },
+  {
+    "rule_id": "VR-A003",
+    "doc_id": "GOV-06",
+    "document": "OPEN_EMPIRE_ADR_INDEX_V1.md",
+    "document_sha256": "12f2e28812a6786a6c47b4238b531df798909fc505a61028812842ccda2e0351",
+    "status": "PASS",
+    "evidence": "ADR-006 present",
+    "message": null
+  },
+  {
+    "rule_id": "VR-A003",
+    "doc_id": "GOV-06",
+    "document": "OPEN_EMPIRE_ADR_INDEX_V1.md",
+    "document_sha256": "12f2e28812a6786a6c47b4238b531df798909fc505a61028812842ccda2e0351",
+    "status": "PASS",
+    "evidence": "ADR-007 present",
+    "message": null
+  },
+  {
+    "rule_id": "VR-A003",
+    "doc_id": "GOV-06",
+    "document": "OPEN_EMPIRE_ADR_INDEX_V1.md",
+    "document_sha256": "12f2e28812a6786a6c47b4238b531df798909fc505a61028812842ccda2e0351",
+    "status": "PASS",
+    "evidence": "ADR-008 present",
+    "message": null
+  },
+  {
+    "rule_id": "VR-A003",
+    "doc_id": "GOV-06",
+    "document": "OPEN_EMPIRE_ADR_INDEX_V1.md",
+    "document_sha256": "12f2e28812a6786a6c47b4238b531df798909fc505a61028812842ccda2e0351",
+    "status": "PASS",
+    "evidence": "ADR-009 present",
+    "message": null
+  },
+  {
+    "rule_id": "VR-A003",
+    "doc_id": "GOV-06",
+    "document": "OPEN_EMPIRE_ADR_INDEX_V1.md",
+    "document_sha256": "12f2e28812a6786a6c47b4238b531df798909fc505a61028812842ccda2e0351",
+    "status": "PASS",
+    "evidence": "ADR-010 present",
+    "message": null
+  },
+  {
+    "rule_id": "VR-A004",
+    "doc_id": "GOV-06",
+    "document": "OPEN_EMPIRE_ADR_INDEX_V1.md",
+    "document_sha256": "12f2e28812a6786a6c47b4238b531df798909fc505a61028812842ccda2e0351",
+    "status": "PASS",
+    "evidence": "Contains ADR Template",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST001",
+    "doc_id": "GOV-07",
+    "document": "OPEN_EMPIRE_LIFECYCLE_STATE_MACHINE_V1.md",
+    "document_sha256": "3d05a4973aecbe53a4486e70a066eebfd3936c781bd1402a41750aa7babbf7ac",
+    "status": "PASS",
+    "evidence": "Document begins with '# OPEN EMPIRE'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST002",
+    "doc_id": "GOV-07",
+    "document": "OPEN_EMPIRE_LIFECYCLE_STATE_MACHINE_V1.md",
+    "document_sha256": "3d05a4973aecbe53a4486e70a066eebfd3936c781bd1402a41750aa7babbf7ac",
+    "status": "PASS",
+    "evidence": "Found '**Version:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST003",
+    "doc_id": "GOV-07",
+    "document": "OPEN_EMPIRE_LIFECYCLE_STATE_MACHINE_V1.md",
+    "document_sha256": "3d05a4973aecbe53a4486e70a066eebfd3936c781bd1402a41750aa7babbf7ac",
+    "status": "PASS",
+    "evidence": "Found '**Status:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST004",
+    "doc_id": "GOV-07",
+    "document": "OPEN_EMPIRE_LIFECYCLE_STATE_MACHINE_V1.md",
+    "document_sha256": "3d05a4973aecbe53a4486e70a066eebfd3936c781bd1402a41750aa7babbf7ac",
+    "status": "PASS",
+    "evidence": "Found '**Owner:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST005",
+    "doc_id": "GOV-07",
+    "document": "OPEN_EMPIRE_LIFECYCLE_STATE_MACHINE_V1.md",
+    "document_sha256": "3d05a4973aecbe53a4486e70a066eebfd3936c781bd1402a41750aa7babbf7ac",
+    "status": "PASS",
+    "evidence": "Found '**Source:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST006",
+    "doc_id": "GOV-07",
+    "document": "OPEN_EMPIRE_LIFECYCLE_STATE_MACHINE_V1.md",
+    "document_sha256": "3d05a4973aecbe53a4486e70a066eebfd3936c781bd1402a41750aa7babbf7ac",
+    "status": "PASS",
+    "evidence": "Found '**Materialization Date:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST007",
+    "doc_id": "GOV-07",
+    "document": "OPEN_EMPIRE_LIFECYCLE_STATE_MACHINE_V1.md",
+    "document_sha256": "3d05a4973aecbe53a4486e70a066eebfd3936c781bd1402a41750aa7babbf7ac",
+    "status": "PASS",
+    "evidence": "Found '**Dependencies:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST008",
+    "doc_id": "GOV-07",
+    "document": "OPEN_EMPIRE_LIFECYCLE_STATE_MACHINE_V1.md",
+    "document_sha256": "3d05a4973aecbe53a4486e70a066eebfd3936c781bd1402a41750aa7babbf7ac",
+    "status": "PASS",
+    "evidence": "Found '**Revision History:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST009",
+    "doc_id": "GOV-07",
+    "document": "OPEN_EMPIRE_LIFECYCLE_STATE_MACHINE_V1.md",
+    "document_sha256": "3d05a4973aecbe53a4486e70a066eebfd3936c781bd1402a41750aa7babbf7ac",
+    "status": "PASS",
+    "evidence": "Version '1.0.0' is valid semver",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST010",
+    "doc_id": "GOV-07",
+    "document": "OPEN_EMPIRE_LIFECYCLE_STATE_MACHINE_V1.md",
+    "document_sha256": "3d05a4973aecbe53a4486e70a066eebfd3936c781bd1402a41750aa7babbf7ac",
+    "status": "PASS",
+    "evidence": "Owner field contains 'Nathan'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST011",
+    "doc_id": "GOV-07",
+    "document": "OPEN_EMPIRE_LIFECYCLE_STATE_MACHINE_V1.md",
+    "document_sha256": "3d05a4973aecbe53a4486e70a066eebfd3936c781bd1402a41750aa7babbf7ac",
+    "status": "PASS",
+    "evidence": "Materialization Date '2026-08-05' is valid",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST012",
+    "doc_id": "GOV-07",
+    "document": "OPEN_EMPIRE_LIFECYCLE_STATE_MACHINE_V1.md",
+    "document_sha256": "3d05a4973aecbe53a4486e70a066eebfd3936c781bd1402a41750aa7babbf7ac",
+    "status": "PASS",
+    "evidence": "Revision History has 1 row(s)",
+    "message": null
+  },
+  {
+    "rule_id": "VR-L001",
+    "doc_id": "GOV-07",
+    "document": "OPEN_EMPIRE_LIFECYCLE_STATE_MACHINE_V1.md",
+    "document_sha256": "3d05a4973aecbe53a4486e70a066eebfd3936c781bd1402a41750aa7babbf7ac",
+    "status": "PASS",
+    "evidence": "Contains Universal State Definitions",
+    "message": null
+  },
+  {
+    "rule_id": "VR-L002",
+    "doc_id": "GOV-07",
+    "document": "OPEN_EMPIRE_LIFECYCLE_STATE_MACHINE_V1.md",
+    "document_sha256": "3d05a4973aecbe53a4486e70a066eebfd3936c781bd1402a41750aa7babbf7ac",
+    "status": "PASS",
+    "evidence": "Found 137 sections",
+    "message": null
+  },
+  {
+    "rule_id": "VR-L003",
+    "doc_id": "GOV-07",
+    "document": "OPEN_EMPIRE_LIFECYCLE_STATE_MACHINE_V1.md",
+    "document_sha256": "3d05a4973aecbe53a4486e70a066eebfd3936c781bd1402a41750aa7babbf7ac",
+    "status": "PASS",
+    "evidence": "Contains Transition table",
+    "message": null
+  },
+  {
+    "rule_id": "VR-L004",
+    "doc_id": "GOV-07",
+    "document": "OPEN_EMPIRE_LIFECYCLE_STATE_MACHINE_V1.md",
+    "document_sha256": "3d05a4973aecbe53a4486e70a066eebfd3936c781bd1402a41750aa7babbf7ac",
+    "status": "PASS",
+    "evidence": "Contains Nathan Approval column",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST001",
+    "doc_id": "GOV-08",
+    "document": "OPEN_EMPIRE_POLICY_ENGINE_V1.md",
+    "document_sha256": "590a9833aef474066e89083a255ac495b044c3c5e01da8db9fef7cebf51effa4",
+    "status": "PASS",
+    "evidence": "Document begins with '# OPEN EMPIRE'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST002",
+    "doc_id": "GOV-08",
+    "document": "OPEN_EMPIRE_POLICY_ENGINE_V1.md",
+    "document_sha256": "590a9833aef474066e89083a255ac495b044c3c5e01da8db9fef7cebf51effa4",
+    "status": "PASS",
+    "evidence": "Found '**Version:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST003",
+    "doc_id": "GOV-08",
+    "document": "OPEN_EMPIRE_POLICY_ENGINE_V1.md",
+    "document_sha256": "590a9833aef474066e89083a255ac495b044c3c5e01da8db9fef7cebf51effa4",
+    "status": "PASS",
+    "evidence": "Found '**Status:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST004",
+    "doc_id": "GOV-08",
+    "document": "OPEN_EMPIRE_POLICY_ENGINE_V1.md",
+    "document_sha256": "590a9833aef474066e89083a255ac495b044c3c5e01da8db9fef7cebf51effa4",
+    "status": "PASS",
+    "evidence": "Found '**Owner:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST005",
+    "doc_id": "GOV-08",
+    "document": "OPEN_EMPIRE_POLICY_ENGINE_V1.md",
+    "document_sha256": "590a9833aef474066e89083a255ac495b044c3c5e01da8db9fef7cebf51effa4",
+    "status": "PASS",
+    "evidence": "Found '**Source:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST006",
+    "doc_id": "GOV-08",
+    "document": "OPEN_EMPIRE_POLICY_ENGINE_V1.md",
+    "document_sha256": "590a9833aef474066e89083a255ac495b044c3c5e01da8db9fef7cebf51effa4",
+    "status": "PASS",
+    "evidence": "Found '**Materialization Date:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST007",
+    "doc_id": "GOV-08",
+    "document": "OPEN_EMPIRE_POLICY_ENGINE_V1.md",
+    "document_sha256": "590a9833aef474066e89083a255ac495b044c3c5e01da8db9fef7cebf51effa4",
+    "status": "PASS",
+    "evidence": "Found '**Dependencies:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST008",
+    "doc_id": "GOV-08",
+    "document": "OPEN_EMPIRE_POLICY_ENGINE_V1.md",
+    "document_sha256": "590a9833aef474066e89083a255ac495b044c3c5e01da8db9fef7cebf51effa4",
+    "status": "PASS",
+    "evidence": "Found '**Revision History:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST009",
+    "doc_id": "GOV-08",
+    "document": "OPEN_EMPIRE_POLICY_ENGINE_V1.md",
+    "document_sha256": "590a9833aef474066e89083a255ac495b044c3c5e01da8db9fef7cebf51effa4",
+    "status": "PASS",
+    "evidence": "Version '1.0.0' is valid semver",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST010",
+    "doc_id": "GOV-08",
+    "document": "OPEN_EMPIRE_POLICY_ENGINE_V1.md",
+    "document_sha256": "590a9833aef474066e89083a255ac495b044c3c5e01da8db9fef7cebf51effa4",
+    "status": "PASS",
+    "evidence": "Owner field contains 'Nathan'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST011",
+    "doc_id": "GOV-08",
+    "document": "OPEN_EMPIRE_POLICY_ENGINE_V1.md",
+    "document_sha256": "590a9833aef474066e89083a255ac495b044c3c5e01da8db9fef7cebf51effa4",
+    "status": "PASS",
+    "evidence": "Materialization Date '2026-08-05' is valid",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST012",
+    "doc_id": "GOV-08",
+    "document": "OPEN_EMPIRE_POLICY_ENGINE_V1.md",
+    "document_sha256": "590a9833aef474066e89083a255ac495b044c3c5e01da8db9fef7cebf51effa4",
+    "status": "PASS",
+    "evidence": "Revision History has 1 row(s)",
+    "message": null
+  },
+  {
+    "rule_id": "VR-P001",
+    "doc_id": "GOV-08",
+    "document": "OPEN_EMPIRE_POLICY_ENGINE_V1.md",
+    "document_sha256": "590a9833aef474066e89083a255ac495b044c3c5e01da8db9fef7cebf51effa4",
+    "status": "PASS",
+    "evidence": "Found 74 POL references",
+    "message": null
+  },
+  {
+    "rule_id": "VR-P002",
+    "doc_id": "GOV-08",
+    "document": "OPEN_EMPIRE_POLICY_ENGINE_V1.md",
+    "document_sha256": "590a9833aef474066e89083a255ac495b044c3c5e01da8db9fef7cebf51effa4",
+    "status": "PASS",
+    "evidence": "POL-001 present",
+    "message": null
+  },
+  {
+    "rule_id": "VR-P003",
+    "doc_id": "GOV-08",
+    "document": "OPEN_EMPIRE_POLICY_ENGINE_V1.md",
+    "document_sha256": "590a9833aef474066e89083a255ac495b044c3c5e01da8db9fef7cebf51effa4",
+    "status": "PASS",
+    "evidence": "POL-020 present",
+    "message": null
+  },
+  {
+    "rule_id": "VR-P004",
+    "doc_id": "GOV-08",
+    "document": "OPEN_EMPIRE_POLICY_ENGINE_V1.md",
+    "document_sha256": "590a9833aef474066e89083a255ac495b044c3c5e01da8db9fef7cebf51effa4",
+    "status": "PASS",
+    "evidence": "POL-030 present",
+    "message": null
+  },
+  {
+    "rule_id": "VR-P005",
+    "doc_id": "GOV-08",
+    "document": "OPEN_EMPIRE_POLICY_ENGINE_V1.md",
+    "document_sha256": "590a9833aef474066e89083a255ac495b044c3c5e01da8db9fef7cebf51effa4",
+    "status": "PASS",
+    "evidence": "Contains enforcement matrix",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST001",
+    "doc_id": "GOV-09",
+    "document": "OPEN_EMPIRE_EXECUTIVE_COMMAND_LANGUAGE_V1.md",
+    "document_sha256": "6d94a335fc3a3f77339497262720ed3eabac5c08ea4cacb6e2d1448748b1c40b",
+    "status": "PASS",
+    "evidence": "Document begins with '# OPEN EMPIRE'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST002",
+    "doc_id": "GOV-09",
+    "document": "OPEN_EMPIRE_EXECUTIVE_COMMAND_LANGUAGE_V1.md",
+    "document_sha256": "6d94a335fc3a3f77339497262720ed3eabac5c08ea4cacb6e2d1448748b1c40b",
+    "status": "PASS",
+    "evidence": "Found '**Version:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST003",
+    "doc_id": "GOV-09",
+    "document": "OPEN_EMPIRE_EXECUTIVE_COMMAND_LANGUAGE_V1.md",
+    "document_sha256": "6d94a335fc3a3f77339497262720ed3eabac5c08ea4cacb6e2d1448748b1c40b",
+    "status": "PASS",
+    "evidence": "Found '**Status:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST004",
+    "doc_id": "GOV-09",
+    "document": "OPEN_EMPIRE_EXECUTIVE_COMMAND_LANGUAGE_V1.md",
+    "document_sha256": "6d94a335fc3a3f77339497262720ed3eabac5c08ea4cacb6e2d1448748b1c40b",
+    "status": "PASS",
+    "evidence": "Found '**Owner:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST005",
+    "doc_id": "GOV-09",
+    "document": "OPEN_EMPIRE_EXECUTIVE_COMMAND_LANGUAGE_V1.md",
+    "document_sha256": "6d94a335fc3a3f77339497262720ed3eabac5c08ea4cacb6e2d1448748b1c40b",
+    "status": "PASS",
+    "evidence": "Found '**Source:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST006",
+    "doc_id": "GOV-09",
+    "document": "OPEN_EMPIRE_EXECUTIVE_COMMAND_LANGUAGE_V1.md",
+    "document_sha256": "6d94a335fc3a3f77339497262720ed3eabac5c08ea4cacb6e2d1448748b1c40b",
+    "status": "PASS",
+    "evidence": "Found '**Materialization Date:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST007",
+    "doc_id": "GOV-09",
+    "document": "OPEN_EMPIRE_EXECUTIVE_COMMAND_LANGUAGE_V1.md",
+    "document_sha256": "6d94a335fc3a3f77339497262720ed3eabac5c08ea4cacb6e2d1448748b1c40b",
+    "status": "PASS",
+    "evidence": "Found '**Dependencies:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST008",
+    "doc_id": "GOV-09",
+    "document": "OPEN_EMPIRE_EXECUTIVE_COMMAND_LANGUAGE_V1.md",
+    "document_sha256": "6d94a335fc3a3f77339497262720ed3eabac5c08ea4cacb6e2d1448748b1c40b",
+    "status": "PASS",
+    "evidence": "Found '**Revision History:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST009",
+    "doc_id": "GOV-09",
+    "document": "OPEN_EMPIRE_EXECUTIVE_COMMAND_LANGUAGE_V1.md",
+    "document_sha256": "6d94a335fc3a3f77339497262720ed3eabac5c08ea4cacb6e2d1448748b1c40b",
+    "status": "PASS",
+    "evidence": "Version '1.0.0' is valid semver",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST010",
+    "doc_id": "GOV-09",
+    "document": "OPEN_EMPIRE_EXECUTIVE_COMMAND_LANGUAGE_V1.md",
+    "document_sha256": "6d94a335fc3a3f77339497262720ed3eabac5c08ea4cacb6e2d1448748b1c40b",
+    "status": "PASS",
+    "evidence": "Owner field contains 'Nathan'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST011",
+    "doc_id": "GOV-09",
+    "document": "OPEN_EMPIRE_EXECUTIVE_COMMAND_LANGUAGE_V1.md",
+    "document_sha256": "6d94a335fc3a3f77339497262720ed3eabac5c08ea4cacb6e2d1448748b1c40b",
+    "status": "PASS",
+    "evidence": "Materialization Date '2026-08-05' is valid",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST012",
+    "doc_id": "GOV-09",
+    "document": "OPEN_EMPIRE_EXECUTIVE_COMMAND_LANGUAGE_V1.md",
+    "document_sha256": "6d94a335fc3a3f77339497262720ed3eabac5c08ea4cacb6e2d1448748b1c40b",
+    "status": "PASS",
+    "evidence": "Revision History has 1 row(s)",
+    "message": null
+  },
+  {
+    "rule_id": "VR-E001",
+    "doc_id": "GOV-09",
+    "document": "OPEN_EMPIRE_EXECUTIVE_COMMAND_LANGUAGE_V1.md",
+    "document_sha256": "6d94a335fc3a3f77339497262720ed3eabac5c08ea4cacb6e2d1448748b1c40b",
+    "status": "PASS",
+    "evidence": "Contains Command Vocabulary section",
+    "message": null
+  },
+  {
+    "rule_id": "VR-E002",
+    "doc_id": "GOV-09",
+    "document": "OPEN_EMPIRE_EXECUTIVE_COMMAND_LANGUAGE_V1.md",
+    "document_sha256": "6d94a335fc3a3f77339497262720ed3eabac5c08ea4cacb6e2d1448748b1c40b",
+    "status": "PASS",
+    "evidence": "Defines 'Continue' command",
+    "message": null
+  },
+  {
+    "rule_id": "VR-E002",
+    "doc_id": "GOV-09",
+    "document": "OPEN_EMPIRE_EXECUTIVE_COMMAND_LANGUAGE_V1.md",
+    "document_sha256": "6d94a335fc3a3f77339497262720ed3eabac5c08ea4cacb6e2d1448748b1c40b",
+    "status": "PASS",
+    "evidence": "Defines 'Yes' command",
+    "message": null
+  },
+  {
+    "rule_id": "VR-E002",
+    "doc_id": "GOV-09",
+    "document": "OPEN_EMPIRE_EXECUTIVE_COMMAND_LANGUAGE_V1.md",
+    "document_sha256": "6d94a335fc3a3f77339497262720ed3eabac5c08ea4cacb6e2d1448748b1c40b",
+    "status": "PASS",
+    "evidence": "Defines 'Go ahead' command",
+    "message": null
+  },
+  {
+    "rule_id": "VR-E002",
+    "doc_id": "GOV-09",
+    "document": "OPEN_EMPIRE_EXECUTIVE_COMMAND_LANGUAGE_V1.md",
+    "document_sha256": "6d94a335fc3a3f77339497262720ed3eabac5c08ea4cacb6e2d1448748b1c40b",
+    "status": "PASS",
+    "evidence": "Defines 'Do it' command",
+    "message": null
+  },
+  {
+    "rule_id": "VR-E003",
+    "doc_id": "GOV-09",
+    "document": "OPEN_EMPIRE_EXECUTIVE_COMMAND_LANGUAGE_V1.md",
+    "document_sha256": "6d94a335fc3a3f77339497262720ed3eabac5c08ea4cacb6e2d1448748b1c40b",
+    "status": "PASS",
+    "evidence": "Defines TRACK_B_AUTHORIZED command",
+    "message": null
+  },
+  {
+    "rule_id": "VR-E004",
+    "doc_id": "GOV-09",
+    "document": "OPEN_EMPIRE_EXECUTIVE_COMMAND_LANGUAGE_V1.md",
+    "document_sha256": "6d94a335fc3a3f77339497262720ed3eabac5c08ea4cacb6e2d1448748b1c40b",
+    "status": "PASS",
+    "evidence": "Contains Authorization section",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST001",
+    "doc_id": "GOV-10",
+    "document": "OPEN_EMPIRE_OEPM_MANIFEST_STANDARD_V1.md",
+    "document_sha256": "7a39cbb2c20c4413bc5b54b3dddb162bb8fc62a097ca2bc47bce7c7d2857774b",
+    "status": "PASS",
+    "evidence": "Document begins with '# OPEN EMPIRE'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST002",
+    "doc_id": "GOV-10",
+    "document": "OPEN_EMPIRE_OEPM_MANIFEST_STANDARD_V1.md",
+    "document_sha256": "7a39cbb2c20c4413bc5b54b3dddb162bb8fc62a097ca2bc47bce7c7d2857774b",
+    "status": "PASS",
+    "evidence": "Found '**Version:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST003",
+    "doc_id": "GOV-10",
+    "document": "OPEN_EMPIRE_OEPM_MANIFEST_STANDARD_V1.md",
+    "document_sha256": "7a39cbb2c20c4413bc5b54b3dddb162bb8fc62a097ca2bc47bce7c7d2857774b",
+    "status": "PASS",
+    "evidence": "Found '**Status:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST004",
+    "doc_id": "GOV-10",
+    "document": "OPEN_EMPIRE_OEPM_MANIFEST_STANDARD_V1.md",
+    "document_sha256": "7a39cbb2c20c4413bc5b54b3dddb162bb8fc62a097ca2bc47bce7c7d2857774b",
+    "status": "PASS",
+    "evidence": "Found '**Owner:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST005",
+    "doc_id": "GOV-10",
+    "document": "OPEN_EMPIRE_OEPM_MANIFEST_STANDARD_V1.md",
+    "document_sha256": "7a39cbb2c20c4413bc5b54b3dddb162bb8fc62a097ca2bc47bce7c7d2857774b",
+    "status": "PASS",
+    "evidence": "Found '**Source:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST006",
+    "doc_id": "GOV-10",
+    "document": "OPEN_EMPIRE_OEPM_MANIFEST_STANDARD_V1.md",
+    "document_sha256": "7a39cbb2c20c4413bc5b54b3dddb162bb8fc62a097ca2bc47bce7c7d2857774b",
+    "status": "PASS",
+    "evidence": "Found '**Materialization Date:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST007",
+    "doc_id": "GOV-10",
+    "document": "OPEN_EMPIRE_OEPM_MANIFEST_STANDARD_V1.md",
+    "document_sha256": "7a39cbb2c20c4413bc5b54b3dddb162bb8fc62a097ca2bc47bce7c7d2857774b",
+    "status": "PASS",
+    "evidence": "Found '**Dependencies:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST008",
+    "doc_id": "GOV-10",
+    "document": "OPEN_EMPIRE_OEPM_MANIFEST_STANDARD_V1.md",
+    "document_sha256": "7a39cbb2c20c4413bc5b54b3dddb162bb8fc62a097ca2bc47bce7c7d2857774b",
+    "status": "PASS",
+    "evidence": "Found '**Revision History:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST009",
+    "doc_id": "GOV-10",
+    "document": "OPEN_EMPIRE_OEPM_MANIFEST_STANDARD_V1.md",
+    "document_sha256": "7a39cbb2c20c4413bc5b54b3dddb162bb8fc62a097ca2bc47bce7c7d2857774b",
+    "status": "PASS",
+    "evidence": "Version '1.0.0' is valid semver",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST010",
+    "doc_id": "GOV-10",
+    "document": "OPEN_EMPIRE_OEPM_MANIFEST_STANDARD_V1.md",
+    "document_sha256": "7a39cbb2c20c4413bc5b54b3dddb162bb8fc62a097ca2bc47bce7c7d2857774b",
+    "status": "PASS",
+    "evidence": "Owner field contains 'Nathan'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST011",
+    "doc_id": "GOV-10",
+    "document": "OPEN_EMPIRE_OEPM_MANIFEST_STANDARD_V1.md",
+    "document_sha256": "7a39cbb2c20c4413bc5b54b3dddb162bb8fc62a097ca2bc47bce7c7d2857774b",
+    "status": "PASS",
+    "evidence": "Materialization Date '2026-08-05' is valid",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST012",
+    "doc_id": "GOV-10",
+    "document": "OPEN_EMPIRE_OEPM_MANIFEST_STANDARD_V1.md",
+    "document_sha256": "7a39cbb2c20c4413bc5b54b3dddb162bb8fc62a097ca2bc47bce7c7d2857774b",
+    "status": "PASS",
+    "evidence": "Revision History has 1 row(s)",
+    "message": null
+  },
+  {
+    "rule_id": "VR-M002",
+    "doc_id": "GOV-10",
+    "document": "OPEN_EMPIRE_OEPM_MANIFEST_STANDARD_V1.md",
+    "document_sha256": "7a39cbb2c20c4413bc5b54b3dddb162bb8fc62a097ca2bc47bce7c7d2857774b",
+    "status": "PASS",
+    "evidence": "Contains oepm_version definition",
+    "message": null
+  },
+  {
+    "rule_id": "VR-M003",
+    "doc_id": "GOV-10",
+    "document": "OPEN_EMPIRE_OEPM_MANIFEST_STANDARD_V1.md",
+    "document_sha256": "7a39cbb2c20c4413bc5b54b3dddb162bb8fc62a097ca2bc47bce7c7d2857774b",
+    "status": "PASS",
+    "evidence": "Contains asset object definition",
+    "message": null
+  },
+  {
+    "rule_id": "VR-M004",
+    "doc_id": "GOV-10",
+    "document": "OPEN_EMPIRE_OEPM_MANIFEST_STANDARD_V1.md",
+    "document_sha256": "7a39cbb2c20c4413bc5b54b3dddb162bb8fc62a097ca2bc47bce7c7d2857774b",
+    "status": "PASS",
+    "evidence": "Contains portfolio_placement definition",
+    "message": null
+  },
+  {
+    "rule_id": "VR-M005",
+    "doc_id": "GOV-10",
+    "document": "OPEN_EMPIRE_OEPM_MANIFEST_STANDARD_V1.md",
+    "document_sha256": "7a39cbb2c20c4413bc5b54b3dddb162bb8fc62a097ca2bc47bce7c7d2857774b",
+    "status": "PASS",
+    "evidence": "Contains governance section",
+    "message": null
+  },
+  {
+    "rule_id": "VR-M006",
+    "doc_id": "GOV-10",
+    "document": "OPEN_EMPIRE_OEPM_MANIFEST_STANDARD_V1.md",
+    "document_sha256": "7a39cbb2c20c4413bc5b54b3dddb162bb8fc62a097ca2bc47bce7c7d2857774b",
+    "status": "PASS",
+    "evidence": "Found 18 example references",
+    "message": null
+  },
+  {
+    "rule_id": "VR-M001",
+    "doc_id": "GOV-10",
+    "document": "OPEN_EMPIRE_OEPM_MANIFEST_STANDARD_V1.md",
+    "document_sha256": "7a39cbb2c20c4413bc5b54b3dddb162bb8fc62a097ca2bc47bce7c7d2857774b",
+    "status": "PASS",
+    "evidence": "Contains JSON manifest schema",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST001",
+    "doc_id": "GOV-11",
+    "document": "OPEN_EMPIRE_DEPENDENCY_MAP_V1.md",
+    "document_sha256": "baa712fc11b198377e5b805ffe9bcdc76c1712b3d8657ec7966170784be2c7b9",
+    "status": "PASS",
+    "evidence": "Document begins with '# OPEN EMPIRE'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST002",
+    "doc_id": "GOV-11",
+    "document": "OPEN_EMPIRE_DEPENDENCY_MAP_V1.md",
+    "document_sha256": "baa712fc11b198377e5b805ffe9bcdc76c1712b3d8657ec7966170784be2c7b9",
+    "status": "PASS",
+    "evidence": "Found '**Version:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST003",
+    "doc_id": "GOV-11",
+    "document": "OPEN_EMPIRE_DEPENDENCY_MAP_V1.md",
+    "document_sha256": "baa712fc11b198377e5b805ffe9bcdc76c1712b3d8657ec7966170784be2c7b9",
+    "status": "PASS",
+    "evidence": "Found '**Status:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST004",
+    "doc_id": "GOV-11",
+    "document": "OPEN_EMPIRE_DEPENDENCY_MAP_V1.md",
+    "document_sha256": "baa712fc11b198377e5b805ffe9bcdc76c1712b3d8657ec7966170784be2c7b9",
+    "status": "PASS",
+    "evidence": "Found '**Owner:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST005",
+    "doc_id": "GOV-11",
+    "document": "OPEN_EMPIRE_DEPENDENCY_MAP_V1.md",
+    "document_sha256": "baa712fc11b198377e5b805ffe9bcdc76c1712b3d8657ec7966170784be2c7b9",
+    "status": "PASS",
+    "evidence": "Found '**Source:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST006",
+    "doc_id": "GOV-11",
+    "document": "OPEN_EMPIRE_DEPENDENCY_MAP_V1.md",
+    "document_sha256": "baa712fc11b198377e5b805ffe9bcdc76c1712b3d8657ec7966170784be2c7b9",
+    "status": "PASS",
+    "evidence": "Found '**Materialization Date:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST007",
+    "doc_id": "GOV-11",
+    "document": "OPEN_EMPIRE_DEPENDENCY_MAP_V1.md",
+    "document_sha256": "baa712fc11b198377e5b805ffe9bcdc76c1712b3d8657ec7966170784be2c7b9",
+    "status": "PASS",
+    "evidence": "Found '**Dependencies:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST008",
+    "doc_id": "GOV-11",
+    "document": "OPEN_EMPIRE_DEPENDENCY_MAP_V1.md",
+    "document_sha256": "baa712fc11b198377e5b805ffe9bcdc76c1712b3d8657ec7966170784be2c7b9",
+    "status": "PASS",
+    "evidence": "Found '**Revision History:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST009",
+    "doc_id": "GOV-11",
+    "document": "OPEN_EMPIRE_DEPENDENCY_MAP_V1.md",
+    "document_sha256": "baa712fc11b198377e5b805ffe9bcdc76c1712b3d8657ec7966170784be2c7b9",
+    "status": "PASS",
+    "evidence": "Version '1.0.0' is valid semver",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST010",
+    "doc_id": "GOV-11",
+    "document": "OPEN_EMPIRE_DEPENDENCY_MAP_V1.md",
+    "document_sha256": "baa712fc11b198377e5b805ffe9bcdc76c1712b3d8657ec7966170784be2c7b9",
+    "status": "PASS",
+    "evidence": "Owner field contains 'Nathan'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST011",
+    "doc_id": "GOV-11",
+    "document": "OPEN_EMPIRE_DEPENDENCY_MAP_V1.md",
+    "document_sha256": "baa712fc11b198377e5b805ffe9bcdc76c1712b3d8657ec7966170784be2c7b9",
+    "status": "PASS",
+    "evidence": "Materialization Date '2026-08-05' is valid",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST012",
+    "doc_id": "GOV-11",
+    "document": "OPEN_EMPIRE_DEPENDENCY_MAP_V1.md",
+    "document_sha256": "baa712fc11b198377e5b805ffe9bcdc76c1712b3d8657ec7966170784be2c7b9",
+    "status": "PASS",
+    "evidence": "Revision History has 1 row(s)",
+    "message": null
+  },
+  {
+    "rule_id": "VR-D001",
+    "doc_id": "GOV-11",
+    "document": "OPEN_EMPIRE_DEPENDENCY_MAP_V1.md",
+    "document_sha256": "baa712fc11b198377e5b805ffe9bcdc76c1712b3d8657ec7966170784be2c7b9",
+    "status": "PASS",
+    "evidence": "Contains Document Registry",
+    "message": null
+  },
+  {
+    "rule_id": "VR-D001b",
+    "doc_id": "GOV-11",
+    "document": "OPEN_EMPIRE_DEPENDENCY_MAP_V1.md",
+    "document_sha256": "baa712fc11b198377e5b805ffe9bcdc76c1712b3d8657ec7966170784be2c7b9",
+    "status": "PASS",
+    "evidence": "All 12 documents in registry",
+    "message": null
+  },
+  {
+    "rule_id": "VR-D002",
+    "doc_id": "GOV-11",
+    "document": "OPEN_EMPIRE_DEPENDENCY_MAP_V1.md",
+    "document_sha256": "baa712fc11b198377e5b805ffe9bcdc76c1712b3d8657ec7966170784be2c7b9",
+    "status": "PASS",
+    "evidence": "Contains Dependency Matrix",
+    "message": null
+  },
+  {
+    "rule_id": "VR-D003",
+    "doc_id": "GOV-11",
+    "document": "OPEN_EMPIRE_DEPENDENCY_MAP_V1.md",
+    "document_sha256": "baa712fc11b198377e5b805ffe9bcdc76c1712b3d8657ec7966170784be2c7b9",
+    "status": "PASS",
+    "evidence": "Contains Build Order",
+    "message": null
+  },
+  {
+    "rule_id": "VR-D004",
+    "doc_id": "GOV-11",
+    "document": "OPEN_EMPIRE_DEPENDENCY_MAP_V1.md",
+    "document_sha256": "baa712fc11b198377e5b805ffe9bcdc76c1712b3d8657ec7966170784be2c7b9",
+    "status": "PASS",
+    "evidence": "Contains circular dependency check",
+    "message": null
+  },
+  {
+    "rule_id": "VR-D005",
+    "doc_id": "GOV-11",
+    "document": "OPEN_EMPIRE_DEPENDENCY_MAP_V1.md",
+    "document_sha256": "baa712fc11b198377e5b805ffe9bcdc76c1712b3d8657ec7966170784be2c7b9",
+    "status": "PASS",
+    "evidence": "Contains Change Propagation Rules",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST001",
+    "doc_id": "GOV-12",
+    "document": "OPEN_EMPIRE_VALIDATION_SUITE_V1.md",
+    "document_sha256": "bd5c580195cf4160fd0e7df7d0a7bb7e2187f588e2f911e02a1da07da3082dbc",
+    "status": "PASS",
+    "evidence": "Document begins with '# OPEN EMPIRE'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST002",
+    "doc_id": "GOV-12",
+    "document": "OPEN_EMPIRE_VALIDATION_SUITE_V1.md",
+    "document_sha256": "bd5c580195cf4160fd0e7df7d0a7bb7e2187f588e2f911e02a1da07da3082dbc",
+    "status": "PASS",
+    "evidence": "Found '**Version:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST003",
+    "doc_id": "GOV-12",
+    "document": "OPEN_EMPIRE_VALIDATION_SUITE_V1.md",
+    "document_sha256": "bd5c580195cf4160fd0e7df7d0a7bb7e2187f588e2f911e02a1da07da3082dbc",
+    "status": "PASS",
+    "evidence": "Found '**Status:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST004",
+    "doc_id": "GOV-12",
+    "document": "OPEN_EMPIRE_VALIDATION_SUITE_V1.md",
+    "document_sha256": "bd5c580195cf4160fd0e7df7d0a7bb7e2187f588e2f911e02a1da07da3082dbc",
+    "status": "PASS",
+    "evidence": "Found '**Owner:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST005",
+    "doc_id": "GOV-12",
+    "document": "OPEN_EMPIRE_VALIDATION_SUITE_V1.md",
+    "document_sha256": "bd5c580195cf4160fd0e7df7d0a7bb7e2187f588e2f911e02a1da07da3082dbc",
+    "status": "PASS",
+    "evidence": "Found '**Source:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST006",
+    "doc_id": "GOV-12",
+    "document": "OPEN_EMPIRE_VALIDATION_SUITE_V1.md",
+    "document_sha256": "bd5c580195cf4160fd0e7df7d0a7bb7e2187f588e2f911e02a1da07da3082dbc",
+    "status": "PASS",
+    "evidence": "Found '**Materialization Date:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST007",
+    "doc_id": "GOV-12",
+    "document": "OPEN_EMPIRE_VALIDATION_SUITE_V1.md",
+    "document_sha256": "bd5c580195cf4160fd0e7df7d0a7bb7e2187f588e2f911e02a1da07da3082dbc",
+    "status": "PASS",
+    "evidence": "Found '**Dependencies:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST008",
+    "doc_id": "GOV-12",
+    "document": "OPEN_EMPIRE_VALIDATION_SUITE_V1.md",
+    "document_sha256": "bd5c580195cf4160fd0e7df7d0a7bb7e2187f588e2f911e02a1da07da3082dbc",
+    "status": "PASS",
+    "evidence": "Found '**Revision History:**'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST009",
+    "doc_id": "GOV-12",
+    "document": "OPEN_EMPIRE_VALIDATION_SUITE_V1.md",
+    "document_sha256": "bd5c580195cf4160fd0e7df7d0a7bb7e2187f588e2f911e02a1da07da3082dbc",
+    "status": "PASS",
+    "evidence": "Version '1.0.0' is valid semver",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST010",
+    "doc_id": "GOV-12",
+    "document": "OPEN_EMPIRE_VALIDATION_SUITE_V1.md",
+    "document_sha256": "bd5c580195cf4160fd0e7df7d0a7bb7e2187f588e2f911e02a1da07da3082dbc",
+    "status": "PASS",
+    "evidence": "Owner field contains 'Nathan'",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST011",
+    "doc_id": "GOV-12",
+    "document": "OPEN_EMPIRE_VALIDATION_SUITE_V1.md",
+    "document_sha256": "bd5c580195cf4160fd0e7df7d0a7bb7e2187f588e2f911e02a1da07da3082dbc",
+    "status": "PASS",
+    "evidence": "Materialization Date '2026-08-05' is valid",
+    "message": null
+  },
+  {
+    "rule_id": "VR-ST012",
+    "doc_id": "GOV-12",
+    "document": "OPEN_EMPIRE_VALIDATION_SUITE_V1.md",
+    "document_sha256": "bd5c580195cf4160fd0e7df7d0a7bb7e2187f588e2f911e02a1da07da3082dbc",
+    "status": "PASS",
+    "evidence": "Revision History has 2 row(s)",
+    "message": null
+  },
+  {
+    "rule_id": "VR-VS001",
+    "doc_id": "GOV-12",
+    "document": "OPEN_EMPIRE_VALIDATION_SUITE_V1.md",
+    "document_sha256": "bd5c580195cf4160fd0e7df7d0a7bb7e2187f588e2f911e02a1da07da3082dbc",
+    "status": "PASS",
+    "evidence": "Contains Validation Rule Catalog",
+    "message": null
+  },
+  {
+    "rule_id": "VR-VS002",
+    "doc_id": "GOV-12",
+    "document": "OPEN_EMPIRE_VALIDATION_SUITE_V1.md",
+    "document_sha256": "bd5c580195cf4160fd0e7df7d0a7bb7e2187f588e2f911e02a1da07da3082dbc",
+    "status": "PASS",
+    "evidence": "Found 76 VR-NNN rules",
+    "message": null
+  },
+  {
+    "rule_id": "VR-VS003",
+    "doc_id": "GOV-12",
+    "document": "OPEN_EMPIRE_VALIDATION_SUITE_V1.md",
+    "document_sha256": "bd5c580195cf4160fd0e7df7d0a7bb7e2187f588e2f911e02a1da07da3082dbc",
+    "status": "PASS",
+    "evidence": "Contains Definition of Done",
+    "message": null
+  },
+  {
+    "rule_id": "VR-VS004",
+    "doc_id": "GOV-12",
+    "document": "OPEN_EMPIRE_VALIDATION_SUITE_V1.md",
+    "document_sha256": "bd5c580195cf4160fd0e7df7d0a7bb7e2187f588e2f911e02a1da07da3082dbc",
+    "status": "PASS",
+    "evidence": "References build pipeline script",
+    "message": null
+  }
+]

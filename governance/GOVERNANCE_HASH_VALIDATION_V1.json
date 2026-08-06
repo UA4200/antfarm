@@ -1,0 +1,146 @@
+{
+  "schema": "open_empire.governance.hash_validation.v1",
+  "generated_at": "2026-08-06T11:38:00-05:00",
+  "generator": "Alusi Gate A Finalization Directive",
+  "validation_method": "shasum -a 256 (macOS) — SHA-256",
+  "sha256sums_file": "/Users/NeoOC/.openclaw/workspace/governance/SHA256SUMS.txt",
+  "sha256sums_file_mtime": "2026-08-06T06:28:13",
+  "sha256sums_file_size_bytes": 1641,
+  "sha256sums_file_line_count": 16,
+  "decision": "ARTIFACT_INTEGRITY_VERIFIED",
+  "verification_runs": [
+    {
+      "run_id": "hash-run-20260806T113800Z",
+      "method": "fresh computation from filesystem",
+      "timestamp": "2026-08-06T11:38:00-05:00"
+    }
+  ],
+  "governance_artifacts": [
+    {
+      "gov_id": "GOV-01",
+      "filename": "OPEN_EMPIRE_CONSTITUTION_V1.md",
+      "computed_sha256": "cac8674be27ffc29a729d9c367bd92952eda1cfc3dae93bf8b61a70e15eeda10",
+      "sha256sums_entry": "cac8674be27ffc29a729d9c367bd92952eda1cfc3dae93bf8b61a70e15eeda10",
+      "match": true,
+      "result": "PASS"
+    },
+    {
+      "gov_id": "GOV-02",
+      "filename": "OPEN_EMPIRE_ASSET_TAXONOMY_V1.md",
+      "computed_sha256": "6f6dce10d95d3e025db63a6a5ae6fdb616672645521c64e8b80efefe44bdc737",
+      "sha256sums_entry": "6f6dce10d95d3e025db63a6a5ae6fdb616672645521c64e8b80efefe44bdc737",
+      "match": true,
+      "result": "PASS"
+    },
+    {
+      "gov_id": "GOV-03",
+      "filename": "OPEN_EMPIRE_ONTOLOGY_V1.md",
+      "computed_sha256": "9287001d5bba5e93d4090c076dfcfe4efb8e0b74efe77881179ebb5fc4bd335e",
+      "sha256sums_entry": "9287001d5bba5e93d4090c076dfcfe4efb8e0b74efe77881179ebb5fc4bd335e",
+      "match": true,
+      "result": "PASS"
+    },
+    {
+      "gov_id": "GOV-04",
+      "filename": "OPEN_EMPIRE_SCHEMA_V1.md",
+      "computed_sha256": "0b2ebf932113ad707f15c63cbd7096da5240dff02ed6f6e3cae741892f955ea6",
+      "sha256sums_entry": "0b2ebf932113ad707f15c63cbd7096da5240dff02ed6f6e3cae741892f955ea6",
+      "match": true,
+      "result": "PASS"
+    },
+    {
+      "gov_id": "GOV-05",
+      "filename": "OPEN_EMPIRE_GLOSSARY_V1.md",
+      "computed_sha256": "7a1b76673548b9857c848356fda3dbbb0e076e957b9b91176aa45fd490141695",
+      "sha256sums_entry": "7a1b76673548b9857c848356fda3dbbb0e076e957b9b91176aa45fd490141695",
+      "match": true,
+      "result": "PASS"
+    },
+    {
+      "gov_id": "GOV-06",
+      "filename": "OPEN_EMPIRE_ADR_INDEX_V1.md",
+      "computed_sha256": "12f2e28812a6786a6c47b4238b531df798909fc505a61028812842ccda2e0351",
+      "sha256sums_entry": "12f2e28812a6786a6c47b4238b531df798909fc505a61028812842ccda2e0351",
+      "match": true,
+      "result": "PASS"
+    },
+    {
+      "gov_id": "GOV-07",
+      "filename": "OPEN_EMPIRE_LIFECYCLE_STATE_MACHINE_V1.md",
+      "computed_sha256": "3d05a4973aecbe53a4486e70a066eebfd3936c781bd1402a41750aa7babbf7ac",
+      "sha256sums_entry": "3d05a4973aecbe53a4486e70a066eebfd3936c781bd1402a41750aa7babbf7ac",
+      "match": true,
+      "result": "PASS"
+    },
+    {
+      "gov_id": "GOV-08",
+      "filename": "OPEN_EMPIRE_POLICY_ENGINE_V1.md",
+      "computed_sha256": "590a9833aef474066e89083a255ac495b044c3c5e01da8db9fef7cebf51effa4",
+      "sha256sums_entry": "590a9833aef474066e89083a255ac495b044c3c5e01da8db9fef7cebf51effa4",
+      "match": true,
+      "result": "PASS"
+    },
+    {
+      "gov_id": "GOV-09",
+      "filename": "OPEN_EMPIRE_EXECUTIVE_COMMAND_LANGUAGE_V1.md",
+      "computed_sha256": "6d94a335fc3a3f77339497262720ed3eabac5c08ea4cacb6e2d1448748b1c40b",
+      "sha256sums_entry": "6d94a335fc3a3f77339497262720ed3eabac5c08ea4cacb6e2d1448748b1c40b",
+      "match": true,
+      "result": "PASS"
+    },
+    {
+      "gov_id": "GOV-10",
+      "filename": "OPEN_EMPIRE_OEPM_MANIFEST_STANDARD_V1.md",
+      "computed_sha256": "7a39cbb2c20c4413bc5b54b3dddb162bb8fc62a097ca2bc47bce7c7d2857774b",
+      "sha256sums_entry": "7a39cbb2c20c4413bc5b54b3dddb162bb8fc62a097ca2bc47bce7c7d2857774b",
+      "match": true,
+      "result": "PASS"
+    },
+    {
+      "gov_id": "GOV-11",
+      "filename": "OPEN_EMPIRE_DEPENDENCY_MAP_V1.md",
+      "computed_sha256": "baa712fc11b198377e5b805ffe9bcdc76c1712b3d8657ec7966170784be2c7b9",
+      "sha256sums_entry": "baa712fc11b198377e5b805ffe9bcdc76c1712b3d8657ec7966170784be2c7b9",
+      "match": true,
+      "result": "PASS"
+    },
+    {
+      "gov_id": "GOV-12",
+      "filename": "OPEN_EMPIRE_VALIDATION_SUITE_V1.md",
+      "computed_sha256": "bd5c580195cf4160fd0e7df7d0a7bb7e2187f588e2f911e02a1da07da3082dbc",
+      "sha256sums_entry": "bd5c580195cf4160fd0e7df7d0a7bb7e2187f588e2f911e02a1da07da3082dbc",
+      "match": true,
+      "result": "PASS"
+    }
+  ],
+  "build_artifacts_in_sha256sums": [
+    {
+      "path": "./build/dist/ROLLBACK_MANIFEST.md",
+      "sha256_in_sums": "93c3cb1d2c4c1fa7c57300540ce4f7b3603f19035ebd9227e3ff442ca9936f44",
+      "verified": "present in SHA256SUMS.txt; build artifacts regenerated per pipeline run"
+    },
+    {
+      "path": "./build/dist/validation_run/VALIDATION_REPORT.md",
+      "sha256_in_sums": "4c90fede0ce3b2ad2e3a737bfcaf96776adce9cf5402daaca7c5ae06b1821317",
+      "verified": "present in SHA256SUMS.txt; build artifacts regenerated per pipeline run"
+    },
+    {
+      "path": "./build/dist/RELEASE_MANIFEST.md",
+      "sha256_in_sums": "f2d03f7b1fb8ff737e01636d48b2b14534cc66e5efeeed0691a6a643ffbb99b8",
+      "verified": "present in SHA256SUMS.txt; build artifacts regenerated per pipeline run"
+    },
+    {
+      "path": "./build/runs/baseline_v1/VALIDATION_REPORT.md",
+      "sha256_in_sums": "c91d9b2e944c2227e508c857d2cf8138faf910513e6fe33c73d47d1e286fc71e",
+      "verified": "present in SHA256SUMS.txt"
+    }
+  ],
+  "summary": {
+    "governance_artifacts_checked": 12,
+    "governance_artifacts_passed": 12,
+    "governance_artifacts_failed": 0,
+    "all_hashes_verified": true,
+    "sha256sums_complete": true,
+    "decision": "ARTIFACT_INTEGRITY_VERIFIED"
+  }
+}

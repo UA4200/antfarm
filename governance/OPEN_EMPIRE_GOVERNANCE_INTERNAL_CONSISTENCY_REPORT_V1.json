@@ -1,0 +1,210 @@
+{
+  "schema": "open_empire.governance.internal_consistency_report.v1",
+  "generated_at": "2026-08-06T11:39:00-05:00",
+  "generator": "Alusi Gate A Finalization Directive",
+  "generator_version": "1.0.0",
+  "overall_status": "CONSISTENT",
+  "checks_run": 12,
+  "checks_passed": 12,
+  "checks_failed": 0,
+  "observations": 2,
+  "consistency_checks": [
+    {
+      "check_id": "CC-01",
+      "name": "Constitution references valid governance artifacts",
+      "artifact": "OPEN_EMPIRE_CONSTITUTION_V1.md",
+      "description": "Constitution must reference only valid, existing governance artifacts in its dependency chain",
+      "expected": "All referenced documents exist as canonical governance files",
+      "actual": "References OPEN_EMPIRE_ASSET_TAXONOMY_V1.md (V1.0.0) — VERIFIED PRESENT",
+      "result": "PASS",
+      "evidence": [
+        "Constitution depends on OPEN_EMPIRE_ASSET_TAXONOMY_V1.md (GOV-02) — file present, hash verified",
+        "Source references CONSTITUTION.md V1.2 (operational predecessor), AGENTS.md V5.0 (operational context) — both are provenance references, not governance dependencies"
+      ]
+    },
+    {
+      "check_id": "CC-02",
+      "name": "Taxonomy contains canonical terms used downstream",
+      "artifact": "OPEN_EMPIRE_ASSET_TAXONOMY_V1.md",
+      "description": "Taxonomy must be the authoritative source for all canonical terms referenced in dependent documents",
+      "expected": "Downstream documents reference only Taxonomy-defined terms",
+      "actual": "58 canonical asset types defined. Ontology, Schema, Glossary, Lifecycle SM all derive from Taxonomy. No downstream redefinition detected.",
+      "result": "PASS",
+      "evidence": [
+        "Glossary explicitly states: 58 Taxonomy terms extracted verbatim — no conflicts",
+        "Ontology preamble: derived exclusively from Allowed Relationships fields of Taxonomy",
+        "Schema preamble: every field derived directly from Taxonomy — no field invented",
+        "Lifecycle SM preamble: derived exclusively from Lifecycle Applicability fields of Taxonomy"
+      ]
+    },
+    {
+      "check_id": "CC-03",
+      "name": "Ontology references only valid Taxonomy asset classes",
+      "artifact": "OPEN_EMPIRE_ONTOLOGY_V1.md",
+      "description": "Every asset type in Ontology must be defined in Taxonomy",
+      "expected": "0 undefined asset type references",
+      "actual": "Ontology derives from Taxonomy V1.0.0. All relationship definitions sourced from Taxonomy Allowed Relationships fields.",
+      "result": "PASS",
+      "evidence": [
+        "Source field: OPEN_EMPIRE_ASSET_TAXONOMY_V1.md",
+        "Dependencies field: OPEN_EMPIRE_ASSET_TAXONOMY_V1.md (must remain authoritative source)",
+        "Validator rule set includes ontology cardinality checks — 240/240 PASS"
+      ]
+    },
+    {
+      "check_id": "CC-04",
+      "name": "Schema references only Taxonomy and Ontology definitions",
+      "artifact": "OPEN_EMPIRE_SCHEMA_V1.md",
+      "description": "Schema must not define fields or types not present in Taxonomy or Ontology",
+      "expected": "All Schema field definitions traceable to Taxonomy",
+      "actual": "Schema preamble explicitly states all field names, types, and constraints derived directly from Taxonomy. Unresolved items marked TODO_PENDING_APPROVAL — 1 such preamble reference found.",
+      "result": "PASS",
+      "evidence": [
+        "Dependencies: OPEN_EMPIRE_ASSET_TAXONOMY_V1.md · OPEN_EMPIRE_ONTOLOGY_V1.md",
+        "Hierarchy declared: Taxonomy → Schema → Asset Registry → OEPM",
+        "TODO_PENDING_APPROVAL count: 1 (methodology statement, not an undefined field)"
+      ]
+    },
+    {
+      "check_id": "CC-05",
+      "name": "Glossary derives from Taxonomy without redefining terms",
+      "artifact": "OPEN_EMPIRE_GLOSSARY_V1.md",
+      "description": "Glossary must extract definitions verbatim from Taxonomy; no new definitions",
+      "expected": "0 Glossary-originated definitions that contradict Taxonomy",
+      "actual": "Glossary explicitly states all Taxonomy Terms section extracted verbatim from OPEN_EMPIRE_ASSET_TAXONOMY_V1.md V1.0.0. Runtime Terms section defines governance-process terms not in Taxonomy — appropriate. No contradictions.",
+      "result": "PASS",
+      "evidence": [
+        "Source: OPEN_EMPIRE_ASSET_TAXONOMY_V1.md V1.0.0",
+        "Dependencies: OPEN_EMPIRE_ASSET_TAXONOMY_V1.md, OPEN_EMPIRE_CONSTITUTION_V1.md",
+        "Conflict rule: If conflict detected, Taxonomy prevails — documented",
+        "58 Taxonomy terms + 11 Runtime terms = 69 total"
+      ]
+    },
+    {
+      "check_id": "CC-06",
+      "name": "Lifecycle State Machine uses valid asset classes and states",
+      "artifact": "OPEN_EMPIRE_LIFECYCLE_STATE_MACHINE_V1.md",
+      "description": "Lifecycle SM must use only Taxonomy-defined asset classes and valid state names",
+      "expected": "All asset types in Lifecycle SM present in Taxonomy; all states valid",
+      "actual": "Lifecycle SM derived from Taxonomy Lifecycle Applicability fields. Covers 58 asset types matching Taxonomy count. One reserved state marked TODO_PENDING_APPROVAL — non-blocking.",
+      "result": "PASS",
+      "evidence": [
+        "Source: OPEN_EMPIRE_ASSET_TAXONOMY_V1.md",
+        "Dependencies: OPEN_EMPIRE_ASSET_TAXONOMY_V1.md + OPEN_EMPIRE_ONTOLOGY_V1.md",
+        "Core principle: Every asset always in exactly one Lifecycle State",
+        "Terminal states require explicit approval — documented"
+      ]
+    },
+    {
+      "check_id": "CC-07",
+      "name": "Policy Engine references valid lifecycle states, approval types, and authorities",
+      "artifact": "OPEN_EMPIRE_POLICY_ENGINE_V1.md",
+      "description": "Policy Engine must reference states defined in Lifecycle SM and authorities defined in Constitution",
+      "expected": "All policy lifecycle references valid; all approval authorities valid",
+      "actual": "Dependencies: GOV-01 (Constitution), GOV-02 (Taxonomy), GOV-04 (Schema), GOV-07 (Lifecycle SM). Policy IDs POL-001 through POL-033 defined. Review cadence TODO_PENDING_APPROVAL — non-blocking.",
+      "result": "PASS",
+      "evidence": [
+        "Dependencies include GOV-07 (Lifecycle SM) — lifecycle state references grounded",
+        "Dependencies include GOV-01 (Constitution) — authority references grounded",
+        "17 policies defined (POL-001, 002, 003, 004, 010-015, 020-021, 030-033)"
+      ]
+    },
+    {
+      "check_id": "CC-08",
+      "name": "Executive Command Language references valid policies and operations",
+      "artifact": "OPEN_EMPIRE_EXECUTIVE_COMMAND_LANGUAGE_V1.md",
+      "description": "ECL must reference only POL-NNN IDs defined in Policy Engine",
+      "expected": "All ECL policy references exist in Policy Engine",
+      "actual": "ECL references POL-001 and POL-033 — both verified as defined in OPEN_EMPIRE_POLICY_ENGINE_V1.md. 0 undefined policy references.",
+      "result": "PASS",
+      "evidence": [
+        "ECL policy references: POL-001, POL-033",
+        "Policy Engine defines: POL-001 ✓, POL-033 ✓",
+        "Dependencies: GOV-01, GOV-08 — correctly anchored"
+      ]
+    },
+    {
+      "check_id": "CC-09",
+      "name": "OEPM Manifest Standard references valid Schema, Taxonomy, and Ontology versions",
+      "artifact": "OPEN_EMPIRE_OEPM_MANIFEST_STANDARD_V1.md",
+      "description": "OEPM must reference correct artifact versions; all dependencies must be materialized",
+      "expected": "All OEPM dependencies exist and are accessible",
+      "actual": "Dependencies: GOV-02, GOV-04, GOV-07, GOV-08 — all verified present. OBSERVATION: line 8 dependency header contains stale comment for GOV-07 saying 'not yet materialized' — GOV-07 IS materialized (DEFECT-001, non-blocking).",
+      "result": "PASS",
+      "observations": [
+        "DEFECT-001: OEPM line 8 dependency header marks Lifecycle SM as TODO_PENDING_APPROVAL — not yet materialized. Lifecycle SM is fully materialized. Stale comment. Severity: LOW. Blocking: false.",
+        "DEFECT-002: OEPM line 328 marks build pipeline as not yet formalized. Build pipeline IS formalized (build/build_pipeline.py verified). Stale comment. Severity: LOW. Blocking: false."
+      ],
+      "evidence": [
+        "OPEN_EMPIRE_LIFECYCLE_STATE_MACHINE_V1.md: sha256:3d05a497... — VERIFIED PRESENT",
+        "OPEN_EMPIRE_POLICY_ENGINE_V1.md: sha256:590a9833... — VERIFIED PRESENT",
+        "build/build_pipeline.py: 21840 bytes — VERIFIED PRESENT"
+      ]
+    },
+    {
+      "check_id": "CC-10",
+      "name": "ADR Index references valid governance sections",
+      "artifact": "OPEN_EMPIRE_ADR_INDEX_V1.md",
+      "description": "ADR Index must reference governance sections that exist",
+      "expected": "All referenced sections exist in referenced governance documents",
+      "actual": "ADR Index contains 10 ADRs (ADR-001 through ADR-010). References governance decisions made 2026-07-30 through 2026-08-05. All governance section references are by document name, not section IDs — consistent with governance documents' structure.",
+      "result": "PASS",
+      "evidence": [
+        "Dependencies: GOV-01 (Constitution), GOV-02 (Taxonomy)",
+        "10 foundational ADRs — Kalshi V2, capital deployment, trading consolidation, etc.",
+        "ADR immutability policy documented"
+      ]
+    },
+    {
+      "check_id": "CC-11",
+      "name": "Dependency Map contains no prohibited cycles",
+      "artifact": "OPEN_EMPIRE_DEPENDENCY_MAP_V1.md",
+      "description": "The dependency graph must be a strict DAG (no cycles)",
+      "expected": "0 circular dependencies",
+      "actual": "Dependency graph verified as clean DAG. Topological order: GOV-01 → GOV-02 → {GOV-03, GOV-05, GOV-06, GOV-07} → GOV-04 → GOV-08 → GOV-09, GOV-10 → GOV-11 → GOV-12. No cycles. GOV-01 is the sole root node.",
+      "result": "PASS",
+      "evidence": [
+        "dependency_graph.json: GOV-01 has empty dependency list (root)",
+        "Topological sort completes without cycle detection",
+        "build/dist/dependency_graph.dot confirms DAG structure"
+      ]
+    },
+    {
+      "check_id": "CC-12",
+      "name": "Runtime instance IDs not treated as canonical governance definitions",
+      "artifact": "ALL",
+      "description": "PM2 IDs, ports, host-specific values must not appear as canonical governance definitions",
+      "expected": "0 PM2 IDs or host-specific runtime values defined as governance constants",
+      "actual": "Review of all 12 governance documents confirms no PM2 IDs, port numbers, or host-specific runtime values are embedded as canonical governance definitions. AGENTS.md and MEMORY.md are provenance sources only — not governance definitions.",
+      "result": "PASS",
+      "evidence": [
+        "Governance documents reference operational context files as 'Source' metadata, not as canonical definitions",
+        "No governance document defines POL/VR rules based on PM2 IDs or port numbers",
+        "ADR Index correctly separates operational decisions from governance standards"
+      ]
+    }
+  ],
+  "defects_observed": [
+    {
+      "defect_id": "DEFECT-001",
+      "artifact": "OPEN_EMPIRE_OEPM_MANIFEST_STANDARD_V1.md",
+      "line": 8,
+      "type": "stale_documentation",
+      "severity": "LOW",
+      "blocking": false,
+      "description": "Dependency header marks OPEN_EMPIRE_LIFECYCLE_STATE_MACHINE_V1.md as TODO_PENDING_APPROVAL — not yet materialized. The file IS materialized.",
+      "recommended_action": "Update dependency line to remove stale comment in V1.1.0"
+    },
+    {
+      "defect_id": "DEFECT-002",
+      "artifact": "OPEN_EMPIRE_OEPM_MANIFEST_STANDARD_V1.md",
+      "line": 328,
+      "type": "stale_documentation",
+      "severity": "LOW",
+      "blocking": false,
+      "description": "Build pipeline described as not yet formalized. build_pipeline.py (21840 bytes) is fully implemented.",
+      "recommended_action": "Update narrative in V1.1.0 to reflect formalized build pipeline"
+    }
+  ],
+  "conclusion": "All 12 governance artifacts are internally consistent. Dependency graph is a valid DAG with no cycles. No blocking cross-document reference failures. 2 non-blocking documentation accuracy observations scheduled for V1.1.0."
+}

@@ -1,0 +1,121 @@
+{
+  "schema": "open_empire.governance.build_report.v1",
+  "generated_at": "2026-08-06T11:40:00-05:00",
+  "generator": "Alusi Gate A Finalization Directive",
+  "generator_version": "1.0.0",
+  "build_pipeline_script": "/Users/NeoOC/.openclaw/workspace/governance/build/build_pipeline.py",
+  "build_pipeline_size_bytes": 21840,
+  "build_pipeline_version": "1.0.0",
+  "governance_dir": "/Users/NeoOC/.openclaw/workspace/governance",
+  "build_output_dir": "/Users/NeoOC/.openclaw/workspace/governance/build/dist",
+  "runs_dir": "/Users/NeoOC/.openclaw/workspace/governance/build/runs",
+  "runs": [
+    {
+      "run_number": 1,
+      "run_timestamp_utc": "2026-08-05T22:04:11Z",
+      "trigger": "Initial baseline build",
+      "result": "COMPLETE",
+      "validation_pass": true,
+      "rules_passed": 240
+    },
+    {
+      "run_number": 2,
+      "run_timestamp_utc": "2026-08-06T11:38:05Z",
+      "trigger": "Gate A Phase 3 validation re-run",
+      "result": "COMPLETE",
+      "validation_pass": true,
+      "rules_passed": 240
+    },
+    {
+      "run_number": 3,
+      "run_timestamp_utc": "2026-08-06T11:39:00Z",
+      "trigger": "Gate A Phase 5 determinism verification (Run 1)",
+      "result": "COMPLETE",
+      "validation_pass": true,
+      "rules_passed": 240
+    },
+    {
+      "run_number": 4,
+      "run_timestamp_utc": "2026-08-06T11:39:30Z",
+      "trigger": "Gate A Phase 5 determinism verification (Run 2)",
+      "result": "COMPLETE",
+      "validation_pass": true,
+      "rules_passed": 240
+    }
+  ],
+  "generated_artifacts": [
+    {
+      "artifact": "governance_manifest.json",
+      "path": "build/dist/governance_manifest.json",
+      "generated_from": "All 12 canonical governance Markdown files",
+      "generator": "build_pipeline.py",
+      "generator_version": "1.0.0",
+      "description": "Machine-readable index of all governance documents with metadata"
+    },
+    {
+      "artifact": "governance_manifest.yaml",
+      "path": "build/dist/governance_manifest.yaml",
+      "generated_from": "All 12 canonical governance Markdown files",
+      "generator": "build_pipeline.py",
+      "generator_version": "1.0.0",
+      "description": "YAML representation of governance manifest"
+    },
+    {
+      "artifact": "dependency_graph.json",
+      "path": "build/dist/dependency_graph.json",
+      "generated_from": "Dependency declarations in all 12 governance files",
+      "generator": "build_pipeline.py",
+      "generator_version": "1.0.0",
+      "description": "JSON adjacency list representing governance document DAG"
+    },
+    {
+      "artifact": "dependency_graph.dot",
+      "path": "build/dist/dependency_graph.dot",
+      "generated_from": "Dependency declarations in all 12 governance files",
+      "generator": "build_pipeline.py",
+      "generator_version": "1.0.0",
+      "description": "Graphviz DOT format dependency graph"
+    },
+    {
+      "artifact": "glossary.json",
+      "path": "build/dist/glossary.json",
+      "generated_from": "OPEN_EMPIRE_GLOSSARY_V1.md",
+      "generator": "build_pipeline.py",
+      "generator_version": "1.0.0",
+      "description": "Machine-readable glossary of canonical terms"
+    },
+    {
+      "artifact": "RELEASE_MANIFEST.md",
+      "path": "build/dist/RELEASE_MANIFEST.md",
+      "generated_from": "All 12 canonical governance files + validation run",
+      "generator": "build_pipeline.py",
+      "generator_version": "1.0.0",
+      "description": "Human-readable release manifest for Governance Baseline V1.0.0"
+    },
+    {
+      "artifact": "ROLLBACK_MANIFEST.md",
+      "path": "build/dist/ROLLBACK_MANIFEST.md",
+      "generated_from": "Canonical file checksums + governance policy",
+      "generator": "build_pipeline.py",
+      "generator_version": "1.0.0",
+      "description": "Rollback procedures for governance baseline"
+    },
+    {
+      "artifact": "SHA256SUMS",
+      "path": "build/dist/SHA256SUMS",
+      "generated_from": "All 12 canonical governance files",
+      "generator": "build_pipeline.py",
+      "generator_version": "1.0.0",
+      "description": "SHA-256 checksums of all canonical governance files"
+    }
+  ],
+  "definition_of_done": {
+    "canonical_markdown_exists_12_of_12": true,
+    "validation_passes_240_of_240": true,
+    "build_pipeline_reproduces_outputs": true,
+    "release_manifest_generated": true,
+    "sha256sums_verified": true,
+    "rollback_manifest_generated": true
+  },
+  "build_status": "COMPLETE_AND_VERIFIED"
+}

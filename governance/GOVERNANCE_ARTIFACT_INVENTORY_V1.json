@@ -1,0 +1,411 @@
+{
+  "schema": "open_empire.governance.artifact_inventory.v1",
+  "generated_at": "2026-08-06T11:38:00-05:00",
+  "generator": "Alusi Gate A Finalization Directive",
+  "generator_version": "1.0.0",
+  "governance_dir": "/Users/NeoOC/.openclaw/workspace/governance",
+  "total_artifacts": 12,
+  "integrity_decision": "ARTIFACT_INTEGRITY_VERIFIED",
+  "artifacts": [
+    {
+      "gov_id": "GOV-01",
+      "canonical_filename": "OPEN_EMPIRE_CONSTITUTION_V1.md",
+      "absolute_path": "/Users/NeoOC/.openclaw/workspace/governance/OPEN_EMPIRE_CONSTITUTION_V1.md",
+      "byte_size": 14131,
+      "line_count": 246,
+      "last_modified": "2026-08-05T15:39:42",
+      "sha256": "cac8674be27ffc29a729d9c367bd92952eda1cfc3dae93bf8b61a70e15eeda10",
+      "version": "1.0.0",
+      "status": "Draft — Pending Validation",
+      "required_headers": {
+        "version": true,
+        "status": true,
+        "owner": true,
+        "source": true,
+        "materialization_date": true,
+        "dependencies": true,
+        "revision_history": true
+      },
+      "all_required_headers_present": true,
+      "todo_pending_approval_count": 0,
+      "empty_or_placeholder_sections": [],
+      "duplicate_or_alternate_filenames": [],
+      "provenance_references": [
+        "~/.openclaw/workspace/CONSTITUTION.md (V1.2)",
+        "~/.openclaw/workspace/governance/OPEN_EMPIRE_ASSET_TAXONOMY_V1.md (V1.0.0)",
+        "~/.openclaw/workspace/AGENTS.md (V5.0)"
+      ]
+    },
+    {
+      "gov_id": "GOV-02",
+      "canonical_filename": "OPEN_EMPIRE_ASSET_TAXONOMY_V1.md",
+      "absolute_path": "/Users/NeoOC/.openclaw/workspace/governance/OPEN_EMPIRE_ASSET_TAXONOMY_V1.md",
+      "byte_size": 118363,
+      "line_count": 1315,
+      "last_modified": "2026-08-05T17:02:20",
+      "sha256": "6f6dce10d95d3e025db63a6a5ae6fdb616672645521c64e8b80efefe44bdc737",
+      "version": "1.0.0",
+      "status": "Active — Versioned Standard",
+      "required_headers": {
+        "version": true,
+        "status": true,
+        "owner": true,
+        "source": true,
+        "materialization_date": true,
+        "dependencies": true,
+        "revision_history": true
+      },
+      "all_required_headers_present": true,
+      "todo_pending_approval_count": 0,
+      "empty_or_placeholder_sections": [],
+      "duplicate_or_alternate_filenames": [],
+      "provenance_references": [
+        "~/.openempire/ (sovereign doctrine)",
+        "SOUL.md",
+        "MEMORY.md"
+      ],
+      "notes": "Root governance artifact. Only document with status Active — Versioned Standard at V1.0.0 baseline."
+    },
+    {
+      "gov_id": "GOV-03",
+      "canonical_filename": "OPEN_EMPIRE_ONTOLOGY_V1.md",
+      "absolute_path": "/Users/NeoOC/.openclaw/workspace/governance/OPEN_EMPIRE_ONTOLOGY_V1.md",
+      "byte_size": 61663,
+      "line_count": 1259,
+      "last_modified": "2026-08-05T15:45:43",
+      "sha256": "9287001d5bba5e93d4090c076dfcfe4efb8e0b74efe77881179ebb5fc4bd335e",
+      "version": "1.0.0",
+      "status": "Draft — Pending Validation",
+      "required_headers": {
+        "version": true,
+        "status": true,
+        "owner": true,
+        "source": true,
+        "materialization_date": true,
+        "dependencies": true,
+        "revision_history": true
+      },
+      "all_required_headers_present": true,
+      "todo_pending_approval_count": 0,
+      "empty_or_placeholder_sections": [],
+      "duplicate_or_alternate_filenames": [],
+      "provenance_references": [
+        "OPEN_EMPIRE_ASSET_TAXONOMY_V1.md"
+      ]
+    },
+    {
+      "gov_id": "GOV-04",
+      "canonical_filename": "OPEN_EMPIRE_SCHEMA_V1.md",
+      "absolute_path": "/Users/NeoOC/.openclaw/workspace/governance/OPEN_EMPIRE_SCHEMA_V1.md",
+      "byte_size": 57278,
+      "line_count": 1265,
+      "last_modified": "2026-08-05T16:38:10",
+      "sha256": "0b2ebf932113ad707f15c63cbd7096da5240dff02ed6f6e3cae741892f955ea6",
+      "version": "1.0.0",
+      "status": "Draft — Pending Validation",
+      "required_headers": {
+        "version": true,
+        "status": true,
+        "owner": true,
+        "source": true,
+        "materialization_date": true,
+        "dependencies": true,
+        "revision_history": true
+      },
+      "all_required_headers_present": true,
+      "todo_pending_approval_count": 1,
+      "todo_details": [
+        {"line": 19, "context": "preamble meta-statement about methodology: unresolved items are marked TODO_PENDING_APPROVAL", "blocking": false}
+      ],
+      "empty_or_placeholder_sections": [],
+      "duplicate_or_alternate_filenames": [],
+      "provenance_references": [
+        "OPEN_EMPIRE_ASSET_TAXONOMY_V1.md",
+        "OPEN_EMPIRE_ONTOLOGY_V1.md"
+      ]
+    },
+    {
+      "gov_id": "GOV-05",
+      "canonical_filename": "OPEN_EMPIRE_GLOSSARY_V1.md",
+      "absolute_path": "/Users/NeoOC/.openclaw/workspace/governance/OPEN_EMPIRE_GLOSSARY_V1.md",
+      "byte_size": 26071,
+      "line_count": 527,
+      "last_modified": "2026-08-05T15:41:54",
+      "sha256": "7a1b76673548b9857c848356fda3dbbb0e076e957b9b91176aa45fd490141695",
+      "version": "1.0.0",
+      "status": "Draft — Pending Validation",
+      "required_headers": {
+        "version": true,
+        "status": true,
+        "owner": true,
+        "source": true,
+        "materialization_date": true,
+        "dependencies": true,
+        "revision_history": true
+      },
+      "all_required_headers_present": true,
+      "todo_pending_approval_count": 2,
+      "todo_details": [
+        {"line": 498, "context": "Section heading TODO_PENDING_APPROVAL — legitimate pending term definition", "blocking": false},
+        {"line": 520, "context": "Runtime Terms table includes TODO_PENDING_APPROVAL as a defined term (correct)", "blocking": false}
+      ],
+      "empty_or_placeholder_sections": [],
+      "duplicate_or_alternate_filenames": [],
+      "provenance_references": [
+        "OPEN_EMPIRE_ASSET_TAXONOMY_V1.md V1.0.0",
+        "OPEN_EMPIRE_CONSTITUTION_V1.md"
+      ],
+      "notes": "58 Taxonomy terms + 11 Runtime terms = 69 total entries"
+    },
+    {
+      "gov_id": "GOV-06",
+      "canonical_filename": "OPEN_EMPIRE_ADR_INDEX_V1.md",
+      "absolute_path": "/Users/NeoOC/.openclaw/workspace/governance/OPEN_EMPIRE_ADR_INDEX_V1.md",
+      "byte_size": 23525,
+      "line_count": 425,
+      "last_modified": "2026-08-05T15:43:58",
+      "sha256": "12f2e28812a6786a6c47b4238b531df798909fc505a61028812842ccda2e0351",
+      "version": "1.0.0",
+      "status": "Draft — Pending Validation",
+      "required_headers": {
+        "version": true,
+        "status": true,
+        "owner": true,
+        "source": true,
+        "materialization_date": true,
+        "dependencies": true,
+        "revision_history": true
+      },
+      "all_required_headers_present": true,
+      "todo_pending_approval_count": 1,
+      "todo_details": [
+        {"line": 371, "context": "Acknowledges governance gaps scheduled for V1.1.0 via TODO_PENDING_APPROVAL marker — legitimate", "blocking": false}
+      ],
+      "empty_or_placeholder_sections": [],
+      "duplicate_or_alternate_filenames": [],
+      "provenance_references": [
+        "AGENTS.md V5.0",
+        "CONSTITUTION.md V1.2",
+        "OPEN_EMPIRE_ASSET_TAXONOMY_V1.md V1.0.0",
+        "project history 2026-07-30 through 2026-08-05"
+      ],
+      "notes": "Contains 10 foundational ADRs (ADR-001 through ADR-010)"
+    },
+    {
+      "gov_id": "GOV-07",
+      "canonical_filename": "OPEN_EMPIRE_LIFECYCLE_STATE_MACHINE_V1.md",
+      "absolute_path": "/Users/NeoOC/.openclaw/workspace/governance/OPEN_EMPIRE_LIFECYCLE_STATE_MACHINE_V1.md",
+      "byte_size": 89084,
+      "line_count": 1632,
+      "last_modified": "2026-08-05T15:52:10",
+      "sha256": "3d05a4973aecbe53a4486e70a066eebfd3936c781bd1402a41750aa7babbf7ac",
+      "version": "1.0.0",
+      "status": "Draft — Pending Validation",
+      "required_headers": {
+        "version": true,
+        "status": true,
+        "owner": true,
+        "source": true,
+        "materialization_date": true,
+        "dependencies": true,
+        "revision_history": true
+      },
+      "all_required_headers_present": true,
+      "todo_pending_approval_count": 1,
+      "todo_details": [
+        {"line": 275, "context": "Reserved state definition — not yet explicitly listed in any Taxonomy Lifecycle Applicability field", "blocking": false}
+      ],
+      "empty_or_placeholder_sections": [],
+      "duplicate_or_alternate_filenames": [],
+      "provenance_references": [
+        "OPEN_EMPIRE_ASSET_TAXONOMY_V1.md",
+        "OPEN_EMPIRE_ONTOLOGY_V1.md"
+      ],
+      "notes": "58 asset types covered. Largest governance document at 89KB/1632 lines."
+    },
+    {
+      "gov_id": "GOV-08",
+      "canonical_filename": "OPEN_EMPIRE_POLICY_ENGINE_V1.md",
+      "absolute_path": "/Users/NeoOC/.openclaw/workspace/governance/OPEN_EMPIRE_POLICY_ENGINE_V1.md",
+      "byte_size": 20319,
+      "line_count": 370,
+      "last_modified": "2026-08-05T15:39:53",
+      "sha256": "590a9833aef474066e89083a255ac495b044c3c5e01da8db9fef7cebf51effa4",
+      "version": "1.0.0",
+      "status": "Draft — Pending Validation",
+      "required_headers": {
+        "version": true,
+        "status": true,
+        "owner": true,
+        "source": true,
+        "materialization_date": true,
+        "dependencies": true,
+        "revision_history": true
+      },
+      "all_required_headers_present": true,
+      "todo_pending_approval_count": 1,
+      "todo_details": [
+        {"line": 342, "context": "Review cadence pending Nathan approval — legitimate", "blocking": false}
+      ],
+      "empty_or_placeholder_sections": [],
+      "duplicate_or_alternate_filenames": [],
+      "provenance_references": [
+        "~/.openclaw/workspace/CONSTITUTION.md",
+        "OPEN_EMPIRE_ASSET_TAXONOMY_V1.md",
+        "AGENTS.md operational context"
+      ],
+      "notes": "Defines POL-001 through POL-033 (17 policies). Dependencies: GOV-01, GOV-02, GOV-04, GOV-07."
+    },
+    {
+      "gov_id": "GOV-09",
+      "canonical_filename": "OPEN_EMPIRE_EXECUTIVE_COMMAND_LANGUAGE_V1.md",
+      "absolute_path": "/Users/NeoOC/.openclaw/workspace/governance/OPEN_EMPIRE_EXECUTIVE_COMMAND_LANGUAGE_V1.md",
+      "byte_size": 16527,
+      "line_count": 405,
+      "last_modified": "2026-08-05T15:41:19",
+      "sha256": "6d94a335fc3a3f77339497262720ed3eabac5c08ea4cacb6e2d1448748b1c40b",
+      "version": "1.0.0",
+      "status": "Draft — Pending Validation",
+      "required_headers": {
+        "version": true,
+        "status": true,
+        "owner": true,
+        "source": true,
+        "materialization_date": true,
+        "dependencies": true,
+        "revision_history": true
+      },
+      "all_required_headers_present": true,
+      "todo_pending_approval_count": 0,
+      "empty_or_placeholder_sections": [],
+      "duplicate_or_alternate_filenames": [],
+      "provenance_references": [
+        "~/.openclaw/workspace/CONSTITUTION.md",
+        "SOUL.md (archived, source for shorthand interpretation)",
+        "Open Empire operational history 2026-07 through 2026-08"
+      ],
+      "notes": "References POL-001 and POL-033. Dependencies: GOV-01, GOV-08."
+    },
+    {
+      "gov_id": "GOV-10",
+      "canonical_filename": "OPEN_EMPIRE_OEPM_MANIFEST_STANDARD_V1.md",
+      "absolute_path": "/Users/NeoOC/.openclaw/workspace/governance/OPEN_EMPIRE_OEPM_MANIFEST_STANDARD_V1.md",
+      "byte_size": 24186,
+      "line_count": 639,
+      "last_modified": "2026-08-05T15:43:10",
+      "sha256": "7a39cbb2c20c4413bc5b54b3dddb162bb8fc62a097ca2bc47bce7c7d2857774b",
+      "version": "1.0.0",
+      "status": "Draft — Pending Validation",
+      "required_headers": {
+        "version": true,
+        "status": true,
+        "owner": true,
+        "source": true,
+        "materialization_date": true,
+        "dependencies": true,
+        "revision_history": true
+      },
+      "all_required_headers_present": true,
+      "todo_pending_approval_count": 13,
+      "todo_details": [
+        {"line": 8, "context": "Dependency header stale: LIFECYCLE_STATE_MACHINE marked (TODO_PENDING_APPROVAL — not yet materialized) but IS materialized", "blocking": false, "defect_id": "DEFECT-001"},
+        {"line": 303, "context": "Automated registry sync schedule — legitimate pending item", "blocking": false},
+        {"line": 328, "context": "Build pipeline described as not yet formalized — stale, pipeline IS formalized", "blocking": false, "defect_id": "DEFECT-002"},
+        {"line": 375, "context": "portfolio_id placeholder in example manifest — legitimate", "blocking": false},
+        {"line": 376, "context": "program_id placeholder in example manifest — legitimate", "blocking": false},
+        {"line": 377, "context": "venture_id placeholder in example manifest — legitimate", "blocking": false},
+        {"line": 378, "context": "project_id placeholder in example manifest — legitimate", "blocking": false},
+        {"line": 484, "context": "portfolio_id placeholder in second example — legitimate", "blocking": false},
+        {"line": 485, "context": "program_id placeholder in second example — legitimate", "blocking": false},
+        {"line": 487, "context": "project_id placeholder in second example — legitimate", "blocking": false},
+        {"line": 545, "context": "portfolio_id placeholder in third example — legitimate", "blocking": false},
+        {"line": 548, "context": "project_id placeholder in third example — legitimate", "blocking": false},
+        {"line": 628, "context": "Validation rule for portfolio_placement references — legitimate", "blocking": false}
+      ],
+      "empty_or_placeholder_sections": [],
+      "duplicate_or_alternate_filenames": [],
+      "provenance_references": [
+        "OPEN_EMPIRE_ASSET_TAXONOMY_V1.md",
+        "AGENTS.MD operational context",
+        "OPEN_EMPIRE_POLICY_ENGINE_V1.md"
+      ],
+      "notes": "Highest TODO count (13). Dependencies: GOV-02, GOV-04, GOV-07, GOV-08. 2 stale TODOs (DEFECT-001, DEFECT-002) — non-blocking."
+    },
+    {
+      "gov_id": "GOV-11",
+      "canonical_filename": "OPEN_EMPIRE_DEPENDENCY_MAP_V1.md",
+      "absolute_path": "/Users/NeoOC/.openclaw/workspace/governance/OPEN_EMPIRE_DEPENDENCY_MAP_V1.md",
+      "byte_size": 12894,
+      "line_count": 215,
+      "last_modified": "2026-08-05T16:39:16",
+      "sha256": "baa712fc11b198377e5b805ffe9bcdc76c1712b3d8657ec7966170784be2c7b9",
+      "version": "1.0.0",
+      "status": "Draft — Pending Validation",
+      "required_headers": {
+        "version": true,
+        "status": true,
+        "owner": true,
+        "source": true,
+        "materialization_date": true,
+        "dependencies": true,
+        "revision_history": true
+      },
+      "all_required_headers_present": true,
+      "todo_pending_approval_count": 1,
+      "todo_details": [
+        {"line": null, "context": "Minor unresolved item in dependency narrative — non-blocking", "blocking": false}
+      ],
+      "empty_or_placeholder_sections": [],
+      "duplicate_or_alternate_filenames": [],
+      "provenance_references": [
+        "All 12 canonical governance documents"
+      ],
+      "notes": "Derived artifact. Depends on all other 11 documents. Contains GOV-01 through GOV-12 registry and dependency matrix."
+    },
+    {
+      "gov_id": "GOV-12",
+      "canonical_filename": "OPEN_EMPIRE_VALIDATION_SUITE_V1.md",
+      "absolute_path": "/Users/NeoOC/.openclaw/workspace/governance/OPEN_EMPIRE_VALIDATION_SUITE_V1.md",
+      "byte_size": 12725,
+      "line_count": 310,
+      "last_modified": "2026-08-05T16:40:20",
+      "sha256": "bd5c580195cf4160fd0e7df7d0a7bb7e2187f588e2f911e02a1da07da3082dbc",
+      "version": "1.0.0",
+      "status": "Draft — Pending Validation",
+      "required_headers": {
+        "version": true,
+        "status": true,
+        "owner": true,
+        "source": true,
+        "materialization_date": true,
+        "dependencies": true,
+        "revision_history": true
+      },
+      "all_required_headers_present": true,
+      "todo_pending_approval_count": 2,
+      "todo_details": [
+        {"line": 119, "context": "VR-G005 rule: must define TODO_PENDING_APPROVAL — this IS a rule description, not a pending item", "blocking": false},
+        {"line": 261, "context": "Acceptance criterion referencing TODO_PENDING_APPROVAL marker methodology — correct usage", "blocking": false}
+      ],
+      "empty_or_placeholder_sections": [],
+      "duplicate_or_alternate_filenames": [],
+      "provenance_references": [
+        "All 12 canonical governance documents"
+      ],
+      "notes": "Contains 76 VR-NNN rules. Canonical validation script: build/validate.py. Depends on all 11 other documents."
+    }
+  ],
+  "summary": {
+    "total_bytes": 476766,
+    "total_lines": 8923,
+    "total_todo_pending_approval": 22,
+    "blocking_todos": 0,
+    "non_blocking_todos": 22,
+    "stale_todos_defects": 2,
+    "all_headers_present": true,
+    "duplicate_filenames_found": false,
+    "all_versions_1_0_0": true,
+    "sha256sums_txt_verified": true,
+    "build_artifacts_in_sha256sums": 4
+  }
+}

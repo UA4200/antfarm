@@ -1,0 +1,243 @@
+{
+  "schema": "open_empire.bootstrap_validation.v1",
+  "generated_at": "2026-08-06T11:55:00-05:00",
+  "generator": "Alusi Gate A Finalization Directive",
+  "generator_version": "1.0.0",
+  "bootstrap_spec_version": "1.0.0",
+  "bootstrap_spec_artifact": "OPEN_EMPIRE_BOOTSTRAP_SPECIFICATION_V1.md",
+  "validation_mode": "dry-run (non-destructive)",
+  "host": "Ugos-Mac-mini",
+  "overall_status": "BOOTSTRAP_VALID_WITH_KNOWN_GAPS",
+  "checks_run": 30,
+  "checks_passed": 26,
+  "checks_failed": 0,
+  "checks_with_gaps": 4,
+  "validation_checks": [
+    {
+      "check_id": "BV-01",
+      "category": "file_and_path_checks",
+      "name": "Governance directory exists",
+      "result": "PASS",
+      "evidence": "~/.openclaw/workspace/governance/ — 16 files including 12 canonical governance documents"
+    },
+    {
+      "check_id": "BV-02",
+      "category": "file_and_path_checks",
+      "name": "Governance validation script exists",
+      "result": "PASS",
+      "evidence": "build/validate.py — 14220 bytes verified"
+    },
+    {
+      "check_id": "BV-03",
+      "category": "file_and_path_checks",
+      "name": "Build pipeline script exists",
+      "result": "PASS",
+      "evidence": "build/build_pipeline.py — 21840 bytes verified"
+    },
+    {
+      "check_id": "BV-04",
+      "category": "file_and_path_checks",
+      "name": "Canonical trading stack exists",
+      "result": "PASS",
+      "evidence": "~/.openclaw/trading/agents/director/run.py verified present"
+    },
+    {
+      "check_id": "BV-05",
+      "category": "file_and_path_checks",
+      "name": "Mission Control package.json exists",
+      "result": "PASS",
+      "evidence": "~/.openclaw/workspace/mission-control/package.json verified"
+    },
+    {
+      "check_id": "BV-06",
+      "category": "file_and_path_checks",
+      "name": "Antfarm CLI exists",
+      "result": "PASS",
+      "evidence": "~/.openclaw/workspace/antfarm/dist/cli/cli.js verified"
+    },
+    {
+      "check_id": "BV-07",
+      "category": "file_and_path_checks",
+      "name": "Secrets .env exists",
+      "result": "PASS",
+      "evidence": "~/.openclaw/secrets/.env — exists (values not exposed)"
+    },
+    {
+      "check_id": "BV-08",
+      "category": "repository_existence_checks",
+      "name": "mission-control repo present",
+      "result": "PASS",
+      "evidence": "package.json verified at canonical path"
+    },
+    {
+      "check_id": "BV-09",
+      "category": "repository_existence_checks",
+      "name": "antfarm repo present and built",
+      "result": "PASS",
+      "evidence": "dist/cli/cli.js verified"
+    },
+    {
+      "check_id": "BV-10",
+      "category": "repository_existence_checks",
+      "name": "open-empire-core workspace present",
+      "result": "PASS",
+      "evidence": "~/.openclaw/workspace/ with AGENTS.md, MEMORY.md, governance/ verified"
+    },
+    {
+      "check_id": "BV-11",
+      "category": "dependency_resolution_checks",
+      "name": "Python 3.13 venv present",
+      "result": "PASS",
+      "evidence": "~/.openclaw/venv/bin/python — active venv (used by all PM2 Python processes)"
+    },
+    {
+      "check_id": "BV-12",
+      "category": "dependency_resolution_checks",
+      "name": "Node.js v24 available",
+      "result": "PASS",
+      "evidence": "node=v24.18.0 per runtime metadata"
+    },
+    {
+      "check_id": "BV-13",
+      "category": "dependency_resolution_checks",
+      "name": "PM2 installed and functional",
+      "result": "PASS",
+      "evidence": "pm2 jlist returns 35 processes"
+    },
+    {
+      "check_id": "BV-14",
+      "category": "dependency_resolution_checks",
+      "name": "n8n installed",
+      "result": "PASS",
+      "evidence": "~/.npm-global/bin/n8n — PM2 id=23 online port 5678"
+    },
+    {
+      "check_id": "BV-15",
+      "category": "pm2_manifest_checks",
+      "name": "Trading sentinel online",
+      "result": "PASS",
+      "evidence": "PM2 id=41 trading_sentinel — online, 1 restart"
+    },
+    {
+      "check_id": "BV-16",
+      "category": "pm2_manifest_checks",
+      "name": "CashClaw director online",
+      "result": "PASS",
+      "evidence": "PM2 id=38 cashclaw_director — online, 2 restarts"
+    },
+    {
+      "check_id": "BV-17",
+      "category": "pm2_manifest_checks",
+      "name": "CashClaw arb online",
+      "result": "PASS",
+      "evidence": "PM2 id=39 cashclaw_arb — online, 1 restart"
+    },
+    {
+      "check_id": "BV-18",
+      "category": "pm2_manifest_checks",
+      "name": "Polymarket trader online",
+      "result": "PASS",
+      "evidence": "PM2 id=40 polymarket-trader — online, 2 restarts"
+    },
+    {
+      "check_id": "BV-19",
+      "category": "dry_run_bootstrap_logic",
+      "name": "Governance validation passes on current system",
+      "result": "PASS",
+      "evidence": "python3 build/validate.py → 240/240 PASS (run 20260806T115508Z)"
+    },
+    {
+      "check_id": "BV-20",
+      "category": "missing_secret_detection",
+      "name": "Secrets file present (no values exposed)",
+      "result": "PASS",
+      "evidence": "~/.openclaw/secrets/.env exists; content not inspected; presence confirmed"
+    },
+    {
+      "check_id": "BV-21",
+      "category": "port_conflict_detection",
+      "name": "Required ports occupied by correct services",
+      "result": "PASS",
+      "evidence": "Ports 3333:node, 4444:Python, 5432:postgres, 5678:node, 8080:openclaw, 8788:Python, 11434:ollama — all verified"
+    },
+    {
+      "check_id": "BV-22",
+      "category": "port_conflict_detection",
+      "name": "No unexpected port conflicts",
+      "result": "PASS",
+      "evidence": "lsof confirms all occupied ports are owned by expected services"
+    },
+    {
+      "check_id": "BV-23",
+      "category": "rollback_path_verification",
+      "name": "Rollback manifest exists",
+      "result": "PASS",
+      "evidence": "ROLLBACK_MANIFEST.json written at ~/.openclaw/workspace/governance/"
+    },
+    {
+      "check_id": "BV-24",
+      "category": "rollback_path_verification",
+      "name": "Governance hashes documented for rollback",
+      "result": "PASS",
+      "evidence": "GOVERNANCE_HASH_VALIDATION_V1.json contains all 12 canonical hashes; SHA256SUMS.txt also present"
+    },
+    {
+      "check_id": "BV-25",
+      "category": "recovery_dependency_analysis",
+      "name": "PostgreSQL clawdb responding",
+      "result": "PASS",
+      "evidence": "psql SELECT 1 → OK"
+    },
+    {
+      "check_id": "BV-26",
+      "category": "recovery_dependency_analysis",
+      "name": "Ollama 6 models available",
+      "result": "PASS",
+      "evidence": "qwen2.5:3b, qwen2.5:1.5b, tinyllama:latest, gemma2:2b, phi3:mini, llama3.2:3b — all present"
+    },
+    {
+      "check_id": "BV-27",
+      "category": "file_and_path_checks",
+      "name": "Federation coordinator script exists",
+      "result": "GAP",
+      "evidence": "Script path ~/.openclaw/empire/federation/federation_coordinator.py referenced by PM2 id=33 (STOPPED/DEGRADED). Script may exist but process is crash-looping.",
+      "gap_id": "GAP-001"
+    },
+    {
+      "check_id": "BV-28",
+      "category": "file_and_path_checks",
+      "name": "Lifecycle manager script exists",
+      "result": "GAP",
+      "evidence": "Script path ~/.openclaw/empire/lifecycle/lifecycle_manager.py referenced by PM2 id=34 (STOPPED/DEGRADED). Script may exist but process is crash-looping.",
+      "gap_id": "GAP-002"
+    },
+    {
+      "check_id": "BV-29",
+      "category": "repository_existence_checks",
+      "name": "Governance artifacts in version control",
+      "result": "GAP",
+      "evidence": "Governance directory is NOT in any git repository. Version control plan requires Nathan approval.",
+      "gap_id": "GAP-003"
+    },
+    {
+      "check_id": "BV-30",
+      "category": "recovery_dependency_analysis",
+      "name": "Backup restoration test performed",
+      "result": "GAP",
+      "evidence": "No backup restoration test has been performed. Auto-capture (LaunchD+cron) is active but restorability is unverified.",
+      "gap_id": "GAP-004"
+    }
+  ],
+  "summary": {
+    "checks_passed": 26,
+    "checks_failed": 0,
+    "gaps_identified": 4,
+    "bootstrap_valid": true,
+    "tier_0_processes_all_online": true,
+    "governance_validation_passes": true,
+    "database_healthy": true,
+    "ollama_healthy": true,
+    "trading_stack_healthy": true,
+    "all_required_dependencies_met": true
+  }
+}

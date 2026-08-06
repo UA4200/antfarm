@@ -1,0 +1,69 @@
+{
+  "schema": "open_empire.governance.rollback_manifest.v1",
+  "generated_at": "2026-08-06T11:39:30-05:00",
+  "generator": "Alusi Gate A Finalization Directive",
+  "baseline_version": "OPEN_EMPIRE_GOVERNANCE_BASELINE_V1.0.0",
+  "rollback_target": "PHASE_0_MATERIALIZED (pre-Gate-A state)",
+  "rollback_required": false,
+  "reason": "No canonical governance files were modified during Gate A. Rollback restores to pre-Gate-A state which is identical to current state for canonical files.",
+  "canonical_file_checksums": {
+    "OPEN_EMPIRE_CONSTITUTION_V1.md": "cac8674be27ffc29a729d9c367bd92952eda1cfc3dae93bf8b61a70e15eeda10",
+    "OPEN_EMPIRE_ASSET_TAXONOMY_V1.md": "6f6dce10d95d3e025db63a6a5ae6fdb616672645521c64e8b80efefe44bdc737",
+    "OPEN_EMPIRE_ONTOLOGY_V1.md": "9287001d5bba5e93d4090c076dfcfe4efb8e0b74efe77881179ebb5fc4bd335e",
+    "OPEN_EMPIRE_SCHEMA_V1.md": "0b2ebf932113ad707f15c63cbd7096da5240dff02ed6f6e3cae741892f955ea6",
+    "OPEN_EMPIRE_GLOSSARY_V1.md": "7a1b76673548b9857c848356fda3dbbb0e076e957b9b91176aa45fd490141695",
+    "OPEN_EMPIRE_ADR_INDEX_V1.md": "12f2e28812a6786a6c47b4238b531df798909fc505a61028812842ccda2e0351",
+    "OPEN_EMPIRE_LIFECYCLE_STATE_MACHINE_V1.md": "3d05a4973aecbe53a4486e70a066eebfd3936c781bd1402a41750aa7babbf7ac",
+    "OPEN_EMPIRE_POLICY_ENGINE_V1.md": "590a9833aef474066e89083a255ac495b044c3c5e01da8db9fef7cebf51effa4",
+    "OPEN_EMPIRE_EXECUTIVE_COMMAND_LANGUAGE_V1.md": "6d94a335fc3a3f77339497262720ed3eabac5c08ea4cacb6e2d1448748b1c40b",
+    "OPEN_EMPIRE_OEPM_MANIFEST_STANDARD_V1.md": "7a39cbb2c20c4413bc5b54b3dddb162bb8fc62a097ca2bc47bce7c7d2857774b",
+    "OPEN_EMPIRE_DEPENDENCY_MAP_V1.md": "baa712fc11b198377e5b805ffe9bcdc76c1712b3d8657ec7966170784be2c7b9",
+    "OPEN_EMPIRE_VALIDATION_SUITE_V1.md": "bd5c580195cf4160fd0e7df7d0a7bb7e2187f588e2f911e02a1da07da3082dbc"
+  },
+  "rollback_procedure": {
+    "trigger_condition": "Any canonical governance file hash diverges from checksums above",
+    "steps": [
+      "1. Stop all processes that consume governance files (governance readers only — do NOT stop CashClaw or trading processes)",
+      "2. Locate source backup: SHA256SUMS.txt and git history (once versioned) or last known good snapshot",
+      "3. For each diverged file: copy backup file to canonical location",
+      "4. Verify sha256: shasum -a 256 <filename> matches canonical checksum above",
+      "5. Re-run: cd ~/.openclaw/workspace/governance && python3 build/validate.py",
+      "6. Confirm 240/240 PASS before resuming governance-dependent operations",
+      "7. Log rollback event with actor, timestamp, reason, and validation confirmation"
+    ],
+    "never_rollback": [
+      "CashClaw director (PM2 id=38)",
+      "CashClaw arb (PM2 id=39)",
+      "Polymarket trader (PM2 id=40)",
+      "Trading sentinel (PM2 id=41)",
+      "Kalshi or Polymarket API credentials",
+      "PostgreSQL data"
+    ],
+    "approval_required": true,
+    "approval_authority": "Nathan (Sovereign Operator)"
+  },
+  "gate_a_generated_artifacts": [
+    "GOVERNANCE_ARTIFACT_INVENTORY_V1.json",
+    "GOVERNANCE_HASH_VALIDATION_V1.json",
+    "OPEN_EMPIRE_GOVERNANCE_INTERNAL_CONSISTENCY_REPORT_V1.json",
+    "GOVERNANCE_VALIDATION_RESULTS_V2.json",
+    "GATE_A_DEFECT_REGISTER.json",
+    "GATE_A_REMEDIATION_PLAN.md",
+    "GOVERNANCE_CORRECTION_DIFF.md",
+    "GOVERNANCE_BASELINE_CHANGELOG.md",
+    "ROLLBACK_MANIFEST.json",
+    "GOVERNANCE_BUILD_REPORT_V1.json",
+    "GOVERNANCE_DETERMINISM_REPORT_V1.json",
+    "OPEN_EMPIRE_PM2_TOPOLOGY_V1.json",
+    "OPEN_EMPIRE_PM2_CLASSIFICATION_REPORT.md",
+    "OPEN_EMPIRE_PM2_REPAIR_QUEUE.json",
+    "GOVERNANCE_GIT_STATUS_REPORT.json",
+    "GOVERNANCE_VERSION_CONTROL_PLAN.md",
+    "OPEN_EMPIRE_MASTER_REGISTRY_INDEX_V1.md",
+    "OPEN_EMPIRE_BOOTSTRAP_SPECIFICATION_V1.md",
+    "OPEN_EMPIRE_BOOTSTRAP_VALIDATION_V1.json",
+    "OPEN_EMPIRE_BOOTSTRAP_GAP_REGISTER.json",
+    "OPEN_EMPIRE_GOVERNANCE_BASELINE_RC1_EXECUTIVE_REPORT.md"
+  ],
+  "notes": "These Gate A output files are supplementary records. Rolling back canonical governance files does not require removing Gate A output files."
+}

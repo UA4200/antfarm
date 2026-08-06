@@ -1,0 +1,105 @@
+{
+  "schema": "open_empire.bootstrap_gap_register.v1",
+  "generated_at": "2026-08-06T11:55:00-05:00",
+  "generator": "Alusi Gate A Finalization Directive",
+  "generator_version": "1.0.0",
+  "total_gaps": 4,
+  "tier_0_blockers": 0,
+  "note": "No gaps constitute Tier-0 blockers to bootstrap. Trading and core infrastructure are fully operational.",
+  "gaps": [
+    {
+      "gap_id": "GAP-001",
+      "category": "degraded_process",
+      "title": "Federation coordinator crash-looping (PM2 id=33)",
+      "severity": "MEDIUM",
+      "bootstrap_blocker": false,
+      "tier": 2,
+      "description": "open-empire-federation-staging (PM2 id=33) has been stopped after 11 crash restarts. Federation coordination is offline. AGENTS.md incorrectly shows this as OK with a different PM2 ID.",
+      "affected_bootstrap_section": "Section 13 (Bootstrap Order) — federation not in critical path for Tier 0",
+      "resolution": {
+        "type": "diagnosis_and_fix",
+        "steps": [
+          "pm2 logs open-empire-federation-staging --lines 100",
+          "Identify crash root cause",
+          "Fix code or configuration",
+          "Nathan approval for restart"
+        ],
+        "approval_required": true,
+        "estimated_effort": "1-4 hours"
+      },
+      "impact_if_unresolved": "Federation state coordination offline. Does not block trading, comms, or governance operations."
+    },
+    {
+      "gap_id": "GAP-002",
+      "category": "degraded_process",
+      "title": "Lifecycle manager crash-looping (PM2 id=34)",
+      "severity": "MEDIUM",
+      "bootstrap_blocker": false,
+      "tier": 2,
+      "description": "open-empire-lifecycle-staging (PM2 id=34) has been stopped after 9 crash restarts. Lifecycle management is offline. AGENTS.md incorrectly shows this as OK.",
+      "affected_bootstrap_section": "Section 13 (Bootstrap Order) — lifecycle not in critical path for Tier 0",
+      "resolution": {
+        "type": "diagnosis_and_fix",
+        "steps": [
+          "Resolve GAP-001 (federation) first — lifecycle may depend on it",
+          "pm2 logs open-empire-lifecycle-staging --lines 100",
+          "Identify crash root cause",
+          "Fix code or configuration",
+          "Nathan approval for restart"
+        ],
+        "approval_required": true,
+        "estimated_effort": "1-4 hours"
+      },
+      "impact_if_unresolved": "Automated lifecycle state transitions offline. Manual governance enforcement required for lifecycle events."
+    },
+    {
+      "gap_id": "GAP-003",
+      "category": "version_control",
+      "title": "Governance artifacts not in version control",
+      "severity": "MEDIUM",
+      "bootstrap_blocker": false,
+      "tier": 2,
+      "description": "The governance directory (~/.openclaw/workspace/governance/) is not in any Git repository. Governance artifacts have no version history, making change tracking and collaborative recovery harder.",
+      "affected_bootstrap_section": "Section 4 (Governance Baseline) — governance can be restored from filesystem backup but lacks git history",
+      "resolution": {
+        "type": "approval_gated",
+        "steps": [
+          "Nathan approves version control integration plan (Option A/B/C per GOVERNANCE_VERSION_CONTROL_PLAN.md)",
+          "Execute version control plan",
+          "Tag v1.0.0-rc1",
+          "Push to remote"
+        ],
+        "approval_required": true,
+        "estimated_effort": "30 minutes"
+      },
+      "impact_if_unresolved": "Governance artifacts recoverable from vault/backup but no git history. Track B implementation can proceed without this resolved."
+    },
+    {
+      "gap_id": "GAP-004",
+      "category": "backup_verification",
+      "title": "Backup restoration test not performed",
+      "severity": "LOW",
+      "bootstrap_blocker": false,
+      "tier": 3,
+      "description": "Auto-capture backup (LaunchD+cron) is active but no restoration test has been performed to verify backup integrity and completeness.",
+      "affected_bootstrap_section": "Section 19 (Restore Procedure) — procedure documented but unvalidated",
+      "resolution": {
+        "type": "scheduled_test",
+        "steps": [
+          "Schedule restoration test to non-production environment",
+          "Restore governance artifacts from backup",
+          "Run python3 build/validate.py on restored files",
+          "Document restoration time and any issues"
+        ],
+        "approval_required": true,
+        "estimated_effort": "2 hours",
+        "suggested_cadence": "Monthly"
+      },
+      "impact_if_unresolved": "Backup reliability unverified. If primary system fails before test, recovery may encounter unexpected issues."
+    }
+  ],
+  "tier_0_blocker_summary": {
+    "count": 0,
+    "description": "No bootstrap gaps constitute Tier-0 blockers. All critical infrastructure (trading, comms, database, AI models) is operational and validated."
+  }
+}

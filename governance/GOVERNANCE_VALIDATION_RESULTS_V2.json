@@ -1,0 +1,191 @@
+{
+  "schema": "open_empire.governance.validation_results.v2",
+  "generated_at": "2026-08-06T11:39:30-05:00",
+  "validator_version": "1.0.0",
+  "validation_suite_artifact": "OPEN_EMPIRE_VALIDATION_SUITE_V1.md",
+  "validation_suite_sha256": "bd5c580195cf4160fd0e7df7d0a7bb7e2187f588e2f911e02a1da07da3082dbc",
+  "validation_script": "/Users/NeoOC/.openclaw/workspace/governance/build/validate.py",
+  "governance_dir": "/Users/NeoOC/.openclaw/workspace/governance",
+  "run_id": "20260806T113805Z",
+  "run_output_dir": "/Users/NeoOC/.openclaw/workspace/governance/build/runs/20260806T113805Z",
+  "prior_run_id": "20260805T220411Z",
+  "overall_status": "PASS",
+  "rules_run": 240,
+  "rules_passed": 240,
+  "rules_failed": 0,
+  "rules_warned": 0,
+  "documents_validated": 12,
+  "validation_domains": [
+    {
+      "domain": "Structural Existence",
+      "rule_prefix": "VR-S0",
+      "rules_count": 26,
+      "passed": 26,
+      "failed": 0,
+      "description": "File existence, size non-zero, format compliance",
+      "status": "PASS"
+    },
+    {
+      "domain": "Structural Template",
+      "rule_prefix": "VR-ST",
+      "rules_count": 144,
+      "passed": 144,
+      "failed": 0,
+      "description": "Required headers (Version, Status, Owner, Source, Materialization Date, Dependencies, Revision History) present and non-empty in all 12 documents",
+      "status": "PASS"
+    },
+    {
+      "domain": "Constitution Rules",
+      "rule_prefix": "VR-C0",
+      "rules_count": 5,
+      "passed": 5,
+      "failed": 0,
+      "description": "Founding principles, authority hierarchy, sovereign operator definition",
+      "status": "PASS"
+    },
+    {
+      "domain": "Taxonomy References",
+      "rule_prefix": "VR-T0",
+      "rules_count": 6,
+      "passed": 6,
+      "failed": 0,
+      "description": "Taxonomy asset class definitions, term uniqueness, canonical term set",
+      "status": "PASS"
+    },
+    {
+      "domain": "Ontology Cardinality",
+      "rule_prefix": "VR-O0",
+      "rules_count": 3,
+      "passed": 3,
+      "failed": 0,
+      "description": "Relationship multiplicity, valid source/target asset types, no undefined relationship verbs",
+      "status": "PASS"
+    },
+    {
+      "domain": "Schema Conformance",
+      "rule_prefix": "VR-SC",
+      "rules_count": 6,
+      "passed": 6,
+      "failed": 0,
+      "description": "Field type system, required vs optional fields, asset registry format compliance",
+      "status": "PASS"
+    },
+    {
+      "domain": "Glossary Rules",
+      "rule_prefix": "VR-G0",
+      "rules_count": 5,
+      "passed": 5,
+      "failed": 0,
+      "description": "Term extraction from Taxonomy, no redefinitions, TODO_PENDING_APPROVAL definition present, runtime terms separate",
+      "status": "PASS",
+      "notes": "VR-G005 confirms TODO_PENDING_APPROVAL is defined as a runtime term — PASS"
+    },
+    {
+      "domain": "ADR Rules",
+      "rule_prefix": "VR-A0",
+      "rules_count": 13,
+      "passed": 13,
+      "failed": 0,
+      "description": "ADR structure, immutability policy, supersession chain integrity, ADR template presence",
+      "status": "PASS"
+    },
+    {
+      "domain": "Lifecycle Transitions",
+      "rule_prefix": "VR-L0",
+      "rules_count": 4,
+      "passed": 4,
+      "failed": 0,
+      "description": "Valid states per asset type, terminal state approval requirements, transition event logging requirements",
+      "status": "PASS"
+    },
+    {
+      "domain": "Policy References",
+      "rule_prefix": "VR-P0",
+      "rules_count": 5,
+      "passed": 5,
+      "failed": 0,
+      "description": "Policy ID format (POL-NNN), policy enforcement categories, approval authority references",
+      "status": "PASS"
+    },
+    {
+      "domain": "ECL Command References",
+      "rule_prefix": "VR-E0",
+      "rules_count": 7,
+      "passed": 7,
+      "failed": 0,
+      "description": "ECL command catalog, policy cross-references (POL-001, POL-033 verified), intent-first principle",
+      "status": "PASS"
+    },
+    {
+      "domain": "OEPM Manifest Conformance",
+      "rule_prefix": "VR-M0",
+      "rules_count": 6,
+      "passed": 6,
+      "failed": 0,
+      "description": "Manifest schema validity, required fields, versioning rules, registry format",
+      "status": "PASS"
+    },
+    {
+      "domain": "Dependency Map Rules",
+      "rule_prefix": "VR-D0",
+      "rules_count": 6,
+      "passed": 6,
+      "failed": 0,
+      "description": "DAG integrity (no cycles), topological order validity, all documents in registry",
+      "status": "PASS"
+    },
+    {
+      "domain": "Validation Suite Self-Check",
+      "rule_prefix": "VR-VS",
+      "rules_count": 4,
+      "passed": 4,
+      "failed": 0,
+      "description": "76 VR-NNN rules defined, Definition of Done present, build pipeline referenced, Evidence Persistence documented",
+      "status": "PASS"
+    }
+  ],
+  "per_document_results": [
+    {"gov_id": "GOV-01", "document": "OPEN_EMPIRE_CONSTITUTION_V1.md", "rules": 19, "passed": 19, "failed": 0, "status": "PASS"},
+    {"gov_id": "GOV-02", "document": "OPEN_EMPIRE_ASSET_TAXONOMY_V1.md", "rules": 20, "passed": 20, "failed": 0, "status": "PASS"},
+    {"gov_id": "GOV-03", "document": "OPEN_EMPIRE_ONTOLOGY_V1.md", "rules": 17, "passed": 17, "failed": 0, "status": "PASS"},
+    {"gov_id": "GOV-04", "document": "OPEN_EMPIRE_SCHEMA_V1.md", "rules": 20, "passed": 20, "failed": 0, "status": "PASS"},
+    {"gov_id": "GOV-05", "document": "OPEN_EMPIRE_GLOSSARY_V1.md", "rules": 19, "passed": 19, "failed": 0, "status": "PASS"},
+    {"gov_id": "GOV-06", "document": "OPEN_EMPIRE_ADR_INDEX_V1.md", "rules": 27, "passed": 27, "failed": 0, "status": "PASS"},
+    {"gov_id": "GOV-07", "document": "OPEN_EMPIRE_LIFECYCLE_STATE_MACHINE_V1.md", "rules": 18, "passed": 18, "failed": 0, "status": "PASS"},
+    {"gov_id": "GOV-08", "document": "OPEN_EMPIRE_POLICY_ENGINE_V1.md", "rules": 19, "passed": 19, "failed": 0, "status": "PASS"},
+    {"gov_id": "GOV-09", "document": "OPEN_EMPIRE_EXECUTIVE_COMMAND_LANGUAGE_V1.md", "rules": 21, "passed": 21, "failed": 0, "status": "PASS"},
+    {"gov_id": "GOV-10", "document": "OPEN_EMPIRE_OEPM_MANIFEST_STANDARD_V1.md", "rules": 20, "passed": 20, "failed": 0, "status": "PASS"},
+    {"gov_id": "GOV-11", "document": "OPEN_EMPIRE_DEPENDENCY_MAP_V1.md", "rules": 20, "passed": 20, "failed": 0, "status": "PASS"},
+    {"gov_id": "GOV-12", "document": "OPEN_EMPIRE_VALIDATION_SUITE_V1.md", "rules": 18, "passed": 18, "failed": 0, "status": "PASS"},
+    {"gov_id": "ALL", "document": "CROSS_DOCUMENT", "rules": 2, "passed": 2, "failed": 0, "status": "PASS"}
+  ],
+  "input_artifact_hashes": {
+    "OPEN_EMPIRE_CONSTITUTION_V1.md": "cac8674be27ffc29a729d9c367bd92952eda1cfc3dae93bf8b61a70e15eeda10",
+    "OPEN_EMPIRE_ASSET_TAXONOMY_V1.md": "6f6dce10d95d3e025db63a6a5ae6fdb616672645521c64e8b80efefe44bdc737",
+    "OPEN_EMPIRE_ONTOLOGY_V1.md": "9287001d5bba5e93d4090c076dfcfe4efb8e0b74efe77881179ebb5fc4bd335e",
+    "OPEN_EMPIRE_SCHEMA_V1.md": "0b2ebf932113ad707f15c63cbd7096da5240dff02ed6f6e3cae741892f955ea6",
+    "OPEN_EMPIRE_GLOSSARY_V1.md": "7a1b76673548b9857c848356fda3dbbb0e076e957b9b91176aa45fd490141695",
+    "OPEN_EMPIRE_ADR_INDEX_V1.md": "12f2e28812a6786a6c47b4238b531df798909fc505a61028812842ccda2e0351",
+    "OPEN_EMPIRE_LIFECYCLE_STATE_MACHINE_V1.md": "3d05a4973aecbe53a4486e70a066eebfd3936c781bd1402a41750aa7babbf7ac",
+    "OPEN_EMPIRE_POLICY_ENGINE_V1.md": "590a9833aef474066e89083a255ac495b044c3c5e01da8db9fef7cebf51effa4",
+    "OPEN_EMPIRE_EXECUTIVE_COMMAND_LANGUAGE_V1.md": "6d94a335fc3a3f77339497262720ed3eabac5c08ea4cacb6e2d1448748b1c40b",
+    "OPEN_EMPIRE_OEPM_MANIFEST_STANDARD_V1.md": "7a39cbb2c20c4413bc5b54b3dddb162bb8fc62a097ca2bc47bce7c7d2857774b",
+    "OPEN_EMPIRE_DEPENDENCY_MAP_V1.md": "baa712fc11b198377e5b805ffe9bcdc76c1712b3d8657ec7966170784be2c7b9",
+    "OPEN_EMPIRE_VALIDATION_SUITE_V1.md": "bd5c580195cf4160fd0e7df7d0a7bb7e2187f588e2f911e02a1da07da3082dbc"
+  },
+  "reproducibility": {
+    "prior_run_overall_status": "PASS",
+    "prior_run_rules_passed": 240,
+    "current_run_overall_status": "PASS",
+    "current_run_rules_passed": 240,
+    "hashes_identical_between_runs": true,
+    "result_reproducible": true
+  },
+  "evidence_artifacts": [
+    "build/runs/20260806T113805Z/rule_results.json",
+    "build/runs/20260806T113805Z/validation_summary.json",
+    "build/runs/20260806T113805Z/VALIDATION_REPORT.md",
+    "build/runs/20260806T113805Z/SHA256SUMS",
+    "build/runs/20260806T113805Z/failed_rules.json"
+  ]
+}

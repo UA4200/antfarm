@@ -1,0 +1,282 @@
+{
+  "version": "1.0.0",
+  "term_count": 69,
+  "terms": [
+    {
+      "term": "Agent",
+      "definition": "An AI-driven autonomous execution entity \u2014 with defined capabilities, policies, memory scope, and tool access \u2014 that carries out tasks on behalf of Open Empire with or without human intervention. **Layer:** Layer 4 \u2014 Operations **See Also:** L3: Model \u00b7 L4: Agent Team, Service \u00b7 L2: Policy, Approval Types  ---"
+    },
+    {
+      "term": "Agent Team",
+      "definition": "A named, organized group of Agents with complementary roles that collaborate under a shared governance structure to accomplish a complex, ongoing objective. **Layer:** Layer 4 \u2014 Operations **See Also:** L4: Agent \u00b7 L2: Council \u00b7 L5: Execution Roles  ---"
+    },
+    {
+      "term": "API",
+      "definition": "A versioned programmatic interface \u2014 exposed by a service or external system \u2014 that Open Empire consumes or publishes, defining the data contract and behavioral guarantees between systems. **Layer:** Layer 3 \u2014 Engineering **See Also:** L3: Integration, Router \u00b7 L4: Service, Agent \u00b7 L6: Schema Evolution  ---"
+    },
+    {
+      "term": "Approval Type",
+      "definition": "A categorized class of approval action required before a governed operation may proceed \u2014 defining the required authority level, delivery mechanism, and time constraints. **Layer:** Layer 2 \u2014 Governance **See Also:** L2: Policies, Council \u00b7 L4: Automation, Agent \u00b7 sovereign_proxy Service  ---"
+    },
+    {
+      "term": "Automation",
+      "definition": "A single-purpose, repeatable automated action or bounded sequence of actions executed by a system without human intervention \u2014 a discrete step within a Workflow or a standalone background task. **Layer:** Layer 4 \u2014 Operations **See Also:** L4: Workflow, Service \u00b7 L2: Policy \u00b7 L3: Integration  ---"
+    },
+    {
+      "term": "Business Capability",
+      "definition": "A stable, reusable ability that Open Empire possesses and applies across multiple Programs or Projects \u2014 independent of any specific technology or implementation. **Layer:** Layer 1 \u2014 Business **See Also:** L3: Model, API, Integration \u00b7 L4: Agent, Service \u00b7 L5: Business Criticality  ---"
+    },
+    {
+      "term": "Business Criticality",
+      "definition": "A standardized four-tier classification of how critical an asset is to Open Empire's revenue generation, operational continuity, and mission delivery. **Layer:** Layer 5 \u2014 Execution **See Also:** L2: Risk Levels \u00b7 L5: Recovery Priority \u00b7 L4: Service, Agent  ---"
+    },
+    {
+      "term": "Business Outcome",
+      "definition": "A qualitative or quantitative result that Open Empire intends to achieve through the execution of one or more Programs or Ventures \u2014 expressed in terms of value delivered, not tasks completed. **Layer:** Layer 1 \u2014 Business **See Also:** L1: Executive KPI \u00b7 L2: Council \u00b7 L5: Business Criticality  ---"
+    },
+    {
+      "term": "Change Control",
+      "definition": "The governance process governing when, why, and how Open Empire assets may be modified \u2014 requiring pre-approval, documentation, rollback planning, and completion evidence for all significant changes. **Layer:** Layer 6 \u2014 Evolution **See Also:** L6: Migration State, Versioning \u00b7 L2: Approval Types, Council \u00b7 L5: Risk Levels  ---"
+    },
+    {
+      "term": "Council",
+      "definition": "A named governance body within Open Empire responsible for decision-making, oversight, and accountability within a defined domain. **Layer:** Layer 2 \u2014 Governance **See Also:** L1: Portfolio, Venture \u00b7 L2: Executive Roles, Policies \u00b7 L5: Execution Roles  ---"
+    },
+    {
+      "term": "Current State",
+      "definition": "A point-in-time, evidence-backed snapshot of an asset's actual operational configuration, status, and characteristics \u2014 as-is, without projection or aspiration. **Layer:** Layer 6 \u2014 Evolution **See Also:** L6: Target State, Migration State \u00b7 L2: Evidence States \u00b7 L5: Operational Status  ---"
+    },
+    {
+      "term": "Dashboard",
+      "definition": "A real-time or near-real-time visualization interface that displays Operational Status, Executive KPIs, and system health across Open Empire assets. **Layer:** Layer 4 \u2014 Operations **See Also:** L4: Service \u00b7 L1: Executive KPI \u00b7 L5: Operational Status  ---"
+    },
+    {
+      "term": "Database",
+      "definition": "A managed persistent data store used by Open Empire services \u2014 identified by engine, version, host, and logical schema \u2014 for structured, queryable data persistence. **Layer:** Layer 3 \u2014 Engineering **See Also:** L3: Infrastructure, Storage \u00b7 L4: Service \u00b7 L6: Schema Evolution  ---"
+    },
+    {
+      "term": "Drift Detection",
+      "definition": "An automated or scheduled comparison between the registered/expected state of an asset and its actual current state \u2014 identifying unauthorized, unintended, or silent deviations from the governed baseline. **Layer:** Layer 6 \u2014 Evolution **See Also:** L6: Current State, Change Control \u00b7 L4: Registry \u00b7 L5: Verification Methods  ---"
+    },
+    {
+      "term": "Environment",
+      "definition": "A named, isolated runtime context in which Open Empire services operate \u2014 distinguishing between local development, staging, and production deployments with scoped configurations and secrets. **Layer:** Layer 3 \u2014 Engineering **See Also:** L3: Infrastructure, Secret Metadata \u00b7 L4: Service, Runtime  ---"
+    },
+    {
+      "term": "Evidence State",
+      "definition": "A standardized classification of the verification status of a fact, claim, metric, or operational condition within Open Empire \u2014 indicating how well-supported the information is. **Layer:** Layer 2 \u2014 Governance **See Also:** L2: Verification Methods \u00b7 L5: Operational Status  ---"
+    },
+    {
+      "term": "Execution Role",
+      "definition": "A named operational role at the task execution level \u2014 assigned to an agent or human responsible for carrying out specific recurring operational duties within a defined scope. **Layer:** Layer 5 \u2014 Execution **See Also:** L2: Executive Roles, Ownership Roles \u00b7 L4: Agent, Automation  ---"
+    },
+    {
+      "term": "Executive KPI",
+      "definition": "A quantifiable, time-bound performance indicator tracked at the Portfolio, Program, or Venture level to assess progress against strategic objectives. **Layer:** Layer 1 \u2014 Business **See Also:** L4: Dashboard \u00b7 L5: Operational Status \u00b7 L2: Evidence States  ---"
+    },
+    {
+      "term": "Executive Role",
+      "definition": "A named, accountable authority role at the strategic level of Open Empire \u2014 assigned to an individual or agent with full decision-making authority within a defined domain. **Layer:** Layer 2 \u2014 Governance **See Also:** L2: Council, Ownership Roles \u00b7 L5: Execution Roles  ---"
+    },
+    {
+      "term": "Framework",
+      "definition": "A foundational software system that provides structure, conventions, and core capabilities upon which Open Empire services and agents are built. **Layer:** Layer 3 \u2014 Engineering **See Also:** L3: Infrastructure, Environment \u00b7 L4: Runtime, Service  ---"
+    },
+    {
+      "term": "Infrastructure",
+      "definition": "The physical or virtual compute, network, and storage resources that host Open Empire environments and services \u2014 the foundational physical layer. **Layer:** Layer 3 \u2014 Engineering **See Also:** L3: Environment, Database \u00b7 L2: Security Policy  ---"
+    },
+    {
+      "term": "Integration",
+      "definition": "A configured connection between Open Empire and an external system \u2014 encapsulating authentication, data mapping, error handling, and circuit-breaking for a specific external API or data source. **Layer:** Layer 3 \u2014 Engineering **See Also:** L3: API, Secret Metadata \u00b7 L4: Service, Automation  ---"
+    },
+    {
+      "term": "Integration Readiness",
+      "definition": "A standardized assessment of whether an Integration is ready for production use \u2014 covering authentication verification, endpoint reachability, error handling validation, and end-to-end transaction confirmation. **Layer:** Layer 5 \u2014 Execution **See Also:** L3: Integration, API \u00b7 L5: Verification Methods \u00b7 L2: Evidence States  ---"
+    },
+    {
+      "term": "Knowledge Base",
+      "definition": "A curated, structured collection of domain knowledge, operational procedures, market intelligence, and reference data \u2014 accessible to agents and humans for decision support. **Layer:** Layer 4 \u2014 Operations **See Also:** L4: Memory Store \u00b7 L2: Playbook \u00b7 L3: Storage  ---"
+    },
+    {
+      "term": "Library",
+      "definition": "A reusable module of shared code providing discrete, composable functionality \u2014 imported by other packages or services but not independently deployable. **Layer:** Layer 3 \u2014 Engineering **See Also:** L3: Package, Framework \u00b7 L4: Agent, Service  ---"
+    },
+    {
+      "term": "Lifecycle State",
+      "definition": "A standardized enumeration of states that an Open Empire asset may occupy, from inception through retirement \u2014 providing the universal state machine for all asset types. **Layer:** Layer 2 \u2014 Governance **See Also:** L6: Current State, Target State, Retirement State \u00b7 L2: Approval Types  ---"
+    },
+    {
+      "term": "Memory Store",
+      "definition": "A persistent or semi-persistent storage layer that enables agents and the system to retain context, state, and accumulated knowledge across session boundaries. **Layer:** Layer 4 \u2014 Operations **See Also:** L4: Knowledge Base \u00b7 L3: Storage \u00b7 L4: Agent  ---"
+    },
+    {
+      "term": "Migration State",
+      "definition": "The active transitional state of an asset or system moving from its Current State toward a defined Target State \u2014 tracking progress, intermediate steps, risks, and blockers. **Layer:** Layer 6 \u2014 Evolution **See Also:** L6: Current State, Target State, Change Control \u00b7 L2: Risk Levels  ---"
+    },
+    {
+      "term": "Model",
+      "definition": "An AI/ML model \u2014 identified by provider, name, and version \u2014 used by Open Empire agents and services for inference, classification, generation, or scoring. **Layer:** Layer 3 \u2014 Engineering **See Also:** L3: Model Provider, Router \u00b7 L2: Model Dispatch Policy \u00b7 L4: Agent  ---"
+    },
+    {
+      "term": "Model Provider",
+      "definition": "An organization or local system that hosts and serves one or more AI Models accessible to Open Empire via API or local inference endpoint. **Layer:** Layer 3 \u2014 Engineering **See Also:** L3: Model \u00b7 L3: Secret Metadata \u00b7 L2: Model Dispatch Policy  ---"
+    },
+    {
+      "term": "Operational Status",
+      "definition": "A standardized real-time state indicator for a running Service, Agent, or Automation \u2014 reflecting its current health and availability as observed by monitoring systems. **Layer:** Layer 5 \u2014 Execution **See Also:** L4: Dashboard \u00b7 L2: Evidence States, Lifecycle States \u00b7 L1: Executive KPI  ---"
+    },
+    {
+      "term": "Ownership Role",
+      "definition": "A named, accountable operational role responsible for day-to-day stewardship of one or more specific assets \u2014 beneath Executive authority but above execution-level task completion. **Layer:** Layer 2 \u2014 Governance **See Also:** L2: Executive Roles, Council \u00b7 L4: Service, Agent, Registry  ---"
+    },
+    {
+      "term": "Package",
+      "definition": "A distributable, versioned module within a Repository that can be imported or installed as a discrete unit of functionality. **Layer:** Layer 3 \u2014 Engineering **See Also:** L3: Repository, Library \u00b7 L4: Service, Agent  ---"
+    },
+    {
+      "term": "Playbook",
+      "definition": "A versioned, step-by-step operational procedure that implements one or more Policies \u2014 executable by an agent, human, or automated system. **Layer:** Layer 2 \u2014 Governance **See Also:** L2: Policies, Council \u00b7 L4: Agent, Automation \u00b7 L5: Verification Methods  ---"
+    },
+    {
+      "term": "PM2 Process",
+      "definition": "A specific process instance managed by the PM2 process manager \u2014 identified by PM2 numeric id, name, and ecosystem config \u2014 responsible for starting, monitoring, and restarting a Service. **Layer:** Layer 4 \u2014 Operations **See Also:** L4: Service, Runtime \u00b7 L3: Infrastructure, Environment  ---"
+    },
+    {
+      "term": "Policy",
+      "definition": "A mandatory, enforceable rule governing behavior, decision-making, or operations within Open Empire \u2014 defining WHAT must happen, issued by a Council or Executive Role. **Layer:** Layer 2 \u2014 Governance **See Also:** L2: Council, Standards, Playbooks \u00b7 L5: Approval Types, Risk Levels  ---"
+    },
+    {
+      "term": "Portfolio",
+      "definition": "A governed collection of Programs and Ventures aligned to a single sovereign mission, managed as a unified capital and strategic asset. **Layer:** Layer 1 \u2014 Business **See Also:** L2: Council \u00b7 L1: Program, Venture, Executive KPI, Business Outcome  ---"
+    },
+    {
+      "term": "Program",
+      "definition": "A coordinated grouping of Projects and Business Capabilities that together deliver a strategic Business Outcome within a Portfolio. **Layer:** Layer 1 \u2014 Business **See Also:** L2: Council \u00b7 L5: Execution Roles \u00b7 L6: Current State  ---"
+    },
+    {
+      "term": "Project",
+      "definition": "A time-boxed, scope-defined unit of work within a Program that produces one or more deliverables with measurable completion criteria. **Layer:** Layer 1 \u2014 Business **See Also:** L2: Lifecycle States \u00b7 L5: Operational Status \u00b7 L6: Change Control  ---"
+    },
+    {
+      "term": "Recovery Priority",
+      "definition": "A ranked ordering of asset restoration priority during a system outage \u2014 defining the pre-approved sequence in which services are recovered to minimize business impact. **Layer:** Layer 5 \u2014 Execution **See Also:** L5: Business Criticality \u00b7 L2: Risk Levels \u00b7 L4: Service  ---"
+    },
+    {
+      "term": "Registry",
+      "definition": "A governed, queryable catalog of all Open Empire assets of a specific type \u2014 providing a single source of truth for discovery, governance, and audit. **Layer:** Layer 4 \u2014 Operations **See Also:** L4: Dashboard, Knowledge Base \u00b7 L2: Council \u00b7 L1: Portfolio  ---"
+    },
+    {
+      "term": "Relationship Type",
+      "definition": "A standardized, directed connection type between two Open Empire assets \u2014 defining how they interact, depend on, or govern each other within the asset graph. **Layer:** Layer 5 \u2014 Execution **See Also:** All asset types (Allowed Relationships field)  ---"
+    },
+    {
+      "term": "Repository",
+      "definition": "A version-controlled code storage unit (Git repository) containing the source of one or more Open Empire services, libraries, agents, or configurations. **Layer:** Layer 3 \u2014 Engineering **See Also:** L3: Package, Library \u00b7 L4: Service \u00b7 L6: Versioning, Change Control  ---"
+    },
+    {
+      "term": "Retirement State",
+      "definition": "The final operational state of an asset that has been intentionally decommissioned \u2014 no longer active, archived for audit continuity, and excluded from operational registries. **Layer:** Layer 6 \u2014 Evolution **See Also:** L6: Supersession, Versioning \u00b7 L2: Lifecycle States, Approval Types  ---"
+    },
+    {
+      "term": "Risk Level",
+      "definition": "A standardized severity classification applied to assets, operations, and decisions \u2014 quantifying potential business impact if a failure, breach, or adverse event occurs. **Layer:** Layer 2 \u2014 Governance **See Also:** L2: Approval Types, Policy \u00b7 L5: Recovery Priority, Business Criticality  ---"
+    },
+    {
+      "term": "Router",
+      "definition": "A system component that inspects incoming requests or signals and routes them to the appropriate handler, model, or service based on defined, ordered rules. **Layer:** Layer 3 \u2014 Engineering **See Also:** L3: Model, API \u00b7 L4: Service, Automation  ---"
+    },
+    {
+      "term": "Runtime",
+      "definition": "The active execution environment in which a Service or Agent operates at a given moment \u2014 including process, interpreter, memory state, and loaded configuration. **Layer:** Layer 4 \u2014 Operations **See Also:** L3: Package, Environment \u00b7 L4: PM2 Process, Service  ---"
+    },
+    {
+      "term": "Schema Evolution",
+      "definition": "The governed process by which the data structures, field definitions, and format specifications of Open Empire assets, databases, and registries change over time \u2014 maintaining backward compatibility and audit continuity. **Layer:** Layer 6 \u2014 Evolution **See Also:** L6: Versioning, Change Control \u00b7 L3: Database, API \u00b7 L4: Registry  ---"
+    },
+    {
+      "term": "Secret Metadata",
+      "definition": "A governance record describing a secret (API key, private key, credential) \u2014 containing everything EXCEPT the secret value itself \u2014 used for lifecycle tracking, rotation management, and audit. **Layer:** Layer 3 \u2014 Engineering **See Also:** L3: Integration, API \u00b7 L2: Secret Management Policy \u00b7 L5: Verification Methods  ---"
+    },
+    {
+      "term": "Service",
+      "definition": "A long-running, named operational process that provides continuous capability to Open Empire \u2014 independently deployable, monitored, and owned. **Layer:** Layer 4 \u2014 Operations **See Also:** L3: Repository, API \u00b7 L4: PM2 Process, Runtime \u00b7 L5: Operational Status, Recovery Priority  ---"
+    },
+    {
+      "term": "Standard",
+      "definition": "A mandatory, versioned technical or operational specification that all Open Empire assets must comply with \u2014 defining HOW something must be done. **Layer:** Layer 2 \u2014 Governance **See Also:** L2: Council, Policies \u00b7 L3: Repository, API \u00b7 L5: Verification Methods  ---"
+    },
+    {
+      "term": "Storage",
+      "definition": "A file-based or object-based data persistence layer used for non-relational data \u2014 logs, documents, media, exports, and raw data files. **Layer:** Layer 3 \u2014 Engineering **See Also:** L3: Database, Infrastructure \u00b7 L4: Memory Store \u00b7 L6: Drift Detection  ---"
+    },
+    {
+      "term": "Supersession",
+      "definition": "A formal replacement relationship record where one asset explicitly replaces another \u2014 documenting the transition of authority, capability, and reference from the predecessor to the successor. **Layer:** Layer 6 \u2014 Evolution **See Also:** L6: Retirement State, Migration State, Change Control \u00b7 L3: Repository  ---"
+    },
+    {
+      "term": "Target State",
+      "definition": "A defined, approved future configuration of an asset or system \u2014 specifying what it should look like, how it should behave, and what measurable criteria confirm it has been achieved. **Layer:** Layer 6 \u2014 Evolution **See Also:** L6: Current State, Migration State, Change Control \u00b7 L2: Council  ---"
+    },
+    {
+      "term": "Venture",
+      "definition": "A revenue-generating or revenue-targeting operational unit within Open Empire \u2014 a distinct line of business with its own capital allocation, P&L accountability, and go-to-market strategy. **Layer:** Layer 1 \u2014 Business **See Also:** L2: Council, Risk Levels \u00b7 L5: Business Criticality, Recovery Priority  ---"
+    },
+    {
+      "term": "Verification Method",
+      "definition": "A standardized technique used to confirm that an asset, integration, or operational condition is functioning as expected and meets its defined requirements. **Layer:** Layer 5 \u2014 Execution **See Also:** L2: Evidence States, Standards \u00b7 L5: Integration Readiness, Operational Status  ---"
+    },
+    {
+      "term": "Versioning",
+      "definition": "A standardized system for assigning, tracking, and communicating the version identity of Open Empire assets \u2014 enabling change tracking, rollback, and compatibility management across the entire stack. **Layer:** Layer 6 \u2014 Evolution **See Also:** L6: Change Control, Supersession \u00b7 L3: Repository, API \u00b7 L2: Standards  ---"
+    },
+    {
+      "term": "Workflow",
+      "definition": "A defined, multi-step automated process \u2014 with explicit triggers, sequenced steps, branching logic, and completion criteria \u2014 that orchestrates multiple services or agents toward a business outcome. **Layer:** Layer 4 \u2014 Operations **See Also:** L4: Automation, Agent \u00b7 L2: Playbook \u00b7 L3: Integration  ---"
+    },
+    {
+      "term": "Build Pipeline",
+      "definition": "The automated toolchain that reads canonical Markdown governance documents and produces JSON, YAML, dependency graph, glossary, validation results, release manifest, SHA256SUMS, and rollback manifest. **See Also:** Governance Baseline, Change Control, Versioning  ---"
+    },
+    {
+      "term": "Canonical Path",
+      "definition": "The single authoritative filesystem location for a governance document, code module, or data file. No duplicates permitted. Any reference to a canonical asset must use its canonical path \u2014 never an alias, symlink target, or legacy path. **See Also:** Repository, Storage, Package  ---"
+    },
+    {
+      "term": "Change Control *(Runtime usage)*",
+      "definition": "In runtime governance context, Change Control refers to the mandatory process for modifying any governance document after Baseline V1.0.0: Change Proposal \u2192 Review \u2192 Validation \u2192 Approval \u2192 Versioned Release. Operationally distinct from informal edits or agent-initiated changes. See also the Taxonomy entry for **Change Control** (Layer 6 \u2014 Evolution). **See Also:** Governance Baseline, OPEN_EMPIRE_CONSTITUTION_V1.md Section 8  ---"
+    },
+    {
+      "term": "Daily Spend Cap",
+      "definition": "A per-Venture hard limit on autonomous financial operations within a rolling 24-hour window. Mandatory for all Ventures with trading or payment agents. Enforced at agent code level against the sum of placed `size_usd` in `trades.jsonl` over the last 24 hours. Current active caps: `CASHCLAW_DAILY_SPEND_CAP_USD=10`, `ARB_DAILY_SPEND_CAP_USD=10`, `POLY_DAILY_SPEND_CAP_USD=10`. **See Also:** Venture, Agent, ADR-003  ---"
+    },
+    {
+      "term": "Governance Baseline",
+      "definition": "The published V1.0.0 set of all 12 canonical governance documents, validated by the Validation Suite and released via the Build Pipeline. Governance Baseline completion is the prerequisite for `TRACK_B_AUTHORIZED`. **See Also:** Build Pipeline, TRACK_B_AUTHORIZED, Change Control  ---"
+    },
+    {
+      "term": "Kelly NO-fix",
+      "definition": "The locked status of `~/.openclaw/trading/shared/kelly.py`. The Kelly criterion implementation must not be modified without an explicit Nathan directive. This constraint is permanent until superseded by an explicit Nathan directive. Recorded in ADR-005. **See Also:** Library, Change Control, ADR-005, Signal Chain Lock  ---"
+    },
+    {
+      "term": "Materialization Date",
+      "definition": "The date a governance document was first committed to its canonical filesystem path. Distinct from the effective date of the policy it encodes. Used in the document header of every governance artifact produced under the Governance Freeze Order. **See Also:** Canonical Path, Governance Baseline, Versioning  ---"
+    },
+    {
+      "term": "Signal Chain Lock",
+      "definition": "The locked canonical signal chain for all Open Empire trading operations: Haiku \u2192 Ollama \u2192 Heuristic. GPT-4o is not permitted in any real-time scoring chain without an explicit Nathan directive. Recorded in ADR-004. **See Also:** Model, Router, Agent, Kelly NO-fix, ADR-004  ---"
+    },
+    {
+      "term": "Sovereign Operator",
+      "definition": "Nathan. Final and supreme authority on all Open Empire decisions. Cannot be overridden by any agent, council, policy, or system. Holds the Sovereign Operator Executive Role with no escalation path. All autonomous operations require explicit or standing authorization from the Sovereign Operator. **See Also:** Executive Role, Council, OPEN_EMPIRE_CONSTITUTION_V1.md Section 2  ---"
+    },
+    {
+      "term": "TODO_PENDING_APPROVAL",
+      "definition": "A governance placeholder for any item that requires an explicit Nathan directive to resolve. Documents may be materialized with this placeholder; it does not block V1.0.0 release but must be resolved before V1.1.0. When this placeholder appears in a governance document, it marks a gap that Nathan must explicitly decide. **See Also:** Change Control, Governance Baseline, Sovereign Operator  ---"
+    },
+    {
+      "term": "TRACK_B_AUTHORIZED",
+      "definition": "The formal declaration that Governance Baseline V1.0.0 is complete and Open Empire is authorized to transition to full implementation (Track B). Track B begins immediately after this declaration. Track A (governance architecture) is frozen at the point of this declaration. No new governance artifacts may be created after `TRACK_B_AUTHORIZED` without a formal Change Control. **See Also:** Governance Baseline, Build Pipeline, Change Control  ---"
+    }
+  ]
+}
