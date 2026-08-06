@@ -1,0 +1,534 @@
+{
+  "schema": "OPEN_EMPIRE_CAPABILITY_REGISTRY",
+  "version": "1.0.0",
+  "governed_by": "OPEN_EMPIRE_GOVERNANCE_BASELINE_V1.0.0",
+  "generated_at": "2026-08-06T12:40:00Z",
+  "capabilities": [
+    {
+      "uuid": "c001-1111-2222-3333-4444-555566667777",
+      "id": "C001",
+      "name": "Kalshi Market Trading",
+      "program_id": "PR001",
+      "description": "Live Kalshi prediction market trading using V2 REST API with RSA-PSS auth. Scans markets, scores signals via Claude Haiku, sizes positions with Kelly criterion, executes trades.",
+      "capability_type": "TRADING",
+      "status": "ACTIVE",
+      "repositories": [
+        "~/.openclaw/trading/agents/director/",
+        "~/.openclaw/trading/clients/kalshi_client.py",
+        "~/.openclaw/trading/shared/signals.py",
+        "~/.openclaw/trading/shared/kelly.py"
+      ],
+      "pm2_services": [
+        {"name": "cashclaw_director", "pm_id": 38, "status": "online", "restarts": 2},
+        {"name": "trading_sentinel", "pm_id": 41, "status": "online", "restarts": 1}
+      ],
+      "ports": [],
+      "databases": ["clawdb", "openclaw"],
+      "ollama_models": ["qwen2.5:3b"],
+      "external_apis": ["Kalshi V2 REST API", "Anthropic Claude Haiku"],
+      "business_kpis": [
+        "Capital deployed: $25.19",
+        "Max per trade: $1.25 (5% Kelly)",
+        "Daily spend cap: $10",
+        "Cycle: every 5 minutes, Mon-Fri 9am-5pm ET",
+        "Target win rate: 70%+"
+      ],
+      "last_validated": "2026-08-06T12:40:00Z",
+      "notes": "RSA-PSS signing migrated from PKCS1v15 on 2026-07-30. Trading hours guard active."
+    },
+    {
+      "uuid": "c002-2222-3333-4444-5555-666677778888",
+      "id": "C002",
+      "name": "Polymarket US Trading",
+      "program_id": "PR002",
+      "description": "Live Polymarket US prediction market trading via Ed25519 auth on api.polymarket.us. MLB/MLS/sports-championship strategy with GPT-4o signal generation.",
+      "capability_type": "TRADING",
+      "status": "ACTIVE",
+      "repositories": [
+        "~/.openclaw/trading/agents/polymarket_trader/",
+        "~/.openclaw/trading/clients/polymarket_client.py"
+      ],
+      "pm2_services": [
+        {"name": "polymarket-trader", "pm_id": 40, "status": "online", "restarts": 2},
+        {"name": "trading_sentinel", "pm_id": 41, "status": "online", "restarts": 1}
+      ],
+      "ports": [],
+      "databases": ["clawdb", "openclaw"],
+      "ollama_models": [],
+      "external_apis": ["Polymarket US API (api.polymarket.us)", "OpenAI GPT-4o"],
+      "business_kpis": [
+        "Capital deployed: $40.00",
+        "Daily spend cap: $10",
+        "15-minute cycle",
+        "Strategy: MLB/MLS/sports-champ"
+      ],
+      "last_validated": "2026-08-06T12:40:00Z",
+      "notes": "Ed25519 auth. Cross-arb with Kalshi in alert mode via cashclaw_arb."
+    },
+    {
+      "uuid": "c003-3333-4444-5555-6666-777788889999",
+      "id": "C003",
+      "name": "Bundle Arbitrage",
+      "program_id": "PR001",
+      "description": "Kalshi-only bundle arbitrage detection and atomic 2-leg execution. Triggers at ≥3¢ profit per bundle. Max $5 per arb ($2.50 per leg).",
+      "capability_type": "TRADING",
+      "status": "ACTIVE",
+      "repositories": [
+        "~/.openclaw/trading/agents/arb/arb_executor.py",
+        "~/.openclaw/trading/agents/arb/arb_cycle.py"
+      ],
+      "pm2_services": [
+        {"name": "cashclaw_arb", "pm_id": 39, "status": "online", "restarts": 1}
+      ],
+      "ports": [],
+      "databases": ["clawdb"],
+      "ollama_models": [],
+      "external_apis": ["Kalshi V2 REST API"],
+      "business_kpis": [
+        "Min profit threshold: 3 cents",
+        "Max per arb: $5 (split $2.50/leg)",
+        "Max concurrent arbs: 2",
+        "Daily loss circuit: -$5",
+        "Daily spend cap: $10"
+      ],
+      "last_validated": "2026-08-06T12:40:00Z",
+      "notes": "Logs to arb_cycle.jsonl. Naked leg unwind protocol if leg B fails."
+    },
+    {
+      "uuid": "c004-4444-5555-6666-7777-88889999aaaa",
+      "id": "C004",
+      "name": "Cross-Platform Arb Alerts",
+      "program_id": "PR001",
+      "description": "Cross-platform arbitrage detection between Kalshi and Polymarket US. Alert-only mode — detects opportunities and sends Telegram alerts for human approval due to semantic false-positive risk.",
+      "capability_type": "TRADING",
+      "status": "ACTIVE",
+      "repositories": [
+        "~/.openclaw/trading/agents/arb/arb_executor.py",
+        "~/.openclaw/trading/agents/arb/polymarket_scanner.py",
+        "~/.openclaw/trading/agents/arb/market_scanner.py"
+      ],
+      "pm2_services": [
+        {"name": "cashclaw_arb", "pm_id": 39, "status": "online", "restarts": 1}
+      ],
+      "ports": [],
+      "databases": ["clawdb"],
+      "ollama_models": [],
+      "external_apis": ["Kalshi V2 REST API", "Polymarket US SDK"],
+      "business_kpis": [
+        "Min cross-arb profit: 5 cents",
+        "Mode: ALERT_ONLY (ARB_CROSS_MODE=alert)",
+        "Human approval required before execution"
+      ],
+      "last_validated": "2026-08-06T12:40:00Z",
+      "notes": "Alert-only due to semantic false-positive risk on cross-platform market matching."
+    },
+    {
+      "uuid": "c005-5555-6666-7777-8888-9999aaaabbbb",
+      "id": "C005",
+      "name": "Alusi Core Gateway",
+      "program_id": "PR003",
+      "description": "Main OpenClaw AI gateway and agent orchestration core. Handles all agent requests, routing, session management, approval gating via sovereign_proxy, and inter-agent communication.",
+      "capability_type": "INFRASTRUCTURE",
+      "status": "ACTIVE",
+      "repositories": [
+        "~/.openclaw/workspace/"
+      ],
+      "pm2_services": [
+        {"name": "alusi-gateway", "pm_id": 1, "status": "online", "port": 8788},
+        {"name": "executor", "pm_id": 0, "status": "online"},
+        {"name": "heartbeat", "pm_id": 15, "status": "online"},
+        {"name": "alusi-orchestrator", "pm_id": 5, "status": "online"},
+        {"name": "alusi-controlled-worker", "pm_id": 4, "status": "online"}
+      ],
+      "ports": [8788],
+      "databases": ["openclaw"],
+      "ollama_models": [],
+      "external_apis": ["Anthropic Claude", "OpenAI"],
+      "business_kpis": [
+        "Uptime: target 99.9%",
+        "All agent sessions routed through gateway",
+        "Approval queue: sovereign_proxy"
+      ],
+      "last_validated": "2026-08-06T12:40:00Z",
+      "notes": "Port 8788. All financial actions require explicit approval."
+    },
+    {
+      "uuid": "c006-6666-7777-8888-9999-aaaabbbbcccc",
+      "id": "C006",
+      "name": "Telegram Operations",
+      "program_id": "PR003",
+      "description": "Telegram bot integration for approvals, alerts, weekly reports, and bidirectional agent communication. Handles trading alerts, BLCO reports, and executive summaries.",
+      "capability_type": "AUTOMATION",
+      "status": "ACTIVE",
+      "repositories": [],
+      "pm2_services": [
+        {"name": "telegram-approvals", "pm_id": 9, "status": "online"},
+        {"name": "alusi-telegram-adapter", "pm_id": 42, "status": "online"}
+      ],
+      "ports": [],
+      "databases": [],
+      "ollama_models": [],
+      "external_apis": ["Telegram Bot API"],
+      "business_kpis": [
+        "Approval turnaround < 5 minutes",
+        "Weekly BLCO report delivery",
+        "Daily 9am trading summary"
+      ],
+      "last_validated": "2026-08-06T12:40:00Z",
+      "notes": "Dual service: approvals handler + adapter. Both required for full functionality."
+    },
+    {
+      "uuid": "c007-7777-8888-9999-aaaa-bbbbccccdddd",
+      "id": "C007",
+      "name": "Discord Operations",
+      "program_id": "PR003",
+      "description": "Discord channel adapter for agent communications, status updates, and community-facing interactions.",
+      "capability_type": "AUTOMATION",
+      "status": "ACTIVE",
+      "repositories": [],
+      "pm2_services": [
+        {"name": "alusi-discord-adapter", "pm_id": 3, "status": "online"}
+      ],
+      "ports": [],
+      "databases": [],
+      "ollama_models": [],
+      "external_apis": ["Discord API"],
+      "business_kpis": [
+        "Channel availability: continuous"
+      ],
+      "last_validated": "2026-08-06T12:40:00Z",
+      "notes": "DISCORD secret in secrets/.env."
+    },
+    {
+      "uuid": "c008-8888-9999-aaaa-bbbb-ccccddddeeee",
+      "id": "C008",
+      "name": "n8n Automation Engine",
+      "program_id": "PR003",
+      "description": "n8n workflow automation platform. Routes approved outputs from sovereign_proxy, handles webhook integrations, Airtable sync, and inter-service automation.",
+      "capability_type": "AUTOMATION",
+      "status": "ACTIVE",
+      "repositories": [],
+      "pm2_services": [
+        {"name": "n8n", "pm_id": 23, "status": "online", "port": 5678}
+      ],
+      "ports": [5678, 5679],
+      "databases": [],
+      "ollama_models": [],
+      "external_apis": ["Airtable", "Various webhooks"],
+      "business_kpis": [
+        "Workflows registered: 0 (gap — needs population)",
+        "Webhook latency: target < 2s"
+      ],
+      "last_validated": "2026-08-06T12:40:00Z",
+      "notes": "Currently 0 workflows registered. Critical gap: sovereign_proxy outputs need n8n wiring."
+    },
+    {
+      "uuid": "c009-9999-aaaa-bbbb-cccc-ddddeeeeffff",
+      "id": "C009",
+      "name": "Mission Control UI",
+      "program_id": "PR004",
+      "description": "Central command and control web interface. Real-time operational dashboard for all Open Empire services. Target: unified view of all portfolios, agents, and P&L.",
+      "capability_type": "INFRASTRUCTURE",
+      "status": "ACTIVE",
+      "repositories": [
+        "~/.openclaw/workspace/mission-control/"
+      ],
+      "pm2_services": [
+        {"name": "mission-control", "pm_id": 14, "status": "online", "port": 3333}
+      ],
+      "ports": [3333],
+      "databases": [],
+      "ollama_models": [],
+      "external_apis": [],
+      "business_kpis": [
+        "Single pane of glass for all portfolios",
+        "Integration with governance registry (planned)"
+      ],
+      "last_validated": "2026-08-06T12:40:00Z",
+      "notes": "Source at ~/.openclaw/workspace/mission-control/. Integration plan in OPEN_EMPIRE_MISSION_CONTROL_INTEGRATION_PLAN_V1.md."
+    },
+    {
+      "uuid": "c010-aaaa-bbbb-cccc-dddd-eeeeffff0000",
+      "id": "C010",
+      "name": "PostgreSQL Data Layer",
+      "program_id": "PR003",
+      "description": "PostgreSQL 18.3 data persistence for all trading, governance, signals, approvals, and audit data. Three databases: clawdb (primary), openclaw (agent ops), postgres (system).",
+      "capability_type": "DATA",
+      "status": "ACTIVE",
+      "repositories": [],
+      "pm2_services": [
+        {"name": "clawdb", "pm_id": 36, "status": "online", "port": 5432}
+      ],
+      "ports": [5432],
+      "databases": ["clawdb", "openclaw", "postgres"],
+      "ollama_models": [],
+      "external_apis": [],
+      "business_kpis": [
+        "Tables: agent_events, approvals, daily_pnl, health_log, signals, trades, vault_entries",
+        "Uptime: target 99.9%"
+      ],
+      "last_validated": "2026-08-06T12:40:00Z",
+      "notes": "PostgreSQL 18.3. LC_ALL fixed. All trade records and approvals persist here."
+    },
+    {
+      "uuid": "c011-bbbb-cccc-dddd-eeee-ffff00001111",
+      "id": "C011",
+      "name": "Ollama Local Inference",
+      "program_id": "PR003",
+      "description": "Local LLM inference server for $0 cost batch processing, signal pre-scoring, template generation, and cost-efficient AI operations. 6 models available.",
+      "capability_type": "DATA",
+      "status": "ACTIVE",
+      "repositories": [],
+      "pm2_services": [
+        {"name": "ollama", "pm_id": 24, "status": "online", "port": 11434}
+      ],
+      "ports": [11434],
+      "databases": [],
+      "ollama_models": [
+        {"name": "qwen2.5:3b", "size_mb": 1840},
+        {"name": "qwen2.5:1.5b", "size_mb": 940},
+        {"name": "tinyllama", "size_mb": 608},
+        {"name": "gemma2:2b", "size_mb": 1554},
+        {"name": "phi3:mini", "size_mb": 2075},
+        {"name": "llama3.2:3b", "size_mb": 1925}
+      ],
+      "external_apis": [],
+      "business_kpis": [
+        "Cost per inference: $0",
+        "Daily AI cost target: <$0.20 for autonomous ops",
+        "Use case: batch/overnight tasks, pre-scoring"
+      ],
+      "last_validated": "2026-08-06T12:40:00Z",
+      "notes": "Route batch work here. Real-time signal scoring → Haiku. Template-first for structured outputs."
+    },
+    {
+      "uuid": "c012-cccc-dddd-eeee-ffff-000011112222",
+      "id": "C012",
+      "name": "BLCO Lead Pipeline",
+      "program_id": "PR006",
+      "description": "BLCO commodity oil lead database enrichment and email monitoring. 192 staged leads. Enricher stopped intentionally. Email monitor active to receive inbound interest.",
+      "capability_type": "AUTOMATION",
+      "status": "PAUSED",
+      "repositories": [
+        "~/.openclaw/blco/"
+      ],
+      "pm2_services": [
+        {"name": "blco-enricher", "pm_id": 12, "status": "stopped", "restarts": 0, "note": "intentional"},
+        {"name": "blco-email-monitor", "pm_id": 13, "status": "online"}
+      ],
+      "ports": [],
+      "databases": [],
+      "ollama_models": [],
+      "external_apis": ["Apollo (lead enrichment)", "Hunter (email verification)", "Gmail"],
+      "business_kpis": [
+        "Total leads: 192",
+        "Europe: 27, Asia: 28, Americas: 19, MENA: 15, Global traders: 11, Unknown: 89",
+        "Output: leads.jsonl → n8n → Airtable"
+      ],
+      "last_validated": "2026-08-06T12:40:00Z",
+      "notes": "Lead sourcing paused 2026-07-19. Email monitor remains active for inbound. All outreach requires Nathan approval."
+    },
+    {
+      "uuid": "c013-dddd-eeee-ffff-0000-111122223333",
+      "id": "C013",
+      "name": "Hyrve Job Monitor",
+      "program_id": "PR007",
+      "description": "Hyrve AI marketplace pipeline monitor. Tracks job submissions, completion rates, and marketplace health metrics.",
+      "capability_type": "CONTENT",
+      "status": "ACTIVE",
+      "repositories": [],
+      "pm2_services": [
+        {"name": "hyrve-monitor-v2", "pm_id": 18, "status": "online"}
+      ],
+      "ports": [],
+      "databases": [],
+      "ollama_models": [],
+      "external_apis": ["HYRVEA API"],
+      "business_kpis": [
+        "Marketplace pipeline health monitoring"
+      ],
+      "last_validated": "2026-08-06T12:40:00Z",
+      "notes": "HYRVEA secret in secrets/.env. v2 of monitor."
+    },
+    {
+      "uuid": "c014-eeee-ffff-0000-1111-222233334444",
+      "id": "C014",
+      "name": "Governance Validation",
+      "program_id": "PR008",
+      "description": "Open Empire governance validation engine. Validates registry compliance, schema conformance, cross-reference integrity, and outputs structured audit results.",
+      "capability_type": "GOVERNANCE",
+      "status": "ACTIVE",
+      "repositories": [
+        "~/.openclaw/workspace/governance/build/validate.py",
+        "~/.openclaw/workspace/governance/"
+      ],
+      "pm2_services": [],
+      "ports": [],
+      "databases": [],
+      "ollama_models": [],
+      "external_apis": [],
+      "business_kpis": [
+        "Governance version: OPEN_EMPIRE_GOVERNANCE_BASELINE_V1.0.0",
+        "Status: FROZEN",
+        "Validation: runs on-demand and on CI"
+      ],
+      "last_validated": "2026-08-06T12:40:00Z",
+      "notes": "Governance frozen at v1.0.0. Changes require explicit versioned amendment."
+    },
+    {
+      "uuid": "c015-ffff-0000-1111-2222-333344445555",
+      "id": "C015",
+      "name": "Open Empire Nexus",
+      "program_id": "PR004",
+      "description": "Open Empire Nexus service hub and dashboard. Provides federation-level service registry, telemetry aggregation, and cross-service coordination.",
+      "capability_type": "INFRASTRUCTURE",
+      "status": "ACTIVE",
+      "repositories": [],
+      "pm2_services": [
+        {"name": "open-empire-nexus", "pm_id": 17, "status": "online", "port": "4444/4445"},
+        {"name": "nexus-dashboard", "pm_id": 19, "status": "online", "port": 4444},
+        {"name": "nexus-telemetry", "pm_id": 16, "status": "online"}
+      ],
+      "ports": [4444, 4445],
+      "databases": [],
+      "ollama_models": [],
+      "external_apis": [],
+      "business_kpis": [
+        "Telemetry collection: continuous",
+        "Federation state: degraded (staging stopped)"
+      ],
+      "last_validated": "2026-08-06T12:40:00Z",
+      "notes": "Staging services (federation, lifecycle) are DEGRADED — pm_ids 33 and 34 stopped with 11 and 9 restarts respectively."
+    },
+    {
+      "uuid": "c016-0000-1111-2222-3333-444455556666",
+      "id": "C016",
+      "name": "Exec Approval Gateway",
+      "program_id": "PR003",
+      "description": "Dual-layer execution approval gateway. exec-gateway handles dangerous command approval routing; alusi-controlled-worker processes approved execution requests.",
+      "capability_type": "GOVERNANCE",
+      "status": "ACTIVE",
+      "repositories": [],
+      "pm2_services": [
+        {"name": "exec-gateway", "pm_id": 8, "status": "online", "port": 8799},
+        {"name": "alusi-controlled-worker", "pm_id": 4, "status": "online"}
+      ],
+      "ports": [8799],
+      "databases": ["openclaw"],
+      "ollama_models": [],
+      "external_apis": [],
+      "business_kpis": [
+        "Zero unauthorized exec commands",
+        "Approval latency: target < 5 minutes"
+      ],
+      "last_validated": "2026-08-06T12:40:00Z",
+      "notes": "All privileged commands must route through exec-gateway. Approvals logged to vault."
+    },
+    {
+      "uuid": "c017-1111-2222-3333-4444-555566667777",
+      "id": "C017",
+      "name": "Cost Observability",
+      "program_id": "PR004",
+      "description": "Real-time cost tracking dashboard. Monitors AI API spend, per-agent costs, and daily budget adherence. Target: <$0.20/day for autonomous ops.",
+      "capability_type": "INFRASTRUCTURE",
+      "status": "ACTIVE",
+      "repositories": [],
+      "pm2_services": [
+        {"name": "cost-dashboard", "pm_id": 20, "status": "online", "port": 8796}
+      ],
+      "ports": [8796],
+      "databases": [],
+      "ollama_models": [],
+      "external_apis": [],
+      "business_kpis": [
+        "Daily AI spend target: <$0.20",
+        "Model cost governance enforced"
+      ],
+      "last_validated": "2026-08-06T12:40:00Z",
+      "notes": "Model Cost Governance policy: route batch/overnight to Ollama, real-time signals to Haiku."
+    },
+    {
+      "uuid": "c018-2222-3333-4444-5555-666677778888",
+      "id": "C018",
+      "name": "Open Empire Control Plane",
+      "program_id": "PR004",
+      "description": "Open Empire Control Plane API and admin surface. Coordinates lifecycle management, federation state, and high-level governance operations.",
+      "capability_type": "INFRASTRUCTURE",
+      "status": "ACTIVE",
+      "repositories": [],
+      "pm2_services": [
+        {"name": "open-empire-control-plane", "pm_id": 21, "status": "online", "port": 8899},
+        {"name": "open-empire-mission-ui", "pm_id": 22, "status": "online", "port": 8791}
+      ],
+      "ports": [8899, 8791],
+      "databases": [],
+      "ollama_models": [],
+      "external_apis": [],
+      "business_kpis": [
+        "Control plane availability: continuous"
+      ],
+      "last_validated": "2026-08-06T12:40:00Z",
+      "notes": "Staging services degraded. Production control plane stable."
+    },
+    {
+      "uuid": "c019-3333-4444-5555-6666-777788889999",
+      "id": "C019",
+      "name": "Claude Proxy",
+      "program_id": "PR003",
+      "description": "Local Claude API proxy for routing agent requests through a unified endpoint. Enables caching, rate limiting, and cost tracking for Claude API calls.",
+      "capability_type": "INFRASTRUCTURE",
+      "status": "ACTIVE",
+      "repositories": [],
+      "pm2_services": [
+        {"name": "claude-proxy", "pm_id": 28, "status": "online", "port": 4099}
+      ],
+      "ports": [4099],
+      "databases": [],
+      "ollama_models": [],
+      "external_apis": ["Anthropic Claude API"],
+      "business_kpis": [
+        "Proxy latency overhead: <50ms",
+        "Cost tracking: enabled"
+      ],
+      "last_validated": "2026-08-06T12:40:00Z",
+      "notes": "Enables unified API cost governance across all Claude-consuming agents."
+    },
+    {
+      "uuid": "c020-4444-5555-6666-7777-88889999aaaa",
+      "id": "C020",
+      "name": "Native Router",
+      "program_id": "PR003",
+      "description": "Native protocol router for inter-service communication. Handles request routing, protocol translation, and service discovery across the Open Empire stack.",
+      "capability_type": "INFRASTRUCTURE",
+      "status": "ACTIVE",
+      "repositories": [],
+      "pm2_services": [
+        {"name": "native-router", "pm_id": 26, "status": "online", "port": 4010}
+      ],
+      "ports": [4010],
+      "databases": [],
+      "ollama_models": [],
+      "external_apis": [],
+      "business_kpis": [
+        "Routing uptime: 99.9%"
+      ],
+      "last_validated": "2026-08-06T12:40:00Z",
+      "notes": "Core routing fabric for OpenClaw internal services."
+    }
+  ],
+  "summary": {
+    "total_capabilities": 20,
+    "by_type": {
+      "TRADING": ["C001", "C002", "C003", "C004"],
+      "INFRASTRUCTURE": ["C005", "C009", "C015", "C017", "C018", "C019", "C020"],
+      "AUTOMATION": ["C006", "C007", "C008", "C012"],
+      "DATA": ["C010", "C011"],
+      "CONTENT": ["C013"],
+      "GOVERNANCE": ["C014", "C016"]
+    },
+    "by_status": {
+      "ACTIVE": ["C001", "C002", "C003", "C004", "C005", "C006", "C007", "C008", "C009", "C010", "C011", "C013", "C014", "C015", "C016", "C017", "C018", "C019", "C020"],
+      "PAUSED": ["C012"]
+    }
+  }
+}

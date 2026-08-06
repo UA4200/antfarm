@@ -1,0 +1,204 @@
+{
+  "schema": "open-empire.operational-readiness.v1",
+  "version": "1.0.0",
+  "created_at": "2026-08-06T12:40:00Z",
+  "baseline": "governance-v1.0.0",
+  "assessed_by": "Alusi / Nathan Asiegbu",
+  "readiness_horizon": "Track B Phase 1 — Operational Foundation",
+  "domains": [
+    {
+      "domain": "GOVERNANCE",
+      "status": "READY",
+      "score": 95,
+      "evidence": [
+        "12 canonical artifacts present, SHA256-verified",
+        "240/240 validation rules PASS",
+        "0 blocking defects",
+        "Git baseline v1.0.0 tagged and committed",
+        "Immutable snapshot created and verified (diff=0)"
+      ],
+      "gaps": [
+        "OEPM stale comments deferred to v1.1.0 (non-blocking)"
+      ]
+    },
+    {
+      "domain": "TRADING",
+      "status": "OPERATIONAL",
+      "score": 80,
+      "evidence": [
+        "cashclaw_director ONLINE, 5min cycles, LIVE",
+        "cashclaw_arb ONLINE, 5min cycles, LIVE",
+        "polymarket-trader ONLINE, 15min cycles, LIVE",
+        "trading_sentinel ONLINE, monitoring all agents",
+        "Daily spend caps enforced ($10/agent)",
+        "RSA-PSS V2 API authentication active",
+        "Kelly criterion risk management active"
+      ],
+      "gaps": [
+        "Kalshi free balance only $1.55 (low, limits new trades)",
+        "Polymarket effective balance $0.06 (halted pending settlement Sept-Nov)",
+        "alpaca-demo has 4 restarts (non-trading, monitoring needed)"
+      ]
+    },
+    {
+      "domain": "INFRASTRUCTURE",
+      "status": "MOSTLY_READY",
+      "score": 78,
+      "evidence": [
+        "37 of 42 PM2 processes ONLINE",
+        "OpenClaw gateway ONLINE port 8788",
+        "PostgreSQL 18.3 ONLINE port 5432",
+        "n8n ONLINE port 5678",
+        "Ollama ONLINE port 11434, 6 models",
+        "Mission Control ONLINE port 3333",
+        "All services loopback-bound (secure)"
+      ],
+      "gaps": [
+        "3 PM2 processes DEGRADED (pm_ids 33,34,35 — stopped with high restarts)",
+        "n8n has 0 workflows configured",
+        "PM2 startup on reboot not verified",
+        "skill-sync stopped (1 restart)"
+      ]
+    },
+    {
+      "domain": "OBSERVABILITY",
+      "status": "PARTIAL",
+      "score": 45,
+      "evidence": [
+        "PM2 native monitoring active (cpu/mem per process)",
+        "Telegram alert channel wired (trading_sentinel uses it)",
+        "Cost-dashboard ONLINE (port 8796)",
+        "nexus-telemetry ONLINE"
+      ],
+      "gaps": [
+        "Grafana status unknown (listed in MEMORY.md at port 3001, not verified running)",
+        "No health endpoints on most services",
+        "No unified log aggregation",
+        "No distributed tracing",
+        "No standardized metrics format"
+      ]
+    },
+    {
+      "domain": "REMOTE_OPERATIONS",
+      "status": "PARTIAL",
+      "score": 60,
+      "evidence": [
+        "Tailscale mesh ACTIVE — 5 nodes registered",
+        "ugos-macbook-pro connected (active/direct)",
+        "ugos-mac-mini-3 connected (active, this machine)",
+        "tailscale ssh available for remote access"
+      ],
+      "gaps": [
+        "No formalized SSH runbooks",
+        "No automated remote bootstrap script",
+        "ugos-mac-mini-1 offline 14 days",
+        "ugos-mac-mini offline 5 days",
+        "No SSH config file",
+        "Remote monitoring not externally accessible"
+      ]
+    },
+    {
+      "domain": "DATA_PROTECTION",
+      "status": "CRITICAL_GAP",
+      "score": 20,
+      "evidence": [
+        "Trading JSONL flat files provide partial trade record redundancy",
+        "Governance snapshot exists (governance only)"
+      ],
+      "gaps": [
+        "NO PostgreSQL backup configured (CRITICAL)",
+        "NO secrets backup (CRITICAL)",
+        "No automated backup verification",
+        "No off-machine backup",
+        "No RPO/RTO tested"
+      ]
+    },
+    {
+      "domain": "GITHUB_CICD",
+      "status": "PARTIAL",
+      "score": 40,
+      "evidence": [
+        "6 UA4200 repos deployed to GitHub main (2026-07-30)",
+        "All PRs merged to main, CI green at deploy time",
+        "Governance baseline committed to git"
+      ],
+      "gaps": [
+        "No GitHub Actions workflows (.github/workflows/)",
+        "No branch protection rules",
+        "No automated governance validation in CI",
+        "Only 1 of 6 repos has local remote configured (git-github)"
+      ]
+    },
+    {
+      "domain": "REGISTRY_COMPLETENESS",
+      "status": "IN_PROGRESS",
+      "score": 65,
+      "evidence": [
+        "PM2 topology registry complete (42 processes)",
+        "Bootstrap specification complete",
+        "Master Registry Index v1 complete",
+        "Repository registry being built (Track B)"
+      ],
+      "gaps": [
+        "AGENTS.md has stale PM2 IDs",
+        "Workspace projects (30) not yet individually registered",
+        "External APIs not fully inventoried",
+        "Webhook endpoints not catalogued"
+      ]
+    },
+    {
+      "domain": "SECRETS_GOVERNANCE",
+      "status": "MINIMAL",
+      "score": 30,
+      "evidence": [
+        "40 secrets catalogued by key name in Foundational #3 spec",
+        "Single .env file approach (centralized)"
+      ],
+      "gaps": [
+        "No rotation tracking",
+        "No rotation alerts",
+        "No ownership assignments formally documented",
+        "No validation script confirms all keys are present before deploy",
+        "Single point of failure — no backup"
+      ]
+    },
+    {
+      "domain": "DRIFT_DETECTION",
+      "status": "SPECIFIED",
+      "score": 10,
+      "evidence": [
+        "Drift detection spec produced (Foundational #10)",
+        "Known drift documented (pm_ids 33,34,35 DEGRADED)"
+      ],
+      "gaps": [
+        "No automated drift detection running",
+        "No cron jobs for drift checks yet",
+        "No alerting wired for drift events",
+        "Manual-only at this time"
+      ]
+    }
+  ],
+  "overall_readiness": {
+    "score": 52,
+    "tier": "OPERATIONAL_FOUNDATION",
+    "status": "PARTIALLY_READY",
+    "ready_for_track_b_execution": true,
+    "blocking_gaps": 0,
+    "critical_gaps": 2,
+    "high_gaps": 5,
+    "summary": "Open Empire has a solid operational foundation with trading agents live, governance frozen, and infrastructure stable. Critical gaps in data protection (no DB backup, no secrets backup) and partial gaps in observability and CI/CD must be resolved as Track B progresses. None of these gaps block Track B initiation — they are remediation items within Track B."
+  },
+  "readiness_by_phase": {
+    "B0_governance_freeze": "COMPLETE",
+    "B1_repository_integration": "IN_PROGRESS",
+    "B2_oepm_activation": "IN_PROGRESS",
+    "B3_runtime_discovery": "COMPLETE",
+    "B4_mission_control": "NOT_STARTED",
+    "B5_github_control_plane": "SPECIFIED",
+    "B6_capability_activation": "PARTIAL",
+    "B7_executive_dashboards": "SPECIFIED",
+    "B8_remote_operations": "PARTIAL",
+    "B9_continuous_validation": "SPECIFIED",
+    "B10_certification": "IN_PROGRESS"
+  }
+}

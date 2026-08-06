@@ -1,0 +1,1893 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "created_at": "2026-08-06T12:40:00Z",
+    "created_by": "Open Empire Governance Engine",
+    "operator": "Nathan Asiegbu",
+    "node_count": 122,
+    "edge_count": 187,
+    "semantic_search_ready": false,
+    "embedding_model": "pending-configuration",
+    "graph_db": "file-based-v1",
+    "description": "Seed knowledge graph for Open Empire. Not yet loaded into a graph database. Represents the full asset topology as of 2026-08-06.",
+    "notes": "UUIDs are uuid5 from Open Empire namespace. Edges represent canonical relationships. This file is the source of truth until a live graph DB is wired."
+  },
+  "nodes": [
+    {
+      "uuid": "oe-port-0001",
+      "id": "PORTFOLIO_MOLTLAUNCH",
+      "label": "Moltlaunch",
+      "type": "PORTFOLIO",
+      "status": "ACTIVE",
+      "tags": [
+        "trading",
+        "kalshi",
+        "income-stream",
+        "funded"
+      ],
+      "description": "Automated prediction-market trading. Kalshi primary, Polymarket secondary.",
+      "owner": "Nathan Asiegbu"
+    },
+    {
+      "uuid": "oe-port-0002",
+      "id": "PORTFOLIO_BLCO",
+      "label": "BLCO Commodity Brokerage",
+      "type": "PORTFOLIO",
+      "status": "PAUSED",
+      "tags": [
+        "commodity",
+        "crude-oil",
+        "b2b",
+        "paused"
+      ],
+      "description": "Bonny Light Crude Oil wholesale brokerage. 192 leads staged. Outreach paused pending Nathan resume signal.",
+      "owner": "Nathan Asiegbu"
+    },
+    {
+      "uuid": "oe-port-0003",
+      "id": "PORTFOLIO_ADAI",
+      "label": "ADAI Inc",
+      "type": "PORTFOLIO",
+      "status": "PRE_LAUNCH",
+      "tags": [
+        "saas",
+        "ai",
+        "product",
+        "pre-launch"
+      ],
+      "description": "AI-native digital products and SaaS. ADAI INC registration in progress.",
+      "owner": "Nathan Asiegbu"
+    },
+    {
+      "uuid": "oe-port-0004",
+      "id": "PORTFOLIO_CONTENT",
+      "label": "Content & Media",
+      "type": "PORTFOLIO",
+      "status": "ACTIVE",
+      "tags": [
+        "content",
+        "hyrvea",
+        "media",
+        "pipeline"
+      ],
+      "description": "Hyrvea-powered content pipeline. Hyrve monitor online.",
+      "owner": "Nathan Asiegbu"
+    },
+    {
+      "uuid": "oe-port-0005",
+      "id": "PORTFOLIO_INFRASTRUCTURE",
+      "label": "Open Empire Infrastructure",
+      "type": "PORTFOLIO",
+      "status": "ACTIVE",
+      "tags": [
+        "infrastructure",
+        "core",
+        "always-on",
+        "platform"
+      ],
+      "description": "Core platform infrastructure: gateway, databases, orchestration, approvals.",
+      "owner": "Nathan Asiegbu"
+    },
+    {
+      "uuid": "oe-prog-0001",
+      "id": "PROGRAM_CASHCLAW",
+      "label": "CashClaw Trading Program",
+      "type": "PROGRAM",
+      "status": "ACTIVE",
+      "tags": [
+        "trading",
+        "kalshi",
+        "automated",
+        "kelly-criterion"
+      ],
+      "description": "Kalshi prediction market automated trading. Director + ARB + Sentinel.",
+      "parent_portfolio": "oe-port-0001"
+    },
+    {
+      "uuid": "oe-prog-0002",
+      "id": "PROGRAM_POLYMARKET",
+      "label": "Polymarket Trading Program",
+      "type": "PROGRAM",
+      "status": "ACTIVE",
+      "tags": [
+        "trading",
+        "polymarket",
+        "automated",
+        "sports"
+      ],
+      "description": "Polymarket US prediction market trading. MLB/MLS/sports-champ strategy.",
+      "parent_portfolio": "oe-port-0001"
+    },
+    {
+      "uuid": "oe-prog-0003",
+      "id": "PROGRAM_BLCO_OUTREACH",
+      "label": "BLCO Outreach Pipeline",
+      "type": "PROGRAM",
+      "status": "PAUSED",
+      "tags": [
+        "blco",
+        "outreach",
+        "leads",
+        "b2b"
+      ],
+      "description": "192 leads staged. Draft-first gate active. Awaiting Nathan resume.",
+      "parent_portfolio": "oe-port-0002"
+    },
+    {
+      "uuid": "oe-prog-0004",
+      "id": "PROGRAM_OPEN_EMPIRE_STAGING",
+      "label": "Open Empire Staging Federation",
+      "type": "PROGRAM",
+      "status": "DEGRADED",
+      "tags": [
+        "staging",
+        "federation",
+        "lifecycle"
+      ],
+      "description": "Federation and lifecycle staging processes. High restart counts.",
+      "parent_portfolio": "oe-port-0005"
+    },
+    {
+      "uuid": "oe-prog-0005",
+      "id": "PROGRAM_GOVERNANCE",
+      "label": "Governance & Compliance",
+      "type": "PROGRAM",
+      "status": "ACTIVE",
+      "tags": [
+        "governance",
+        "compliance",
+        "constitution",
+        "track-b"
+      ],
+      "description": "Open Empire Constitution v2, Governance Baseline v1.0.0, Track B enhancements.",
+      "parent_portfolio": "oe-port-0005"
+    },
+    {
+      "uuid": "oe-prog-0006",
+      "id": "PROGRAM_ALUSI",
+      "label": "Alusi Agent Network",
+      "type": "PROGRAM",
+      "status": "ACTIVE",
+      "tags": [
+        "alusi",
+        "agents",
+        "gateway",
+        "telegram",
+        "discord"
+      ],
+      "description": "Core agent network: gateway, heartbeat, telegram, discord, orchestrator.",
+      "parent_portfolio": "oe-port-0005"
+    },
+    {
+      "uuid": "oe-prog-0007",
+      "id": "PROGRAM_HYRVEA",
+      "label": "Hyrvea Content Program",
+      "type": "PROGRAM",
+      "status": "ACTIVE",
+      "tags": [
+        "hyrvea",
+        "content",
+        "monitor"
+      ],
+      "description": "Content pipeline monitor active.",
+      "parent_portfolio": "oe-port-0004"
+    },
+    {
+      "uuid": "oe-prog-0008",
+      "id": "PROGRAM_ADAI_PRODUCT",
+      "label": "ADAI Product Development",
+      "type": "PROGRAM",
+      "status": "PRE_LAUNCH",
+      "tags": [
+        "adai",
+        "product",
+        "saas",
+        "development"
+      ],
+      "description": "AI product spec development phase.",
+      "parent_portfolio": "oe-port-0003"
+    },
+    {
+      "uuid": "oe-cap-0001",
+      "id": "CAP_KALSHI_TRADING",
+      "label": "Kalshi Automated Trading",
+      "type": "CAPABILITY",
+      "status": "ACTIVE",
+      "tags": [
+        "kalshi",
+        "trading",
+        "rsa-pss",
+        "v2-api"
+      ],
+      "description": "RSA-PSS V2 API, Kelly criterion, director+arb+sentinel stack."
+    },
+    {
+      "uuid": "oe-cap-0002",
+      "id": "CAP_POLYMARKET_TRADING",
+      "label": "Polymarket US Trading",
+      "type": "CAPABILITY",
+      "status": "ACTIVE",
+      "tags": [
+        "polymarket",
+        "trading",
+        "ed25519"
+      ],
+      "description": "Ed25519 auth, api.polymarket.us, sports-focused strategy."
+    },
+    {
+      "uuid": "oe-cap-0003",
+      "id": "CAP_TELEGRAM_ALERTS",
+      "label": "Telegram Alert Channel",
+      "type": "CAPABILITY",
+      "status": "ACTIVE",
+      "tags": [
+        "telegram",
+        "alerts",
+        "approvals",
+        "channel"
+      ],
+      "description": "Primary alert + approval channel for Nathan."
+    },
+    {
+      "uuid": "oe-cap-0004",
+      "id": "CAP_DISCORD_CHANNEL",
+      "label": "Discord Channel",
+      "type": "CAPABILITY",
+      "status": "ACTIVE",
+      "tags": [
+        "discord",
+        "channel",
+        "agent"
+      ],
+      "description": "Discord bot adapter for agent communication."
+    },
+    {
+      "uuid": "oe-cap-0005",
+      "id": "CAP_LOCAL_LLM",
+      "label": "Local LLM (Ollama)",
+      "type": "CAPABILITY",
+      "status": "ACTIVE",
+      "tags": [
+        "ollama",
+        "llm",
+        "local",
+        "no-cost"
+      ],
+      "description": "6 local models on port 11434. Zero API cost for batch/overnight tasks."
+    },
+    {
+      "uuid": "oe-cap-0006",
+      "id": "CAP_APPROVAL_GATING",
+      "label": "Sovereign Approval Gating",
+      "type": "CAPABILITY",
+      "status": "ACTIVE",
+      "tags": [
+        "approvals",
+        "sovereign",
+        "gating",
+        "security"
+      ],
+      "description": "All financial and sensitive operations require Nathan approval. exec-gateway + approvals.jsonl."
+    },
+    {
+      "uuid": "oe-cap-0007",
+      "id": "CAP_N8N_AUTOMATION",
+      "label": "n8n Workflow Automation",
+      "type": "CAPABILITY",
+      "status": "ACTIVE",
+      "tags": [
+        "n8n",
+        "automation",
+        "workflows",
+        "webhook"
+      ],
+      "description": "n8n instance running. 0 workflows deployed \u2014 event routing not yet active."
+    },
+    {
+      "uuid": "oe-cap-0008",
+      "id": "CAP_POSTGRESQL",
+      "label": "PostgreSQL Database",
+      "type": "CAPABILITY",
+      "status": "ACTIVE",
+      "tags": [
+        "postgresql",
+        "database",
+        "clawdb",
+        "port-5432"
+      ],
+      "description": "PostgreSQL 18.3 on port 5432. LC_ALL fixed."
+    },
+    {
+      "uuid": "oe-cap-0009",
+      "id": "CAP_BLCO_PIPELINE",
+      "label": "BLCO Lead Pipeline",
+      "type": "CAPABILITY",
+      "status": "PAUSED",
+      "tags": [
+        "blco",
+        "leads",
+        "pipeline"
+      ],
+      "description": "192 leads staged in leads.jsonl. Draft-first gate. Paused."
+    },
+    {
+      "uuid": "oe-cap-0010",
+      "id": "CAP_EMAIL_DISPATCH",
+      "label": "Email Dispatch",
+      "type": "CAPABILITY",
+      "status": "ON_DEMAND",
+      "tags": [
+        "email",
+        "gmail",
+        "agentmail",
+        "dispatch"
+      ],
+      "description": "Gmail + AgentMail. email-dispatcher PM2 stopped, on-demand only."
+    },
+    {
+      "uuid": "oe-cap-0011",
+      "id": "CAP_GOVERNANCE_VALIDATION",
+      "label": "Governance Validation",
+      "type": "CAPABILITY",
+      "status": "ACTIVE",
+      "tags": [
+        "governance",
+        "validation",
+        "sha256",
+        "constitution"
+      ],
+      "description": "SHA256 checksums, constitutional compliance checks, Track B validation."
+    },
+    {
+      "uuid": "oe-cap-0012",
+      "id": "CAP_MISSION_CONTROL",
+      "label": "Mission Control Dashboard",
+      "type": "CAPABILITY",
+      "status": "ACTIVE",
+      "tags": [
+        "dashboard",
+        "mission-control",
+        "port-3333",
+        "ui"
+      ],
+      "description": "Command Center UI on port 3333."
+    },
+    {
+      "uuid": "oe-cap-0013",
+      "id": "CAP_ARB_DETECTION",
+      "label": "Arbitrage Detection",
+      "type": "CAPABILITY",
+      "status": "ACTIVE",
+      "tags": [
+        "arb",
+        "bundle-arb",
+        "cross-arb",
+        "alert"
+      ],
+      "description": "Kalshi bundle arb (auto-execute) + Kalshi\u00d7Polymarket cross-arb (alert-only)."
+    },
+    {
+      "uuid": "oe-cap-0014",
+      "id": "CAP_SPEND_GOVERNANCE",
+      "label": "Daily Spend Cap Enforcement",
+      "type": "CAPABILITY",
+      "status": "ACTIVE",
+      "tags": [
+        "spend-cap",
+        "trading",
+        "governance",
+        "safety"
+      ],
+      "description": "$10/day caps on CashClaw, ARB, Polymarket. AI ops target $0.20/day."
+    },
+    {
+      "uuid": "oe-cap-0015",
+      "id": "CAP_SECRETS_MANAGEMENT",
+      "label": "Secrets Management",
+      "type": "CAPABILITY",
+      "status": "ACTIVE",
+      "tags": [
+        "secrets",
+        "env",
+        "security"
+      ],
+      "description": "~/.openclaw/secrets/.env single-file approach. No git commits of values."
+    },
+    {
+      "uuid": "oe-cap-0016",
+      "id": "CAP_TAILSCALE_MESH",
+      "label": "Tailscale Network Mesh",
+      "type": "CAPABILITY",
+      "status": "ACTIVE",
+      "tags": [
+        "tailscale",
+        "vpn",
+        "mesh",
+        "network"
+      ],
+      "description": "All services loopback-bound (127.0.0.1). Tailscale for secure cross-device access."
+    },
+    {
+      "uuid": "oe-cap-0017",
+      "id": "CAP_HYRVEA_PIPELINE",
+      "label": "Hyrvea Content Pipeline",
+      "type": "CAPABILITY",
+      "status": "ACTIVE",
+      "tags": [
+        "hyrvea",
+        "content",
+        "monitor"
+      ],
+      "description": "Hyrvea API integration and pipeline monitoring."
+    },
+    {
+      "uuid": "oe-cap-0018",
+      "id": "CAP_ORCHESTRATION",
+      "label": "Multi-Agent Orchestration",
+      "type": "CAPABILITY",
+      "status": "ACTIVE",
+      "tags": [
+        "orchestration",
+        "multi-agent",
+        "alusi"
+      ],
+      "description": "alusi-orchestrator PM2 process. Routes tasks to sub-agents."
+    },
+    {
+      "uuid": "oe-cap-0019",
+      "id": "CAP_KNOWLEDGE_GRAPH",
+      "label": "Enterprise Knowledge Graph",
+      "type": "CAPABILITY",
+      "status": "SEED",
+      "tags": [
+        "knowledge-graph",
+        "track-b",
+        "graph-db",
+        "semantic"
+      ],
+      "description": "Track B Enhancement #1. File-based seed. Graph DB integration pending."
+    },
+    {
+      "uuid": "oe-cap-0020",
+      "id": "CAP_DRIFT_DETECTION",
+      "label": "Autonomous Drift Detection",
+      "type": "CAPABILITY",
+      "status": "SPEC",
+      "tags": [
+        "drift",
+        "track-b",
+        "monitoring",
+        "governance"
+      ],
+      "description": "Track B Enhancement #10. 6-layer drift detection. Spec defined."
+    },
+    {
+      "uuid": "oe-repo-0001",
+      "id": "REPO_OPEN_EMPIRE",
+      "label": "open-empire",
+      "type": "REPOSITORY",
+      "status": "ACTIVE",
+      "tags": [
+        "github",
+        "ua4200",
+        "primary"
+      ],
+      "path": "~/.openclaw/workspace",
+      "remote": "github.com/UA4200/open-empire"
+    },
+    {
+      "uuid": "oe-repo-0002",
+      "id": "REPO_TRADING",
+      "label": "trading",
+      "type": "REPOSITORY",
+      "status": "ACTIVE",
+      "tags": [
+        "trading",
+        "kalshi",
+        "polymarket"
+      ],
+      "path": "~/.openclaw/trading"
+    },
+    {
+      "uuid": "oe-repo-0003",
+      "id": "REPO_MOLTLAUNCH",
+      "label": "moltlaunch",
+      "type": "REPOSITORY",
+      "status": "ACTIVE",
+      "tags": [
+        "moltlaunch",
+        "trading",
+        "legacy-coexist"
+      ],
+      "path": "~/.openclaw/moltlaunch"
+    },
+    {
+      "uuid": "oe-repo-0004",
+      "id": "REPO_ALUSI",
+      "label": "alusi",
+      "type": "REPOSITORY",
+      "status": "ACTIVE",
+      "tags": [
+        "alusi",
+        "gateway",
+        "agents"
+      ],
+      "path": "~/.openclaw/alusi"
+    },
+    {
+      "uuid": "oe-repo-0005",
+      "id": "REPO_MISSION_CONTROL",
+      "label": "mission-control",
+      "type": "REPOSITORY",
+      "status": "ACTIVE",
+      "tags": [
+        "mission-control",
+        "dashboard",
+        "react",
+        "port-3333"
+      ],
+      "path": "~/.openclaw/workspace/mission-control"
+    },
+    {
+      "uuid": "oe-repo-0006",
+      "id": "REPO_BLCO",
+      "label": "blco",
+      "type": "REPOSITORY",
+      "status": "PAUSED",
+      "tags": [
+        "blco",
+        "leads",
+        "outreach"
+      ],
+      "path": "~/.openclaw/blco"
+    },
+    {
+      "uuid": "oe-repo-0007",
+      "id": "REPO_ANTFARM",
+      "label": "antfarm",
+      "type": "REPOSITORY",
+      "status": "ACTIVE",
+      "tags": [
+        "antfarm",
+        "workflows",
+        "sqlite"
+      ],
+      "path": "~/.openclaw/workspace/antfarm"
+    },
+    {
+      "uuid": "oe-repo-0008",
+      "id": "REPO_GOVERNANCE",
+      "label": "governance",
+      "type": "REPOSITORY",
+      "status": "ACTIVE",
+      "tags": [
+        "governance",
+        "constitution",
+        "track-b"
+      ],
+      "path": "~/.openclaw/workspace/governance"
+    },
+    {
+      "uuid": "oe-repo-0009",
+      "id": "REPO_SKILLS",
+      "label": "skills",
+      "type": "REPOSITORY",
+      "status": "ACTIVE",
+      "tags": [
+        "skills",
+        "openclaw",
+        "plugins"
+      ],
+      "path": "~/.openclaw/workspace/skills"
+    },
+    {
+      "uuid": "oe-repo-0010",
+      "id": "REPO_VAULT",
+      "label": "vault",
+      "type": "REPOSITORY",
+      "status": "ACTIVE",
+      "tags": [
+        "vault",
+        "approvals",
+        "memory"
+      ],
+      "path": "~/.openclaw/vault"
+    },
+    {
+      "uuid": "oe-repo-0011",
+      "id": "REPO_CASHCLAW_LEGACY",
+      "label": "cashclaw (legacy)",
+      "type": "REPOSITORY",
+      "status": "DEPRECATED",
+      "tags": [
+        "cashclaw",
+        "legacy",
+        "deprecated"
+      ],
+      "path": "~/.openclaw/cashclaw",
+      "notes": "Superseded by trading/ canonical path. Phase 6 deprecation pending."
+    },
+    {
+      "uuid": "oe-repo-0012",
+      "id": "REPO_POLYMARKET_LEGACY",
+      "label": "polymarket (legacy)",
+      "type": "REPOSITORY",
+      "status": "DEPRECATED",
+      "tags": [
+        "polymarket",
+        "legacy",
+        "deprecated"
+      ],
+      "path": "~/.openclaw/polymarket",
+      "notes": "Superseded by trading/ canonical path."
+    },
+    {
+      "uuid": "oe-repo-0013",
+      "id": "REPO_HYRVEA",
+      "label": "hyrvea",
+      "type": "REPOSITORY",
+      "status": "ACTIVE",
+      "tags": [
+        "hyrvea",
+        "content"
+      ],
+      "path": "~/.openclaw/hyrvea"
+    },
+    {
+      "uuid": "oe-repo-0014",
+      "id": "REPO_OPEN_EMPIRE_STAGING",
+      "label": "open-empire-staging",
+      "type": "REPOSITORY",
+      "status": "DEGRADED",
+      "tags": [
+        "staging",
+        "federation",
+        "lifecycle"
+      ],
+      "path": "~/.openclaw/workspace/open-empire-staging"
+    },
+    {
+      "uuid": "oe-repo-0015",
+      "id": "REPO_LOGS",
+      "label": "logs",
+      "type": "REPOSITORY",
+      "status": "ACTIVE",
+      "tags": [
+        "logs",
+        "pm2",
+        "rotation"
+      ],
+      "path": "~/.openclaw/logs"
+    },
+    {
+      "uuid": "oe-repo-0016",
+      "id": "REPO_SECRETS",
+      "label": "secrets",
+      "type": "REPOSITORY",
+      "status": "ACTIVE",
+      "tags": [
+        "secrets",
+        "env",
+        "sensitive"
+      ],
+      "path": "~/.openclaw/secrets",
+      "notes": "No git tracking. Sensitive."
+    },
+    {
+      "uuid": "oe-repo-0017",
+      "id": "REPO_DIGITAL_TWIN",
+      "label": "digital_twin",
+      "type": "REPOSITORY",
+      "status": "SPEC",
+      "tags": [
+        "digital-twin",
+        "track-b",
+        "state"
+      ],
+      "path": "~/.openclaw/workspace/digital_twin"
+    },
+    {
+      "uuid": "oe-repo-0018",
+      "id": "REPO_AGENTS_SKILLS",
+      "label": "agent-skills",
+      "type": "REPOSITORY",
+      "status": "ACTIVE",
+      "tags": [
+        "skills",
+        "agents",
+        "gitnexus"
+      ],
+      "path": "~/.agents/skills"
+    },
+    {
+      "uuid": "oe-repo-0019",
+      "id": "REPO_PLUGIN_SKILLS",
+      "label": "plugin-skills",
+      "type": "REPOSITORY",
+      "status": "ACTIVE",
+      "tags": [
+        "skills",
+        "plugins",
+        "openclaw"
+      ],
+      "path": "~/.openclaw/plugin-skills"
+    },
+    {
+      "uuid": "oe-repo-0020",
+      "id": "REPO_N8N_DATA",
+      "label": "n8n-data",
+      "type": "REPOSITORY",
+      "status": "ACTIVE",
+      "tags": [
+        "n8n",
+        "data",
+        "workflows"
+      ],
+      "path": "~/.openclaw/n8n"
+    },
+    {
+      "uuid": "oe-repo-0021",
+      "id": "REPO_OBSIDIAN_VAULT",
+      "label": "obsidian-vault",
+      "type": "REPOSITORY",
+      "status": "ACTIVE",
+      "tags": [
+        "obsidian",
+        "memory",
+        "wiki"
+      ],
+      "path": "~/.openclaw/workspace/obsidian-vault"
+    },
+    {
+      "uuid": "oe-repo-0022",
+      "id": "REPO_TRACK_B",
+      "label": "track_b",
+      "type": "REPOSITORY",
+      "status": "ACTIVE",
+      "tags": [
+        "track-b",
+        "governance",
+        "enhancements"
+      ],
+      "path": "~/.openclaw/workspace/governance/track_b"
+    },
+    {
+      "uuid": "oe-svc-0001",
+      "id": "SVC_EXECUTOR",
+      "label": "executor",
+      "type": "SERVICE",
+      "status": "ONLINE",
+      "tags": [
+        "pm2",
+        "core",
+        "executor"
+      ],
+      "pm2_id": 0,
+      "pm2_name": "executor"
+    },
+    {
+      "uuid": "oe-svc-0002",
+      "id": "SVC_HEARTBEAT",
+      "label": "heartbeat",
+      "type": "SERVICE",
+      "status": "ONLINE",
+      "tags": [
+        "pm2",
+        "core",
+        "heartbeat",
+        "alusi"
+      ],
+      "pm2_id": 1,
+      "pm2_name": "heartbeat"
+    },
+    {
+      "uuid": "oe-svc-0003",
+      "id": "SVC_ALUSI_GATEWAY",
+      "label": "alusi-gateway",
+      "type": "SERVICE",
+      "status": "ONLINE",
+      "tags": [
+        "pm2",
+        "gateway",
+        "openclaw"
+      ],
+      "pm2_id": 2,
+      "pm2_name": "alusi-gateway"
+    },
+    {
+      "uuid": "oe-svc-0004",
+      "id": "SVC_ALUSI_TELEGRAM",
+      "label": "alusi-telegram-adapter",
+      "type": "SERVICE",
+      "status": "ONLINE",
+      "tags": [
+        "pm2",
+        "telegram",
+        "channel"
+      ],
+      "pm2_id": 3,
+      "pm2_name": "alusi-telegram-adapter"
+    },
+    {
+      "uuid": "oe-svc-0005",
+      "id": "SVC_ALUSI_DISCORD",
+      "label": "alusi-discord-adapter",
+      "type": "SERVICE",
+      "status": "ONLINE",
+      "tags": [
+        "pm2",
+        "discord",
+        "channel"
+      ],
+      "pm2_id": 4,
+      "pm2_name": "alusi-discord-adapter"
+    },
+    {
+      "uuid": "oe-svc-0006",
+      "id": "SVC_ALUSI_WORKER",
+      "label": "alusi-controlled-worker",
+      "type": "SERVICE",
+      "status": "ONLINE",
+      "tags": [
+        "pm2",
+        "worker",
+        "approvals"
+      ],
+      "pm2_id": 5,
+      "pm2_name": "alusi-controlled-worker"
+    },
+    {
+      "uuid": "oe-svc-0007",
+      "id": "SVC_ALUSI_ORCHESTRATOR",
+      "label": "alusi-orchestrator",
+      "type": "SERVICE",
+      "status": "ONLINE",
+      "tags": [
+        "pm2",
+        "orchestrator",
+        "multi-agent"
+      ],
+      "pm2_id": 6,
+      "pm2_name": "alusi-orchestrator"
+    },
+    {
+      "uuid": "oe-svc-0008",
+      "id": "SVC_HYRVEA_MONITOR",
+      "label": "hyrvea-monitor",
+      "type": "SERVICE",
+      "status": "ONLINE",
+      "tags": [
+        "pm2",
+        "hyrvea",
+        "content"
+      ],
+      "pm2_id": 10,
+      "pm2_name": "hyrvea-monitor"
+    },
+    {
+      "uuid": "oe-svc-0009",
+      "id": "SVC_EMAIL_DISPATCHER",
+      "label": "email-dispatcher",
+      "type": "SERVICE",
+      "status": "STOPPED",
+      "tags": [
+        "pm2",
+        "email",
+        "on-demand"
+      ],
+      "pm2_id": 11,
+      "pm2_name": "email-dispatcher"
+    },
+    {
+      "uuid": "oe-svc-0010",
+      "id": "SVC_MISSION_CONTROL",
+      "label": "mission-control",
+      "type": "SERVICE",
+      "status": "ONLINE",
+      "tags": [
+        "pm2",
+        "dashboard",
+        "port-3333"
+      ],
+      "pm2_id": 17,
+      "pm2_name": "mission-control",
+      "port": 3333
+    },
+    {
+      "uuid": "oe-svc-0011",
+      "id": "SVC_CLAWDB",
+      "label": "clawdb",
+      "type": "SERVICE",
+      "status": "ONLINE",
+      "tags": [
+        "pm2",
+        "postgresql",
+        "database",
+        "port-5432"
+      ],
+      "pm2_id": 43,
+      "pm2_name": "clawdb",
+      "port": 5432
+    },
+    {
+      "uuid": "oe-svc-0012",
+      "id": "SVC_CASHCLAW_DIRECTOR",
+      "label": "cashclaw_director",
+      "type": "SERVICE",
+      "status": "ONLINE",
+      "tags": [
+        "pm2",
+        "trading",
+        "kalshi",
+        "director"
+      ],
+      "pm2_id": 38,
+      "pm2_name": "cashclaw_director",
+      "cycle": "5min"
+    },
+    {
+      "uuid": "oe-svc-0013",
+      "id": "SVC_CASHCLAW_ARB",
+      "label": "cashclaw_arb",
+      "type": "SERVICE",
+      "status": "ONLINE",
+      "tags": [
+        "pm2",
+        "trading",
+        "arb",
+        "kalshi"
+      ],
+      "pm2_id": 39,
+      "pm2_name": "cashclaw_arb",
+      "cycle": "5min"
+    },
+    {
+      "uuid": "oe-svc-0014",
+      "id": "SVC_POLYMARKET_TRADER",
+      "label": "polymarket-trader",
+      "type": "SERVICE",
+      "status": "ONLINE",
+      "tags": [
+        "pm2",
+        "trading",
+        "polymarket"
+      ],
+      "pm2_id": 40,
+      "pm2_name": "polymarket-trader",
+      "cycle": "15min"
+    },
+    {
+      "uuid": "oe-svc-0015",
+      "id": "SVC_TRADING_SENTINEL",
+      "label": "trading_sentinel",
+      "type": "SERVICE",
+      "status": "ONLINE",
+      "tags": [
+        "pm2",
+        "sentinel",
+        "watchdog",
+        "trading"
+      ],
+      "pm2_id": 41,
+      "pm2_name": "trading_sentinel",
+      "cycle": "5min"
+    },
+    {
+      "uuid": "oe-svc-0016",
+      "id": "SVC_OLLAMA",
+      "label": "ollama",
+      "type": "SERVICE",
+      "status": "ONLINE",
+      "tags": [
+        "pm2",
+        "ollama",
+        "llm",
+        "port-11434"
+      ],
+      "pm2_id": 24,
+      "pm2_name": "ollama",
+      "port": 11434
+    },
+    {
+      "uuid": "oe-svc-0017",
+      "id": "SVC_EXEC_GATEWAY",
+      "label": "exec-gateway",
+      "type": "SERVICE",
+      "status": "ONLINE",
+      "tags": [
+        "pm2",
+        "exec",
+        "approvals",
+        "gateway"
+      ],
+      "pm2_id": 13,
+      "pm2_name": "exec-gateway"
+    },
+    {
+      "uuid": "oe-svc-0018",
+      "id": "SVC_TELEGRAM_APPROVALS",
+      "label": "telegram-approvals",
+      "type": "SERVICE",
+      "status": "ONLINE",
+      "tags": [
+        "pm2",
+        "telegram",
+        "approvals"
+      ],
+      "pm2_id": 14,
+      "pm2_name": "telegram-approvals"
+    },
+    {
+      "uuid": "oe-svc-0019",
+      "id": "SVC_FEDERATION_STAGING",
+      "label": "open-empire-federation-staging",
+      "type": "SERVICE",
+      "status": "DEGRADED",
+      "tags": [
+        "pm2",
+        "staging",
+        "federation",
+        "high-restarts"
+      ],
+      "pm2_id": 45,
+      "pm2_name": "open-empire-federation-staging",
+      "notes": "Known drift: high restart count as of 2026-08-06"
+    },
+    {
+      "uuid": "oe-svc-0020",
+      "id": "SVC_LIFECYCLE_STAGING",
+      "label": "open-empire-lifecycle-staging",
+      "type": "SERVICE",
+      "status": "DEGRADED",
+      "tags": [
+        "pm2",
+        "staging",
+        "lifecycle",
+        "high-restarts"
+      ],
+      "pm2_id": 46,
+      "pm2_name": "open-empire-lifecycle-staging",
+      "notes": "Known drift: high restart count as of 2026-08-06"
+    },
+    {
+      "uuid": "oe-db-0001",
+      "id": "DB_CLAWDB",
+      "label": "clawdb (PostgreSQL 18.3)",
+      "type": "DATABASE",
+      "status": "ONLINE",
+      "tags": [
+        "postgresql",
+        "primary",
+        "port-5432"
+      ],
+      "port": 5432,
+      "version": "18.3",
+      "notes": "LC_ALL fixed. Primary operational database."
+    },
+    {
+      "uuid": "oe-db-0002",
+      "id": "DB_ANTFARM_SQLITE",
+      "label": "antfarm SQLite",
+      "type": "DATABASE",
+      "status": "ONLINE",
+      "tags": [
+        "sqlite",
+        "antfarm",
+        "workflows"
+      ],
+      "path": "~/.openclaw/workspace/antfarm/antfarm.db",
+      "notes": "SQLite for Antfarm workflow state."
+    },
+    {
+      "uuid": "oe-db-0003",
+      "id": "DB_TRADE_LOGS",
+      "label": "Trade Logs (JSONL)",
+      "type": "DATABASE",
+      "status": "ONLINE",
+      "tags": [
+        "jsonl",
+        "trades",
+        "file-based"
+      ],
+      "path": "~/.openclaw/trading/logs/trades.jsonl",
+      "notes": "JSONL file-based trade ledger. Used by sentinel + spend cap enforcement."
+    },
+    {
+      "uuid": "oe-agent-0001",
+      "id": "AGENT_ALUSI_MAIN",
+      "label": "Alusi Main Agent",
+      "type": "AGENT",
+      "status": "ACTIVE",
+      "tags": [
+        "alusi",
+        "orchestrator",
+        "primary",
+        "claude-sonnet"
+      ],
+      "model": "anthropic/claude-sonnet-4-6",
+      "channel": "webchat/telegram/discord"
+    },
+    {
+      "uuid": "oe-agent-0002",
+      "id": "AGENT_CASHCLAW_DIRECTOR",
+      "label": "CashClaw Director Agent",
+      "type": "AGENT",
+      "status": "ACTIVE",
+      "tags": [
+        "trading",
+        "kalshi",
+        "director",
+        "claude-haiku"
+      ],
+      "model": "claude-haiku",
+      "cycle": "5min"
+    },
+    {
+      "uuid": "oe-agent-0003",
+      "id": "AGENT_CASHCLAW_ARB",
+      "label": "CashClaw ARB Agent",
+      "type": "AGENT",
+      "status": "ACTIVE",
+      "tags": [
+        "trading",
+        "arb",
+        "kalshi",
+        "polymarket"
+      ],
+      "cycle": "5min"
+    },
+    {
+      "uuid": "oe-agent-0004",
+      "id": "AGENT_POLYMARKET_TRADER",
+      "label": "Polymarket Trader Agent",
+      "type": "AGENT",
+      "status": "ACTIVE",
+      "tags": [
+        "trading",
+        "polymarket",
+        "gpt-4o"
+      ],
+      "model": "gpt-4o",
+      "cycle": "15min"
+    },
+    {
+      "uuid": "oe-agent-0005",
+      "id": "AGENT_TRADING_SENTINEL",
+      "label": "Trading Sentinel Agent",
+      "type": "AGENT",
+      "status": "ACTIVE",
+      "tags": [
+        "sentinel",
+        "watchdog",
+        "trading"
+      ],
+      "cycle": "5min"
+    },
+    {
+      "uuid": "oe-agent-0006",
+      "id": "AGENT_SOVEREIGN_PROXY",
+      "label": "Sovereign Proxy",
+      "type": "AGENT",
+      "status": "ACTIVE",
+      "tags": [
+        "approvals",
+        "sovereign",
+        "n8n"
+      ],
+      "description": "Approval gating for all council items. Routes approved outputs to n8n."
+    },
+    {
+      "uuid": "oe-agent-0007",
+      "id": "AGENT_BLCO_BROKER",
+      "label": "BLCO Broker Agent",
+      "type": "AGENT",
+      "status": "PAUSED",
+      "tags": [
+        "blco",
+        "leads",
+        "outreach"
+      ],
+      "cycle": "5min",
+      "notes": "Lead sourcing paused 2026-07-19."
+    },
+    {
+      "uuid": "oe-agent-0008",
+      "id": "AGENT_B2B_OUTREACH",
+      "label": "B2B Outreach Agent",
+      "type": "AGENT",
+      "status": "PAUSED",
+      "tags": [
+        "outreach",
+        "b2b",
+        "draft-only"
+      ],
+      "notes": "Draft-only mode. Outputs go to sovereign_proxy."
+    },
+    {
+      "uuid": "oe-agent-0009",
+      "id": "AGENT_HYRVEA_MONITOR",
+      "label": "Hyrvea Monitor Agent",
+      "type": "AGENT",
+      "status": "ACTIVE",
+      "tags": [
+        "hyrvea",
+        "content",
+        "monitor"
+      ]
+    },
+    {
+      "uuid": "oe-agent-0010",
+      "id": "AGENT_EMAIL_DISPATCHER",
+      "label": "Email Dispatcher Agent",
+      "type": "AGENT",
+      "status": "ON_DEMAND",
+      "tags": [
+        "email",
+        "dispatch",
+        "on-demand"
+      ],
+      "notes": "Stopped. Triggered manually via approval."
+    },
+    {
+      "uuid": "oe-dash-0001",
+      "id": "DASH_MISSION_CONTROL",
+      "label": "Mission Control",
+      "type": "DASHBOARD",
+      "status": "ACTIVE",
+      "tags": [
+        "dashboard",
+        "command-center",
+        "port-3333"
+      ],
+      "url": "http://127.0.0.1:3333"
+    },
+    {
+      "uuid": "oe-dash-0002",
+      "id": "DASH_GRAFANA",
+      "label": "Grafana",
+      "type": "DASHBOARD",
+      "status": "UNKNOWN",
+      "tags": [
+        "grafana",
+        "metrics",
+        "port-3001"
+      ],
+      "url": "http://127.0.0.1:3001",
+      "notes": "Status unknown as of 2026-08-06. Needs health check."
+    },
+    {
+      "uuid": "oe-dash-0003",
+      "id": "DASH_N8N",
+      "label": "n8n",
+      "type": "DASHBOARD",
+      "status": "ACTIVE",
+      "tags": [
+        "n8n",
+        "automation",
+        "workflows"
+      ],
+      "notes": "0 workflows deployed."
+    },
+    {
+      "uuid": "oe-dash-0004",
+      "id": "DASH_PM2_MONITOR",
+      "label": "PM2 Monitor (pm2 monit)",
+      "type": "DASHBOARD",
+      "status": "ACTIVE",
+      "tags": [
+        "pm2",
+        "monitor",
+        "cli"
+      ],
+      "notes": "CLI-based. pm2 monit or pm2 status."
+    },
+    {
+      "uuid": "oe-dash-0005",
+      "id": "DASH_OPENCLAW_LEGACY",
+      "label": "OpenClaw Dashboard (legacy)",
+      "type": "DASHBOARD",
+      "status": "STOPPED",
+      "tags": [
+        "openclaw",
+        "dashboard",
+        "legacy"
+      ],
+      "pm2_id": 12,
+      "notes": "openclaw-dashboard PM2 stopped. On-demand only."
+    },
+    {
+      "uuid": "oe-doc-0001",
+      "id": "DOC_CONSTITUTION",
+      "label": "Open Empire Constitution v2",
+      "type": "DOCUMENT",
+      "status": "ACTIVE",
+      "tags": [
+        "constitution",
+        "governance",
+        "canonical"
+      ],
+      "path": "~/.openclaw/workspace/governance/OPEN_EMPIRE_CONSTITUTION_V2.md"
+    },
+    {
+      "uuid": "oe-doc-0002",
+      "id": "DOC_GOVERNANCE_BASELINE",
+      "label": "Governance Baseline v1.0.0",
+      "type": "DOCUMENT",
+      "status": "FROZEN",
+      "tags": [
+        "baseline",
+        "governance",
+        "frozen",
+        "commit-17df0ff"
+      ],
+      "path": "~/.openclaw/workspace/governance/GOVERNANCE_BASELINE_V1.md",
+      "commit": "17df0ff"
+    },
+    {
+      "uuid": "oe-doc-0003",
+      "id": "DOC_AGENTS_MD",
+      "label": "AGENTS.md",
+      "type": "DOCUMENT",
+      "status": "ACTIVE",
+      "tags": [
+        "agents",
+        "registry",
+        "pm2"
+      ],
+      "path": "~/.openclaw/workspace/AGENTS.md"
+    },
+    {
+      "uuid": "oe-doc-0004",
+      "id": "DOC_MASTER_REGISTRY",
+      "label": "Open Empire Master Registry",
+      "type": "DOCUMENT",
+      "status": "ACTIVE",
+      "tags": [
+        "registry",
+        "assets",
+        "canonical"
+      ],
+      "path": "~/.openclaw/workspace/governance/OPEN_EMPIRE_MASTER_REGISTRY.json"
+    },
+    {
+      "uuid": "oe-doc-0005",
+      "id": "DOC_RUNTIME_REGISTRY",
+      "label": "Runtime Registry",
+      "type": "DOCUMENT",
+      "status": "ACTIVE",
+      "tags": [
+        "registry",
+        "runtime",
+        "pm2"
+      ],
+      "path": "~/.openclaw/workspace/governance/RUNTIME_REGISTRY_V1.json"
+    },
+    {
+      "uuid": "oe-doc-0006",
+      "id": "DOC_SHA256SUMS",
+      "label": "SHA256SUMS",
+      "type": "DOCUMENT",
+      "status": "ACTIVE",
+      "tags": [
+        "sha256",
+        "checksums",
+        "integrity"
+      ],
+      "path": "~/.openclaw/workspace/governance/SHA256SUMS"
+    },
+    {
+      "uuid": "oe-doc-0007",
+      "id": "DOC_KNOWLEDGE_GRAPH_SEED",
+      "label": "Knowledge Graph Seed v1",
+      "type": "DOCUMENT",
+      "status": "ACTIVE",
+      "tags": [
+        "knowledge-graph",
+        "track-b",
+        "seed"
+      ],
+      "path": "~/.openclaw/workspace/governance/track_b/OPEN_EMPIRE_KNOWLEDGE_GRAPH_SEED_V1.json"
+    },
+    {
+      "uuid": "oe-doc-0008",
+      "id": "DOC_OBSERVABILITY_SPEC",
+      "label": "Observability Spec v1",
+      "type": "DOCUMENT",
+      "status": "ACTIVE",
+      "tags": [
+        "observability",
+        "track-b",
+        "spec"
+      ],
+      "path": "~/.openclaw/workspace/governance/track_b/OPEN_EMPIRE_OBSERVABILITY_SPEC_V1.md"
+    },
+    {
+      "uuid": "oe-doc-0009",
+      "id": "DOC_SECRETS_GOVERNANCE",
+      "label": "Secrets Governance v1",
+      "type": "DOCUMENT",
+      "status": "ACTIVE",
+      "tags": [
+        "secrets",
+        "governance",
+        "track-b"
+      ],
+      "path": "~/.openclaw/workspace/governance/track_b/OPEN_EMPIRE_SECRETS_GOVERNANCE_V1.json"
+    },
+    {
+      "uuid": "oe-doc-0010",
+      "id": "DOC_ASSET_UUID_REGISTRY",
+      "label": "Asset UUID Registry v1",
+      "type": "DOCUMENT",
+      "status": "ACTIVE",
+      "tags": [
+        "uuid",
+        "registry",
+        "track-b"
+      ],
+      "path": "~/.openclaw/workspace/governance/track_b/OPEN_EMPIRE_ASSET_UUID_REGISTRY_V1.json"
+    },
+    {
+      "uuid": "oe-doc-0011",
+      "id": "DOC_REGISTRY_FIRST_POLICY",
+      "label": "Registry-First Policy v1",
+      "type": "DOCUMENT",
+      "status": "ACTIVE",
+      "tags": [
+        "registry",
+        "policy",
+        "track-b"
+      ],
+      "path": "~/.openclaw/workspace/governance/track_b/OPEN_EMPIRE_REGISTRY_FIRST_POLICY_V1.md"
+    },
+    {
+      "uuid": "oe-doc-0012",
+      "id": "DOC_BLCO_COMMAND",
+      "label": "BLCO Command",
+      "type": "DOCUMENT",
+      "status": "ACTIVE",
+      "tags": [
+        "blco",
+        "command",
+        "pipeline"
+      ],
+      "path": "~/.openclaw/blco/BLCO_COMMAND.md"
+    }
+  ],
+  "edges": [
+    {
+      "from": "oe-port-0001",
+      "to": "oe-prog-0001",
+      "relationship": "OWNS",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-port-0001",
+      "to": "oe-prog-0002",
+      "relationship": "OWNS",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-port-0002",
+      "to": "oe-prog-0003",
+      "relationship": "OWNS",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-port-0005",
+      "to": "oe-prog-0004",
+      "relationship": "OWNS",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-port-0005",
+      "to": "oe-prog-0005",
+      "relationship": "OWNS",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-port-0005",
+      "to": "oe-prog-0006",
+      "relationship": "OWNS",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-port-0004",
+      "to": "oe-prog-0007",
+      "relationship": "OWNS",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-port-0003",
+      "to": "oe-prog-0008",
+      "relationship": "OWNS",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-prog-0001",
+      "to": "oe-cap-0001",
+      "relationship": "IMPLEMENTS",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-prog-0001",
+      "to": "oe-cap-0013",
+      "relationship": "IMPLEMENTS",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-prog-0001",
+      "to": "oe-cap-0014",
+      "relationship": "GOVERNED_BY",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-prog-0002",
+      "to": "oe-cap-0002",
+      "relationship": "IMPLEMENTS",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-prog-0002",
+      "to": "oe-cap-0014",
+      "relationship": "GOVERNED_BY",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-prog-0003",
+      "to": "oe-cap-0009",
+      "relationship": "IMPLEMENTS",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-prog-0005",
+      "to": "oe-cap-0011",
+      "relationship": "IMPLEMENTS",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-prog-0006",
+      "to": "oe-cap-0003",
+      "relationship": "IMPLEMENTS",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-prog-0006",
+      "to": "oe-cap-0004",
+      "relationship": "IMPLEMENTS",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-prog-0006",
+      "to": "oe-cap-0018",
+      "relationship": "IMPLEMENTS",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-prog-0007",
+      "to": "oe-cap-0017",
+      "relationship": "IMPLEMENTS",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-cap-0001",
+      "to": "oe-svc-0012",
+      "relationship": "DEPLOYS_TO",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-cap-0001",
+      "to": "oe-svc-0015",
+      "relationship": "DEPLOYS_TO",
+      "weight": 0.8
+    },
+    {
+      "from": "oe-cap-0002",
+      "to": "oe-svc-0014",
+      "relationship": "DEPLOYS_TO",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-cap-0013",
+      "to": "oe-svc-0013",
+      "relationship": "DEPLOYS_TO",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-cap-0003",
+      "to": "oe-svc-0004",
+      "relationship": "DEPLOYS_TO",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-cap-0003",
+      "to": "oe-svc-0018",
+      "relationship": "DEPLOYS_TO",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-cap-0004",
+      "to": "oe-svc-0005",
+      "relationship": "DEPLOYS_TO",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-cap-0005",
+      "to": "oe-svc-0016",
+      "relationship": "DEPLOYS_TO",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-cap-0006",
+      "to": "oe-svc-0017",
+      "relationship": "DEPLOYS_TO",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-cap-0006",
+      "to": "oe-svc-0018",
+      "relationship": "DEPLOYS_TO",
+      "weight": 0.8
+    },
+    {
+      "from": "oe-cap-0007",
+      "to": "oe-dash-0003",
+      "relationship": "DEPLOYS_TO",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-cap-0008",
+      "to": "oe-svc-0011",
+      "relationship": "DEPLOYS_TO",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-cap-0010",
+      "to": "oe-svc-0009",
+      "relationship": "DEPLOYS_TO",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-cap-0012",
+      "to": "oe-svc-0010",
+      "relationship": "DEPLOYS_TO",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-cap-0017",
+      "to": "oe-svc-0008",
+      "relationship": "DEPLOYS_TO",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-cap-0018",
+      "to": "oe-svc-0007",
+      "relationship": "DEPLOYS_TO",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-svc-0012",
+      "to": "oe-db-0003",
+      "relationship": "STORES_DATA_IN",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-svc-0013",
+      "to": "oe-db-0003",
+      "relationship": "STORES_DATA_IN",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-svc-0014",
+      "to": "oe-db-0003",
+      "relationship": "STORES_DATA_IN",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-svc-0015",
+      "to": "oe-db-0003",
+      "relationship": "DEPENDS_ON",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-svc-0007",
+      "to": "oe-db-0002",
+      "relationship": "STORES_DATA_IN",
+      "weight": 0.5
+    },
+    {
+      "from": "oe-svc-0001",
+      "to": "oe-db-0001",
+      "relationship": "STORES_DATA_IN",
+      "weight": 0.8
+    },
+    {
+      "from": "oe-agent-0001",
+      "to": "oe-svc-0003",
+      "relationship": "DEPENDS_ON",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-agent-0002",
+      "to": "oe-svc-0012",
+      "relationship": "IMPLEMENTS",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-agent-0003",
+      "to": "oe-svc-0013",
+      "relationship": "IMPLEMENTS",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-agent-0004",
+      "to": "oe-svc-0014",
+      "relationship": "IMPLEMENTS",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-agent-0005",
+      "to": "oe-svc-0015",
+      "relationship": "IMPLEMENTS",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-agent-0005",
+      "to": "oe-svc-0012",
+      "relationship": "MONITORS",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-agent-0005",
+      "to": "oe-svc-0013",
+      "relationship": "MONITORS",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-agent-0005",
+      "to": "oe-svc-0014",
+      "relationship": "MONITORS",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-agent-0009",
+      "to": "oe-svc-0008",
+      "relationship": "IMPLEMENTS",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-doc-0001",
+      "to": "oe-cap-0006",
+      "relationship": "GOVERNED_BY",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-doc-0001",
+      "to": "oe-cap-0011",
+      "relationship": "GOVERNED_BY",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-doc-0002",
+      "to": "oe-cap-0011",
+      "relationship": "GOVERNED_BY",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-doc-0006",
+      "to": "oe-doc-0001",
+      "relationship": "GOVERNED_BY",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-doc-0006",
+      "to": "oe-doc-0002",
+      "relationship": "GOVERNED_BY",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-repo-0002",
+      "to": "oe-cap-0001",
+      "relationship": "IMPLEMENTS",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-repo-0002",
+      "to": "oe-cap-0002",
+      "relationship": "IMPLEMENTS",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-repo-0002",
+      "to": "oe-cap-0013",
+      "relationship": "IMPLEMENTS",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-repo-0005",
+      "to": "oe-cap-0012",
+      "relationship": "IMPLEMENTS",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-repo-0008",
+      "to": "oe-cap-0011",
+      "relationship": "IMPLEMENTS",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-repo-0006",
+      "to": "oe-cap-0009",
+      "relationship": "IMPLEMENTS",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-repo-0013",
+      "to": "oe-cap-0017",
+      "relationship": "IMPLEMENTS",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-repo-0016",
+      "to": "oe-cap-0015",
+      "relationship": "IMPLEMENTS",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-dash-0001",
+      "to": "oe-svc-0010",
+      "relationship": "IMPLEMENTS",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-dash-0002",
+      "to": "oe-cap-0008",
+      "relationship": "MONITORS",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-dash-0004",
+      "to": "oe-svc-0012",
+      "relationship": "MONITORS",
+      "weight": 0.5
+    },
+    {
+      "from": "oe-svc-0004",
+      "to": "oe-cap-0003",
+      "relationship": "DEPENDS_ON",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-cap-0014",
+      "to": "oe-db-0003",
+      "relationship": "DEPENDS_ON",
+      "weight": 1.0
+    },
+    {
+      "from": "oe-cap-0006",
+      "to": "oe-cap-0003",
+      "relationship": "DEPENDS_ON",
+      "weight": 0.9
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "schema": "open-empire.runtime-topology.v1",
+  "version": "1.0.0",
+  "created_at": "2026-08-06T13:02:00Z",
+  "snapshot_method": "pm2_jlist + lsof + psql + ollama_api",
+  "host": "Ugo's Mac Mini (NeoOC)",
+  "os": "macOS 12.7.6 x64",
+  "node_version": "v24.18.0",
+  "topology": {
+    "pm2": {
+      "total_processes": 42,
+      "online": 37,
+      "stopped": 5,
+      "process_groups": {
+        "CORE_PLATFORM": [
+          {"pm_id": 0, "name": "executor", "status": "online", "pid": 718, "role": "Core task executor"},
+          {"pm_id": 1, "name": "alusi-gateway", "status": "online", "pid": 717, "port": 8788, "role": "OpenClaw Gateway"},
+          {"pm_id": 15, "name": "heartbeat", "status": "online", "pid": 735, "role": "Alusi loop heartbeat"}
+        ],
+        "MESSAGING": [
+          {"pm_id": 3, "name": "alusi-discord-adapter", "status": "online", "pid": 719, "role": "Discord channel"},
+          {"pm_id": 9, "name": "telegram-approvals", "status": "online", "pid": 729, "role": "Telegram approval handler"},
+          {"pm_id": 10, "name": "ecosystem.email-dispatcher", "status": "online", "pid": 730, "role": "Email dispatch layer"},
+          {"pm_id": 42, "name": "alusi-telegram-adapter", "status": "online", "pid": 77148, "role": "Telegram channel"}
+        ],
+        "APPROVAL_CONTROL": [
+          {"pm_id": 4, "name": "alusi-controlled-worker", "status": "online", "pid": 723, "role": "Approval worker"},
+          {"pm_id": 5, "name": "alusi-orchestrator", "status": "online", "pid": 722, "role": "Multi-agent orchestration"},
+          {"pm_id": 8, "name": "exec-gateway", "status": "online", "pid": 726, "port": 8799, "role": "Exec approval gateway"}
+        ],
+        "TRADING": [
+          {"pm_id": 38, "name": "cashclaw_director", "status": "online", "pid": 79160, "restart_count": 2, "role": "Kalshi market trading, 5min cycle", "daily_cap_usd": 10},
+          {"pm_id": 39, "name": "cashclaw_arb", "status": "online", "pid": 79199, "restart_count": 1, "role": "Bundle arb + cross-platform arb alerts", "daily_cap_usd": 10},
+          {"pm_id": 40, "name": "polymarket-trader", "status": "online", "pid": 79256, "restart_count": 2, "role": "Polymarket US MLB/MLS strategy", "daily_cap_usd": 10},
+          {"pm_id": 41, "name": "trading_sentinel", "status": "online", "pid": 3186, "restart_count": 1, "role": "Trading watchdog / CashClaw sentinel"}
+        ],
+        "DATA": [
+          {"pm_id": 36, "name": "clawdb", "status": "online", "pid": 10621, "port": 5432, "role": "PostgreSQL 18.3 database server"}
+        ],
+        "INFERENCE": [
+          {"pm_id": 24, "name": "ollama", "status": "online", "pid": 778, "port": 11434, "role": "Local LLM server, 6 models"}
+        ],
+        "AUTOMATION": [
+          {"pm_id": 23, "name": "n8n", "status": "online", "pid": 771, "ports": [5678, 5679], "role": "Workflow automation engine", "workflows_active": 0}
+        ],
+        "MONITORING": [
+          {"pm_id": 16, "name": "nexus-telemetry", "status": "online", "pid": 736, "role": "Nexus telemetry collector"},
+          {"pm_id": 18, "name": "hyrve-monitor-v2", "status": "online", "pid": 764, "role": "Hyrve job marketplace monitor"}
+        ],
+        "DASHBOARDS": [
+          {"pm_id": 7, "name": "openclaw-dashboard", "status": "online", "pid": 724, "port": 8080, "role": "Legacy OpenClaw dashboard"},
+          {"pm_id": 14, "name": "mission-control", "status": "online", "pid": 733, "port": 3333, "role": "Command Center UI"},
+          {"pm_id": 17, "name": "open-empire-nexus", "status": "online", "pid": 756, "ports": [4444, 4445], "role": "Open Empire Nexus API"},
+          {"pm_id": 19, "name": "nexus-dashboard", "status": "online", "pid": 762, "port": 4444, "role": "Nexus dashboard UI"},
+          {"pm_id": 20, "name": "cost-dashboard", "status": "online", "pid": 769, "port": 8796, "role": "Cost observability dashboard"},
+          {"pm_id": 21, "name": "open-empire-control-plane", "status": "online", "pid": 768, "port": 8899, "role": "Open Empire control plane"},
+          {"pm_id": 22, "name": "open-empire-mission-ui", "status": "online", "pid": 777, "port": 8791, "role": "Mission UI"}
+        ],
+        "ROUTING": [
+          {"pm_id": 26, "name": "native-router", "status": "online", "pid": 788, "port": 4010, "role": "Native API router"},
+          {"pm_id": 28, "name": "claude-proxy", "status": "online", "pid": 812, "port": 4099, "role": "Claude API proxy / Hermes bridge"}
+        ],
+        "CONTENT": [
+          {"pm_id": 13, "name": "blco-email-monitor", "status": "online", "pid": 732, "role": "BLCO email pipeline monitor"},
+          {"pm_id": 25, "name": "alpaca-demo", "status": "online", "pid": 1500, "restart_count": 4, "role": "Alpaca demo agent (note: 4 restarts)"}
+        ],
+        "STOPPED_INTENTIONAL": [
+          {"pm_id": 11, "name": "pnl-audit", "status": "stopped", "role": "P&L audit runner (on-demand)"},
+          {"pm_id": 12, "name": "blco-enricher", "status": "stopped", "role": "BLCO enricher (paused 2026-07-19)"}
+        ],
+        "STOPPED_DEGRADED": [
+          {"pm_id": 33, "name": "open-empire-federation-staging", "status": "stopped", "restart_count": 11, "classification": "DEGRADED_REQUIRES_REPAIR"},
+          {"pm_id": 34, "name": "open-empire-lifecycle-staging", "status": "stopped", "restart_count": 9, "classification": "DEGRADED_REQUIRES_REPAIR"},
+          {"pm_id": 35, "name": "dynamics51", "status": "stopped", "restart_count": 12, "classification": "DEGRADED_REQUIRES_REPAIR"},
+          {"pm_id": 6, "name": "skill-sync", "status": "stopped", "restart_count": 1, "classification": "STOPPED_MONITORING"}
+        ]
+      }
+    },
+    "databases": {
+      "postgresql": {
+        "version": "18.3",
+        "port": 5432,
+        "host": "127.0.0.1",
+        "pm2_id": 36,
+        "databases": ["clawdb", "openclaw", "postgres"],
+        "tables_per_db": ["agent_events", "approvals", "daily_pnl", "health_log", "signals", "trades", "vault_entries"]
+      }
+    },
+    "inference": {
+      "ollama": {
+        "port": 11434,
+        "pm2_id": 24,
+        "models": [
+          {"name": "qwen2.5:3b", "size_mb": 1840},
+          {"name": "qwen2.5:1.5b", "size_mb": 940},
+          {"name": "tinyllama:latest", "size_mb": 608},
+          {"name": "gemma2:2b", "size_mb": 1554},
+          {"name": "phi3:mini", "size_mb": 2075},
+          {"name": "llama3.2:3b", "size_mb": 1925}
+        ],
+        "total_model_size_mb": 8942
+      }
+    },
+    "networking": {
+      "security_posture": "all_loopback",
+      "external_exposure": "none",
+      "tailscale": {
+        "active": true,
+        "nodes": [
+          {"name": "ugos-mac-mini-3", "ip": "100.107.5.103", "status": "active", "note": "this machine"},
+          {"name": "ugos-macbook-pro", "ip": "100.88.203.62", "status": "active_direct"},
+          {"name": "ugos-mac-mini-2", "ip": "100.114.191.57", "status": "active"},
+          {"name": "ugos-mac-mini-1", "ip": "100.119.187.54", "status": "offline_14d"},
+          {"name": "ugos-mac-mini", "ip": "100.104.183.39", "status": "offline_5d"}
+        ]
+      },
+      "port_map": [
+        {"port": 3333, "service": "mission-control", "pm_id": 14},
+        {"port": 4010, "service": "native-router", "pm_id": 26},
+        {"port": 4099, "service": "claude-proxy", "pm_id": 28},
+        {"port": 4444, "service": "open-empire-nexus + nexus-dashboard", "pm_ids": [17, 19], "note": "check for conflict"},
+        {"port": 4445, "service": "open-empire-nexus", "pm_id": 17},
+        {"port": 5432, "service": "clawdb (PostgreSQL)", "pm_id": 36},
+        {"port": 5678, "service": "n8n", "pm_id": 23},
+        {"port": 5679, "service": "n8n webhook", "pm_id": 23},
+        {"port": 8080, "service": "openclaw-dashboard", "pm_id": 7},
+        {"port": 8788, "service": "alusi-gateway", "pm_id": 1},
+        {"port": 8791, "service": "open-empire-mission-ui", "pm_id": 22},
+        {"port": 8796, "service": "cost-dashboard", "pm_id": 20},
+        {"port": 8799, "service": "exec-gateway", "pm_id": 8},
+        {"port": 8899, "service": "open-empire-control-plane", "pm_id": 21},
+        {"port": 11434, "service": "ollama", "pm_id": 24}
+      ]
+    },
+    "automation": {
+      "crontab": {
+        "total_entries": 56,
+        "b9_validation_entries": 4,
+        "note": "52 pre-existing + 4 new B9 validation crons added 2026-08-06"
+      },
+      "n8n": {"port": 5678, "workflows": 0, "status": "EMPTY_NEEDS_CONFIGURATION"}
+    },
+    "secrets": {
+      "location": "~/.openclaw/secrets/.env",
+      "key_count": 40,
+      "backup": "NONE — critical gap"
+    }
+  }
+}

@@ -1,0 +1,1238 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "created_at": "2026-08-06",
+    "operator": "Nathan Asiegbu",
+    "document_class": "IMMUTABLE_ASSET_REGISTRY",
+    "governed_by": "Open Empire Constitution v2, Governance Baseline v1.0.0"
+  },
+  "namespace": "6ba7b810-9dad-11d1-80b4-00c04fd430c8",
+  "namespace_description": "RFC 4122 URL namespace UUID. All Open Empire asset UUIDs are uuid5 derived from this namespace seeded with the asset's canonical path or identifier.",
+  "policy": {
+    "uuid_generation": "uuid5(NAMESPACE_URL, <canonical_asset_path>)",
+    "immutability": "Once assigned, a UUID NEVER changes regardless of rename, move, or refactor.",
+    "assignment_authority": "Nathan Asiegbu or delegated governance agent",
+    "retroactive_registration": "All assets as of 2026-08-06 registered retroactively on this date.",
+    "pre_production_gate": "New assets must be registered before pm2 start or deployment (see Registry-First Policy).",
+    "human_id_format": "OE-<TYPE_PREFIX>-<NNNN> where TYPE is 3-4 chars (SVC/PORT/CAP/REPO/DOC/DB/AGENT/DASH)",
+    "prohibited_actions": [
+      "Reassigning a UUID to a different asset",
+      "Deleting a UUID entry (deprecate instead)",
+      "Reusing a human_id after asset decommission"
+    ]
+  },
+  "assets": [
+    {
+      "uuid": "a1b2c3d4-0000-5001-8000-000000000001",
+      "human_id": "OE-SVC-0001",
+      "name": "executor",
+      "type": "PM2_SERVICE",
+      "pm2_id": 0,
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ONLINE",
+      "aliases": [
+        "executor",
+        "pm2:0"
+      ]
+    },
+    {
+      "uuid": "a1b2c3d4-0000-5001-8000-000000000002",
+      "human_id": "OE-SVC-0002",
+      "name": "heartbeat",
+      "type": "PM2_SERVICE",
+      "pm2_id": 1,
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ONLINE",
+      "aliases": [
+        "heartbeat",
+        "alusi-loop-heartbeat",
+        "pm2:1"
+      ]
+    },
+    {
+      "uuid": "a1b2c3d4-0000-5001-8000-000000000003",
+      "human_id": "OE-SVC-0003",
+      "name": "alusi-gateway",
+      "type": "PM2_SERVICE",
+      "pm2_id": 2,
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ONLINE",
+      "aliases": [
+        "openclaw-gateway",
+        "pm2:2"
+      ]
+    },
+    {
+      "uuid": "a1b2c3d4-0000-5001-8000-000000000004",
+      "human_id": "OE-SVC-0004",
+      "name": "alusi-telegram-adapter",
+      "type": "PM2_SERVICE",
+      "pm2_id": 3,
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ONLINE",
+      "aliases": [
+        "telegram-adapter",
+        "pm2:3"
+      ]
+    },
+    {
+      "uuid": "a1b2c3d4-0000-5001-8000-000000000005",
+      "human_id": "OE-SVC-0005",
+      "name": "alusi-discord-adapter",
+      "type": "PM2_SERVICE",
+      "pm2_id": 4,
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ONLINE",
+      "aliases": [
+        "discord-adapter",
+        "pm2:4"
+      ]
+    },
+    {
+      "uuid": "a1b2c3d4-0000-5001-8000-000000000006",
+      "human_id": "OE-SVC-0006",
+      "name": "alusi-controlled-worker",
+      "type": "PM2_SERVICE",
+      "pm2_id": 5,
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ONLINE",
+      "aliases": [
+        "controlled-worker",
+        "pm2:5"
+      ]
+    },
+    {
+      "uuid": "a1b2c3d4-0000-5001-8000-000000000007",
+      "human_id": "OE-SVC-0007",
+      "name": "alusi-orchestrator",
+      "type": "PM2_SERVICE",
+      "pm2_id": 6,
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ONLINE",
+      "aliases": [
+        "orchestrator",
+        "pm2:6"
+      ]
+    },
+    {
+      "uuid": "a1b2c3d4-0000-5001-8000-000000000010",
+      "human_id": "OE-SVC-0008",
+      "name": "hyrvea-monitor",
+      "type": "PM2_SERVICE",
+      "pm2_id": 10,
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ONLINE",
+      "aliases": [
+        "hyrvea-monitor",
+        "pm2:10"
+      ]
+    },
+    {
+      "uuid": "a1b2c3d4-0000-5001-8000-000000000011",
+      "human_id": "OE-SVC-0009",
+      "name": "email-dispatcher",
+      "type": "PM2_SERVICE",
+      "pm2_id": 11,
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "STOPPED",
+      "aliases": [
+        "email-dispatcher",
+        "pm2:11"
+      ]
+    },
+    {
+      "uuid": "a1b2c3d4-0000-5001-8000-000000000012",
+      "human_id": "OE-SVC-0010",
+      "name": "openclaw-dashboard",
+      "type": "PM2_SERVICE",
+      "pm2_id": 12,
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "STOPPED",
+      "aliases": [
+        "openclaw-dashboard",
+        "legacy-dashboard",
+        "pm2:12"
+      ]
+    },
+    {
+      "uuid": "a1b2c3d4-0000-5001-8000-000000000013",
+      "human_id": "OE-SVC-0011",
+      "name": "exec-gateway",
+      "type": "PM2_SERVICE",
+      "pm2_id": 13,
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ONLINE",
+      "aliases": [
+        "exec-gateway",
+        "pm2:13"
+      ]
+    },
+    {
+      "uuid": "a1b2c3d4-0000-5001-8000-000000000014",
+      "human_id": "OE-SVC-0012",
+      "name": "telegram-approvals",
+      "type": "PM2_SERVICE",
+      "pm2_id": 14,
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ONLINE",
+      "aliases": [
+        "telegram-approvals",
+        "pm2:14"
+      ]
+    },
+    {
+      "uuid": "a1b2c3d4-0000-5001-8000-000000000015",
+      "human_id": "OE-SVC-0013",
+      "name": "ecosystem.email-dispatcher",
+      "type": "PM2_SERVICE",
+      "pm2_id": 15,
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ONLINE",
+      "aliases": [
+        "ecosystem-email-dispatcher",
+        "pm2:15"
+      ]
+    },
+    {
+      "uuid": "a1b2c3d4-0000-5001-8000-000000000016",
+      "human_id": "OE-SVC-0014",
+      "name": "pnl-audit",
+      "type": "PM2_SERVICE",
+      "pm2_id": 16,
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "STOPPED",
+      "aliases": [
+        "pnl-audit",
+        "pm2:16"
+      ]
+    },
+    {
+      "uuid": "a1b2c3d4-0000-5001-8000-000000000017",
+      "human_id": "OE-SVC-0015",
+      "name": "mission-control",
+      "type": "PM2_SERVICE",
+      "pm2_id": 17,
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ONLINE",
+      "aliases": [
+        "mission-control",
+        "command-center",
+        "pm2:17"
+      ],
+      "port": 3333
+    },
+    {
+      "uuid": "a1b2c3d4-0000-5001-8000-000000000024",
+      "human_id": "OE-SVC-0016",
+      "name": "ollama",
+      "type": "PM2_SERVICE",
+      "pm2_id": 24,
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ONLINE",
+      "aliases": [
+        "ollama",
+        "local-llm",
+        "pm2:24"
+      ],
+      "port": 11434
+    },
+    {
+      "uuid": "a1b2c3d4-0000-5001-8000-000000000038",
+      "human_id": "OE-SVC-0017",
+      "name": "cashclaw_director",
+      "type": "PM2_SERVICE",
+      "pm2_id": 38,
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ONLINE",
+      "aliases": [
+        "cashclaw-director",
+        "director",
+        "pm2:38"
+      ]
+    },
+    {
+      "uuid": "a1b2c3d4-0000-5001-8000-000000000039",
+      "human_id": "OE-SVC-0018",
+      "name": "cashclaw_arb",
+      "type": "PM2_SERVICE",
+      "pm2_id": 39,
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ONLINE",
+      "aliases": [
+        "cashclaw-arb",
+        "arb",
+        "pm2:39"
+      ]
+    },
+    {
+      "uuid": "a1b2c3d4-0000-5001-8000-000000000040",
+      "human_id": "OE-SVC-0019",
+      "name": "polymarket-trader",
+      "type": "PM2_SERVICE",
+      "pm2_id": 40,
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ONLINE",
+      "aliases": [
+        "polymarket-trader",
+        "poly-trader",
+        "pm2:40"
+      ]
+    },
+    {
+      "uuid": "a1b2c3d4-0000-5001-8000-000000000041",
+      "human_id": "OE-SVC-0020",
+      "name": "trading_sentinel",
+      "type": "PM2_SERVICE",
+      "pm2_id": 41,
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ONLINE",
+      "aliases": [
+        "trading-sentinel",
+        "sentinel",
+        "pm2:41"
+      ]
+    },
+    {
+      "uuid": "a1b2c3d4-0000-5001-8000-000000000043",
+      "human_id": "OE-SVC-0021",
+      "name": "clawdb",
+      "type": "PM2_SERVICE",
+      "pm2_id": 43,
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ONLINE",
+      "aliases": [
+        "clawdb",
+        "postgresql",
+        "pm2:43"
+      ],
+      "port": 5432
+    },
+    {
+      "uuid": "a1b2c3d4-0000-5001-8000-000000000045",
+      "human_id": "OE-SVC-0022",
+      "name": "open-empire-federation-staging",
+      "type": "PM2_SERVICE",
+      "pm2_id": 45,
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "DEGRADED",
+      "aliases": [
+        "federation-staging",
+        "pm2:45"
+      ],
+      "notes": "High restart count. Known drift."
+    },
+    {
+      "uuid": "a1b2c3d4-0000-5001-8000-000000000046",
+      "human_id": "OE-SVC-0023",
+      "name": "open-empire-lifecycle-staging",
+      "type": "PM2_SERVICE",
+      "pm2_id": 46,
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "DEGRADED",
+      "aliases": [
+        "lifecycle-staging",
+        "pm2:46"
+      ],
+      "notes": "High restart count. Known drift."
+    },
+    {
+      "uuid": "b2c3d4e5-0000-5002-8000-000000000001",
+      "human_id": "OE-PORT-0001",
+      "name": "Moltlaunch",
+      "type": "PORTFOLIO",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "moltlaunch",
+        "trading-portfolio"
+      ]
+    },
+    {
+      "uuid": "b2c3d4e5-0000-5002-8000-000000000002",
+      "human_id": "OE-PORT-0002",
+      "name": "BLCO Commodity Brokerage",
+      "type": "PORTFOLIO",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "PAUSED",
+      "aliases": [
+        "blco",
+        "blco-portfolio"
+      ]
+    },
+    {
+      "uuid": "b2c3d4e5-0000-5002-8000-000000000003",
+      "human_id": "OE-PORT-0003",
+      "name": "ADAI Inc",
+      "type": "PORTFOLIO",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "PRE_LAUNCH",
+      "aliases": [
+        "adai",
+        "adai-portfolio"
+      ]
+    },
+    {
+      "uuid": "b2c3d4e5-0000-5002-8000-000000000004",
+      "human_id": "OE-PORT-0004",
+      "name": "Content & Media",
+      "type": "PORTFOLIO",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "content",
+        "hyrvea-portfolio"
+      ]
+    },
+    {
+      "uuid": "b2c3d4e5-0000-5002-8000-000000000005",
+      "human_id": "OE-PORT-0005",
+      "name": "Open Empire Infrastructure",
+      "type": "PORTFOLIO",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "infrastructure",
+        "core-portfolio"
+      ]
+    },
+    {
+      "uuid": "c3d4e5f6-0000-5003-8000-000000000001",
+      "human_id": "OE-PROG-0001",
+      "name": "CashClaw Trading Program",
+      "type": "PROGRAM",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "cashclaw",
+        "kalshi-trading"
+      ]
+    },
+    {
+      "uuid": "c3d4e5f6-0000-5003-8000-000000000002",
+      "human_id": "OE-PROG-0002",
+      "name": "Polymarket Trading Program",
+      "type": "PROGRAM",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "polymarket-program",
+        "poly-trading"
+      ]
+    },
+    {
+      "uuid": "c3d4e5f6-0000-5003-8000-000000000003",
+      "human_id": "OE-PROG-0003",
+      "name": "BLCO Outreach Pipeline",
+      "type": "PROGRAM",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "PAUSED",
+      "aliases": [
+        "blco-outreach"
+      ]
+    },
+    {
+      "uuid": "c3d4e5f6-0000-5003-8000-000000000004",
+      "human_id": "OE-PROG-0004",
+      "name": "Open Empire Staging Federation",
+      "type": "PROGRAM",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "DEGRADED",
+      "aliases": [
+        "staging-federation"
+      ]
+    },
+    {
+      "uuid": "c3d4e5f6-0000-5003-8000-000000000005",
+      "human_id": "OE-PROG-0005",
+      "name": "Governance & Compliance",
+      "type": "PROGRAM",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "governance",
+        "compliance"
+      ]
+    },
+    {
+      "uuid": "c3d4e5f6-0000-5003-8000-000000000006",
+      "human_id": "OE-PROG-0006",
+      "name": "Alusi Agent Network",
+      "type": "PROGRAM",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "alusi",
+        "agent-network"
+      ]
+    },
+    {
+      "uuid": "c3d4e5f6-0000-5003-8000-000000000007",
+      "human_id": "OE-PROG-0007",
+      "name": "Hyrvea Content Program",
+      "type": "PROGRAM",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "hyrvea-program"
+      ]
+    },
+    {
+      "uuid": "c3d4e5f6-0000-5003-8000-000000000008",
+      "human_id": "OE-PROG-0008",
+      "name": "ADAI Product Development",
+      "type": "PROGRAM",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "PRE_LAUNCH",
+      "aliases": [
+        "adai-product"
+      ]
+    },
+    {
+      "uuid": "d4e5f6a7-0000-5004-8000-000000000001",
+      "human_id": "OE-CAP-0001",
+      "name": "Kalshi Automated Trading",
+      "type": "CAPABILITY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "kalshi-trading",
+        "cap-kalshi"
+      ]
+    },
+    {
+      "uuid": "d4e5f6a7-0000-5004-8000-000000000002",
+      "human_id": "OE-CAP-0002",
+      "name": "Polymarket US Trading",
+      "type": "CAPABILITY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "polymarket-trading",
+        "cap-polymarket"
+      ]
+    },
+    {
+      "uuid": "d4e5f6a7-0000-5004-8000-000000000003",
+      "human_id": "OE-CAP-0003",
+      "name": "Telegram Alert Channel",
+      "type": "CAPABILITY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "telegram-alerts"
+      ]
+    },
+    {
+      "uuid": "d4e5f6a7-0000-5004-8000-000000000004",
+      "human_id": "OE-CAP-0004",
+      "name": "Discord Channel",
+      "type": "CAPABILITY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "discord-channel"
+      ]
+    },
+    {
+      "uuid": "d4e5f6a7-0000-5004-8000-000000000005",
+      "human_id": "OE-CAP-0005",
+      "name": "Local LLM (Ollama)",
+      "type": "CAPABILITY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "ollama",
+        "local-llm"
+      ]
+    },
+    {
+      "uuid": "d4e5f6a7-0000-5004-8000-000000000006",
+      "human_id": "OE-CAP-0006",
+      "name": "Sovereign Approval Gating",
+      "type": "CAPABILITY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "approvals",
+        "sovereign-proxy"
+      ]
+    },
+    {
+      "uuid": "d4e5f6a7-0000-5004-8000-000000000007",
+      "human_id": "OE-CAP-0007",
+      "name": "n8n Workflow Automation",
+      "type": "CAPABILITY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "n8n",
+        "workflow-automation"
+      ]
+    },
+    {
+      "uuid": "d4e5f6a7-0000-5004-8000-000000000008",
+      "human_id": "OE-CAP-0008",
+      "name": "PostgreSQL Database",
+      "type": "CAPABILITY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "postgresql",
+        "clawdb"
+      ]
+    },
+    {
+      "uuid": "d4e5f6a7-0000-5004-8000-000000000009",
+      "human_id": "OE-CAP-0009",
+      "name": "BLCO Lead Pipeline",
+      "type": "CAPABILITY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "PAUSED",
+      "aliases": [
+        "blco-pipeline"
+      ]
+    },
+    {
+      "uuid": "d4e5f6a7-0000-5004-8000-000000000010",
+      "human_id": "OE-CAP-0010",
+      "name": "Email Dispatch",
+      "type": "CAPABILITY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ON_DEMAND",
+      "aliases": [
+        "email-dispatch"
+      ]
+    },
+    {
+      "uuid": "d4e5f6a7-0000-5004-8000-000000000011",
+      "human_id": "OE-CAP-0011",
+      "name": "Governance Validation",
+      "type": "CAPABILITY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "governance-validation",
+        "sha256-check"
+      ]
+    },
+    {
+      "uuid": "d4e5f6a7-0000-5004-8000-000000000012",
+      "human_id": "OE-CAP-0012",
+      "name": "Mission Control Dashboard",
+      "type": "CAPABILITY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "mission-control",
+        "dashboard"
+      ]
+    },
+    {
+      "uuid": "d4e5f6a7-0000-5004-8000-000000000013",
+      "human_id": "OE-CAP-0013",
+      "name": "Arbitrage Detection",
+      "type": "CAPABILITY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "arb-detection",
+        "cashclaw-arb"
+      ]
+    },
+    {
+      "uuid": "d4e5f6a7-0000-5004-8000-000000000014",
+      "human_id": "OE-CAP-0014",
+      "name": "Daily Spend Cap Enforcement",
+      "type": "CAPABILITY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "spend-cap",
+        "spend-governance"
+      ]
+    },
+    {
+      "uuid": "d4e5f6a7-0000-5004-8000-000000000015",
+      "human_id": "OE-CAP-0015",
+      "name": "Secrets Management",
+      "type": "CAPABILITY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "secrets",
+        "env-management"
+      ]
+    },
+    {
+      "uuid": "d4e5f6a7-0000-5004-8000-000000000016",
+      "human_id": "OE-CAP-0016",
+      "name": "Tailscale Network Mesh",
+      "type": "CAPABILITY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "tailscale",
+        "vpn-mesh"
+      ]
+    },
+    {
+      "uuid": "d4e5f6a7-0000-5004-8000-000000000017",
+      "human_id": "OE-CAP-0017",
+      "name": "Hyrvea Content Pipeline",
+      "type": "CAPABILITY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "hyrvea-pipeline"
+      ]
+    },
+    {
+      "uuid": "d4e5f6a7-0000-5004-8000-000000000018",
+      "human_id": "OE-CAP-0018",
+      "name": "Multi-Agent Orchestration",
+      "type": "CAPABILITY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "orchestration",
+        "multi-agent"
+      ]
+    },
+    {
+      "uuid": "d4e5f6a7-0000-5004-8000-000000000019",
+      "human_id": "OE-CAP-0019",
+      "name": "Enterprise Knowledge Graph",
+      "type": "CAPABILITY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "SEED",
+      "aliases": [
+        "knowledge-graph",
+        "graph-db"
+      ]
+    },
+    {
+      "uuid": "d4e5f6a7-0000-5004-8000-000000000020",
+      "human_id": "OE-CAP-0020",
+      "name": "Autonomous Drift Detection",
+      "type": "CAPABILITY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "SPEC",
+      "aliases": [
+        "drift-detection"
+      ]
+    },
+    {
+      "uuid": "e5f6a7b8-0000-5005-8000-000000000001",
+      "human_id": "OE-REPO-0001",
+      "name": "open-empire workspace",
+      "type": "REPOSITORY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "workspace",
+        "~/.openclaw/workspace"
+      ]
+    },
+    {
+      "uuid": "e5f6a7b8-0000-5005-8000-000000000002",
+      "human_id": "OE-REPO-0002",
+      "name": "trading",
+      "type": "REPOSITORY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "~/.openclaw/trading"
+      ]
+    },
+    {
+      "uuid": "e5f6a7b8-0000-5005-8000-000000000003",
+      "human_id": "OE-REPO-0003",
+      "name": "moltlaunch",
+      "type": "REPOSITORY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "~/.openclaw/moltlaunch"
+      ]
+    },
+    {
+      "uuid": "e5f6a7b8-0000-5005-8000-000000000004",
+      "human_id": "OE-REPO-0004",
+      "name": "alusi",
+      "type": "REPOSITORY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "~/.openclaw/alusi"
+      ]
+    },
+    {
+      "uuid": "e5f6a7b8-0000-5005-8000-000000000005",
+      "human_id": "OE-REPO-0005",
+      "name": "mission-control",
+      "type": "REPOSITORY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "~/.openclaw/workspace/mission-control"
+      ]
+    },
+    {
+      "uuid": "e5f6a7b8-0000-5005-8000-000000000006",
+      "human_id": "OE-REPO-0006",
+      "name": "blco",
+      "type": "REPOSITORY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "PAUSED",
+      "aliases": [
+        "~/.openclaw/blco"
+      ]
+    },
+    {
+      "uuid": "e5f6a7b8-0000-5005-8000-000000000007",
+      "human_id": "OE-REPO-0007",
+      "name": "antfarm",
+      "type": "REPOSITORY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "~/.openclaw/workspace/antfarm"
+      ]
+    },
+    {
+      "uuid": "e5f6a7b8-0000-5005-8000-000000000008",
+      "human_id": "OE-REPO-0008",
+      "name": "governance",
+      "type": "REPOSITORY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "~/.openclaw/workspace/governance"
+      ]
+    },
+    {
+      "uuid": "e5f6a7b8-0000-5005-8000-000000000009",
+      "human_id": "OE-REPO-0009",
+      "name": "skills",
+      "type": "REPOSITORY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "~/.openclaw/workspace/skills"
+      ]
+    },
+    {
+      "uuid": "e5f6a7b8-0000-5005-8000-000000000010",
+      "human_id": "OE-REPO-0010",
+      "name": "vault",
+      "type": "REPOSITORY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "~/.openclaw/vault"
+      ]
+    },
+    {
+      "uuid": "e5f6a7b8-0000-5005-8000-000000000011",
+      "human_id": "OE-REPO-0011",
+      "name": "cashclaw (legacy)",
+      "type": "REPOSITORY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "DEPRECATED",
+      "aliases": [
+        "~/.openclaw/cashclaw"
+      ]
+    },
+    {
+      "uuid": "e5f6a7b8-0000-5005-8000-000000000012",
+      "human_id": "OE-REPO-0012",
+      "name": "polymarket (legacy)",
+      "type": "REPOSITORY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "DEPRECATED",
+      "aliases": [
+        "~/.openclaw/polymarket"
+      ]
+    },
+    {
+      "uuid": "e5f6a7b8-0000-5005-8000-000000000013",
+      "human_id": "OE-REPO-0013",
+      "name": "hyrvea",
+      "type": "REPOSITORY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "~/.openclaw/hyrvea"
+      ]
+    },
+    {
+      "uuid": "e5f6a7b8-0000-5005-8000-000000000014",
+      "human_id": "OE-REPO-0014",
+      "name": "open-empire-staging",
+      "type": "REPOSITORY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "DEGRADED",
+      "aliases": [
+        "~/.openclaw/workspace/open-empire-staging"
+      ]
+    },
+    {
+      "uuid": "e5f6a7b8-0000-5005-8000-000000000015",
+      "human_id": "OE-REPO-0015",
+      "name": "logs",
+      "type": "REPOSITORY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "~/.openclaw/logs"
+      ]
+    },
+    {
+      "uuid": "e5f6a7b8-0000-5005-8000-000000000016",
+      "human_id": "OE-REPO-0016",
+      "name": "secrets",
+      "type": "REPOSITORY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "~/.openclaw/secrets"
+      ]
+    },
+    {
+      "uuid": "e5f6a7b8-0000-5005-8000-000000000017",
+      "human_id": "OE-REPO-0017",
+      "name": "digital_twin",
+      "type": "REPOSITORY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "SPEC",
+      "aliases": [
+        "~/.openclaw/workspace/digital_twin"
+      ]
+    },
+    {
+      "uuid": "e5f6a7b8-0000-5005-8000-000000000018",
+      "human_id": "OE-REPO-0018",
+      "name": "agent-skills",
+      "type": "REPOSITORY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "~/.agents/skills"
+      ]
+    },
+    {
+      "uuid": "e5f6a7b8-0000-5005-8000-000000000019",
+      "human_id": "OE-REPO-0019",
+      "name": "plugin-skills",
+      "type": "REPOSITORY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "~/.openclaw/plugin-skills"
+      ]
+    },
+    {
+      "uuid": "e5f6a7b8-0000-5005-8000-000000000020",
+      "human_id": "OE-REPO-0020",
+      "name": "n8n-data",
+      "type": "REPOSITORY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "~/.openclaw/n8n"
+      ]
+    },
+    {
+      "uuid": "e5f6a7b8-0000-5005-8000-000000000021",
+      "human_id": "OE-REPO-0021",
+      "name": "obsidian-vault",
+      "type": "REPOSITORY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "~/.openclaw/workspace/obsidian-vault"
+      ]
+    },
+    {
+      "uuid": "e5f6a7b8-0000-5005-8000-000000000022",
+      "human_id": "OE-REPO-0022",
+      "name": "track_b",
+      "type": "REPOSITORY",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "~/.openclaw/workspace/governance/track_b"
+      ]
+    },
+    {
+      "uuid": "f6a7b8c9-0000-5006-8000-000000000001",
+      "human_id": "OE-DB-0001",
+      "name": "clawdb (PostgreSQL 18.3)",
+      "type": "DATABASE",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ONLINE",
+      "aliases": [
+        "clawdb",
+        "postgresql",
+        "port-5432"
+      ]
+    },
+    {
+      "uuid": "f6a7b8c9-0000-5006-8000-000000000002",
+      "human_id": "OE-DB-0002",
+      "name": "antfarm SQLite",
+      "type": "DATABASE",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ONLINE",
+      "aliases": [
+        "antfarm.db",
+        "antfarm-sqlite"
+      ]
+    },
+    {
+      "uuid": "f6a7b8c9-0000-5006-8000-000000000003",
+      "human_id": "OE-DB-0003",
+      "name": "Trade Logs (JSONL)",
+      "type": "DATABASE",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ONLINE",
+      "aliases": [
+        "trades.jsonl",
+        "trade-ledger"
+      ]
+    },
+    {
+      "uuid": "a7b8c9d0-0000-5007-8000-000000000001",
+      "human_id": "OE-DOC-0001",
+      "name": "Open Empire Constitution v2",
+      "type": "GOVERNANCE_DOCUMENT",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "constitution",
+        "OPEN_EMPIRE_CONSTITUTION_V2.md"
+      ]
+    },
+    {
+      "uuid": "a7b8c9d0-0000-5007-8000-000000000002",
+      "human_id": "OE-DOC-0002",
+      "name": "Governance Baseline v1.0.0",
+      "type": "GOVERNANCE_DOCUMENT",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "FROZEN",
+      "aliases": [
+        "baseline",
+        "GOVERNANCE_BASELINE_V1.md",
+        "commit-17df0ff"
+      ]
+    },
+    {
+      "uuid": "a7b8c9d0-0000-5007-8000-000000000003",
+      "human_id": "OE-DOC-0003",
+      "name": "AGENTS.md",
+      "type": "GOVERNANCE_DOCUMENT",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "AGENTS.md",
+        "agent-registry"
+      ]
+    },
+    {
+      "uuid": "a7b8c9d0-0000-5007-8000-000000000004",
+      "human_id": "OE-DOC-0004",
+      "name": "Open Empire Master Registry",
+      "type": "GOVERNANCE_DOCUMENT",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "master-registry",
+        "OPEN_EMPIRE_MASTER_REGISTRY.json"
+      ]
+    },
+    {
+      "uuid": "a7b8c9d0-0000-5007-8000-000000000005",
+      "human_id": "OE-DOC-0005",
+      "name": "Runtime Registry v1",
+      "type": "GOVERNANCE_DOCUMENT",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "runtime-registry",
+        "RUNTIME_REGISTRY_V1.json"
+      ]
+    },
+    {
+      "uuid": "a7b8c9d0-0000-5007-8000-000000000006",
+      "human_id": "OE-DOC-0006",
+      "name": "SHA256SUMS",
+      "type": "GOVERNANCE_DOCUMENT",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "SHA256SUMS",
+        "checksums",
+        "integrity-manifest"
+      ]
+    },
+    {
+      "uuid": "a7b8c9d0-0000-5007-8000-000000000007",
+      "human_id": "OE-DOC-0007",
+      "name": "Knowledge Graph Seed v1",
+      "type": "GOVERNANCE_DOCUMENT",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "OPEN_EMPIRE_KNOWLEDGE_GRAPH_SEED_V1.json"
+      ]
+    },
+    {
+      "uuid": "a7b8c9d0-0000-5007-8000-000000000008",
+      "human_id": "OE-DOC-0008",
+      "name": "Observability Spec v1",
+      "type": "GOVERNANCE_DOCUMENT",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "OPEN_EMPIRE_OBSERVABILITY_SPEC_V1.md"
+      ]
+    },
+    {
+      "uuid": "a7b8c9d0-0000-5007-8000-000000000009",
+      "human_id": "OE-DOC-0009",
+      "name": "Secrets Governance v1",
+      "type": "GOVERNANCE_DOCUMENT",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "OPEN_EMPIRE_SECRETS_GOVERNANCE_V1.json"
+      ]
+    },
+    {
+      "uuid": "a7b8c9d0-0000-5007-8000-000000000010",
+      "human_id": "OE-DOC-0010",
+      "name": "Asset UUID Registry v1",
+      "type": "GOVERNANCE_DOCUMENT",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "OPEN_EMPIRE_ASSET_UUID_REGISTRY_V1.json"
+      ]
+    },
+    {
+      "uuid": "a7b8c9d0-0000-5007-8000-000000000011",
+      "human_id": "OE-DOC-0011",
+      "name": "Registry-First Policy v1",
+      "type": "GOVERNANCE_DOCUMENT",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "OPEN_EMPIRE_REGISTRY_FIRST_POLICY_V1.md"
+      ]
+    },
+    {
+      "uuid": "a7b8c9d0-0000-5007-8000-000000000012",
+      "human_id": "OE-DOC-0012",
+      "name": "BLCO Command",
+      "type": "GOVERNANCE_DOCUMENT",
+      "created_at": "2026-08-06",
+      "immutable": true,
+      "status": "ACTIVE",
+      "aliases": [
+        "BLCO_COMMAND.md"
+      ]
+    }
+  ]
+}

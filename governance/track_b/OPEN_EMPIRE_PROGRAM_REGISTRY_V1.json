@@ -1,0 +1,229 @@
+{
+  "schema": "OPEN_EMPIRE_PROGRAM_REGISTRY",
+  "version": "1.0.0",
+  "governed_by": "OPEN_EMPIRE_GOVERNANCE_BASELINE_V1.0.0",
+  "generated_at": "2026-08-06T12:40:00Z",
+  "programs": [
+    {
+      "uuid": "pr001-a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "id": "PR001",
+      "name": "CashClaw Ops Program",
+      "portfolio_id": "P001",
+      "description": "Manages all Kalshi prediction market trading operations including market scanning, signal generation, Kelly-sized execution, and live position monitoring via trading_sentinel.",
+      "status": "ACTIVE",
+      "executive_owner": "Nathan Asiegbu",
+      "technical_owner": "cashclaw_director",
+      "capabilities": ["C001", "C003", "C004", "C005", "C010", "C011"],
+      "repositories": [
+        "~/.openclaw/trading/agents/director/",
+        "~/.openclaw/trading/agents/arb/",
+        "~/.openclaw/trading/clients/kalshi_client.py",
+        "~/.openclaw/trading/shared/"
+      ],
+      "runtime_services": [
+        "cashclaw_director (pm_id=38)",
+        "cashclaw_arb (pm_id=39)",
+        "trading_sentinel (pm_id=41)"
+      ],
+      "key_metrics": {
+        "capital_usd": 25.19,
+        "max_per_trade_usd": 1.25,
+        "daily_spend_cap_usd": 10,
+        "target_win_rate": "70%+"
+      },
+      "created_at": "2026-08-06",
+      "governed_by": "OPEN_EMPIRE_GOVERNANCE_BASELINE_V1.0.0"
+    },
+    {
+      "uuid": "pr002-b2c3d4e5-f6a7-8901-bcde-f12345678901",
+      "id": "PR002",
+      "name": "Polymarket US Program",
+      "portfolio_id": "P001",
+      "description": "Manages Polymarket US trading operations including MLB/MLS/sports-championship strategy, GPT-4o signal generation, Ed25519 auth, and cross-platform arbitrage alert mode.",
+      "status": "ACTIVE",
+      "executive_owner": "Nathan Asiegbu",
+      "technical_owner": "polymarket-trader",
+      "capabilities": ["C002", "C004", "C005", "C010"],
+      "repositories": [
+        "~/.openclaw/trading/agents/polymarket_trader/",
+        "~/.openclaw/trading/clients/polymarket_client.py",
+        "~/.openclaw/trading/shared/"
+      ],
+      "runtime_services": [
+        "polymarket-trader (pm_id=40)",
+        "trading_sentinel (pm_id=41)"
+      ],
+      "key_metrics": {
+        "capital_usd": 40.00,
+        "daily_spend_cap_usd": 10,
+        "strategy": "MLB/MLS/sports-champ",
+        "signal_model": "GPT-4o"
+      },
+      "created_at": "2026-08-06",
+      "governed_by": "OPEN_EMPIRE_GOVERNANCE_BASELINE_V1.0.0"
+    },
+    {
+      "uuid": "pr003-c3d4e5f6-a7b8-9012-cdef-123456789012",
+      "id": "PR003",
+      "name": "Empire Infrastructure Program",
+      "portfolio_id": "P002",
+      "description": "Core Alusi gateway, executor, heartbeat, orchestrator, exec-gateway, n8n automation, and PostgreSQL data layer. Foundation for all agent operations.",
+      "status": "ACTIVE",
+      "executive_owner": "Nathan Asiegbu",
+      "technical_owner": "Alusi Core",
+      "capabilities": ["C005", "C006", "C007", "C008", "C010", "C011", "C016", "C019", "C020"],
+      "repositories": [
+        "~/.openclaw/workspace/",
+        "~/.openclaw/trading/shared/"
+      ],
+      "runtime_services": [
+        "executor (pm_id=0)",
+        "alusi-gateway (pm_id=1)",
+        "alusi-discord-adapter (pm_id=3)",
+        "alusi-controlled-worker (pm_id=4)",
+        "alusi-orchestrator (pm_id=5)",
+        "heartbeat (pm_id=15)",
+        "exec-gateway (pm_id=8)",
+        "telegram-approvals (pm_id=9)",
+        "ecosystem.email-dispatcher (pm_id=10)",
+        "alusi-telegram-adapter (pm_id=42)",
+        "clawdb (pm_id=36)",
+        "ollama (pm_id=24)",
+        "claude-proxy (pm_id=28)",
+        "native-router (pm_id=26)",
+        "n8n (pm_id=23)"
+      ],
+      "created_at": "2026-08-06",
+      "governed_by": "OPEN_EMPIRE_GOVERNANCE_BASELINE_V1.0.0"
+    },
+    {
+      "uuid": "pr004-d4e5f6a7-b8c9-0123-defa-234567890123",
+      "id": "PR004",
+      "name": "Mission Control Program",
+      "portfolio_id": "P002",
+      "description": "Mission Control UI, Open Empire Nexus, Open Empire Control Plane, dashboards, telemetry, and cost observability. Provides real-time operational visibility.",
+      "status": "ACTIVE",
+      "executive_owner": "Nathan Asiegbu",
+      "technical_owner": "Mission Control",
+      "capabilities": ["C009", "C015", "C017", "C018"],
+      "repositories": [
+        "~/.openclaw/workspace/mission-control/"
+      ],
+      "runtime_services": [
+        "mission-control (pm_id=14, port=3333)",
+        "open-empire-nexus (pm_id=17, port=4444/4445)",
+        "nexus-dashboard (pm_id=19, port=4444)",
+        "nexus-telemetry (pm_id=16)",
+        "cost-dashboard (pm_id=20, port=8796)",
+        "open-empire-control-plane (pm_id=21, port=8899)",
+        "open-empire-mission-ui (pm_id=22, port=8791)"
+      ],
+      "created_at": "2026-08-06",
+      "governed_by": "OPEN_EMPIRE_GOVERNANCE_BASELINE_V1.0.0"
+    },
+    {
+      "uuid": "pr005-e5f6a7b8-c9d0-1234-efab-345678901234",
+      "id": "PR005",
+      "name": "Enterprise Agent Factory Program",
+      "portfolio_id": "P003",
+      "description": "ADAI Solutions flagship product: builds custom AI agent deployments for enterprise clients. Includes scoping, build, testing, deployment, and handoff. Three product lines: Agent Factory, AI Research Automation, Code Migration Service.",
+      "status": "BUILDING",
+      "executive_owner": "Nathan Asiegbu",
+      "technical_owner": "ADAI Build Team",
+      "capabilities": ["C005", "C008", "C011"],
+      "repositories": [],
+      "runtime_services": [],
+      "key_metrics": {
+        "target_revenue_per_engagement": "$3k-$50k",
+        "current_clients": 0,
+        "pipeline_stage": "pre-sales"
+      },
+      "created_at": "2026-08-06",
+      "governed_by": "OPEN_EMPIRE_GOVERNANCE_BASELINE_V1.0.0"
+    },
+    {
+      "uuid": "pr006-f6a7b8c9-d0e1-2345-fabc-456789012345",
+      "id": "PR006",
+      "name": "BLCO Lead Engine Program",
+      "portfolio_id": "P004",
+      "description": "BLCO commodity trading lead generation and outreach pipeline. 192 staged leads. All outreach draft-first. Verified seller active. Lead sourcing paused 2026-07-19.",
+      "status": "PAUSED",
+      "executive_owner": "Nathan Asiegbu",
+      "technical_owner": "BLCO Broker",
+      "capabilities": ["C012"],
+      "repositories": [
+        "~/.openclaw/blco/"
+      ],
+      "runtime_services": [
+        "blco-enricher (pm_id=12, STOPPED-intentional)",
+        "blco-email-monitor (pm_id=13)"
+      ],
+      "key_metrics": {
+        "total_leads": 192,
+        "leads_by_region": {
+          "Europe": 27,
+          "Asia": 28,
+          "Americas": 19,
+          "MENA": 15,
+          "Global_traders": 11,
+          "unknown": 89
+        },
+        "pause_date": "2026-07-19"
+      },
+      "created_at": "2026-08-06",
+      "governed_by": "OPEN_EMPIRE_GOVERNANCE_BASELINE_V1.0.0"
+    },
+    {
+      "uuid": "pr007-a7b8c9d0-e1f2-3456-abcd-567890123456",
+      "id": "PR007",
+      "name": "Hyrve Content Program",
+      "portfolio_id": "P005",
+      "description": "Hyrve AI marketplace monitoring, UGC content pipelines, SEO operations, and content distribution for Open Empire growth.",
+      "status": "ACTIVE",
+      "executive_owner": "Nathan Asiegbu",
+      "technical_owner": "Hyrve Monitor",
+      "capabilities": ["C013"],
+      "repositories": [],
+      "runtime_services": [
+        "hyrve-monitor-v2 (pm_id=18)"
+      ],
+      "created_at": "2026-08-06",
+      "governed_by": "OPEN_EMPIRE_GOVERNANCE_BASELINE_V1.0.0"
+    },
+    {
+      "uuid": "pr008-b8c9d0e1-f2a3-4567-bcde-678901234567",
+      "id": "PR008",
+      "name": "Governance & Compliance Program",
+      "portfolio_id": "P002",
+      "description": "Open Empire governance framework, validation tooling, registry maintenance, audit trails, and compliance enforcement across all portfolios.",
+      "status": "ACTIVE",
+      "executive_owner": "Nathan Asiegbu",
+      "technical_owner": "Governance Engine",
+      "capabilities": ["C014"],
+      "repositories": [
+        "~/.openclaw/workspace/governance/"
+      ],
+      "runtime_services": [],
+      "key_metrics": {
+        "governance_version": "OPEN_EMPIRE_GOVERNANCE_BASELINE_V1.0.0",
+        "governance_status": "FROZEN",
+        "approvals_path": "~/.openclaw/vault/approvals/approvals.jsonl"
+      },
+      "created_at": "2026-08-06",
+      "governed_by": "OPEN_EMPIRE_GOVERNANCE_BASELINE_V1.0.0"
+    }
+  ],
+  "summary": {
+    "total_programs": 8,
+    "active": 5,
+    "building": 1,
+    "paused": 1,
+    "by_portfolio": {
+      "P001": ["PR001", "PR002"],
+      "P002": ["PR003", "PR004", "PR008"],
+      "P003": ["PR005"],
+      "P004": ["PR006"],
+      "P005": ["PR007"]
+    }
+  }
+}

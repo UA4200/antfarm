@@ -1,0 +1,135 @@
+{
+  "schema_version": "1.0",
+  "document_type": "GOVERNANCE_RELEASE_MANIFEST",
+  "release_id": "f4a3c1d2-8b5e-4f7a-9c2d-1e6b0a3f5d8c",
+  "version": "1.0.0",
+  "release_name": "Open Empire Governance Baseline v1.0.0",
+  "release_date": "2026-08-06T12:40:00Z",
+  "produced_at": "2026-08-06T13:00:00Z",
+  "commit": {
+    "sha": "17df0ff218708440edb74214ff5576a30af221a5",
+    "short_sha": "17df0ff",
+    "tag": "v1.0.0",
+    "tag_sha": "29cccb19612114c755471f86e14d0a06f70b2830",
+    "repository": "~/.openclaw/workspace",
+    "remote": "https://github.com/UA4200/git-github.git",
+    "branch": "master",
+    "total_commits": 1
+  },
+  "snapshot": {
+    "snapshot_file": "governance_v1.0.0_snapshot_20260806T074103Z.tar.gz",
+    "snapshot_sha256": "442222da3d167072f981d6337591517fb57d85b538512130209820a59164a96c",
+    "snapshot_size_bytes": 213882,
+    "snapshot_created_at": "2026-08-06T07:41:03Z",
+    "snapshot_location": "~/.openclaw/workspace/governance/snapshots/"
+  },
+  "validation": {
+    "validation_run_id": "20260806T113805Z",
+    "validation_result": "PASS",
+    "tests_total": 240,
+    "tests_passed": 240,
+    "tests_failed": 0,
+    "tests_skipped": 0,
+    "validation_script": "~/.openclaw/workspace/governance/build/validate.py",
+    "validation_completed_at": "2026-08-06T11:38:05Z"
+  },
+  "artifacts": {
+    "artifact_count_total": 34,
+    "canonical_artifacts": 12,
+    "generated_artifacts": 22,
+    "artifact_manifest": [
+      {"id": 1, "type": "canonical", "category": "governance", "name": "AGENTS.md"},
+      {"id": 2, "type": "canonical", "category": "governance", "name": "TOOLS.md"},
+      {"id": 3, "type": "canonical", "category": "governance", "name": "governance/README.md"},
+      {"id": 4, "type": "canonical", "category": "governance", "name": "governance/build/validate.py"},
+      {"id": 5, "type": "canonical", "category": "governance", "name": "governance/BUILD_PLAN.md"},
+      {"id": 6, "type": "canonical", "category": "governance", "name": "governance/TRACK_A_GATE_REPORT.md"},
+      {"id": 7, "type": "canonical", "category": "governance", "name": "governance/TRACK_A_ASSET_INDEX.md"},
+      {"id": 8, "type": "canonical", "category": "governance", "name": "governance/ARCHITECTURE_MAP.md"},
+      {"id": 9, "type": "canonical", "category": "governance", "name": "governance/DEPENDENCY_GRAPH.json"},
+      {"id": 10, "type": "canonical", "category": "governance", "name": "governance/RUNTIME_PORT_REGISTRY.json"},
+      {"id": 11, "type": "canonical", "category": "governance", "name": "governance/SECRET_KEY_MANIFEST.md"},
+      {"id": 12, "type": "canonical", "category": "governance", "name": "governance/SYSTEM_HEALTH_SNAPSHOT.json"},
+      {"id": 13, "type": "generated", "category": "track_b", "name": "track_b/OPEN_EMPIRE_GOVERNANCE_RELEASE_MANIFEST_V1.0.0.json"},
+      {"id": 14, "type": "generated", "category": "track_b", "name": "track_b/OPEN_EMPIRE_GOVERNANCE_ROLLBACK_MANIFEST_V1.0.0.md"},
+      {"id": 15, "type": "generated", "category": "track_b", "name": "track_b/OPEN_EMPIRE_REPOSITORY_REGISTRY_V1.json"},
+      {"id": 16, "type": "generated", "category": "track_b", "name": "track_b/OPEN_EMPIRE_DUPLICATE_RESOLUTION_REPORT_V1.md"},
+      {"id": 17, "type": "generated", "category": "track_b", "name": "track_b/OPEN_EMPIRE_MISSING_REPOSITORY_REPORT_V1.md"},
+      {"id": 18, "type": "generated", "category": "track_b", "name": "track_b/OPEN_EMPIRE_REPOSITORY_HEALTH_REPORT_V1.json"},
+      {"id": 19, "type": "generated", "category": "track_b", "name": "track_b/OPEN_EMPIRE_REMOTE_OPERATIONS_STATUS_V1.md"},
+      {"id": 20, "type": "generated", "category": "track_b", "name": "track_b/OPEN_EMPIRE_CONTINUOUS_VALIDATION_SPEC_V1.md"},
+      {"id": 21, "type": "generated", "category": "agents", "name": "projects/Trading_Sentinel/agent.json"},
+      {"id": 22, "type": "generated", "category": "agents", "name": "projects/cashclaw_ops/agent.json"},
+      {"id": 23, "type": "generated", "category": "agents", "name": "projects/BLCO_Broker/agent.json"},
+      {"id": 24, "type": "generated", "category": "agents", "name": "projects/SovereignProxy/agent.json"},
+      {"id": 25, "type": "generated", "category": "agents", "name": "projects/SafetyController/agent.json"},
+      {"id": 26, "type": "generated", "category": "agents", "name": "projects/Morning_Brief/agent.json"},
+      {"id": 27, "type": "generated", "category": "agents", "name": "projects/Nathan_CoS/agent.json"},
+      {"id": 28, "type": "generated", "category": "agents", "name": "projects/ExecutionEngine/agent.json"},
+      {"id": 29, "type": "generated", "category": "agents", "name": "projects/RevenueOptimizer/agent.json"},
+      {"id": 30, "type": "generated", "category": "agents", "name": "projects/LeadStateMachine/agent.json"},
+      {"id": 31, "type": "generated", "category": "trading", "name": "trading/README.md"},
+      {"id": 32, "type": "generated", "category": "trading", "name": "trading/SPEND_CAP_POLICY.md"},
+      {"id": 33, "type": "generated", "category": "infra", "name": "governance/TAILSCALE_NETWORK_MAP.md"},
+      {"id": 34, "type": "generated", "category": "infra", "name": "governance/PM2_PROCESS_REGISTRY.json"}
+    ]
+  },
+  "defects": {
+    "blocking_defects": 0,
+    "non_blocking_defects": 2,
+    "defect_details": [
+      {
+        "defect_id": "DEF-001",
+        "severity": "NON_BLOCKING",
+        "description": "Trading module (~/.openclaw/trading/) has no git repository; source code is unversioned",
+        "affected_component": "trading",
+        "resolution": "Create dedicated trading repo — tracked in OPEN_EMPIRE_MISSING_REPOSITORY_REPORT_V1.md",
+        "target_fix_version": "1.1.0"
+      },
+      {
+        "defect_id": "DEF-002",
+        "severity": "NON_BLOCKING",
+        "description": "No ~/.ssh/config found; SSH host hardening not in place",
+        "affected_component": "remote_operations",
+        "resolution": "Create SSH config and document in Remote Operations runbook",
+        "target_fix_version": "1.1.0"
+      }
+    ]
+  },
+  "gate_decision": {
+    "gate": "Gate A",
+    "decision": "TRACK_B_AUTHORIZED",
+    "decision_date": "2026-08-06T12:40:00Z",
+    "authorized_by": "Nathan Asiegbu",
+    "authorization_evidence": "Verbal approval captured in session context; v1.0.0 tag applied to master",
+    "conditions": []
+  },
+  "change_control": {
+    "governance_lock_status": "FROZEN",
+    "change_control_required": true,
+    "change_control_process": "Any modification to governance baseline requires new Gate A review and version increment",
+    "frozen_at": "2026-08-06T12:40:00Z",
+    "frozen_by": "Nathan Asiegbu"
+  },
+  "rollback": {
+    "rollback_path": "~/.openclaw/workspace/governance/track_b/OPEN_EMPIRE_GOVERNANCE_ROLLBACK_MANIFEST_V1.0.0.md",
+    "rollback_commit": "17df0ff218708440edb74214ff5576a30af221a5",
+    "rollback_tag": "v1.0.0",
+    "rollback_snapshot": "governance_v1.0.0_snapshot_20260806T074103Z.tar.gz",
+    "rollback_snapshot_sha256": "442222da3d167072f981d6337591517fb57d85b538512130209820a59164a96c"
+  },
+  "reproducibility": {
+    "reproducible": true,
+    "reproducibility_method": "git checkout v1.0.0 + snapshot restore from governance_v1.0.0_snapshot_20260806T074103Z.tar.gz",
+    "verification_command": "sha256sum governance_v1.0.0_snapshot_20260806T074103Z.tar.gz | grep 442222da3d167072f981d6337591517fb57d85b538512130209820a59164a96c"
+  },
+  "signatories": [
+    {
+      "name": "Nathan Asiegbu",
+      "role": "Executive Owner / Authorized Signatory",
+      "signed_at": "2026-08-06T12:40:00Z"
+    }
+  ],
+  "next_review_date": "2026-09-06T00:00:00Z",
+  "notes": "This is the inaugural governance baseline for the Open Empire system. All 240 validation checks pass. Two non-blocking defects logged for remediation in v1.1.0. Track B deliverables authorized and in progress."
+}

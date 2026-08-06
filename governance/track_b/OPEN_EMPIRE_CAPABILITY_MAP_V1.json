@@ -1,0 +1,146 @@
+{
+  "schema": "open-empire.capability-map.v1",
+  "version": "1.0.0",
+  "created_at": "2026-08-06T13:02:00Z",
+  "governance_baseline": "v1.0.0",
+  "total_capabilities": 20,
+  "active_capabilities": 16,
+  "building_capabilities": 3,
+  "paused_capabilities": 1,
+  "capability_map": [
+    {
+      "id": "C001", "name": "Kalshi Market Trading",
+      "portfolio": "P001", "program": "PR001", "status": "ACTIVE",
+      "pm2_ids": [38, 41], "database": "clawdb",
+      "external_apis": ["api.kalshi.com/trade-api/v2"],
+      "auth": "RSA-PSS", "cycle": "5min",
+      "kpis": ["trades_placed", "win_rate", "daily_pnl_usd"],
+      "kill_switch": "pm2 stop cashclaw_director"
+    },
+    {
+      "id": "C002", "name": "Polymarket US Trading",
+      "portfolio": "P001", "program": "PR002", "status": "ACTIVE_LOW_BALANCE",
+      "pm2_ids": [40, 41],
+      "external_apis": ["api.polymarket.us"],
+      "auth": "Ed25519", "cycle": "15min",
+      "current_constraint": "balance $0.06 — effectively halted pending settlement"
+    },
+    {
+      "id": "C003", "name": "Bundle Arbitrage",
+      "portfolio": "P001", "program": "PR003", "status": "ACTIVE",
+      "pm2_ids": [39], "mode": "AUTO_EXECUTE",
+      "min_profit_cents": 3, "max_per_arb_usd": 5
+    },
+    {
+      "id": "C004", "name": "Cross-Platform Arb Alerts",
+      "portfolio": "P001", "program": "PR003", "status": "ACTIVE",
+      "pm2_ids": [39], "mode": "ALERT_ONLY",
+      "alert_channel": "telegram", "min_profit_cents": 5
+    },
+    {
+      "id": "C005", "name": "Alusi Core Gateway",
+      "portfolio": "P002", "program": "PR004", "status": "ACTIVE",
+      "pm2_ids": [0, 1, 15], "port": 8788,
+      "role": "Primary agent runtime, channel routing, approval gating"
+    },
+    {
+      "id": "C006", "name": "Telegram Operations",
+      "portfolio": "P002", "program": "PR004", "status": "ACTIVE",
+      "pm2_ids": [9, 42], "role": "Approvals, alerts, briefings via Telegram"
+    },
+    {
+      "id": "C007", "name": "Discord Operations",
+      "portfolio": "P002", "program": "PR004", "status": "ACTIVE",
+      "pm2_ids": [3], "role": "Discord channel adapter"
+    },
+    {
+      "id": "C008", "name": "n8n Automation Engine",
+      "portfolio": "P002", "program": "PR004", "status": "ACTIVE_EMPTY",
+      "pm2_ids": [23], "port": 5678,
+      "workflows_configured": 0, "gap": "Needs workflow configuration"
+    },
+    {
+      "id": "C009", "name": "Mission Control UI",
+      "portfolio": "P002", "program": "PR005", "status": "ACTIVE_UNINTEGRATED",
+      "pm2_ids": [14], "port": 3333,
+      "gap": "Not wired to runtime/governance registries"
+    },
+    {
+      "id": "C010", "name": "PostgreSQL Data Layer",
+      "portfolio": "P002", "program": "PR004", "status": "ACTIVE",
+      "pm2_ids": [36], "port": 5432,
+      "databases": ["clawdb", "openclaw"],
+      "tables": ["agent_events", "approvals", "daily_pnl", "health_log", "signals", "trades", "vault_entries"],
+      "gap": "No backup configured"
+    },
+    {
+      "id": "C011", "name": "Ollama Local Inference",
+      "portfolio": "P002", "program": "PR004", "status": "ACTIVE",
+      "pm2_ids": [24], "port": 11434,
+      "models": ["qwen2.5:3b", "qwen2.5:1.5b", "tinyllama", "gemma2:2b", "phi3:mini", "llama3.2:3b"],
+      "primary_use": "Trading signal fallback, batch processing, $0 cost"
+    },
+    {
+      "id": "C012", "name": "BLCO Lead Pipeline",
+      "portfolio": "P004", "program": "BLCO", "status": "PAUSED",
+      "pm2_ids": [12, 13], "pm2_stopped": [12],
+      "leads_staged": 192, "resume_required": true
+    },
+    {
+      "id": "C013", "name": "Hyrve Job Monitor",
+      "portfolio": "P005", "program": "PR007", "status": "ACTIVE",
+      "pm2_ids": [18], "role": "Auto-accepts qualifying Hyrve marketplace jobs"
+    },
+    {
+      "id": "C014", "name": "Governance Validation",
+      "portfolio": "P002", "program": "PR006", "status": "ACTIVE",
+      "script": "governance/build/validate.py",
+      "last_run": "20260806T113805Z",
+      "result": "240/240 PASS",
+      "cron": "on-demand + B9 drift check every 6h"
+    },
+    {
+      "id": "C015", "name": "Open Empire Nexus",
+      "portfolio": "P002", "program": "PR005", "status": "ACTIVE",
+      "pm2_ids": [16, 17, 19], "ports": [4444, 4445],
+      "role": "Telemetry, nexus API, nexus dashboard"
+    },
+    {
+      "id": "C016", "name": "Exec Approval Gateway",
+      "portfolio": "P002", "program": "PR004", "status": "ACTIVE",
+      "pm2_ids": [4, 8], "port": 8799,
+      "role": "Approval gating for all high-risk exec commands"
+    },
+    {
+      "id": "C017", "name": "Cost Observability",
+      "portfolio": "P002", "program": "PR005", "status": "ACTIVE",
+      "pm2_ids": [20], "port": 8796,
+      "role": "Daily AI spend tracking vs $0.20 target"
+    },
+    {
+      "id": "C018", "name": "Open Empire Control Plane",
+      "portfolio": "P002", "program": "PR005", "status": "ACTIVE",
+      "pm2_ids": [21], "port": 8899,
+      "role": "Control plane API for empire-wide operations"
+    },
+    {
+      "id": "C019", "name": "Enterprise Agent Factory",
+      "portfolio": "P003", "program": "ADAI", "status": "BUILDING",
+      "description": "Custom AI agent builds for enterprise clients",
+      "pricing_usd": "3000-10000 build + 500-2000/month",
+      "blockers": ["client acquisition", "product packaging", "pricing page"]
+    },
+    {
+      "id": "C020", "name": "B9 Continuous Validation",
+      "portfolio": "P002", "program": "PR006", "status": "ACTIVE",
+      "cron_jobs": 4,
+      "scripts": [
+        "scripts/validation/governance_drift_check.sh — every 6h",
+        "scripts/validation/runtime_health_check.sh — every 15min",
+        "scripts/validation/secrets_presence_check.sh — every 1h",
+        "governance snapshot drill — weekly Sunday 06:00 CDT"
+      ],
+      "activated": "2026-08-06T13:02:00Z"
+    }
+  ]
+}

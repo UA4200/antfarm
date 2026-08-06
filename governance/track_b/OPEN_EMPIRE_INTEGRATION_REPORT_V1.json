@@ -1,0 +1,112 @@
+{
+  "schema": "open-empire.integration-report.v1",
+  "version": "1.0.0",
+  "created_at": "2026-08-06T12:40:00Z",
+  "baseline": "governance-v1.0.0",
+  "report_scope": "Track B Phase 1 — Integration Status",
+  "integration_assessments": [
+    {
+      "integration": "Trading Stack ↔ Governance",
+      "status": "PARTIAL",
+      "description": "Trading agents (cashclaw_director, cashclaw_arb, polymarket-trader, sentinel) operate independently. Governance validation does not currently gate trading deploys.",
+      "wired": ["trading_sentinel monitors all 3 agents", "daily spend caps enforced", "Kelly risk management active"],
+      "not_wired": ["governance validation does not block trading deployments", "trade logs not fed to governance registry"],
+      "priority": "P2",
+      "blocking": false
+    },
+    {
+      "integration": "PM2 ↔ Registry",
+      "status": "DOCUMENTED",
+      "description": "PM2 topology has been fully captured in OPEN_EMPIRE_PM2_TOPOLOGY_V1.json and OPEN_EMPIRE_RUNTIME_REGISTRY_V1.json. No live sync yet — registry is a static snapshot.",
+      "wired": ["static snapshot at 2026-08-06T07:50 CDT"],
+      "not_wired": ["live PM2 status feed to registry", "drift detection between live PM2 and registry snapshot"],
+      "priority": "P1",
+      "blocking": false
+    },
+    {
+      "integration": "OpenClaw Gateway ↔ n8n",
+      "status": "NOT_ACTIVE",
+      "description": "n8n is running but has 0 workflows. MEMORY.md says n8n routes approved outputs. No routing is currently active.",
+      "wired": ["n8n ONLINE port 5678"],
+      "not_wired": ["webhook → n8n trigger", "approval → n8n routing", "any workflow automation"],
+      "priority": "P1",
+      "blocking": false
+    },
+    {
+      "integration": "Mission Control ↔ Runtime Registry",
+      "status": "NOT_WIRED",
+      "description": "Mission Control runs on port 3333 but has no integration with the governance or runtime registries produced in Track B.",
+      "wired": ["Mission Control ONLINE"],
+      "not_wired": ["registry data feed", "governance status display", "PM2 live topology"],
+      "priority": "P1",
+      "blocking": false
+    },
+    {
+      "integration": "GitHub ↔ Governance Validation",
+      "status": "NOT_WIRED",
+      "description": "6 UA4200 repos on GitHub have no automated governance validation in CI. PRs to main can merge without validation.",
+      "wired": ["repos deployed to GitHub main 2026-07-30"],
+      "not_wired": ["GitHub Actions workflows", "governance-check.yml", "branch protection"],
+      "priority": "P1",
+      "blocking": false
+    },
+    {
+      "integration": "PostgreSQL ↔ Trading Agents",
+      "status": "ACTIVE",
+      "description": "clawdb and openclaw databases are online. Trading agents log to JSONL files primarily. Database tables (trades, signals, daily_pnl) are available but usage by agents needs verification.",
+      "wired": ["clawdb ONLINE", "7 tables present in both databases", "trading agents running"],
+      "not_wired": ["confirmed active writes from all 4 trading agents to PostgreSQL — verification needed"],
+      "priority": "P2",
+      "blocking": false
+    },
+    {
+      "integration": "Ollama ↔ Signal Engine",
+      "status": "ACTIVE",
+      "description": "Ollama runs 6 models. Signal engine uses chain: Haiku→Ollama→Heuristic (from MEMORY.md). Fallback to Ollama models is configured.",
+      "wired": ["ollama ONLINE port 11434", "6 models loaded", "signal engine fallback chain configured"],
+      "not_wired": ["direct verification of Ollama call success in recent trade logs"],
+      "priority": "P2",
+      "blocking": false
+    },
+    {
+      "integration": "Telegram ↔ Approval Workflow",
+      "status": "ACTIVE",
+      "description": "Telegram adapter and telegram-approvals processes are online. Approval workflow via sovereign_proxy is operational.",
+      "wired": ["alusi-telegram-adapter ONLINE (pm_id=42)", "telegram-approvals ONLINE (pm_id=9)", "sovereign_proxy approval gating"],
+      "not_wired": ["n8n routing (0 workflows) — but Telegram direct dispatch active"],
+      "priority": "P3",
+      "blocking": false
+    },
+    {
+      "integration": "Tailscale ↔ Remote Operations",
+      "status": "ACTIVE",
+      "description": "Tailscale mesh is active with 5 nodes. Remote SSH via Tailscale works. No automated remote operations beyond manual SSH.",
+      "wired": ["tailscale ACTIVE", "ugos-macbook-pro connected", "ugos-mac-mini-3 connected"],
+      "not_wired": ["automated remote health monitoring", "remote bootstrap scripts", "remote alert delivery outside Telegram"],
+      "priority": "P2",
+      "blocking": false
+    },
+    {
+      "integration": "BLCO Pipeline ↔ n8n",
+      "status": "PAUSED",
+      "description": "BLCO outreach is paused. When resumed, it should route through n8n for delivery. Currently 192 leads staged.",
+      "wired": ["blco-email-monitor ONLINE (pm_id=13)", "leads.jsonl 192 leads staged"],
+      "not_wired": ["n8n outreach routing (0 workflows)", "blco-enricher stopped intentionally"],
+      "priority": "P3 (post-resume)",
+      "blocking": false
+    }
+  ],
+  "summary": {
+    "total_integrations_assessed": 10,
+    "active": 4,
+    "partial": 2,
+    "not_wired": 3,
+    "paused": 1,
+    "blocking_integrations": 0,
+    "critical_path_for_track_b": [
+      "n8n workflow configuration (enables all automation routing)",
+      "Mission Control ↔ Registry wiring (enables live operations visibility)",
+      "GitHub Actions (enables governance enforcement in CI/CD)"
+    ]
+  }
+}

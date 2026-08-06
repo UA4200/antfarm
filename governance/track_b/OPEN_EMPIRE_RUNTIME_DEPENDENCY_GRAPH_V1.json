@@ -1,0 +1,305 @@
+{
+  "schema": "OPEN_EMPIRE_RUNTIME_DEPENDENCY_GRAPH",
+  "version": "1.0.0",
+  "governed_by": "OPEN_EMPIRE_GOVERNANCE_BASELINE_V1.0.0",
+  "generated_at": "2026-08-06T12:40:00Z",
+  "description": "Directed dependency graph for all Open Empire runtime services. Edges represent 'depends on' relationships (source → target).",
+  "nodes": [
+    {"id": "executor", "pm_id": 0, "type": "AGENT", "port": null, "status": "online"},
+    {"id": "alusi-gateway", "pm_id": 1, "type": "GATEWAY", "port": 8788, "status": "online"},
+    {"id": "alusi-discord-adapter", "pm_id": 3, "type": "ADAPTER", "port": null, "status": "online"},
+    {"id": "alusi-controlled-worker", "pm_id": 4, "type": "WORKER", "port": null, "status": "online"},
+    {"id": "alusi-orchestrator", "pm_id": 5, "type": "ORCHESTRATOR", "port": null, "status": "online"},
+    {"id": "openclaw-dashboard", "pm_id": 7, "type": "DASHBOARD", "port": 8080, "status": "online"},
+    {"id": "exec-gateway", "pm_id": 8, "type": "APPROVAL_GATEWAY", "port": 8799, "status": "online"},
+    {"id": "telegram-approvals", "pm_id": 9, "type": "ADAPTER", "port": null, "status": "online"},
+    {"id": "ecosystem.email-dispatcher", "pm_id": 10, "type": "DISPATCHER", "port": null, "status": "online"},
+    {"id": "blco-email-monitor", "pm_id": 13, "type": "MONITOR", "port": null, "status": "online"},
+    {"id": "mission-control", "pm_id": 14, "type": "DASHBOARD", "port": 3333, "status": "online"},
+    {"id": "heartbeat", "pm_id": 15, "type": "MONITOR", "port": null, "status": "online"},
+    {"id": "nexus-telemetry", "pm_id": 16, "type": "TELEMETRY", "port": null, "status": "online"},
+    {"id": "open-empire-nexus", "pm_id": 17, "type": "SERVICE_HUB", "port": 4444, "status": "online"},
+    {"id": "hyrve-monitor-v2", "pm_id": 18, "type": "MONITOR", "port": null, "status": "online"},
+    {"id": "nexus-dashboard", "pm_id": 19, "type": "DASHBOARD", "port": 4444, "status": "online"},
+    {"id": "cost-dashboard", "pm_id": 20, "type": "DASHBOARD", "port": 8796, "status": "online"},
+    {"id": "open-empire-control-plane", "pm_id": 21, "type": "CONTROL_PLANE", "port": 8899, "status": "online"},
+    {"id": "open-empire-mission-ui", "pm_id": 22, "type": "UI", "port": 8791, "status": "online"},
+    {"id": "n8n", "pm_id": 23, "type": "AUTOMATION", "port": 5678, "status": "online"},
+    {"id": "ollama", "pm_id": 24, "type": "INFERENCE", "port": 11434, "status": "online"},
+    {"id": "alpaca-demo", "pm_id": 25, "type": "DEMO", "port": null, "status": "online"},
+    {"id": "native-router", "pm_id": 26, "type": "ROUTER", "port": 4010, "status": "online"},
+    {"id": "claude-proxy", "pm_id": 28, "type": "PROXY", "port": 4099, "status": "online"},
+    {"id": "clawdb", "pm_id": 36, "type": "DATABASE", "port": 5432, "status": "online"},
+    {"id": "cashclaw_director", "pm_id": 38, "type": "TRADING_AGENT", "port": null, "status": "online"},
+    {"id": "cashclaw_arb", "pm_id": 39, "type": "TRADING_AGENT", "port": null, "status": "online"},
+    {"id": "polymarket-trader", "pm_id": 40, "type": "TRADING_AGENT", "port": null, "status": "online"},
+    {"id": "trading_sentinel", "pm_id": 41, "type": "WATCHDOG", "port": null, "status": "online"},
+    {"id": "alusi-telegram-adapter", "pm_id": 42, "type": "ADAPTER", "port": null, "status": "online"}
+  ],
+  "edges": [
+    {
+      "source": "cashclaw_director",
+      "target": "alusi-gateway",
+      "relationship": "SIGNALS",
+      "description": "Receives AI signals and routing from Alusi gateway",
+      "critical": true
+    },
+    {
+      "source": "cashclaw_director",
+      "target": "clawdb",
+      "relationship": "PERSISTS_TRADES",
+      "description": "Writes all trade records to clawdb.trades",
+      "critical": true
+    },
+    {
+      "source": "cashclaw_director",
+      "target": "ollama",
+      "relationship": "SCORING",
+      "description": "Uses local LLM for pre-scoring market signals at $0 cost",
+      "critical": false
+    },
+    {
+      "source": "cashclaw_arb",
+      "target": "alusi-gateway",
+      "relationship": "SIGNALS",
+      "description": "Receives routing and alert dispatch from Alusi gateway",
+      "critical": true
+    },
+    {
+      "source": "cashclaw_arb",
+      "target": "clawdb",
+      "relationship": "PERSISTS_TRADES",
+      "description": "Logs arb cycles and trades to clawdb",
+      "critical": true
+    },
+    {
+      "source": "polymarket-trader",
+      "target": "alusi-gateway",
+      "relationship": "SIGNALS",
+      "description": "Receives signals and routing from Alusi gateway",
+      "critical": true
+    },
+    {
+      "source": "polymarket-trader",
+      "target": "clawdb",
+      "relationship": "PERSISTS_TRADES",
+      "description": "Writes Polymarket trade records to clawdb",
+      "critical": true
+    },
+    {
+      "source": "trading_sentinel",
+      "target": "cashclaw_director",
+      "relationship": "MONITORS",
+      "description": "Watchdog monitoring; reads trade paths, triggers alerts on anomalies",
+      "critical": true
+    },
+    {
+      "source": "trading_sentinel",
+      "target": "cashclaw_arb",
+      "relationship": "MONITORS",
+      "description": "Monitors arb agent for circuit breaker conditions",
+      "critical": true
+    },
+    {
+      "source": "trading_sentinel",
+      "target": "polymarket-trader",
+      "relationship": "MONITORS",
+      "description": "Monitors Polymarket agent for daily cap breaches",
+      "critical": true
+    },
+    {
+      "source": "alusi-gateway",
+      "target": "ecosystem.email-dispatcher",
+      "relationship": "ROUTES_OUTPUT",
+      "description": "Approved email outputs routed through gateway to dispatcher",
+      "critical": false
+    },
+    {
+      "source": "alusi-gateway",
+      "target": "telegram-approvals",
+      "relationship": "ROUTES_APPROVALS",
+      "description": "Approval requests dispatched to Telegram handler",
+      "critical": true
+    },
+    {
+      "source": "alusi-gateway",
+      "target": "exec-gateway",
+      "relationship": "ROUTES_EXEC",
+      "description": "Privileged exec commands routed to approval gateway",
+      "critical": true
+    },
+    {
+      "source": "alusi-gateway",
+      "target": "clawdb",
+      "relationship": "READS_WRITES",
+      "description": "Gateway reads/writes agent events and session data",
+      "critical": true
+    },
+    {
+      "source": "n8n",
+      "target": "alusi-gateway",
+      "relationship": "WEBHOOKS",
+      "description": "n8n triggers via webhooks into Alusi gateway (currently 0 workflows — gap)",
+      "critical": false,
+      "notes": "WIRING REQUIRED: 0 workflows currently registered"
+    },
+    {
+      "source": "mission-control",
+      "target": "alusi-gateway",
+      "relationship": "DATA_FEED",
+      "description": "Mission Control consumes agent status and metrics from gateway",
+      "critical": true
+    },
+    {
+      "source": "mission-control",
+      "target": "nexus-telemetry",
+      "relationship": "TELEMETRY_FEED",
+      "description": "Mission Control displays telemetry data from nexus-telemetry",
+      "critical": false
+    },
+    {
+      "source": "executor",
+      "target": "alusi-gateway",
+      "relationship": "TASK_DISPATCH",
+      "description": "Executor dispatches tasks via Alusi gateway routing",
+      "critical": true
+    },
+    {
+      "source": "heartbeat",
+      "target": "alusi-gateway",
+      "relationship": "LIVENESS_CHECK",
+      "description": "Heartbeat pings gateway to confirm liveness; drives alusi-loop",
+      "critical": true
+    },
+    {
+      "source": "alusi-orchestrator",
+      "target": "alusi-gateway",
+      "relationship": "ORCHESTRATION",
+      "description": "Orchestrator coordinates multi-agent workflows via gateway",
+      "critical": true
+    },
+    {
+      "source": "alusi-controlled-worker",
+      "target": "exec-gateway",
+      "relationship": "PROCESSES_APPROVALS",
+      "description": "Controlled worker processes approved exec commands from gateway",
+      "critical": true
+    },
+    {
+      "source": "alusi-telegram-adapter",
+      "target": "alusi-gateway",
+      "relationship": "CHANNEL_ADAPTER",
+      "description": "Telegram channel adapter feeds into Alusi gateway",
+      "critical": true
+    },
+    {
+      "source": "alusi-discord-adapter",
+      "target": "alusi-gateway",
+      "relationship": "CHANNEL_ADAPTER",
+      "description": "Discord channel adapter feeds into Alusi gateway",
+      "critical": false
+    },
+    {
+      "source": "nexus-telemetry",
+      "target": "open-empire-nexus",
+      "relationship": "FEEDS",
+      "description": "Telemetry aggregator feeds data into Nexus hub",
+      "critical": false
+    },
+    {
+      "source": "nexus-dashboard",
+      "target": "open-empire-nexus",
+      "relationship": "READS",
+      "description": "Dashboard visualizes data from Nexus hub",
+      "critical": false
+    },
+    {
+      "source": "open-empire-mission-ui",
+      "target": "open-empire-control-plane",
+      "relationship": "READS",
+      "description": "Mission UI reads state from Control Plane API",
+      "critical": false
+    },
+    {
+      "source": "claude-proxy",
+      "target": "alusi-gateway",
+      "relationship": "PROXIES_REQUESTS",
+      "description": "Claude proxy intercepts and logs all Anthropic API calls from gateway",
+      "critical": false
+    },
+    {
+      "source": "cashclaw_director",
+      "target": "claude-proxy",
+      "relationship": "INFERENCE",
+      "description": "Director may use Claude via proxy for signal generation",
+      "critical": false
+    },
+    {
+      "source": "native-router",
+      "target": "alusi-gateway",
+      "relationship": "ROUTES",
+      "description": "Native router handles protocol translation for gateway traffic",
+      "critical": false
+    },
+    {
+      "source": "cost-dashboard",
+      "target": "clawdb",
+      "relationship": "READS",
+      "description": "Cost dashboard reads daily_pnl and trade records from clawdb",
+      "critical": false
+    },
+    {
+      "source": "hyrve-monitor-v2",
+      "target": "alusi-gateway",
+      "relationship": "STATUS_REPORTS",
+      "description": "Hyrve monitor reports pipeline status through gateway",
+      "critical": false
+    },
+    {
+      "source": "blco-email-monitor",
+      "target": "ecosystem.email-dispatcher",
+      "relationship": "INBOUND_EMAIL",
+      "description": "BLCO email monitor processes inbound interest via email dispatcher",
+      "critical": false
+    }
+  ],
+  "critical_paths": [
+    {
+      "name": "Trading Execution Path",
+      "path": ["cashclaw_director → alusi-gateway", "cashclaw_director → clawdb", "trading_sentinel → cashclaw_director"],
+      "description": "Critical: trade execution requires gateway signals and DB persistence; sentinel must be watching"
+    },
+    {
+      "name": "Approval Chain",
+      "path": ["executor → alusi-gateway → exec-gateway → alusi-controlled-worker"],
+      "description": "Critical: all privileged commands must traverse full approval chain"
+    },
+    {
+      "name": "Agent Communication",
+      "path": ["alusi-telegram-adapter → alusi-gateway", "alusi-gateway → telegram-approvals"],
+      "description": "Critical: Telegram bidirectional — inbound via adapter, outbound approvals via handler"
+    }
+  ],
+  "known_gaps": [
+    {
+      "gap": "n8n → alusi-gateway webhooks not wired",
+      "severity": "HIGH",
+      "description": "0 workflows registered; sovereign_proxy outputs not routed through n8n"
+    },
+    {
+      "gap": "open-empire-federation-staging crash loop",
+      "severity": "MEDIUM",
+      "description": "pm_id=33, 11 restarts; federation staging broken"
+    },
+    {
+      "gap": "open-empire-lifecycle-staging crash loop",
+      "severity": "MEDIUM",
+      "description": "pm_id=34, 9 restarts; lifecycle staging broken"
+    },
+    {
+      "gap": "dynamics51 crash loop",
+      "severity": "MEDIUM",
+      "description": "pm_id=35, 12 restarts; unknown service, worst crash count"
+    }
+  ]
+}
