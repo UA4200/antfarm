@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-08-09T18:36:00Z",
+  "session_stats": {
+    "total_calls": 6,
+    "free_calls": 6,
+    "paid_calls": 0,
+    "total_cost_usd": 0.0,
+    "free_pct": 100.0,
+    "cost_per_successful_task": 0.0
+  },
+  "telemetry_file": "~/.openclaw/logs/adaptive_router_telemetry.jsonl",
+  "economic_guard": {
+    "daily_soft_usd": 0.1,
+    "daily_hard_usd": 0.2,
+    "daily_emergency_usd": 0.5,
+    "monthly_warn_usd": 3.0,
+    "current_daily_usd": 0.0,
+    "status": "OK"
+  },
+  "projected": {
+    "daily_usd_at_100_calls": 0.0,
+    "daily_usd_if_all_haiku": 0.025,
+    "daily_usd_if_all_sonnet": 0.15,
+    "savings_vs_all_haiku": "$0.025/day",
+    "savings_vs_all_sonnet": "$0.15/day"
+  },
+  "free_provider_breakdown": {
+    "openrouter": "17 models, 0 cost",
+    "groq": "2 models, 4-key rotation pool, 0 cost",
+    "cohere": "4 models, 0 cost",
+    "cerebras": "2 models, 0 cost",
+    "nvidia": "2 models, 0 cost",
+    "ollama": "6 local models, 0 cost (available, not yet benchmarked for quality)"
+  }
+}

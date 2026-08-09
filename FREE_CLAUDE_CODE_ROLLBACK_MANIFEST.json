@@ -1,0 +1,65 @@
+{
+  "generated_at": "2026-08-09T14:20:00Z",
+  "snapshot_dir": "/Users/NeoOC/.openclaw/hermes/pre_cutover_snapshot/fcc_20260809_091038",
+  "snapshot_artifacts": [
+    "freeway.pid.bak (original malformed PID file)",
+    "freeway_env_keys.txt (key names only, no values)",
+    "git_log.txt",
+    "git_status.txt",
+    "pm2_list_before.txt"
+  ],
+  "pre_session_state": {
+    "freeway_running": false,
+    "freeway_in_pm2": false,
+    "pid_file_state": "malformed (contained 'freeway_pid=37977' instead of integer)",
+    "port_8082_active": false,
+    "ecosystem_cjs_existed": false
+  },
+  "changes_made": [
+    {
+      "action": "Created start-freeway.sh",
+      "path": "/Users/NeoOC/.openclaw/repos/free_llm_router/installed/Free-Way/start-freeway.sh",
+      "reversible": true,
+      "rollback": "rm /Users/NeoOC/.openclaw/repos/free_llm_router/installed/Free-Way/start-freeway.sh"
+    },
+    {
+      "action": "Created ecosystem.freeway.cjs",
+      "path": "/Users/NeoOC/.openclaw/repos/free_llm_router/installed/Free-Way/ecosystem.freeway.cjs",
+      "reversible": true,
+      "rollback": "rm /Users/NeoOC/.openclaw/repos/free_llm_router/installed/Free-Way/ecosystem.freeway.cjs"
+    },
+    {
+      "action": "Added freeway to PM2 (id=48)",
+      "reversible": true,
+      "rollback": "pm2 delete freeway && pm2 save"
+    },
+    {
+      "action": "Fixed freeway.pid file",
+      "path": "/Users/NeoOC/.openclaw/hermes/logs/freeway.pid",
+      "rollback": "echo 'freeway_pid=37977' > ~/.openclaw/hermes/logs/freeway.pid"
+    },
+    {
+      "action": "pm2 save (added freeway to dump.pm2)",
+      "reversible": true,
+      "rollback": "pm2 delete freeway && pm2 save"
+    }
+  ],
+  "no_changes_to": [
+    "Free-Way .env (no values modified)",
+    "Free-Way dist/ (binary untouched)",
+    "Free-Way git history (no commits made)",
+    "CashClaw (untouched)",
+    "trading agents (untouched)",
+    "OpenClaw gateway (untouched)",
+    "Main secrets .env (untouched)",
+    "Any existing PM2 processes",
+    "Any provider API keys or credentials"
+  ],
+  "full_rollback_procedure": [
+    "pm2 delete freeway",
+    "pm2 save",
+    "rm ~/.openclaw/repos/free_llm_router/installed/Free-Way/start-freeway.sh",
+    "rm ~/.openclaw/repos/free_llm_router/installed/Free-Way/ecosystem.freeway.cjs",
+    "cp /Users/NeoOC/.openclaw/hermes/pre_cutover_snapshot/fcc_20260809_091038/freeway.pid.bak ~/.openclaw/hermes/logs/freeway.pid"
+  ]
+}

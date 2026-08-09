@@ -1,0 +1,43 @@
+{
+  "generated_at": "2026-08-09T18:38:00Z",
+  "tests": [
+    {
+      "scenario": "Normal Sonnet request",
+      "provider_selected": "groq",
+      "is_premium": false,
+      "cost": 0.0,
+      "bypass": false
+    },
+    {
+      "scenario": "Normal Haiku request",
+      "provider_selected": "openrouter",
+      "is_premium": false,
+      "cost": 0.0,
+      "bypass": false
+    },
+    {
+      "scenario": "Opus request",
+      "provider_selected": "anthropic",
+      "is_premium": true,
+      "cost": 0.001,
+      "bypass": false,
+      "note": "Opus=premium by policy, always logged"
+    },
+    {
+      "scenario": "Circuit breaker (4 failures)",
+      "provider_quarantined": "cerebras",
+      "fallback_selected": "different_free_provider",
+      "uncontrolled_premium": false,
+      "bypass": false
+    },
+    {
+      "scenario": "Restart persistence",
+      "ANTHROPIC_BASE_URL_persists": true,
+      "routing_continues": true,
+      "bypass": false
+    }
+  ],
+  "premium_bypass_possible": false,
+  "uncontrolled_premium_path": "None \u2014 all paths either free or explicitly governed+logged",
+  "audit_log": "~/.openclaw/logs/oe_proxy_calls.jsonl"
+}

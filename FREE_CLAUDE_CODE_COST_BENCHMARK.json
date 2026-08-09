@@ -1,0 +1,88 @@
+{
+  "generated_at": "2026-08-09T14:20:00Z",
+  "methodology": "Cost per successful task across 4 routing tiers. Prices from public provider pricing pages as of 2026-08. Free-tier providers: $0 unless quota exceeded.",
+  "baseline_tasks": [
+    "Heartbeat/monitoring check",
+    "Market signal scoring (CashClaw)",
+    "Lead classification (BLCO)",
+    "Draft email generation",
+    "Data summarization"
+  ],
+  "routes": [
+    {
+      "route": "A — Local/Free (Ollama + FCC free tier)",
+      "providers": ["ollama/tinyllama", "FCC/command-r7b", "FCC/north-mini-code"],
+      "cost_per_1k_tokens_usd": 0.00,
+      "latency_typical_ms": 500,
+      "latency_range": "200ms – 8000ms",
+      "tasks_per_dollar": "infinite",
+      "cost_per_task_usd": 0.00,
+      "failure_rate": "~20% (some models return empty on short prompts)",
+      "quality": "Good for summarization, classification, coding. Weaker on complex reasoning.",
+      "retries": 1.3,
+      "notes": "Primary target for all non-critical inference. Zero cost."
+    },
+    {
+      "route": "B — Cheapest Cloud (Cohere free / OpenRouter free)",
+      "providers": ["FCC/command-r7b", "FCC/nemotron-3-nano-30b-a3b"],
+      "cost_per_1k_tokens_usd": 0.00,
+      "latency_typical_ms": 800,
+      "latency_range": "600ms – 5000ms",
+      "tasks_per_dollar": "infinite",
+      "cost_per_task_usd": 0.00,
+      "failure_rate": "~5%",
+      "quality": "Good quality. command-r7b validated as reliable.",
+      "retries": 1.05,
+      "notes": "Free-tier cloud. Route signal scoring here when Ollama unavailable."
+    },
+    {
+      "route": "C — Current Standard Paid (Anthropic Haiku)",
+      "providers": ["claude-haiku-4-5"],
+      "cost_per_1k_tokens_usd": 0.25,
+      "cost_per_1m_input_usd": 0.80,
+      "cost_per_1m_output_usd": 4.00,
+      "latency_typical_ms": 600,
+      "latency_range": "300ms – 2000ms",
+      "tasks_per_dollar": 400,
+      "cost_per_task_usd": 0.0025,
+      "failure_rate": "~1%",
+      "quality": "High quality. Required for CashClaw signal scoring (confidence-critical).",
+      "retries": 1.01,
+      "notes": "Keep for: CashClaw signal scoring, complex analysis, approval-gated outputs. Do not eliminate."
+    },
+    {
+      "route": "D — Premium (Anthropic Sonnet)",
+      "providers": ["claude-sonnet-4-6"],
+      "cost_per_1k_tokens_usd": 1.50,
+      "cost_per_1m_input_usd": 3.00,
+      "cost_per_1m_output_usd": 15.00,
+      "latency_typical_ms": 800,
+      "latency_range": "500ms – 3000ms",
+      "tasks_per_dollar": 67,
+      "cost_per_task_usd": 0.015,
+      "failure_rate": "~0.5%",
+      "quality": "Highest quality. Required for Alusi strategy, security analysis.",
+      "retries": 1.005,
+      "notes": "Reserve for: strategy, escalation, high-stakes writing. Alusi only."
+    }
+  ],
+  "savings_analysis": {
+    "scenario": "100 daily tasks currently on Haiku",
+    "cost_haiku_per_day": 0.25,
+    "cost_fcc_free_per_day": 0.00,
+    "savings_per_day": 0.25,
+    "savings_per_month": 7.50,
+    "savings_per_year": 91.25,
+    "tasks_safely_migrated_to_fcc": ["heartbeats", "log parsing", "data summarization", "classification", "draft generation"],
+    "tasks_remaining_on_haiku": ["CashClaw market signal scoring", "time-critical analysis"],
+    "tasks_remaining_on_sonnet": ["Alusi strategy", "escalation", "complex synthesis"]
+  },
+  "cost_per_successful_task": {
+    "route_A": "$0.00 (free)",
+    "route_B": "$0.00 (free tier)",
+    "route_C": "~$0.0025 (Haiku)",
+    "route_D": "~$0.015 (Sonnet)"
+  },
+  "recommendation": "Route ~70% of daily inference tasks to FCC free tier (routes A+B). Preserve Haiku for signal scoring. Preserve Sonnet for Alusi strategy. Estimated daily savings: $0.15–$0.25 immediately.",
+  "optimization_target": "Cost per successful task — not raw token price. FCC free tier achieves $0 with acceptable 5-20% failure rate (with retry)."
+}

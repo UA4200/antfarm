@@ -1,0 +1,62 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-08-09T18:36:00Z",
+  "principle": "No provider is hardcoded as primary. Routing is determined by dynamic scoring at request time.",
+
+  "scoring_weights": {
+    "task_fit":    0.30,
+    "quality":     0.20,
+    "cost":        0.20,
+    "reliability": 0.15,
+    "latency":     0.10,
+    "quota":       0.05,
+    "note": "These are starting defaults, not immutable constants. Telemetry informs future adjustment."
+  },
+
+  "task_classes": [
+    "heartbeat","classify","summarize","extract","json_gen",
+    "general","analysis","coding","complex_coding","long_context",
+    "tool_use","critical"
+  ],
+
+  "escalation_rules": {
+    "tool_use": "Always route to Anthropic — LLaMA models don't reliably emit tool_use schema",
+    "critical": "Anthropic preferred; free providers attempted first if capable",
+    "all_free_failed": "Escalate to Anthropic Haiku → log as premium escalation",
+    "consecutive_failures_2": "Provider moves to DEGRADED state",
+    "consecutive_failures_4": "Provider quarantined for 5 minutes",
+    "quarantine_expired": "Provider enters RETEST state — one attempt allowed",
+    "retest_success": "Provider returns to HEALTHY"
+  },
+
+  "economic_gates": {
+    "free_providers": ["groq","cohere","openrouter","cerebras","nvidia","ollama"],
+    "paid_providers": ["anthropic","mistral"],
+    "free_economic_advantage": "All free providers receive cost_score=1.0 vs 0.05-0.3 for paid",
+    "daily_soft_limit_usd": 0.10,
+    "daily_hard_limit_usd": 0.20,
+    "daily_emergency_usd":  0.50,
+    "monthly_warn_usd":     3.00
+  },
+
+  "circuit_breaker_states": ["HEALTHY","DEGRADED","QUARANTINED","RETEST","HEALTHY"],
+
+  "groq_key_pool": {
+    "slots": 4,
+    "rotation_trigger": ["RATE_LIMIT","rejection"],
+    "quarantine_trigger": ["INVALID_KEY","REVOKED"],
+    "log_policy": "masked fingerprints only — no key values"
+  },
+
+  "protected_routes": {
+    "cashclaw_signal_score": "Anthropic Haiku ONLY — never adaptive-routed",
+    "tool_use_requests": "Anthropic direct — schema compatibility requirement"
+  },
+
+  "telemetry": {
+    "file": "~/.openclaw/logs/adaptive_router_telemetry.jsonl",
+    "state_file": "~/.openclaw/router/router_state.json",
+    "audit_log": "~/.openclaw/logs/oe_proxy_calls.jsonl",
+    "fields": ["ts","task_type","provider","model","is_premium","latency_ms","cost_usd","success","prior_attempts"]
+  }
+}

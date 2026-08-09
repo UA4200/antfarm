@@ -1,0 +1,115 @@
+{
+  "generated_at": "2026-08-09T17:44:23Z",
+  "freeway_proxy": "http://127.0.0.1:8082",
+  "endpoint_discovery": {
+    "/v1/messages": "WORKING \u2014 all providers routed here",
+    "/v1/chat/completions": "BROKEN \u2014 returns 500 for groq models (fetch failed internally)",
+    "/v1/models": "WORKING \u2014 lists 65 available models"
+  },
+  "providers": [
+    {
+      "name": "groq",
+      "status": "active",
+      "models_known": [
+        "llama-3.1-8b",
+        "llama-3.3-70b"
+      ],
+      "models_tested": [
+        "llama-3.1-8b",
+        "llama-3.3-70b"
+      ],
+      "avg_latency_ms": 300,
+      "success_rate": 0.8,
+      "partial_or_pass_rate": 1.0,
+      "cost_tier": "free",
+      "api_endpoint": "/v1/messages",
+      "key_pool": 4,
+      "notes": "OpenAI-compat natively, proxied as /v1/messages; /v1/chat/completions returns 500 via Free-Way"
+    },
+    {
+      "name": "cohere",
+      "status": "active",
+      "models_known": [
+        "command-r7b",
+        "command-r"
+      ],
+      "models_tested": [
+        "command-r7b"
+      ],
+      "avg_latency_ms": 362,
+      "success_rate": 0.33,
+      "partial_or_pass_rate": 1.0,
+      "cost_tier": "free",
+      "api_endpoint": "/v1/messages",
+      "key_pool": 1,
+      "notes": "Anthropic-compat wrapper in Free-Way"
+    },
+    {
+      "name": "openrouter",
+      "status": "degraded",
+      "models_known": [
+        "north-mini-code",
+        "nemotron-3-nano-30b-a3b",
+        "gpt-oss-20b"
+      ],
+      "models_tested": [
+        "north-mini-code"
+      ],
+      "avg_latency_ms": 4558,
+      "success_rate": 0.0,
+      "partial_or_pass_rate": 0.0,
+      "cost_tier": "free",
+      "api_endpoint": "/v1/messages",
+      "key_pool": 1,
+      "notes": "Multi-model routing; north-mini-code is specialised code model"
+    },
+    {
+      "name": "nvidia",
+      "status": "active",
+      "models_known": [
+        "nemotron-3-nano-30b-a3b",
+        "llama-3.1-nemotron-ultra"
+      ],
+      "models_tested": [
+        "nemotron-3-nano-30b-a3b"
+      ],
+      "avg_latency_ms": 956,
+      "success_rate": 1.0,
+      "partial_or_pass_rate": 1.0,
+      "cost_tier": "free",
+      "api_endpoint": "/v1/messages",
+      "key_pool": 1,
+      "notes": "NVIDIA NIM API; nemotron models available"
+    },
+    {
+      "name": "cerebras",
+      "status": "untested",
+      "models_known": [
+        "zai-glm-4.7"
+      ],
+      "models_tested": [],
+      "avg_latency_ms": null,
+      "success_rate": null,
+      "partial_or_pass_rate": null,
+      "cost_tier": "free",
+      "api_endpoint": "/v1/messages",
+      "key_pool": 1,
+      "notes": "Wafer-scale inference; not benchmarked this run"
+    },
+    {
+      "name": "mistral",
+      "status": "untested",
+      "models_known": [
+        "mistral-medium-3"
+      ],
+      "models_tested": [],
+      "avg_latency_ms": null,
+      "success_rate": null,
+      "partial_or_pass_rate": null,
+      "cost_tier": "free",
+      "api_endpoint": "/v1/messages",
+      "key_pool": 1,
+      "notes": "Mistral AI API; not benchmarked this run"
+    }
+  ]
+}

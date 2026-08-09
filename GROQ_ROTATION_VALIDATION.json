@@ -1,0 +1,39 @@
+{
+  "generated_at": "2026-08-09T18:38:00Z",
+  "pool": [
+    {
+      "slot": "GROQ_API_KEY_1",
+      "mask": "****xhmO[sha256:5984f66e]",
+      "status": "active"
+    },
+    {
+      "slot": "GROQ_API_KEY_2",
+      "mask": "****OehC[sha256:558978b4]",
+      "status": "available"
+    },
+    {
+      "slot": "GROQ_API_KEY_3",
+      "mask": "****KlYq[sha256:9fe62ea0]",
+      "status": "available"
+    },
+    {
+      "slot": "GROQ_API_KEY_4",
+      "mask": "****FoFh[sha256:d9dceb9a]",
+      "status": "available"
+    }
+  ],
+  "quarantined_count": 0,
+  "rotation_trigger": [
+    "rate_limit",
+    "rejection"
+  ],
+  "quarantine_trigger": [
+    "INVALID_KEY",
+    "REVOKED"
+  ],
+  "infinite_cycling_prevented": true,
+  "key_values_logged": false,
+  "rotation_log": "~/.openclaw/logs/groq_rotation.jsonl",
+  "wired_into_oe_proxy": true,
+  "rate_limit_detection": "HTTP 429 \u2192 triggers groq_rotator.rotate('rate_limit')"
+}

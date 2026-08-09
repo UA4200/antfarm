@@ -1,0 +1,399 @@
+{
+  "generated_at": "2026-08-09T18:36:00Z",
+  "providers": [
+    {
+      "provider_id": "groq/llama-3.1-8b",
+      "provider": "groq",
+      "model": "llama-3.1-8b",
+      "cost_tier": "free",
+      "free_tier": true,
+      "cost_per_1m_in": 0.0,
+      "cost_per_1m_out": 0.0,
+      "capabilities": [
+        "code",
+        "json",
+        "text"
+      ],
+      "circuit_state": "HEALTHY",
+      "success_rate": 0.75,
+      "avg_latency_ms": 1000,
+      "total_calls": 0,
+      "scores": {
+        "general": 0.8525,
+        "coding": 0.8375,
+        "classify": 0.8525
+      },
+      "endpoint": "freeway:/v1/messages"
+    },
+    {
+      "provider_id": "groq/llama-3.3-70b",
+      "provider": "groq",
+      "model": "llama-3.3-70b",
+      "cost_tier": "free",
+      "free_tier": true,
+      "cost_per_1m_in": 0.0,
+      "cost_per_1m_out": 0.0,
+      "capabilities": [
+        "code",
+        "json",
+        "reasoning",
+        "text"
+      ],
+      "circuit_state": "HEALTHY",
+      "success_rate": 1.0,
+      "avg_latency_ms": 682,
+      "total_calls": 2,
+      "scores": {
+        "general": 0.9314,
+        "coding": 0.9164,
+        "classify": 0.9314
+      },
+      "endpoint": "freeway:/v1/messages"
+    },
+    {
+      "provider_id": "cohere/command-r7b",
+      "provider": "cohere",
+      "model": "command-r7b",
+      "cost_tier": "free",
+      "free_tier": true,
+      "cost_per_1m_in": 0.0,
+      "cost_per_1m_out": 0.0,
+      "capabilities": [
+        "text",
+        "json"
+      ],
+      "circuit_state": "HEALTHY",
+      "success_rate": 0.75,
+      "avg_latency_ms": 1000,
+      "total_calls": 0,
+      "scores": {
+        "general": 0.8375,
+        "coding": -1.0,
+        "classify": 0.8375
+      },
+      "endpoint": "freeway:/v1/messages"
+    },
+    {
+      "provider_id": "cohere/command-r",
+      "provider": "cohere",
+      "model": "command-r",
+      "cost_tier": "free",
+      "free_tier": true,
+      "cost_per_1m_in": 0.0,
+      "cost_per_1m_out": 0.0,
+      "capabilities": [
+        "text",
+        "json"
+      ],
+      "circuit_state": "HEALTHY",
+      "success_rate": 0.75,
+      "avg_latency_ms": 1000,
+      "total_calls": 0,
+      "scores": {
+        "general": 0.8375,
+        "coding": -1.0,
+        "classify": 0.8375
+      },
+      "endpoint": "freeway:/v1/messages"
+    },
+    {
+      "provider_id": "cohere/command-r-plus",
+      "provider": "cohere",
+      "model": "command-r-plus",
+      "cost_tier": "free",
+      "free_tier": true,
+      "cost_per_1m_in": 0.0,
+      "cost_per_1m_out": 0.0,
+      "capabilities": [
+        "text",
+        "json",
+        "reasoning"
+      ],
+      "circuit_state": "HEALTHY",
+      "success_rate": 0.75,
+      "avg_latency_ms": 1000,
+      "total_calls": 0,
+      "scores": {
+        "general": 0.8525,
+        "coding": -1.0,
+        "classify": 0.8525
+      },
+      "endpoint": "freeway:/v1/messages"
+    },
+    {
+      "provider_id": "openrouter/north-mini-code",
+      "provider": "openrouter",
+      "model": "north-mini-code",
+      "cost_tier": "free",
+      "free_tier": true,
+      "cost_per_1m_in": 0.0,
+      "cost_per_1m_out": 0.0,
+      "capabilities": [
+        "code",
+        "text"
+      ],
+      "circuit_state": "HEALTHY",
+      "success_rate": 0.75,
+      "avg_latency_ms": 1000,
+      "total_calls": 0,
+      "scores": {
+        "general": 0.8375,
+        "coding": 0.8225,
+        "classify": 0.8375
+      },
+      "endpoint": "freeway:/v1/messages"
+    },
+    {
+      "provider_id": "openrouter/nemotron-3-nano-30b-a3b",
+      "provider": "openrouter",
+      "model": "nemotron-3-nano-30b-a3b",
+      "cost_tier": "free",
+      "free_tier": true,
+      "cost_per_1m_in": 0.0,
+      "cost_per_1m_out": 0.0,
+      "capabilities": [
+        "text",
+        "json",
+        "reasoning"
+      ],
+      "circuit_state": "HEALTHY",
+      "success_rate": 0.75,
+      "avg_latency_ms": 1000,
+      "total_calls": 0,
+      "scores": {
+        "general": 0.8525,
+        "coding": -1.0,
+        "classify": 0.8525
+      },
+      "endpoint": "freeway:/v1/messages"
+    },
+    {
+      "provider_id": "openrouter/nemotron-3-super-120b-a12b",
+      "provider": "openrouter",
+      "model": "nemotron-3-super-120b-a12b",
+      "cost_tier": "free",
+      "free_tier": true,
+      "cost_per_1m_in": 0.0,
+      "cost_per_1m_out": 0.0,
+      "capabilities": [
+        "text",
+        "json",
+        "code",
+        "reasoning",
+        "long_context"
+      ],
+      "circuit_state": "HEALTHY",
+      "success_rate": 1.0,
+      "avg_latency_ms": 7597,
+      "total_calls": 5,
+      "scores": {
+        "general": 0.86,
+        "coding": 0.845,
+        "classify": 0.86
+      },
+      "endpoint": "freeway:/v1/messages"
+    },
+    {
+      "provider_id": "openrouter/gpt-oss-20b",
+      "provider": "openrouter",
+      "model": "gpt-oss-20b",
+      "cost_tier": "free",
+      "free_tier": true,
+      "cost_per_1m_in": 0.0,
+      "cost_per_1m_out": 0.0,
+      "capabilities": [
+        "code",
+        "json",
+        "text"
+      ],
+      "circuit_state": "HEALTHY",
+      "success_rate": 0.75,
+      "avg_latency_ms": 1000,
+      "total_calls": 0,
+      "scores": {
+        "general": 0.8525,
+        "coding": 0.8375,
+        "classify": 0.8525
+      },
+      "endpoint": "freeway:/v1/messages"
+    },
+    {
+      "provider_id": "cerebras/zai-glm-4.7",
+      "provider": "cerebras",
+      "model": "zai-glm-4.7",
+      "cost_tier": "free",
+      "free_tier": true,
+      "cost_per_1m_in": 0.0,
+      "cost_per_1m_out": 0.0,
+      "capabilities": [
+        "text"
+      ],
+      "circuit_state": "HEALTHY",
+      "success_rate": 0.0,
+      "avg_latency_ms": 1000,
+      "total_calls": 4,
+      "scores": {
+        "general": 0.71,
+        "coding": -1.0,
+        "classify": 0.71
+      },
+      "endpoint": "freeway:/v1/messages"
+    },
+    {
+      "provider_id": "nvidia/llama-3.1-nemotron-ultra",
+      "provider": "nvidia",
+      "model": "llama-3.1-nemotron-ultra",
+      "cost_tier": "free",
+      "free_tier": true,
+      "cost_per_1m_in": 0.0,
+      "cost_per_1m_out": 0.0,
+      "capabilities": [
+        "text",
+        "json",
+        "reasoning"
+      ],
+      "circuit_state": "HEALTHY",
+      "success_rate": 0.75,
+      "avg_latency_ms": 1000,
+      "total_calls": 0,
+      "scores": {
+        "general": 0.8525,
+        "coding": -1.0,
+        "classify": 0.8525
+      },
+      "endpoint": "freeway:/v1/messages"
+    },
+    {
+      "provider_id": "mistral/mistral-medium-3",
+      "provider": "mistral",
+      "model": "mistral-medium-3",
+      "cost_tier": "low-cost",
+      "free_tier": false,
+      "cost_per_1m_in": 0.27,
+      "cost_per_1m_out": 0.27,
+      "capabilities": [
+        "code",
+        "json",
+        "reasoning",
+        "text"
+      ],
+      "circuit_state": "HEALTHY",
+      "success_rate": 0.75,
+      "avg_latency_ms": 1000,
+      "total_calls": 0,
+      "scores": {
+        "general": 0.6775,
+        "coding": 0.6625,
+        "classify": 0.6775
+      },
+      "endpoint": "freeway:/v1/messages"
+    },
+    {
+      "provider_id": "ollama/qwen2.5:3b",
+      "provider": "ollama",
+      "model": "qwen2.5:3b",
+      "cost_tier": "free",
+      "free_tier": true,
+      "cost_per_1m_in": 0.0,
+      "cost_per_1m_out": 0.0,
+      "capabilities": [
+        "code",
+        "json",
+        "text"
+      ],
+      "circuit_state": "HEALTHY",
+      "success_rate": 0.75,
+      "avg_latency_ms": 1000,
+      "total_calls": 0,
+      "scores": {
+        "general": 0.8525,
+        "coding": 0.8375,
+        "classify": 0.8525
+      },
+      "endpoint": "ollama_direct"
+    },
+    {
+      "provider_id": "ollama/qwen2.5:1.5b",
+      "provider": "ollama",
+      "model": "qwen2.5:1.5b",
+      "cost_tier": "free",
+      "free_tier": true,
+      "cost_per_1m_in": 0.0,
+      "cost_per_1m_out": 0.0,
+      "capabilities": [
+        "text",
+        "json"
+      ],
+      "circuit_state": "HEALTHY",
+      "success_rate": 0.75,
+      "avg_latency_ms": 1000,
+      "total_calls": 0,
+      "scores": {
+        "general": 0.8375,
+        "coding": -1.0,
+        "classify": 0.8375
+      },
+      "endpoint": "ollama_direct"
+    },
+    {
+      "provider_id": "anthropic/claude-haiku-4-5",
+      "provider": "anthropic",
+      "model": "claude-haiku-4-5",
+      "cost_tier": "paid",
+      "free_tier": false,
+      "cost_per_1m_in": 0.8,
+      "cost_per_1m_out": 4.0,
+      "capabilities": [
+        "tools",
+        "text",
+        "json",
+        "code",
+        "reasoning"
+      ],
+      "circuit_state": "HEALTHY",
+      "success_rate": 0.75,
+      "avg_latency_ms": 1000,
+      "total_calls": 0,
+      "scores": {
+        "general": 0.7425,
+        "coding": 0.7275,
+        "classify": 0.7425
+      },
+      "endpoint": "anthropic_direct"
+    },
+    {
+      "provider_id": "anthropic/claude-sonnet-4-5",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-5",
+      "cost_tier": "paid",
+      "free_tier": false,
+      "cost_per_1m_in": 3.0,
+      "cost_per_1m_out": 15.0,
+      "capabilities": [
+        "tools",
+        "text",
+        "json",
+        "code",
+        "reasoning",
+        "long_context"
+      ],
+      "circuit_state": "HEALTHY",
+      "success_rate": 0.75,
+      "avg_latency_ms": 1000,
+      "total_calls": 0,
+      "scores": {
+        "general": 0.7125,
+        "coding": 0.7125,
+        "classify": 0.7125
+      },
+      "endpoint": "anthropic_direct"
+    }
+  ],
+  "summary": {
+    "total_providers": 8,
+    "total_models": 16,
+    "free_models": 13,
+    "paid_models": 3,
+    "healthy": 16
+  }
+}

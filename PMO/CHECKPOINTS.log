@@ -1,0 +1,4 @@
+# PMO Daily Ops Checkpoint Log
+# Format: ISO timestamp | checkpoint type | agents online | blockers | action taken
+
+2026-05-16T23:01:00Z | 6pm CDT | 19/25 (76%) | 8 OPEN | BLCO sourcer DOWN, cashclaw DOWN, Anthropic API exhausted — summary sent to Telegram, ACTIVE_PROJECTS updated with stalled items flagged

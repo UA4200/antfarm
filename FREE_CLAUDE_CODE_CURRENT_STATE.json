@@ -1,0 +1,69 @@
+{
+  "generated_at": "2026-08-09T14:20:00Z",
+  "generated_by": "Alusi C0.2 Directive",
+  "status": "OPERATIONAL",
+  "canonical_installation": {
+    "path": "/Users/NeoOC/.openclaw/repos/free_llm_router/installed/Free-Way",
+    "project_name": "Free-Way",
+    "aka": ["free-claude-code", "FCC", "freeway", "hermes-proxy"],
+    "git_remote": "https://github.com/GoDiao/Free-Way.git",
+    "git_branch": "main",
+    "git_commit": "80af6bd",
+    "git_status": "clean (untracked Docker files only)",
+    "runtime_type": "Node.js ESM",
+    "node_version": "v24.14.0",
+    "entry_point": "dist/index.js",
+    "wrapper_script": "start-freeway.sh",
+    "ecosystem_file": "ecosystem.freeway.cjs"
+  },
+  "runtime": {
+    "pm2_id": 48,
+    "pm2_name": "freeway",
+    "pid": 7708,
+    "status": "online",
+    "uptime": "5m+",
+    "restarts": 0,
+    "bind": "127.0.0.1:8082",
+    "protocol": "OpenAI-compatible + Anthropic-bridge",
+    "log_file": "/Users/NeoOC/.openclaw/hermes/logs/freeway.log",
+    "err_log": "/Users/NeoOC/.openclaw/hermes/logs/freeway.err.log",
+    "pid_file": "/Users/NeoOC/.openclaw/hermes/logs/freeway.pid"
+  },
+  "providers": {
+    "active": [
+      {"name": "openrouter", "model_count": 17, "state": "configured", "cost": "free-tier"},
+      {"name": "cerebras",   "model_count": 2,  "state": "configured", "cost": "free-tier"},
+      {"name": "mistral",    "model_count": 1,  "state": "configured", "cost": "low-cost"},
+      {"name": "cohere",     "model_count": 4,  "state": "configured", "cost": "free-tier"},
+      {"name": "nvidia",     "model_count": 2,  "state": "configured", "cost": "free-tier"}
+    ],
+    "skipped_missing_key": [
+      "groq", "github", "cloudflare", "siliconflow", "llm7",
+      "kilo", "zhipu", "opencode", "zenmux"
+    ],
+    "total_active": 5,
+    "total_models_available": 72,
+    "models_from_active_providers": 24
+  },
+  "endpoints": {
+    "health":       "GET  http://127.0.0.1:8082/health",
+    "models":       "GET  http://127.0.0.1:8082/v1/models",
+    "chat":         "POST http://127.0.0.1:8082/v1/chat/completions",
+    "messages":     "POST http://127.0.0.1:8082/v1/messages",
+    "catalog":      "GET  http://127.0.0.1:8082/api/catalog",
+    "usage":        "GET  http://127.0.0.1:8082/api/usage",
+    "key_refresh":  "POST http://127.0.0.1:8082/api/config/keys",
+    "model_refresh":"POST http://127.0.0.1:8082/api/models/refresh"
+  },
+  "auth": {
+    "method": "x-api-key or Authorization: Bearer",
+    "key_source": "FREEWAY_API_KEY in /Users/NeoOC/.openclaw/repos/free_llm_router/installed/Free-Way/.env"
+  },
+  "documentation": "/Users/NeoOC/.openclaw/hermes/FREE_CLAUDE_CODE.md",
+  "issues_resolved": [
+    "PID file was malformed (contained env var name instead of PID) — fixed",
+    "Free-Way was not under PM2 — now registered as PM2 id=48",
+    "PM2 daemon env inheritance bug — resolved via start-freeway.sh wrapper that sources .env",
+    "PM2 ecosystem.cjs was being run as a script instead of parsed — documented in ecosystem.cjs"
+  ]
+}

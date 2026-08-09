@@ -1,0 +1,48 @@
+{
+  "generated_at": "2026-08-09T14:20:00Z",
+  "scan_paths": [
+    "~/.openclaw/",
+    "~/.openclaw/repos/",
+    "~/.openclaw/repos/installed/",
+    "~/.openclaw/repos/intake/",
+    "~/.openclaw/workspace/",
+    "~/Projects/",
+    "~/projects/",
+    "~/open-source/"
+  ],
+  "candidates_found": [
+    {
+      "path": "/Users/NeoOC/.openclaw/repos/free_llm_router/installed/Free-Way",
+      "type": "git_repo",
+      "remote": "https://github.com/GoDiao/Free-Way.git",
+      "branch": "main",
+      "commit": "80af6bd",
+      "installed": true,
+      "running": true,
+      "role": "CANONICAL",
+      "notes": "Only installation found. Built dist/, .env configured, PM2 managed."
+    },
+    {
+      "path": "/Users/NeoOC/.openclaw/repos/free_llm_router/installed/free-way-static-audit.txt",
+      "type": "audit_artifact",
+      "installed": false,
+      "running": false,
+      "role": "AUDIT_LOG",
+      "notes": "Static audit text file. Not a duplicate installation."
+    },
+    {
+      "path": "/Users/NeoOC/open-source/opencode",
+      "type": "git_repo",
+      "remote": "https://github.com/sst/opencode.git",
+      "branch": "main",
+      "commit": "0f31fd631",
+      "installed": true,
+      "running": false,
+      "role": "UNRELATED",
+      "notes": "SST opencode — a separate AI coding IDE project. NOT Free-Claude-Code. Different project, different purpose."
+    }
+  ],
+  "duplicate_installations": 0,
+  "canonical": "/Users/NeoOC/.openclaw/repos/free_llm_router/installed/Free-Way",
+  "action": "No deletions required. No duplicates found. Canonical confirmed."
+}

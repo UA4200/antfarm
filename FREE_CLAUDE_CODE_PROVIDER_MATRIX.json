@@ -1,0 +1,135 @@
+{
+  "generated_at": "2026-08-09T14:20:00Z",
+  "providers": [
+    {
+      "provider": "Ollama (local)",
+      "credential_present": true,
+      "fcc_supported": false,
+      "configuration_needed": "Separate PM2 process already running on port 11434",
+      "free_or_paid": "FREE (local)",
+      "expected_role": "Batch/overnight tasks — heartbeats, log parsing, summarization",
+      "fallback_position": 1,
+      "validation_result": "ACTIVE — independent of FCC",
+      "notes": "6 models: qwen2.5:3b, qwen2.5:1.5b, llama3.2:3b, gemma2:2b, phi3:mini, tinyllama"
+    },
+    {
+      "provider": "OpenRouter",
+      "credential_present": true,
+      "credential_source": "Free-Way .env",
+      "fcc_supported": true,
+      "configuration_needed": "None — active and synced",
+      "free_or_paid": "FREE (free-tier models)",
+      "expected_role": "General reasoning, long context, coding via free models",
+      "fallback_position": 2,
+      "validation_result": "ACTIVE — 17 free models synced. Validated: north-mini-code (code gen), nemotron-3-nano-30b-a3b (summarization), gpt-oss-20b",
+      "model_samples": ["north-mini-code", "nemotron-3-nano-30b-a3b", "nemotron-3-super-120b-a12b", "gpt-oss-20b", "gemma-4-26b-a4b"]
+    },
+    {
+      "provider": "Cerebras",
+      "credential_present": true,
+      "credential_source": "Free-Way .env",
+      "fcc_supported": true,
+      "configuration_needed": "None — active and synced",
+      "free_or_paid": "FREE (fast inference, free tier)",
+      "expected_role": "Fast responses, low latency inference",
+      "fallback_position": 3,
+      "validation_result": "ACTIVE — 2 models. zai-glm-4.7 tested (model quirk: empty content on short prompts)",
+      "model_samples": ["zai-glm-4.7"]
+    },
+    {
+      "provider": "NVIDIA NIM",
+      "credential_present": true,
+      "credential_source": "Free-Way .env",
+      "fcc_supported": true,
+      "configuration_needed": "None — active and synced",
+      "free_or_paid": "FREE (NIM free tier)",
+      "expected_role": "Nemotron models for general use",
+      "fallback_position": 4,
+      "validation_result": "ACTIVE — 2 models (nemotron-3-super, llama-3.1-nemotron-ultra). Available via openrouter routing also.",
+      "model_samples": ["llama-3.1-nemotron-ultra"]
+    },
+    {
+      "provider": "Cohere",
+      "credential_present": true,
+      "credential_source": "Free-Way .env",
+      "fcc_supported": true,
+      "configuration_needed": "None — active and synced",
+      "free_or_paid": "FREE (free tier)",
+      "expected_role": "Chat/summarization/classification, cheap per-token",
+      "fallback_position": 5,
+      "validation_result": "ACTIVE — 4 models. Validated: command-r7b (basic prompt PASS), command-r (code review PASS)",
+      "model_samples": ["command-r7b", "command-r", "command-r-plus", "command-a"]
+    },
+    {
+      "provider": "Mistral",
+      "credential_present": true,
+      "credential_source": "Free-Way .env",
+      "fcc_supported": true,
+      "configuration_needed": "None — active and synced",
+      "free_or_paid": "LOW-COST (paid, cheaper than Anthropic)",
+      "expected_role": "Medium complexity tasks when free tier insufficient",
+      "fallback_position": 6,
+      "validation_result": "ACTIVE — 1 model (mistral-medium-3). Test returned empty response — may need streaming disabled or different prompt format.",
+      "model_samples": ["mistral-medium-3"]
+    },
+    {
+      "provider": "Gemini",
+      "credential_present": true,
+      "credential_source": "Free-Way .env + main secrets .env",
+      "fcc_supported": false,
+      "configuration_needed": "Manual provider registration in Free-Way catalog or via /api/config/keys",
+      "free_or_paid": "FREE (Gemini free tier available)",
+      "expected_role": "Vision + multi-modal when activated",
+      "fallback_position": 7,
+      "validation_result": "KEY PRESENT but not in FCC catalog. Not activated.",
+      "action": "Optional: register Gemini in Free-Way for vision capability"
+    },
+    {
+      "provider": "Anthropic",
+      "credential_present": true,
+      "credential_source": "Main secrets .env",
+      "fcc_supported": false,
+      "configuration_needed": "Not routed through FCC — used directly by OpenClaw",
+      "free_or_paid": "PAID",
+      "expected_role": "Premium escalation — OpenClaw direct use only. Haiku for signal scoring, Sonnet for strategy.",
+      "fallback_position": 8,
+      "validation_result": "ACTIVE (direct OpenClaw use). CashClaw preserved — no changes.",
+      "notes": "DO NOT route Anthropic through FCC. Keep separate for governed escalation."
+    },
+    {
+      "provider": "OpenAI",
+      "credential_present": true,
+      "credential_source": "Main secrets .env",
+      "fcc_supported": false,
+      "configuration_needed": "Could be added to Free-Way if needed",
+      "free_or_paid": "PAID",
+      "expected_role": "Fallback if free providers unavailable — not currently active in FCC",
+      "fallback_position": 9,
+      "validation_result": "KEY PRESENT, not activated in FCC. Available as emergency escalation.",
+      "action": "Activate via /api/config/keys if needed — monitor cost carefully"
+    },
+    {
+      "provider": "Groq",
+      "credential_present": false,
+      "credential_source": "none",
+      "fcc_supported": true,
+      "configuration_needed": "Obtain free API key from console.groq.com, add to Free-Way .env as GROQ_API_KEY",
+      "free_or_paid": "FREE (generous free tier, very fast llama models)",
+      "expected_role": "Fast inference for classification/heartbeats",
+      "fallback_position": 10,
+      "validation_result": "SKIPPED — no key",
+      "action": "LOW PRIORITY — openrouter + cerebras already cover this need"
+    }
+  ],
+  "routing_priority": [
+    "1. Ollama (local, $0)",
+    "2. OpenRouter free tier (FCC)",
+    "3. Cerebras free tier (FCC)",
+    "4. NVIDIA NIM free tier (FCC)",
+    "5. Cohere free tier (FCC)",
+    "6. Mistral low-cost (FCC)",
+    "7. Anthropic Haiku (governed escalation, CashClaw signals only)",
+    "8. Anthropic Sonnet (Alusi strategy, explicit approval)",
+    "9. Anthropic Opus (emergency only)"
+  ]
+}

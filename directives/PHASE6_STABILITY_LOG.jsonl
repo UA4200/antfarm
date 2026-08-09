@@ -1,0 +1,14 @@
+{"ts":"2026-07-30T17:53:55Z","cashclaw":{"status":"not_found","unstable":0},"postgres":"127.0.0.1:5432 - accepting connections
+ok","n8n":"ok","gateway":"degraded","pm2_online":29,"fail_code":1}
+{"ts":"2026-07-30T17:54:54Z","cashclaw":{"status":"online","unstable":0},"postgres":"127.0.0.1:5432 - accepting connections
+ok","n8n":"ok","gateway":"degraded","pm2_online":29,"fail_code":0}
+{"ts":"2026-07-30T18:27:25Z","cashclaw":{"status":"online","unstable":0},"postgres":"127.0.0.1:5432 - accepting connections
+ok","n8n":"ok","gateway":"degraded","pm2_online":29,"fail_code":0}
+{"ts":"2026-07-30T22:00:01Z","cashclaw":{"status":"error","unstable":0},"postgres":"fail","n8n":"ok","gateway":"degraded","pm2_online":0
+0,"fail_code":1}
+{"ts":"2026-07-31T04:00:01Z","cashclaw":{"status":"error","unstable":0},"postgres":"fail","n8n":"ok","gateway":"degraded","pm2_online":0
+0,"fail_code":1}
+{"ts":"2026-07-31T10:00:01Z","cashclaw":{"status":"error","unstable":0},"postgres":"fail","n8n":"ok","gateway":"degraded","pm2_online":0
+0,"fail_code":1}
+{"ts":"2026-07-31T16:30:01Z","cashclaw":{"status":"error","unstable":0},"postgres":"fail","n8n":"ok","gateway":"degraded","pm2_online":0
+0,"fail_code":1}

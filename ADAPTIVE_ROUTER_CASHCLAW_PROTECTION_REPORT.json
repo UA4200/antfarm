@@ -1,0 +1,46 @@
+{
+  "generated_at": "2026-08-09T18:36:00Z",
+  "cashclaw_services": [
+    {
+      "pm2_id": 38,
+      "name": "cashclaw_director",
+      "status": "online",
+      "uptime": "5D",
+      "modified": false
+    },
+    {
+      "pm2_id": 39,
+      "name": "cashclaw_arb",
+      "status": "online",
+      "uptime": "5D",
+      "modified": false
+    },
+    {
+      "pm2_id": 40,
+      "name": "polymarket-trader",
+      "status": "online",
+      "uptime": "5D",
+      "modified": false
+    },
+    {
+      "pm2_id": 41,
+      "name": "trading_sentinel",
+      "status": "online",
+      "uptime": "7D",
+      "modified": false
+    }
+  ],
+  "routing_protection": {
+    "cashclaw_signal_score": "Routes to Anthropic Haiku directly \u2014 NEVER through adaptive router",
+    "kelly_logic": "Untouched \u2014 no changes to Kelly criterion files",
+    "capital_limits": "Untouched \u2014 CASHCLAW_DAILY_SPEND_CAP_USD=10 preserved",
+    "trading_paths": "~/.openclaw/trading/ \u2014 untouched",
+    "approved_inference_changes": "None \u2014 adaptive router only affects non-CashClaw inference"
+  },
+  "verification": {
+    "oe_proxy_cashclaw_interaction": "None \u2014 CashClaw does not route through port 4100",
+    "fcc_router_cashclaw": "signal_score task class always routes to Anthropic Haiku (hardcoded exception, correct)",
+    "adaptive_router_cashclaw": "signal_score not in adaptive router chains \u2014 protected by design"
+  },
+  "verdict": "CashClaw fully protected. No routing, trading, Kelly, or capital changes made."
+}

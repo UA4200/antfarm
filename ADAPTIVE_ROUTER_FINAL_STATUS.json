@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-08-09T20:05:00Z",
+  "version": "2.0 (adaptive)",
+  "components": {
+    "adaptive_router": "~/.openclaw/workspace/router/adaptive_router.py",
+    "oe_proxy": "~/.openclaw/workspace/router/oe_proxy.py",
+    "groq_rotator": "~/.openclaw/workspace/router/groq_rotator.py",
+    "economic_guard": "~/.openclaw/workspace/router/economic_guard.py"
+  },
+  "pm2": {"id":55,"name":"oe-proxy","port":4100,"status":"online"},
+  "routing": {
+    "groq_hardcoded": false,
+    "dynamic_scoring": true,
+    "providers_available": 8,
+    "free_models": 13,
+    "paid_models": 3,
+    "score_weights": {"task_fit":0.30,"quality":0.20,"cost":0.20,"reliability":0.15,"latency":0.10,"quota":0.05}
+  },
+  "circuit_breakers": {"states":["HEALTHY","DEGRADED","QUARANTINED","RETEST"],"validated":true},
+  "telemetry": {"file":"~/.openclaw/logs/adaptive_router_telemetry.jsonl","active":true},
+  "dynamic_routing_proof": "6 tests: openrouter+groq both selected across tasks — no hardcoded Groq",
+  "exceptions": [
+    {"name":"tool_use","reason":"LLaMA doesn't emit tool_use schema — routes to Anthropic","impact":"minimal, intentional"},
+    {"name":"streaming","reason":"oe-proxy returns non-streaming response","impact":"functional — CC renders correctly"}
+  ],
+  "groq_key_pool": {"slots":4,"available":4,"quarantined":0,"auto_rotation":"wired"},
+  "economic_guard": {"daily_soft":0.10,"daily_hard":0.20,"daily_emergency":0.50,"today_usd":0.00},
+  "verdict": "ADAPTIVE_INFERENCE_ROUTING_OPERATIONAL_WITH_EXCEPTIONS"
+}
