@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-08-09T18:38:00Z",
+  "chain": [
+    {
+      "layer": "Claude Code",
+      "protocol": "Anthropic /v1/messages",
+      "format": "claude-* model names"
+    },
+    {
+      "layer": "oe-proxy:4100",
+      "protocol": "Anthropic /v1/messages",
+      "action": "task classification + adaptive routing"
+    },
+    {
+      "layer": "Free-Way:8082",
+      "protocol": "Anthropic /v1/messages (inbound) \u2192 OpenAI /chat/completions (outbound)",
+      "action": "format translation"
+    },
+    {
+      "layer": "Groq API",
+      "protocol": "OpenAI /openai/v1/chat/completions",
+      "endpoint": "https://api.groq.com/openai/v1/chat/completions"
+    },
+    {
+      "layer": "Free-Way (return)",
+      "protocol": "OpenAI \u2192 Anthropic",
+      "action": "stop_reason+content translation"
+    },
+    {
+      "layer": "oe-proxy (return)",
+      "action": "echoes original claude-* model name for CC compatibility"
+    }
+  ],
+  "groq_upstream_confirmed": "https://api.groq.com/openai/v1/chat/completions",
+  "anthropic_native_support_in_groq": false,
+  "translation_layer": "Free-Way (anthropic-bridge.js)",
+  "tool_translation": "Anthropic tool_use \u2194 OpenAI tool_calls \u2014 handled by Free-Way anthropic-bridge.js"
+}

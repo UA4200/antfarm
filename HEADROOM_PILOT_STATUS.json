@@ -1,0 +1,33 @@
+{
+  "generated_at": "2026-08-09T20:12:03Z",
+  "headroom_installed": false,
+  "pilot_phase": "CONCEPTUAL_BENCHMARK",
+  "benchmark": {
+    "kalshi_json_original_chars": 2773,
+    "kalshi_json_lite_chars": 2533,
+    "kalshi_json_standard_chars": 2521,
+    "original_est_tokens": 693,
+    "lite_est_tokens": 633,
+    "standard_est_tokens": 630,
+    "lite_reduction_pct": 8.7,
+    "standard_reduction_pct": 9.1,
+    "on_free_tier_dollar_savings": 0.00,
+    "latency_impact": "10-30% reduction expected",
+    "sample_size": "20 Kalshi market entries"
+  },
+  "install_command": "pip3 install headroom-ai",
+  "recommended_pilot_scope": [
+    "Kalshi JSON responses",
+    "Polymarket JSON",
+    "large API response batches"
+  ],
+  "excluded_from_compression": [
+    "Kelly controls",
+    "approval gates",
+    "financial schemas",
+    "security policy"
+  ],
+  "notes": "Key abbreviation (STANDARD mode) yields marginal additional savings (~0.5%) over whitespace removal alone (LITE mode). Primary gains come from whitespace stripping. Real-world savings on larger payloads (100+ markets) expected to be higher proportionally.",
+  "verdict": "HEADROOM_CONTINUE_PILOT",
+  "next_step": "Install ContextEngine, benchmark on live Kalshi market data with quality validation"
+}

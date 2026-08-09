@@ -1,0 +1,169 @@
+{
+  "audit_date": "2026-08-09",
+  "auditor": "Agent C — C0 Sprint",
+  "host": "Ugos-Mac-mini.lan",
+
+  "vaults": [
+    {
+      "id": "workspace_vault",
+      "path": "/Users/NeoOC/.openclaw/workspace",
+      "label": "Open Empire Workspace (ACTIVE)",
+      "status": "OPEN",
+      "is_primary": true,
+      "description": "Main operational vault — workspace = vault. All live docs, skills, memory, agents.",
+      "root_items": 117,
+      "markdown_files_root": 52,
+      "estimated_total_markdown": "200+",
+      "obsidian_config": true,
+      "community_plugins": ["dataview", "templater-obsidian"],
+      "notes": "Active, git-tracked, used by Claude Code and OpenClaw simultaneously"
+    },
+    {
+      "id": "documents_vault",
+      "path": "/Users/NeoOC/Documents/Obsidian Vault",
+      "label": "OpenClawean Empire Governance Vault",
+      "status": "CLOSED",
+      "is_primary": false,
+      "description": "Older governance docs from initial Open Empire setup. Contains AGENTS.md, CONSTITUTION.md, COUNCIL.md, SOUL.md, MEMORY.md, etc.",
+      "notable_files": [
+        "AGENTS.md", "CONSTITUTION.md", "COUNCIL.md", "DASHBOARD.md",
+        "GOALS.md", "HEARTBEAT.md", "IDENTITY.md", "MEMORY.md",
+        "SOUL.md", "TASK.md", "TODO_NATHAN.md", "USER.md",
+        "DeepSeekconversations.json", "Untitled.canvas",
+        "OpenClawean_Empire/", "directives/", "memory/", "second-brain/"
+      ],
+      "notes": "Many of these files are now superseded by workspace vault versions. Potential for stale/diverged content."
+    },
+    {
+      "id": "oc1_vault",
+      "path": "/Users/NeoOC/Downloads/OC 1",
+      "label": "OC 1 — PDF Reference Vault",
+      "status": "CLOSED",
+      "is_primary": false,
+      "description": "Reference PDF documentation vault. Contains OpenClaw setup, security, ML ops, and training guides.",
+      "notable_files": [
+        "Configuring Clawdbot.pdf",
+        "LifeOS Technical Implementation Plan.pdf",
+        "MISSION CONTROL Dashboard.pdf",
+        "OPENCLAW AGENT TRAINING GUIDE.pdf",
+        "OPENCLAW Machine Learning Operations Guide.pdf",
+        "OPENCLAW SECURITY HARDENING GUIDE.pdf",
+        "The Complete Installation & Setup Guide.pdf",
+        "THE COMPLETE OPENCLAW COLD OUTREACH PLAYBOOK.pdf"
+      ],
+      "notes": "Static reference library. PDFs should be indexed in workspace vault via Obsidian or MCP."
+    }
+  ],
+
+  "active_vault": "/Users/NeoOC/.openclaw/workspace",
+
+  "workspace_vault_structure": {
+    "root_md_files": 52,
+    "root_items_total": 117,
+    "subdirectories": [
+      "memory/", "directives/", "governance/", "projects/", "skills/",
+      "agents/", "scripts/", "docs/", "templates/", "logs/",
+      "data/", "config/", "vault/", "research/", "research_outputs/",
+      "execution_outputs/", "tmp/", "backlog/", "PMO/",
+      "mission-control/", "antfarm/", "moltlaunch/", "blco/",
+      "_archive/", "bin/", "cron/", "schemas/", "security_tools/",
+      "validation/", "hyperframes/", "gstack/", "router/"
+    ],
+    "memory_daily_notes": 91,
+    "projects_count": 40,
+    "skills_count": 24,
+    "directives_count": 11
+  },
+
+  "obsidian_config": {
+    "app_json": "empty ({})",
+    "community_plugins": ["dataview", "templater-obsidian"],
+    "core_plugins_enabled": [
+      "file-explorer", "global-search", "switcher", "graph",
+      "backlink", "canvas", "tag-pane", "properties", "page-preview",
+      "daily-notes", "templates", "command-palette", "outline",
+      "word-count", "bookmarks", "file-recovery", "bases"
+    ],
+    "core_plugins_disabled": [
+      "outgoing-link", "footnotes", "note-composer", "slash-command",
+      "markdown-importer", "zk-prefixer", "random-note", "slides",
+      "audio-recorder", "workspaces", "publish", "sync", "webviewer"
+    ],
+    "templates_configured": true,
+    "graph_configured": true,
+    "workspace_configured": true
+  },
+
+  "total_markdown_files": "200+ (deep count incomplete — large vault with node_modules excluded)",
+  "total_size_bytes": "unknown (deep find timeout — estimated 5-15MB markdown content)",
+
+  "large_files": [
+    {"note": "Deep find timed out — large files not enumerated in this pass"},
+    {"likely_candidates": ["MEMORY.md", "AGENTS.md", "memory/2026-*.md daily notes (91 files)", "FREE_CLAUDE_CODE_*.json"]}
+  ],
+
+  "issues": [
+    {
+      "id": "ISSUE-001",
+      "severity": "HIGH",
+      "title": "Vault divergence: Documents vault vs workspace vault",
+      "detail": "~/Documents/Obsidian Vault contains older versions of AGENTS.md, MEMORY.md, SOUL.md, etc. These may be stale/conflicting with workspace vault versions. No sync mechanism visible.",
+      "recommendation": "Archive Documents vault. Do not edit. Treat workspace vault as canonical."
+    },
+    {
+      "id": "ISSUE-002",
+      "severity": "MEDIUM",
+      "title": "No MOC (Map of Content) index files",
+      "detail": "117 root-level items with no visible MOC structure. Navigation relies on memory/search rather than linked hierarchy.",
+      "recommendation": "Create HOME.md, EMPIRE_INDEX.md, TRADING_INDEX.md, BLCO_INDEX.md, INFRASTRUCTURE_INDEX.md as entry points."
+    },
+    {
+      "id": "ISSUE-003",
+      "severity": "MEDIUM",
+      "title": "Only 2 community plugins (dataview + templater)",
+      "detail": "Dataview and Templater are installed but full community plugin ecosystem is minimal. Missing: graph-analysis, tasks, calendar, kanban, excalidraw.",
+      "recommendation": "Add Obsidian Tasks, Kanban, and Calendar plugins for project/task tracking visual layer."
+    },
+    {
+      "id": "ISSUE-004",
+      "severity": "MEDIUM",
+      "title": "No Dataview queries deployed",
+      "detail": "Dataview is installed but no evidence of active DQL queries creating dynamic dashboards from YAML frontmatter.",
+      "recommendation": "Add frontmatter to key docs (status, tags, priority) and create Dataview dashboard notes."
+    },
+    {
+      "id": "ISSUE-005",
+      "severity": "LOW",
+      "title": "PDF reference vault (OC 1) not linked to workspace",
+      "detail": "15+ PDF guides in ~/Downloads/OC 1 are not indexed or linked from the workspace vault.",
+      "recommendation": "Create REFERENCE_LIBRARY.md with links and summaries of each PDF guide."
+    },
+    {
+      "id": "ISSUE-006",
+      "severity": "LOW",
+      "title": "Node_modules and build artifacts pollute vault",
+      "detail": "Workspace vault includes antfarm/, mission-control/, codebase-memory-mcp/ which contain node_modules. Obsidian may index these.",
+      "recommendation": "Add .obsidianignore with node_modules, dist, .git, *.jsonl (trades/leads), secrets."
+    },
+    {
+      "id": "ISSUE-007",
+      "severity": "LOW",
+      "title": "Daily notes in memory/ not linked to graph",
+      "detail": "91 daily notes in memory/ exist but without linking strategy they form an isolated cluster in the graph.",
+      "recommendation": "Add daily note template with links to active projects and weekly review notes."
+    }
+  ],
+
+  "recommendations": [
+    "Create .obsidianignore to exclude node_modules, dist/, *.jsonl secrets",
+    "Create HOME.md as vault entry point with links to all major MOCs",
+    "Archive ~/Documents/Obsidian Vault — treat workspace vault as canonical",
+    "Add YAML frontmatter to all major documents (status, tags, category)",
+    "Deploy 3-5 Dataview dashboard queries for live project/agent status",
+    "Install Obsidian Tasks plugin for visual task tracking",
+    "Create REFERENCE_LIBRARY.md linking all PDFs from OC 1 vault",
+    "Set workspace .obsidian/templates.json to use templates/ directory",
+    "Create weekly note template that links daily notes together",
+    "Add graph colors/groups for categories: agents, projects, governance, trading"
+  ]
+}

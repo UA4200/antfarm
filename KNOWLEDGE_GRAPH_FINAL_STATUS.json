@@ -1,0 +1,28 @@
+{
+  "generated_at": "2026-08-09T20:05:00Z",
+  "clawdb_host": "127.0.0.1:5432",
+  "schema_version": "V1",
+  "tables": ["kg_entities","kg_entity_aliases","kg_relationships","kg_graph_events","kg_cost_records"],
+  "entity_count": 66,
+  "relationship_count": 23,
+  "orphan_edges": 0,
+  "audit_events": "78+",
+  "entity_types": ["AGENT","CAPABILITY","MODEL","PROVIDER","REPOSITORY","ROUTER","VENTURE","PORTFOLIO","SERVICE","RUNTIME","DASHBOARD"],
+  "api": {
+    "pm2_id": 52,
+    "port": 6279,
+    "status": "online",
+    "endpoints": ["/health","/entities","/relationships","/search","/graph/agents","/graph/ventures","/graph/capabilities","/graph/dependencies","/cost/summary","/cost/by-venture","/validate","/provider-status"]
+  },
+  "cost_outcome_relationships_added": [
+    "oe-proxy PROVIDES ADAPTIVE_ROUTING",
+    "oe-proxy PROVIDES PREMIUM_ESCALATION_CONTROL",
+    "Free-Way PROVIDES COST_OPTIMIZED_INFERENCE",
+    "clawdb PROVIDES KNOWLEDGE_GRAPH",
+    "clawdb PROVIDES ECONOMIC_GOVERNOR"
+  ],
+  "new_capabilities_seeded": ["ADAPTIVE_ROUTING","PREMIUM_ESCALATION_CONTROL","TASK_OBSERVER","ECONOMIC_GOVERNOR","OBSIDIAN_HUMAN_VIEW"],
+  "validation": {"valid":true,"orphan_edges":0,"duplicate_edges":0},
+  "integration_points": ["Mission Control (via KG API)","Obsidian MOCs (EMPIRE_KNOWLEDGE_GRAPH.md)","adaptive_router (provider scoring)","economic_guard (cost telemetry)"],
+  "verdict": "KNOWLEDGE_GRAPH_OPERATIONAL"
+}

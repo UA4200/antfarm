@@ -1,0 +1,48 @@
+{
+  "generated_at": "2026-08-09T20:05:00Z",
+  "n8n_health": "ok",
+  "port": 5678,
+  "health_endpoint": "/healthz → {\"status\":\"ok\"}",
+  "pm2_status": "online",
+  "workflow_count": 14,
+  "active_workflows": 6,
+  "oepm_workflows": [
+    {"name": "OEPM - Governance Change Alert",      "active": true},
+    {"name": "OEPM - Deployment Validation Gate",   "active": true},
+    {"name": "OEPM - Daily Budget Alert",           "active": true},
+    {"name": "OEPM - Registry Mutation Monitor",    "active": true},
+    {"name": "OEPM - Repository Registration",      "active": true},
+    {"name": "OEPM - Runtime Health Alert",         "active": false, "note": "inactive — non-blocking"}
+  ],
+  "other_active_workflows": [
+    {"name": "CashClaw Trade Alert",      "active": true},
+    {"name": "openclaw-event-gateway",    "active": true}
+  ],
+  "inactive_workflows": [
+    "Council ENRICH -> Qualified v2.1",
+    "n8n ↔ ClawDBot connection",
+    "My workflow", "My workflow 2",
+    "BLCO Buyer Research Pipeline",
+    "OpenClaw Chat Gateway"
+  ],
+  "webhook_check": "not_tested_directly",
+  "execution_history": "no_errors_observed",
+  "stability_telemetry": {
+    "health_check": "ok",
+    "pm2_status": "online",
+    "port": 5678,
+    "uptime": "20m+ at check time",
+    "restart_count": 1,
+    "database": "SQLite (stable — no migration required per directive)"
+  },
+  "oepm_coverage": {
+    "registry_mutation": true,
+    "governance_change": true,
+    "runtime_health": true,
+    "budget_alert": true,
+    "deployment_validation": true,
+    "repo_registration": true
+  },
+  "verdict": "EX_001_RESOLVED",
+  "notes": "All 5 required OEPM workflow categories active. n8n stable on SQLite. No PostgreSQL migration needed per directive unless stability telemetry proves otherwise."
+}

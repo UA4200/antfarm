@@ -1,0 +1,14 @@
+{
+  "generated_at": "2026-08-09T19:21:16.685524+00:00",
+  "canonical_vault": "~/.openclaw/workspace",
+  "moc_files_created": [
+    "EMPIRE_HOME.md",
+    "EMPIRE_AGENTS_INDEX.md",
+    "EMPIRE_VENTURES_INDEX.md",
+    "EMPIRE_INFERENCE_STATUS.md",
+    "EMPIRE_KNOWLEDGE_GRAPH.md"
+  ],
+  "plugin_count": 2,
+  "note": "All MOC files created in canonical vault. EMPIRE_HOME.md serves as main dashboard with links to sub-MOCs.",
+  "verdict": "OBSIDIAN_OPERATIONAL"
+}

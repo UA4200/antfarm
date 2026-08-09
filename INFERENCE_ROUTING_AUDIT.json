@@ -1,0 +1,69 @@
+{
+  "generated_at": "2026-08-09T17:45:00Z",
+  "audit_scope": "All inference pathways in Open Empire as of 2026-08-09",
+
+  "routing_layers": [
+    {
+      "layer": "1 — Interactive Claude Code (Nathan dev tool)",
+      "component": "oe-proxy (port 4100)",
+      "trigger": "ANTHROPIC_BASE_URL=http://127.0.0.1:4100 in ~/.zshrc",
+      "before": "api.anthropic.com direct — UNCONTROLLED",
+      "after": "oe-proxy → Groq/free → Anthropic fallback — GOVERNED",
+      "status": "FIXED",
+      "premium_bypass": false,
+      "audit_log": "~/.openclaw/logs/oe_proxy_calls.jsonl"
+    },
+    {
+      "layer": "2 — Autonomous agent inference (OpenClaw agents)",
+      "component": "fcc_router.py → Free-Way (port 8082)",
+      "trigger": "Direct Python import by agent code",
+      "routing": "task-type → model chain → Groq/free/Cohere/Ollama → Haiku (CashClaw only) → Sonnet (Alusi escalation)",
+      "status": "OPERATIONAL (pre-existing)",
+      "premium_bypass": false,
+      "audit_log": "Free-Way /api/usage + kg_cost_records"
+    },
+    {
+      "layer": "3 — Governed external API (native-router, port 6251)",
+      "component": "native-router (Python FastAPI)",
+      "trigger": "OPENEMPIRE_ROUTER_KEY auth, external API consumers",
+      "routing": "blocked → approval | premium → Anthropic/OpenAI | low_cost → Gemini/OpenRouter | local → Ollama",
+      "status": "OPERATIONAL (pre-existing)",
+      "premium_bypass": "governed — requires explicit premium route selection"
+    },
+    {
+      "layer": "4 — CashClaw trading agents (protected)",
+      "component": "cashclaw_director, cashclaw_arb, polymarket_trader, trading_sentinel",
+      "routing": "Haiku ONLY for signal scoring — hardcoded, no FCC bypass",
+      "status": "PROTECTED — unchanged",
+      "note": "Never route through oe-proxy or fcc_router to preserve confidence-critical scoring"
+    }
+  ],
+
+  "task_class_routing": {
+    "CLASSIFY":     {"primary":"groq/llama-3.1-8b", "fallback":"cohere/command-r7b", "premium":"never"},
+    "HEARTBEAT":    {"primary":"groq/llama-3.1-8b", "fallback":"cohere/command-r7b", "premium":"never"},
+    "MONITORING":   {"primary":"groq/llama-3.1-8b", "fallback":"cohere/command-r7b", "premium":"never"},
+    "SUMMARIZE":    {"primary":"cohere/command-r7b", "fallback":"groq/llama-3.1-8b", "premium":"never"},
+    "EXTRACT":      {"primary":"groq/llama-3.1-8b", "fallback":"cohere/command-r", "premium":"never"},
+    "GENERAL":      {"primary":"groq/llama-3.1-8b", "fallback":"cohere/command-r7b", "premium":"haiku (after 2 failures)"},
+    "ANALYSIS":     {"primary":"groq/llama-3.3-70b", "fallback":"openrouter/nemotron", "premium":"haiku (after 2 failures)"},
+    "CODE_SIMPLE":  {"primary":"openrouter/north-mini-code", "fallback":"groq/llama-3.3-70b", "premium":"haiku"},
+    "CODE_COMPLEX": {"primary":"groq/llama-3.3-70b", "fallback":"openrouter/nemotron-3-super", "premium":"sonnet (after 3 failures)"},
+    "ARCHITECTURE": {"primary":"groq/llama-3.3-70b", "fallback":"openrouter/nemotron-3-super", "premium":"sonnet"},
+    "HIGH_STAKES":  {"primary":"groq/llama-3.3-70b", "fallback":"cohere/command-r-plus", "premium":"sonnet (governed flag required)"},
+    "SIGNAL_SCORE": {"primary":"anthropic/haiku ONLY", "fallback":"cohere/command-r-plus (emergency)", "premium":"N/A — haiku IS the baseline"}
+  },
+
+  "failsafe_chain": {
+    "if_freeway_down": ["native-router (port 6251)", "Ollama (port 11434)", "Groq direct", "Anthropic fallback"],
+    "if_groq_rate_limit": ["groq_rotator.py auto-rotates to next key slot", "then cohere/openrouter", "then anthropic"],
+    "if_all_free_down": ["Anthropic Haiku (governed)", "EMERGENCY alert fired"],
+    "cashclaw_exception": "CashClaw routing always Haiku direct — not affected by any of the above"
+  },
+
+  "gaps_remaining": [
+    "oe-proxy Groq key pool integration (groq_rotator.py not yet wired into oe-proxy.py — manual rotation only)",
+    "Ollama not yet in fcc_router Tier-0 chains (cold load issue on Intel Mac mini)",
+    "Mission Control UI doesn't yet display inference route breakdown"
+  ]
+}

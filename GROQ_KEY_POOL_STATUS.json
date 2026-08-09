@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-08-09T17:45:00Z",
+  "pool": [
+    {"slot":"GROQ_API_KEY_1","present":true,"mask":"****xhmO[sha256:5984f66e]","status":"active (current)"},
+    {"slot":"GROQ_API_KEY_2","present":true,"mask":"****OehC[sha256:558978b4]","status":"available (standby)"},
+    {"slot":"GROQ_API_KEY_3","present":true,"mask":"****KlYq[sha256:9fe62ea0]","status":"available (standby)"},
+    {"slot":"GROQ_API_KEY_4","present":true,"mask":"****FoFh[sha256:d9dceb9a]","status":"available (standby)"}
+  ],
+  "quarantined": [],
+  "active_slot": "GROQ_API_KEY_1",
+  "rotation_policy": {
+    "trigger": "rate_limit OR rejection (not quality failure)",
+    "cycle": "KEY_1 → KEY_2 → KEY_3 → KEY_4 → alternate free provider",
+    "quarantine_on": ["INVALID_KEY", "REVOKED"],
+    "never_quarantine_on": ["RATE_LIMIT", "TIMEOUT"],
+    "log_file": "~/.openclaw/logs/groq_rotation.jsonl",
+    "quarantine_file": "~/.openclaw/logs/groq_quarantined.json"
+  },
+  "rotation_script": "~/.openclaw/workspace/router/groq_rotator.py",
+  "commands": {
+    "status": "python3 ~/.openclaw/workspace/router/groq_rotator.py status",
+    "rotate": "python3 ~/.openclaw/workspace/router/groq_rotator.py rotate rate_limit",
+    "active": "python3 ~/.openclaw/workspace/router/groq_rotator.py active"
+  },
+  "security_note": "Key values never logged. Only masked fingerprints (last 4 chars + sha256 prefix)."
+}
