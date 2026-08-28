@@ -1,0 +1,42 @@
+{
+  "generated_at": "2026-08-28T12:13:30.614850+00:00",
+  "generated_by": "Alusi / PMO direct",
+  "repos": [
+    {
+      "name": "open-empire-core",
+      "classification": "FOUND_REMOTE",
+      "resolution": "CLONED",
+      "local_path": "~/.openclaw/repos/installed/open-empire-core",
+      "remote": "git@github.com:UA4200/open-empire-core.git",
+      "commit": "123eb75",
+      "notes": "Public UA4200 repo. Empire directory, governance docs. Cloned 2026-08-28."
+    },
+    {
+      "name": "alusi-core",
+      "classification": "FOUND_REMOTE",
+      "resolution": "CLONED",
+      "local_path": "~/.openclaw/repos/installed/alusi-core",
+      "remote": "git@github.com:UA4200/alusi-core.git",
+      "commit": "15b122a",
+      "notes": "Public UA4200 repo. Alusi governance and control stack. Cloned 2026-08-28."
+    },
+    {
+      "name": "AI-Trader",
+      "classification": "EXPECTED_BUT_NEVER_CREATED",
+      "resolution": "SUPERSEDED",
+      "superseded_by": [
+        "~/.openclaw/trading (CashClaw)",
+        "~/.openclaw/repos/installed/ai-hedge-fund (sandbox)"
+      ],
+      "notes": "Not on UA4200 GitHub. Not found locally. CashClaw trading (Kalshi+Polymarket) covers this capability. ai-hedge-fund installed as sandbox reference. No unique source code missing."
+    }
+  ],
+  "summary": {
+    "total_investigated": 3,
+    "found_and_cloned": 2,
+    "superseded": 1,
+    "truly_missing": 0,
+    "unknown": 0
+  },
+  "verdict": "COMPLETE \u2014 no UNKNOWN classifications"
+}

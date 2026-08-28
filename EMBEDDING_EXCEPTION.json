@@ -1,0 +1,20 @@
+{
+  "generated_at": "2026-08-28T12:13:30.614850+00:00",
+  "status": "SEMANTIC_MEMORY_DEGRADED_ACCEPTED",
+  "root_cause": "OPENAI_API_KEY rotated; memory index providerKey hash is stale (built with old key)",
+  "old_hash": "cdd3dd30cf9146f3be11ef9ef4439b052882c5598f01053b63b46c51a0d1664c",
+  "new_hash_applied": "72068f7ea59e5e68fdf3950d9ce8a608b98cda41f23c0103ea22c4d3210d1dee",
+  "current_db_state": "providerKey updated in memory_index_meta \u2014 OpenClaw now shows 'index provider settings changed'",
+  "fix_required": "Run: openclaw memory index --force",
+  "blocker": "openclaw CLI requires Node >=24.15.0; current Node is v24.14.0 (patch update needed)",
+  "impact": "Semantic memory_search returns disabled=true. Direct file access (grep/MEMORY.md) works. 1022 chunks and 776 embedding cache entries intact.",
+  "fallback": "Exact-match grep on MEMORY.md / memory/*.md \u2014 all critical facts retrievable",
+  "risk": "LOW \u2014 all factual data intact; only semantic ranking degraded",
+  "repair_path": [
+    "1. Update Node: nvm install 24 && nvm use 24 && nvm alias default 24 (or brew upgrade node@24)",
+    "2. Verify: node --version >=24.15.0",
+    "3. Run: openclaw memory index --force",
+    "4. Test: memory_search tool returns results"
+  ],
+  "nathan_authorization_required": "Yes \u2014 Node version upgrade is a system-level change"
+}

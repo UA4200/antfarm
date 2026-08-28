@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-08-28T12:13:30.614850+00:00",
+  "invalid_zero_byte_count": 25,
+  "invalid_period": "2026-08-09 to 2026-08-27",
+  "invalid_cause": "pg_dump not in cron PATH (/usr/bin not /usr/local/bin)",
+  "fix_applied": "2026-08-28T05:46 \u2014 cron updated to /usr/local/bin/pg_dump",
+  "valid_backups": [
+    "clawdb_20260828_0546.sql (61074 bytes)",
+    "clawdb_20260828_0600.sql (61074 bytes)",
+    "clawdb_20260828_0647_autotest.sql (61074 bytes)"
+  ],
+  "restore_method": "pg_dump -Fc + pg_restore --no-privileges --no-owner -d <target>",
+  "automated_backup_test": "PASS (cron-simulated via /usr/local/bin/pg_dump, 61074 bytes, SHA256=c72a8f57a48...)",
+  "isolated_restore_test": "PASS (58 entities, 10 tables \u2014 matches production)",
+  "restore_note": "Use pg_restore custom format (-Fc). Plain SQL backups contain \\restrict PostgreSQL 18 directive that aborts psql; strip with Python filter or use -Fc format.",
+  "verdict": "BACKUP_RECOVERY_CHAIN_CERTIFIED"
+}

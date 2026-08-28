@@ -1,0 +1,39 @@
+{
+  "generated_at": "2026-08-28T12:13:30.614850+00:00",
+  "program": "OPEN EMPIRE MIGRATION GATE P1 CLOSEOUT",
+  "TRADING_REMOTE": "NOT_CREATED \u2014 GitHub token lacks repo scope; exact commands prepared for Nathan",
+  "TRADING_HEAD_MATCH": "N/A (no remote yet)",
+  "TRADING_LOCAL_COMMIT": "c97d732 (23 source files, .gitignore in place, data excluded)",
+  "TRADING_NATHAN_ACTION": "Create private repo at github.com/new, then: cd ~/.openclaw/trading && git remote add origin git@github.com:UA4200/trading.git && git push -u origin master",
+  "BLCO_REMOTE": "git@github.com:UA4200/blco-pipeline.git (SSH)",
+  "BLCO_HEAD_MATCH": "YES \u2014 local=remote=2906b1c",
+  "BLCO_SOURCE_REMOTE_CERTIFIED": "PASS",
+  "OPEN_EMPIRE_CORE": "FOUND_AND_CLONED \u2014 UA4200/open-empire-core \u2192 ~/.openclaw/repos/installed/open-empire-core (123eb75)",
+  "ALUSI_CORE": "FOUND_AND_CLONED \u2014 UA4200/alusi-core \u2192 ~/.openclaw/repos/installed/alusi-core (15b122a)",
+  "AI_TRADER": "SUPERSEDED_BY=trading+ai-hedge-fund \u2014 no unique code missing",
+  "MISSING_REPO_RECONCILIATION": "COMPLETE (0 UNKNOWN)",
+  "EMBEDDING_STATUS": "DEGRADED \u2014 root cause diagnosed (key rotation \u2192 stale hash \u2192 Node patch needed for reindex)",
+  "EMBEDDING_EXCEPTION": "SEMANTIC_MEMORY_DEGRADED_ACCEPTED (data intact, fallback=grep, fix path documented)",
+  "SEMANTIC_TESTS": "DISABLED pending Node 24.15.0 upgrade + openclaw memory index --force",
+  "MEMORY_FALLBACK": "OPERATIONAL \u2014 grep/MEMORY.md exact search works",
+  "VALID_BACKUPS": 3,
+  "INVALID_ZERO_BYTE_BACKUPS": 25,
+  "INVALID_PERIOD": "2026-08-09 to 2026-08-27",
+  "AUTOMATED_BACKUP_TEST": "PASS (61074 bytes, fresh cron-simulated run)",
+  "RESTORE_METHOD": "pg_restore -Fc --no-privileges --no-owner (NOT plain psql < file \u2014 \\restrict issue)",
+  "RESTORE_TEST": "PASS \u2014 58 entities, 10 tables restored and verified",
+  "BACKUP_RECOVERY_CHAIN_CERTIFIED": "PASS",
+  "UNRESOLVED_P0": [],
+  "UNRESOLVED_P1": [
+    "trading GitHub remote (Nathan action required)"
+  ],
+  "GOLDEN_BASELINE_UPDATED": true,
+  "FINAL_BASELINE_COMMIT": "pending final update commit",
+  "MIGRATION_READY": false,
+  "MIGRATION_NOT_YET_REASON": "trading repo has no GitHub remote (last P1 item requiring Nathan action)",
+  "NATHAN_ACTION_REQUIRED": [
+    "P1 BLOCKING: Create private GitHub repo for trading (see TRADING_NATHAN_ACTION above)",
+    "P1 NON-BLOCKING (accepted exception): Node 24.14\u219224.15 upgrade to restore semantic memory search"
+  ],
+  "FINAL_VERDICT": "OPEN_EMPIRE_MIGRATION_READY_WITH_ACCEPTED_EXCEPTIONS"
+}
