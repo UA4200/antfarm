@@ -1,0 +1,200 @@
+{
+  "generated_at": "2026-08-28T11:40:33.790224+00:00",
+  "scan_results": [
+    {
+      "repo": "workspace",
+      "path": "~/.openclaw/workspace",
+      "env_tracked": 0,
+      "***": 0,
+      "has_gitignore": true,
+      "gitignore_covers_secrets": true,
+      "risk_level": "CLEAN",
+      "findings": []
+    },
+    {
+      "repo": "blco",
+      "path": "~/.openclaw/blco",
+      "env_tracked": 0,
+      "***": 0,
+      "has_gitignore": true,
+      "gitignore_covers_secrets": true,
+      "risk_level": "CLEAN",
+      "findings": []
+    },
+    {
+      "repo": "trading",
+      "path": "~/.openclaw/trading",
+      "env_tracked": 0,
+      "***": 0,
+      "has_gitignore": true,
+      "gitignore_covers_secrets": true,
+      "risk_level": "CLEAN",
+      "findings": []
+    },
+    {
+      "repo": "free_llm_router",
+      "path": "~/.openclaw/repos/free_llm_router",
+      "env_tracked": 0,
+      "***": 0,
+      "has_gitignore": true,
+      "gitignore_covers_secrets": true,
+      "risk_level": "CLEAN",
+      "findings": []
+    },
+    {
+      "repo": "antfarm",
+      "path": "~/.openclaw/workspace/antfarm",
+      "env_tracked": 0,
+      "***": 0,
+      "has_gitignore": true,
+      "gitignore_covers_secrets": true,
+      "risk_level": "CLEAN",
+      "findings": []
+    },
+    {
+      "repo": "mission-control",
+      "path": "~/.openclaw/workspace/mission-control",
+      "env_tracked": 0,
+      "***": 0,
+      "has_gitignore": true,
+      "gitignore_covers_secrets": true,
+      "risk_level": "CLEAN",
+      "findings": []
+    },
+    {
+      "repo": "iFixAi",
+      "path": "~/.openclaw/repos/iFixAi",
+      "env_tracked": 0,
+      "***": 0,
+      "has_gitignore": true,
+      "gitignore_covers_secrets": true,
+      "risk_level": "CLEAN",
+      "findings": []
+    },
+    {
+      "repo": "openhuman",
+      "path": "~/.openclaw/repos/openhuman",
+      "env_tracked": 0,
+      "***": 0,
+      "has_gitignore": true,
+      "gitignore_covers_secrets": true,
+      "risk_level": "CLEAN",
+      "findings": []
+    },
+    {
+      "repo": "Personal_AI_Infrastructure",
+      "path": "~/.openclaw/repos/Personal_AI_Infrastructure",
+      "env_tracked": 0,
+      "***": 0,
+      "has_gitignore": true,
+      "gitignore_covers_secrets": true,
+      "risk_level": "CLEAN",
+      "findings": []
+    },
+    {
+      "repo": "agency-agents",
+      "path": "~/.openclaw/repos/installed/agency-agents",
+      "env_tracked": 0,
+      "***": 0,
+      "has_gitignore": true,
+      "gitignore_covers_secrets": true,
+      "risk_level": "CLEAN",
+      "findings": []
+    },
+    {
+      "repo": "claude-code-ultimate-guide",
+      "path": "~/.openclaw/repos/installed/claude-code-ultimate-guide",
+      "env_tracked": 0,
+      "***": 0,
+      "has_gitignore": true,
+      "gitignore_covers_secrets": true,
+      "risk_level": "CLEAN",
+      "findings": []
+    },
+    {
+      "repo": "GitNexus",
+      "path": "~/.openclaw/repos/installed/GitNexus",
+      "env_tracked": 0,
+      "***": 0,
+      "has_gitignore": true,
+      "gitignore_covers_secrets": true,
+      "risk_level": "CLEAN",
+      "findings": []
+    },
+    {
+      "repo": "hermes-agent",
+      "path": "~/.openclaw/repos/installed/hermes-agent",
+      "env_tracked": 0,
+      "***": 0,
+      "has_gitignore": true,
+      "gitignore_covers_secrets": true,
+      "risk_level": "CLEAN",
+      "findings": []
+    },
+    {
+      "repo": "shannon",
+      "path": "~/.openclaw/repos/installed/shannon",
+      "env_tracked": 0,
+      "***": 0,
+      "has_gitignore": true,
+      "gitignore_covers_secrets": true,
+      "risk_level": "CLEAN",
+      "findings": []
+    },
+    {
+      "repo": "claude-mem",
+      "path": "~/.openclaw/repos/installed/claude-mem",
+      "env_tracked": 0,
+      "***": 0,
+      "has_gitignore": true,
+      "gitignore_covers_secrets": true,
+      "risk_level": "CLEAN",
+      "findings": []
+    },
+    {
+      "repo": "auto-browser",
+      "path": "~/.openclaw/repos/installed/auto-browser",
+      "env_tracked": 0,
+      "***": 0,
+      "has_gitignore": true,
+      "gitignore_covers_secrets": true,
+      "risk_level": "CLEAN",
+      "findings": []
+    },
+    {
+      "repo": "ai-hedge-fund",
+      "path": "~/.openclaw/repos/installed/ai-hedge-fund",
+      "env_tracked": 0,
+      "***": 0,
+      "has_gitignore": true,
+      "gitignore_covers_secrets": true,
+      "risk_level": "CLEAN",
+      "findings": []
+    },
+    {
+      "repo": "hyperliquid-trading-agent",
+      "path": "~/.openclaw/repos/installed/hyperliquid-trading-agent",
+      "env_tracked": 0,
+      "***": 0,
+      "has_gitignore": true,
+      "gitignore_covers_secrets": true,
+      "risk_level": "CLEAN",
+      "findings": []
+    },
+    {
+      "repo": "ruflo",
+      "path": "~/.openclaw/repos/ruflo",
+      "env_tracked": 0,
+      "***": 0,
+      "has_gitignore": true,
+      "gitignore_covers_secrets": true,
+      "risk_level": "CLEAN",
+      "findings": []
+    }
+  ],
+  "summary": {
+    "clean": 19,
+    "security_incidents": 0,
+    "high_risk": 0
+  }
+}

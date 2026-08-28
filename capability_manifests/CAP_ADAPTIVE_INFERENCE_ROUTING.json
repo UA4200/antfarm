@@ -1,0 +1,50 @@
+{
+  "capability_id": "ADAPTIVE_INFERENCE_ROUTING",
+  "purpose": "Intelligent multi-provider LLM routing that automatically selects the optimal model (free→paid escalation) based on task complexity, provider health, and cost constraints. Routes claude-* requests through oe-proxy which intercepts and routes: haiku→Groq free, sonnet→Groq70B/free, opus→Anthropic premium. Backed by Free-Way (port 8082, 72+ models) and fcc-8083 (port 8083, 71 models).",
+  "owner": "Nathan Asiegbu",
+  "status": "OPERATIONAL",
+  "repos": [
+    "~/.openclaw/router/router_state.json",
+    "~/.openclaw/workspace/router/economic_guard.py"
+  ],
+  "services": [
+    "oe-proxy (PM2 online, port=4100) — intercepts claude-* requests",
+    "freeway (PM2 online, port=8082) — 72 models, 5 providers",
+    "fcc-8083 (PM2 online, port=8083) — 71 models, 7 providers",
+    "native-router (PM2 online)",
+    "claude-proxy (PM2 online)"
+  ],
+  "agents": ["oe-proxy", "native-router", "claude-proxy"],
+  "tools": ["oe-proxy REST", "Free-Way API", "fcc-8083 API", "circuit-breaker"],
+  "ports": [4100, 8082, 8083],
+  "databases": ["router_state.json (21 providers tracked)"],
+  "secrets_metadata": ["FREEWAY_API_KEY", "ANTHROPIC_API_KEY", "GROQ_API_KEY", "OPENROUTER_API_KEY"],
+  "model_policy": "FREE_FIRST: groq/llama → cohere → openrouter/nemotron → Haiku (paid) → Sonnet (premium). Circuit breaker quarantines failing providers.",
+  "startup": "All proxy services auto-start via PM2; ANTHROPIC_BASE_URL=http://127.0.0.1:4100",
+  "health_check": "curl -sm 3 http://127.0.0.1:4100/health && curl -sm 3 http://127.0.0.1:8082/health",
+  "validation": "PASS: oe-proxy healthy, 21 providers tracked, freeway+fcc-8083 both responding",
+  "approval_gates": ["Nathan approval to add/remove providers or change routing policy"],
+  "rollback": "Set ANTHROPIC_BASE_URL to direct Anthropic API; restart affected agents",
+  "kpi": "Free model usage % / latency p95 / cost per 1M tokens / provider uptime",
+  "log_location": "~/.openclaw/logs/adaptive_router_telemetry.jsonl",
+  "live_evidence": {
+    "oe_proxy_status": "online",
+    "oe_proxy_pid": 33052,
+    "oe_proxy_health": "ok",
+    "oe_proxy_service": "oe-proxy-v2-adaptive",
+    "oe_proxy_providers": 21,
+    "freeway_status": "online",
+    "freeway_health": "ok",
+    "freeway_port": 8082,
+    "fcc_8083_status": "online",
+    "fcc_8083_health": "ok",
+    "fcc_8083_port": 8083,
+    "router_state_exists": true,
+    "router_state_bytes": 8068,
+    "router_state_mtime": "2026-08-28T05:20:00",
+    "active_providers_in_state": 21,
+    "top_performing_provider": "openrouter/nemotron-3-super-120b-a12b (13 calls, 100% success)",
+    "second_performing": "anthropic/claude-haiku-4-5 (8 calls, 100% success)",
+    "circuit_all_healthy": true
+  }
+}

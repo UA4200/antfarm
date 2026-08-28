@@ -1,0 +1,138 @@
+{
+  "generated_at": "2026-08-28T05:50:00-05:00",
+  "generated_by": "AGENT_E1_E2",
+  "description": "Map of all discovered git repositories with classification, path, remote, commit, and backup status",
+  "canonical_repos": {
+    "workspace": {
+      "path": "~/.openclaw/workspace",
+      "remote": "https://github.com/UA4200/git-github.git",
+      "branch": "master",
+      "commit": "b59d728",
+      "classification": "CANONICAL",
+      "backup_status": "REMOTE_EXISTS_NOT_PUSHED",
+      "dirty": true,
+      "notes": "Main operational workspace. Remote configured. 13 tracked modified files, 1542 untracked. Needs commit + push + .gitignore hardening."
+    }
+  },
+  "candidate_repos": {
+    "blco": {
+      "path": "~/.openclaw/blco",
+      "remote": "https://github.com/UA4200/blco-pipeline.git",
+      "branch": "master",
+      "commit": null,
+      "classification": "CANDIDATE",
+      "backup_status": "NO_COMMITS — remote exists but nothing pushed",
+      "dirty": true,
+      "notes": "BLCO pipeline. Remote configured. No commits. No .gitignore. PII risk in JSONL files. Must create .gitignore before first commit."
+    },
+    "Personal_AI_Infrastructure": {
+      "path": "~/.openclaw/repos/Personal_AI_Infrastructure",
+      "remote": "https://github.com/danielmiessler/Personal_AI_Infrastructure",
+      "branch": "main",
+      "commit": "9fb9c86",
+      "classification": "CANDIDATE",
+      "backup_status": "UPSTREAM_BACKED — third-party repo, 1 local mod not pushed",
+      "dirty": true,
+      "notes": "Third-party reference clone by danielmiessler. 1 local modification."
+    },
+    "agency-agents": {
+      "path": "~/.openclaw/repos/agency-agents",
+      "remote": "https://github.com/msitarzewski/agency-agents",
+      "branch": "main",
+      "commit": "783f6a7",
+      "classification": "CANDIDATE",
+      "backup_status": "UPSTREAM_BACKED — third-party repo, clean",
+      "dirty": false,
+      "notes": "Third-party reference clone. Clean."
+    },
+    "iFixAi": {
+      "path": "~/.openclaw/repos/iFixAi",
+      "remote": "https://github.com/ifixai-ai/iFixAi",
+      "branch": "main",
+      "commit": "a3c418b",
+      "classification": "CANDIDATE",
+      "backup_status": "UPSTREAM_BACKED — third-party repo, 1 local mod",
+      "dirty": true,
+      "notes": "Third-party tool clone. 1 local modification."
+    },
+    "openhuman": {
+      "path": "~/.openclaw/repos/openhuman",
+      "remote": "https://github.com/tinyhumansai/openhuman",
+      "branch": "main",
+      "commit": "b9f1c08",
+      "classification": "CANDIDATE",
+      "backup_status": "UPSTREAM_BACKED — third-party repo, 1 local mod",
+      "dirty": true,
+      "notes": "Third-party tool clone. 1 local modification."
+    },
+    "ruflo": {
+      "path": "~/.openclaw/repos/ruflo",
+      "remote": "https://github.com/ruvnet/ruflo",
+      "branch": "main",
+      "commit": "545426f",
+      "classification": "CANDIDATE",
+      "backup_status": "UPSTREAM_BACKED — third-party repo, 2 local mods",
+      "dirty": true,
+      "notes": "Third-party tool clone. 2 local modifications."
+    },
+    "obsidian-openclaw-memory-submodule": {
+      "path": "~/.openclaw/workspace/skills/obsidian-openclaw-memory",
+      "remote": "https://github.com/Samin12/obsidian-openclaw-memory",
+      "branch": "main",
+      "commit": "aafd7b0",
+      "classification": "CANDIDATE",
+      "backup_status": "UPSTREAM_BACKED — third-party, nested sub-repo",
+      "dirty": false,
+      "notes": "Nested repo inside workspace/skills/. Third-party. Clean."
+    }
+  },
+  "installed_repos": {
+    "description": "Third-party repos installed under ~/.openclaw/repos/installed/ — all CANDIDATE/reference status",
+    "repos": [
+      { "name": "GitNexus", "remote": "https://github.com/abhigyanpatwari/GitNexus.git", "commit": "d3a7ce9", "dirty": false },
+      { "name": "postiz-app", "remote": "https://github.com/gitroomhq/postiz-app.git", "commit": "060c77a", "dirty": true },
+      { "name": "ai-hedge-fund", "remote": "https://github.com/virattt/ai-hedge-fund.git", "commit": "e06b186", "dirty": true },
+      { "name": "hyperliquid-trading-agent", "remote": "https://github.com/sanketagarwal/hyperliquid-trading-agent", "commit": "e766ad2", "dirty": false },
+      { "name": "AI-Youtube-Shorts-Generator", "remote": "https://github.com/SamurAIGPT/AI-Youtube-Shorts-Generator", "commit": "262148e", "dirty": false },
+      { "name": "Kronos", "remote": "https://github.com/shiyu-coder/Kronos.git", "commit": "67b630e", "dirty": false },
+      { "name": "awesome-openclaw-skills", "remote": "https://github.com/VoltAgent/awesome-openclaw-skills.git", "commit": "0399eda", "dirty": false },
+      { "name": "Open-Generative-AI", "remote": "unknown (not audited)", "commit": "unknown", "dirty": "unknown" },
+      { "name": "Open-Lovart", "remote": "unknown (not audited)", "commit": "unknown", "dirty": "unknown" },
+      { "name": "Vibe-Workflow", "remote": "unknown (not audited)", "commit": "unknown", "dirty": "unknown" },
+      { "name": "agency-agents (installed copy)", "remote": "unknown (not audited)", "commit": "unknown", "dirty": "unknown" },
+      { "name": "andrej-karpathy-skills", "remote": "unknown (not audited)", "commit": "unknown", "dirty": "unknown" },
+      { "name": "auto-browser", "remote": "unknown (not audited)", "commit": "unknown", "dirty": "unknown" },
+      { "name": "awesome-claude-code-subagents", "remote": "unknown (not audited)", "commit": "unknown", "dirty": "unknown" },
+      { "name": "awesome-claude-code-toolkit", "remote": "unknown (not audited)", "commit": "unknown", "dirty": "unknown" },
+      { "name": "awesome-claude-code", "remote": "unknown (not audited)", "commit": "unknown", "dirty": "unknown" },
+      { "name": "awesome-claude-skills", "remote": "unknown (not audited)", "commit": "unknown", "dirty": "unknown" },
+      { "name": "claude-code-templates", "remote": "unknown (not audited)", "commit": "unknown", "dirty": "unknown" },
+      { "name": "claude-code-ultimate-guide", "remote": "unknown (not audited)", "commit": "unknown", "dirty": "unknown" },
+      { "name": "claude-mem", "remote": "unknown (not audited)", "commit": "unknown", "dirty": "unknown" },
+      { "name": "everything-claude-code", "remote": "unknown (not audited)", "commit": "unknown", "dirty": "unknown" },
+      { "name": "get-shit-done", "remote": "unknown (not audited)", "commit": "unknown", "dirty": "unknown" },
+      { "name": "hermes-agent", "remote": "unknown (not audited)", "commit": "unknown", "dirty": "unknown" },
+      { "name": "learn-claude-code", "remote": "unknown (not audited)", "commit": "unknown", "dirty": "unknown" },
+      { "name": "obsidian-openclaw-memory (installed)", "remote": "unknown (not audited)", "commit": "unknown", "dirty": "unknown" },
+      { "name": "shannon", "remote": "unknown (not audited)", "commit": "unknown", "dirty": "unknown" }
+    ]
+  },
+  "missing_repos": {
+    "trading": {
+      "path": "~/.openclaw/trading",
+      "classification": "UNKNOWN — NO GIT REPO",
+      "remote": null,
+      "commit": null,
+      "backup_status": "UNVERSIONED — CRITICAL",
+      "notes": "Live trading code for Kalshi/Polymarket/sentinel/arb agents. No version control. Highest priority to remediate."
+    }
+  },
+  "repo_counts": {
+    "total_discovered": 16,
+    "canonical": 1,
+    "candidate": 15,
+    "missing_critical": 1,
+    "fully_audited": 11,
+    "partial_audit_installed": 26
+  }
+}

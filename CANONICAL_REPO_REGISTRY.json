@@ -1,0 +1,101 @@
+{
+  "generated_at": "2026-08-28T11:40:33.790224+00:00",
+  "registry": {
+    "workspace": {
+      "canonical_path": "~/.openclaw/workspace",
+      "remote": "github.com/UA4200/git-github.git",
+      "priority": "P0",
+      "status": "CANONICAL",
+      "install_state": "INSTALLED",
+      "backup_covered": true
+    },
+    "blco": {
+      "canonical_path": "~/.openclaw/blco",
+      "remote": "github.com/UA4200/blco-pipeline.git",
+      "priority": "P0",
+      "status": "CANONICAL",
+      "install_state": "INSTALLED",
+      "backup_covered": true
+    },
+    "trading": {
+      "canonical_path": "~/.openclaw/trading",
+      "remote": "NONE",
+      "priority": "P0",
+      "status": "CANONICAL",
+      "install_state": "INSTALLED",
+      "backup_covered": true
+    },
+    "free_llm_router": {
+      "canonical_path": "~/.openclaw/repos/free_llm_router",
+      "remote": "upstream",
+      "priority": "P0",
+      "status": "CANONICAL",
+      "install_state": "INSTALLED",
+      "backup_covered": true
+    },
+    "antfarm": {
+      "canonical_path": "~/.openclaw/workspace/antfarm",
+      "remote": "upstream",
+      "priority": "P0",
+      "status": "CANONICAL",
+      "install_state": "INSTALLED",
+      "backup_covered": true
+    },
+    "mission-control": {
+      "canonical_path": "~/.openclaw/workspace/mission-control",
+      "remote": "github.com/UA4200/mission-control.git",
+      "priority": "P0",
+      "status": "CANONICAL",
+      "install_state": "INSTALLED",
+      "backup_covered": true
+    },
+    "iFixAi": {
+      "canonical_path": "~/.openclaw/repos/iFixAi",
+      "remote": "upstream",
+      "priority": "P1",
+      "status": "CANDIDATE",
+      "install_state": "PRESENT",
+      "backup_covered": false
+    },
+    "openhuman": {
+      "canonical_path": "~/.openclaw/repos/openhuman",
+      "remote": "upstream",
+      "priority": "P1",
+      "status": "CANDIDATE",
+      "install_state": "PRESENT",
+      "backup_covered": false
+    },
+    "Personal_AI_Infrastructure": {
+      "canonical_path": "~/.openclaw/repos/Personal_AI_Infrastructure",
+      "remote": "upstream",
+      "priority": "P1",
+      "status": "CANDIDATE",
+      "install_state": "PRESENT",
+      "backup_covered": false
+    },
+    "agency-agents": {
+      "canonical_path": "~/.openclaw/repos/installed/agency-agents",
+      "remote": "upstream",
+      "priority": "P1",
+      "status": "CANDIDATE",
+      "install_state": "INSTALLED",
+      "backup_covered": false
+    },
+    "claude-code-ultimate-guide": {
+      "canonical_path": "~/.openclaw/repos/installed/claude-code-ultimate-guide",
+      "remote": "upstream",
+      "priority": "P1",
+      "status": "CANDIDATE",
+      "install_state": "INSTALLED",
+      "backup_covered": false
+    },
+    "GitNexus": {
+      "canonical_path": "~/.openclaw/repos/installed/GitNexus",
+      "remote": "upstream",
+      "priority": "P1",
+      "status": "CANDIDATE",
+      "install_state": "INSTALLED",
+      "backup_covered": false
+    }
+  }
+}

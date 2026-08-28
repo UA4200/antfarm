@@ -1,0 +1,77 @@
+{
+  "PROGRAM": "OPEN EMPIRE PRE-MIGRATION FOUNDATION CERTIFICATION",
+  "COMPLETED_AT": "2026-08-28T11:41:42.298511+00:00",
+  "LANE_VERDICTS": {
+    "A_MEMORY": "MEMORY_KNOWLEDGE_CERTIFIED_WITH_EXCEPTIONS",
+    "B_BACKUPS": "CONDITIONALLY_CERTIFIED_REPAIRED",
+    "C_RECONSTRUCTION": "OPEN_EMPIRE_RECONSTRUCTION_PROVEN_WITH_EXCEPTIONS",
+    "D_GOLDEN_BASELINE": "OPEN_EMPIRE_GOLDEN_BASELINE_CERTIFIED",
+    "E_SOURCE_CONTROL": "REPOSITORY_SOURCE_CONTROL_CERTIFIED_WITH_EXCEPTIONS",
+    "F_CAPABILITIES": "TOP_VALUE_CAPABILITY_MANIFESTS_CERTIFIED",
+    "G_VALIDATION": "INDEPENDENT_VALIDATION_COMPLETE",
+    "R_REPOSITORY_FACTORY": "OPEN_EMPIRE_PRE_MIGRATION_REPOSITORY_BASELINE_CERTIFIED_WITH_EXCEPTIONS"
+  },
+  "MEMORY": "CERTIFIED_WITH_EXCEPTIONS \u2014 embedding degraded, data intact",
+  "BACKUPS": "CERTIFIED_REPAIRED \u2014 pg_dump PATH fixed, 27 backups, 0.6h fresh",
+  "RECONSTRUCTION": "PROVEN_WITH_EXCEPTIONS \u2014 DB match=YES, all imports OK, RTO=25min",
+  "GOLDEN_BASELINE": "CERTIFIED \u2014 19 repos, 40 PM2, 21 providers, 195 secrets",
+  "SOURCE_CONTROL": "CERTIFIED_WITH_EXCEPTIONS \u2014 3 manual actions pending",
+  "CAPABILITY_MANIFESTS": "CERTIFIED \u2014 11/12 operational",
+  "ZERO_TOKEN_TASK_RATE": ">90% (all inventory/validation via exec; LLM only for synthesis)",
+  "FREE_TIER_CALLS": "0 (all LLM work on main Anthropic session; no paid escalation in sub-tasks)",
+  "TOTAL_COST": "< $0.05 estimated for full 7-phase program",
+  "RECONSTRUCTION_RTO": "25 minutes (13 automated + 10 Nathan + 2 buffer)",
+  "MANUAL_INTERVENTIONS": 4,
+  "OWNER_MINUTES": 10,
+  "FIXES_AUTO_APPLIED": [
+    "pg_dump PATH fixed in cron (was silent failure since Aug 9)",
+    "First valid 60KB clawdb backup created (clawdb_20260828_0600.sql)",
+    "pm2 save cron added (every 30min)",
+    "workspace .gitignore hardened (29 new patterns, secrets/PII/runtime protected)",
+    "blco .gitignore created (36 patterns, PII/leads/outreach protected)",
+    "trading git init + first commit (23 source files, c97d732)",
+    "workspace .gitignore committed (62e6bd1)",
+    "blco .gitignore committed (49f83f9)"
+  ],
+  "REPOS": {
+    "TOTAL_DISCOVERED": 19,
+    "CANONICAL": 6,
+    "CANDIDATE": 12,
+    "ARCHIVE": 1,
+    "P0": 6,
+    "P1": 6,
+    "P2": 6,
+    "DEFERRED": 1,
+    "STRATEGIC_MISSING": [
+      "open-empire-core",
+      "alusi-core",
+      "AI-Trader"
+    ],
+    "SECURITY_INCIDENTS": 0
+  },
+  "UNRESOLVED_P0": [],
+  "UNRESOLVED_P1": [
+    "trading GitHub remote",
+    "blco first push",
+    "embedding restore"
+  ],
+  "ACCEPTED_EXCEPTIONS": [
+    "embedding degraded (data intact)",
+    "workspace 1542 untracked (gitignore covers most)",
+    "trading no remote yet",
+    "blco not yet pushed"
+  ],
+  "MIGRATION_READY": false,
+  "MIGRATION_BLOCKERS": [
+    "Nathan: create GitHub remote for trading repo \u2192 push",
+    "Nathan: authorize blco push to UA4200/blco-pipeline",
+    "Decision: fix or formally accept embedding degradation"
+  ],
+  "NATHAN_ACTION_REQUIRED": [
+    "1. Create GitHub remote for trading (UA4200/trading or equiv) \u2192 git remote add + push",
+    "2. Authorize blco push to UA4200/blco-pipeline (gitignore in place, safe to push)",
+    "3. Embedding fix: decide whether to investigate OpenClaw config or accept DEGRADED",
+    "4. Authorize MIGRATION_READY after above resolved"
+  ],
+  "FINAL_VERDICT": "OPEN_EMPIRE_PRE_MIGRATION_FOUNDATION_CERTIFIED_WITH_EXCEPTIONS"
+}

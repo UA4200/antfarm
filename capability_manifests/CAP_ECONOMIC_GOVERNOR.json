@@ -1,0 +1,52 @@
+{
+  "capability_id": "ECONOMIC_GOVERNOR",
+  "purpose": "Real-time autonomous spending guardrail system enforcing daily/monthly hard caps on all AI inference costs. The economic guard script monitors cumulative spend, alerts on soft limits (>$0.10/day), blocks on hard limits ($0.20/day), and triggers emergency stop at $0.50/day. Prevents autonomous agents from incurring unbounded costs.",
+  "owner": "Nathan Asiegbu",
+  "status": "OPERATIONAL",
+  "degraded_note": "economic_guard.json snapshot is stale (last run 2026-08-09); guard script updated 2026-08-28. kg_cost_records=0 (cost tracking moved to telemetry log). Recommend re-running guard to refresh snapshot.",
+  "repos": [
+    "~/.openclaw/workspace/router/economic_guard.py",
+    "~/.openclaw/grafana/data/economic_guard.json"
+  ],
+  "services": [
+    "grafana (PM2 online, port=3001) — displays guard status",
+    "fcc-metrics-exporter (PM2, scrapes every 5min)"
+  ],
+  "agents": ["economic_guard (invoked by router)"],
+  "tools": ["economic_guard.py", "adaptive_router_telemetry.jsonl", "Grafana dashboard"],
+  "ports": [3001],
+  "databases": [
+    "~/.openclaw/logs/adaptive_router_telemetry.jsonl (27 records)",
+    "~/.openclaw/grafana/data/economic_guard.json",
+    "clawdb kg_cost_records (0 — moved to telemetry)"
+  ],
+  "secrets_metadata": [],
+  "model_policy": "No AI needed; pure cost accounting from telemetry logs",
+  "startup": "Invoked by adaptive router on each inference call; Grafana always-on",
+  "health_check": "python3 ~/.openclaw/workspace/router/economic_guard.py --status 2>/dev/null | grep status",
+  "validation": "PASS: guard script present (6558 bytes), telemetry active (27 lines, last entry today), Grafana displaying guard data",
+  "approval_gates": ["Nathan approval to raise any spend limit", "Nathan approval to disable guard (forbidden without explicit consent)"],
+  "rollback": "Set emergency kill-switch: touch ~/.openclaw/SPEND_HALT; all agents check this file",
+  "kpi": "Daily cost vs $0.20 hard cap / free_pct maintained / incidents blocked by guard",
+  "log_location": "~/.openclaw/logs/adaptive_router_telemetry.jsonl",
+  "live_evidence": {
+    "guard_script_exists": true,
+    "guard_script_bytes": 6558,
+    "guard_script_mtime": "2026-08-28T05:10:00",
+    "guard_json_exists": true,
+    "guard_json_last_ts": "2026-08-09T17:44:03Z",
+    "guard_json_status": "OK",
+    "guard_json_alerts": [],
+    "daily_soft_limit_usd": 0.10,
+    "daily_hard_limit_usd": 0.20,
+    "daily_emergency_limit_usd": 0.50,
+    "monthly_warn_limit_usd": 3.00,
+    "telemetry_lines": 27,
+    "last_telemetry_ts": "2026-08-28T10:20:19Z",
+    "last_telemetry_cost": 0.0,
+    "kg_cost_records": 0,
+    "freeway_session_calls": 26,
+    "freeway_session_cost_usd": 0.0,
+    "stale_snapshot_warning": "economic_guard.json last written 2026-08-09; guard needs re-run to refresh"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "capability_id": "ADAI_VALUE_REALIZATION",
+  "purpose": "ADAI Solutions Inc is the parent brand for all monetizable AI products built on the OpenClaw empire. Products include CashClaw Ops (autonomous financial operations), ADAI Energy site, and future enterprise AI agent packages.",
+  "owner": "Nathan Asiegbu",
+  "status": "OPERATIONAL",
+  "repos": [
+    "~/.openclaw/workspace/adaienergy-site/",
+    "~/.openclaw/workspace/supabase_adai_schema.sql"
+  ],
+  "services": ["open-empire-mission-ui (PM2 online)", "open-empire-control-plane (PM2 online)"],
+  "agents": ["cashclaw_director", "polymarket-trader", "cashclaw_arb", "open-empire-federation-staging", "open-empire-lifecycle-staging"],
+  "tools": ["Supabase", "Open Empire Control Plane", "Mission Control UI"],
+  "ports": [3333],
+  "databases": ["clawdb", "Supabase (ADAI)"],
+  "secrets_metadata": ["SUPABASE_URL", "SUPABASE_ANON_KEY", "OPENEMPIRE_ROUTER_KEY"],
+  "model_policy": "Premium models only for product-level decisions; Haiku/free for routine ops",
+  "startup": "Control plane auto-starts via PM2; lifecycle/federation agents on 15min cron",
+  "health_check": "curl -sm 3 http://127.0.0.1:3333/ | grep 'Mission Control'",
+  "validation": "PASS: Mission Control UI responding, adaienergy-site directory present",
+  "approval_gates": ["Nathan approval for any ADAI product launch or pricing change"],
+  "rollback": "Revert adaienergy-site deployment from DEPLOY.md instructions",
+  "kpi": "Revenue per product line, customer acquisition, autonomous ops cost savings",
+  "log_location": "~/.openclaw/logs/open_empire*.log",
+  "live_evidence": {
+    "adai_brand_in_memory": true,
+    "adaienergy_site_exists": true,
+    "supabase_schema_exists": true,
+    "supabase_schema_bytes": 1090,
+    "mission_control_responding": true,
+    "mission_control_port": 3333,
+    "open_empire_control_plane_status": "online",
+    "open_empire_mission_ui_status": "online",
+    "federation_staging_status": "stopped (cron-exit normal)",
+    "lifecycle_staging_status": "stopped (cron-exit normal)",
+    "adai_memory_refs": ["ADAI Solutions Inc - parent brand", "CashClaw Ops is the first ADAI product line"]
+  }
+}

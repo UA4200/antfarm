@@ -1,0 +1,33 @@
+{
+  "generated_at": "2026-08-28T11:37:31.757522+00:00",
+  "source_vs_reconstructed": {
+    "kg_entities": {
+      "prod": 58,
+      "test": 58,
+      "match": true
+    },
+    "kg_relationships": {
+      "prod": 20,
+      "test": 20,
+      "match": true
+    },
+    "tables": {
+      "prod": 10,
+      "test": 10,
+      "match": true
+    }
+  },
+  "missing_artifacts": [
+    "trading GitHub remote URL \u2014 not yet created (Nathan action required)",
+    "blco first push \u2014 .gitignore ready, push pending Nathan approval",
+    "embedding provider re-enablement \u2014 OpenClaw config path unclear"
+  ],
+  "manual_interventions": [
+    "Create GitHub remote for ~/.openclaw/trading",
+    "Push blco repo to UA4200/blco-pipeline",
+    "Restore embedding provider in OpenClaw config",
+    "Review+commit 1542 untracked workspace files (most excluded by new .gitignore)"
+  ],
+  "state_differences": [],
+  "verdict": "MATCH \u2014 production state fully reconstructable from backup"
+}

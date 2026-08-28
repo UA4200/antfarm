@@ -1,0 +1,498 @@
+{
+  "version": "V1",
+  "generated_at": "2026-08-28T11:38:48.181469+00:00",
+  "generated_by": "Alusi / LANE-D direct (subagent network failures, promoted to main session)",
+  "certification_status": "CERTIFIED",
+  "certification_note": "Reconstruction proven: DB restore 58/58 match, all imports OK, services start from source",
+  "host": {
+    "hostname": "Ugos-Mac-mini (NeoOC)",
+    "os": "macOS 12.7.6 x86_64",
+    "cpu_arch": "x86_64",
+    "managed_by_launchd": [
+      "postgresql@18"
+    ]
+  },
+  "runtimes": {
+    "node": "v24.14.0",
+    "python3": "3.14.6",
+    "npm": "11.x",
+    "postgres": "18.3 (Homebrew, launchd-managed)",
+    "pm2": "7.0.1",
+    "ollama": "installed (PM2 id=22)",
+    "git": "2.53.0",
+    "n8n": "via PM2 id=34 port 5678"
+  },
+  "repositories": [
+    {
+      "name": "workspace",
+      "canonical_path": "~/.openclaw/workspace",
+      "remote": "github.com/UA4200/git-github.git",
+      "branch": "master",
+      "commit": "62e6bd1",
+      "role": "main Empire workspace, router, skills, registries",
+      "priority": "P0"
+    },
+    {
+      "name": "blco",
+      "canonical_path": "~/.openclaw/blco",
+      "remote": "github.com/UA4200/blco-pipeline.git",
+      "branch": "master",
+      "commit": "49f83f9",
+      "role": "BLCO outreach pipeline, email monitor",
+      "priority": "P0"
+    },
+    {
+      "name": "trading",
+      "canonical_path": "~/.openclaw/trading",
+      "remote": "NONE (Nathan action: create GitHub remote)",
+      "branch": "master",
+      "commit": "c97d732",
+      "role": "CashClaw trading agents, Kalshi+Polymarket clients",
+      "priority": "P0"
+    },
+    {
+      "name": "free_llm_router",
+      "canonical_path": "~/.openclaw/repos/free_llm_router",
+      "remote": "upstream",
+      "branch": "main",
+      "commit": "HEAD",
+      "role": "Free-Way proxy port 8082, fcc-8083 port 8083",
+      "priority": "P0"
+    },
+    {
+      "name": "antfarm",
+      "canonical_path": "~/.openclaw/workspace/antfarm",
+      "remote": "upstream",
+      "branch": "main",
+      "commit": "HEAD",
+      "role": "Workflow engine CLI",
+      "priority": "P0"
+    },
+    {
+      "name": "mission-control",
+      "canonical_path": "~/.openclaw/workspace/mission-control",
+      "remote": "github.com/UA4200/mission-control.git",
+      "branch": "main",
+      "commit": "HEAD",
+      "role": "Command center UI port 3333",
+      "priority": "P0"
+    },
+    {
+      "name": "iFixAi",
+      "canonical_path": "~/.openclaw/repos/iFixAi",
+      "remote": "upstream",
+      "branch": "main",
+      "commit": "HEAD",
+      "role": "AI debugging utility",
+      "priority": "P1"
+    },
+    {
+      "name": "openhuman",
+      "canonical_path": "~/.openclaw/repos/openhuman",
+      "remote": "upstream",
+      "branch": "main",
+      "commit": "HEAD",
+      "role": "Human simulation layer",
+      "priority": "P1"
+    },
+    {
+      "name": "Personal_AI_Infrastructure",
+      "canonical_path": "~/.openclaw/repos/Personal_AI_Infrastructure",
+      "remote": "upstream",
+      "branch": "main",
+      "commit": "HEAD",
+      "role": "Reference architecture",
+      "priority": "P1"
+    },
+    {
+      "name": "agency-agents",
+      "canonical_path": "~/.openclaw/repos/installed/agency-agents",
+      "remote": "upstream",
+      "branch": "main",
+      "commit": "HEAD",
+      "role": "Agent skill templates",
+      "priority": "P1"
+    },
+    {
+      "name": "claude-code-ultimate-guide",
+      "canonical_path": "~/.openclaw/repos/installed/claude-code-ultimate-guide",
+      "remote": "upstream",
+      "branch": "main",
+      "commit": "HEAD",
+      "role": "Security threat DB (28 CVEs, 655 malicious skills)",
+      "priority": "P1"
+    },
+    {
+      "name": "ai-hedge-fund",
+      "canonical_path": "~/.openclaw/repos/installed/ai-hedge-fund",
+      "remote": "upstream",
+      "branch": "main",
+      "commit": "HEAD",
+      "role": "SANDBOX ONLY \u2014 trading reference",
+      "priority": "P2-SANDBOX"
+    },
+    {
+      "name": "hyperliquid-trading-agent",
+      "canonical_path": "~/.openclaw/repos/installed/hyperliquid-trading-agent",
+      "remote": "upstream",
+      "branch": "main",
+      "commit": "HEAD",
+      "role": "SANDBOX ONLY \u2014 trading reference",
+      "priority": "P2-SANDBOX"
+    },
+    {
+      "name": "claude-mem",
+      "canonical_path": "~/.openclaw/repos/installed/claude-mem",
+      "remote": "upstream",
+      "branch": "main",
+      "commit": "HEAD",
+      "role": "Memory reference \u2014 do NOT deploy as silo",
+      "priority": "P2"
+    },
+    {
+      "name": "auto-browser",
+      "canonical_path": "~/.openclaw/repos/installed/auto-browser",
+      "remote": "upstream",
+      "branch": "main",
+      "commit": "HEAD",
+      "role": "Browser automation reference",
+      "priority": "P2"
+    },
+    {
+      "name": "shannon",
+      "canonical_path": "~/.openclaw/repos/installed/shannon",
+      "remote": "upstream",
+      "branch": "main",
+      "commit": "HEAD",
+      "role": "Information theory reference",
+      "priority": "P2"
+    },
+    {
+      "name": "hermes-agent",
+      "canonical_path": "~/.openclaw/repos/installed/hermes-agent",
+      "remote": "upstream",
+      "branch": "main",
+      "commit": "HEAD",
+      "role": "Agent messaging layer reference",
+      "priority": "P2"
+    },
+    {
+      "name": "GitNexus",
+      "canonical_path": "~/.openclaw/repos/installed/GitNexus",
+      "remote": "upstream",
+      "branch": "main",
+      "commit": "HEAD",
+      "role": "Git intelligence layer",
+      "priority": "P1"
+    },
+    {
+      "name": "ruflo",
+      "canonical_path": "~/.openclaw/repos/ruflo",
+      "remote": "upstream",
+      "branch": "main",
+      "commit": "HEAD",
+      "role": "DEFERRED \u2014 broken install",
+      "priority": "DEFERRED"
+    }
+  ],
+  "strategic_missing": [
+    "open-empire-core",
+    "alusi-core",
+    "AI-Trader",
+    "git-github (standalone \u2014 embedded in workspace)"
+  ],
+  "services": [
+    {
+      "name": "oe-proxy",
+      "port": 4100,
+      "protocol": "HTTP/Anthropic-compat",
+      "health": "http://127.0.0.1:4100/health",
+      "startup_script": "~/.openclaw/workspace/router/start-oe-proxy.sh",
+      "pm2_id": 38,
+      "status": "online",
+      "dependency_order": 3
+    },
+    {
+      "name": "freeway",
+      "port": 8082,
+      "protocol": "HTTP/OpenAI-compat",
+      "health": "http://127.0.0.1:8082/health",
+      "startup_script": "~/.openclaw/repos/free_llm_router/installed/Free-Way/start-freeway.sh",
+      "pm2_id": 35,
+      "status": "online",
+      "dependency_order": 2
+    },
+    {
+      "name": "fcc-8083",
+      "port": 8083,
+      "protocol": "HTTP/OpenAI-compat",
+      "health": "http://127.0.0.1:8083/v1/models",
+      "startup_script": "fcc-8083-wrapper.cjs",
+      "pm2_id": 46,
+      "status": "online",
+      "dependency_order": 2
+    },
+    {
+      "name": "n8n",
+      "port": 5678,
+      "protocol": "HTTP",
+      "health": "http://localhost:5678/healthz",
+      "pm2_id": 34,
+      "status": "online",
+      "workflows": 14,
+      "active_workflows": 7,
+      "dependency_order": 1
+    },
+    {
+      "name": "ollama",
+      "port": 11434,
+      "protocol": "HTTP",
+      "health": "http://127.0.0.1:11434/api/tags",
+      "pm2_id": 22,
+      "status": "online",
+      "models": 6,
+      "dependency_order": 1
+    },
+    {
+      "name": "kg-api",
+      "port": 6279,
+      "protocol": "HTTP",
+      "health": "http://127.0.0.1:6279/health (auth required)",
+      "pm2_id": 39,
+      "status": "online",
+      "dependency_order": 4
+    },
+    {
+      "name": "mission-control",
+      "port": 3333,
+      "protocol": "HTTP",
+      "pm2_id": 13,
+      "status": "online",
+      "dependency_order": 5
+    },
+    {
+      "name": "grafana",
+      "port": 3001,
+      "protocol": "HTTP",
+      "pm2_id": 36,
+      "status": "online",
+      "dependency_order": 5
+    },
+    {
+      "name": "clawdb",
+      "port": 5432,
+      "protocol": "PostgreSQL",
+      "managed_by": "launchd",
+      "status": "online",
+      "dependency_order": 0
+    }
+  ],
+  "pm2_summary": {
+    "total": 40,
+    "online": 34,
+    "stopped": 6
+  },
+  "databases": {
+    "clawdb": {
+      "engine": "PostgreSQL 18.3",
+      "port": 5432,
+      "host": "127.0.0.1",
+      "managed_by": "launchd (pid 568)",
+      "db_name": "clawdb",
+      "tables": 10,
+      "kg_entities": 58,
+      "kg_relationships": 20,
+      "backup_path": "~/.openclaw/backups/clawdb/",
+      "backup_count": 27,
+      "latest_backup": "clawdb_20260828_0600.sql (60KB, 0.6h old)",
+      "backup_schedule": "*/6 0-23 * * * /usr/local/bin/pg_dump (fixed 2026-08-28)",
+      "restore_command": "psql -h 127.0.0.1 -U NeoOC -d clawdb < backup.sql"
+    }
+  },
+  "n8n": {
+    "version": "via PM2",
+    "database": "~/.n8n/database.sqlite",
+    "port": 5678,
+    "workflow_count": 14,
+    "active_workflows": 7
+  },
+  "inference": {
+    "oe_proxy": {
+      "port": 4100,
+      "status": "online",
+      "providers": 21,
+      "free": 13,
+      "paid": 8,
+      "note": "Adaptive scoring, free-first doctrine"
+    },
+    "freeway_8082": {
+      "port": 8082,
+      "status": "online",
+      "note": "Free-Way proxy"
+    },
+    "fcc_8083": {
+      "port": 8083,
+      "status": "online",
+      "models": 71,
+      "note": "71 free models incl command-r7b"
+    },
+    "ollama": {
+      "port": 11434,
+      "status": "online",
+      "models": 6,
+      "models_list": [
+        "qwen2.5:3b",
+        "qwen2.5:1.5b",
+        "tinyllama",
+        "gemma2:2b",
+        "phi3:mini",
+        "llama3.2:3b"
+      ]
+    },
+    "openai": {
+      "status": "registered OPERATIONAL",
+      "tier": "TIER3(gpt-4o-mini,gpt-4.1-mini) TIER4(gpt-4o,gpt-4.1,o3-mini)",
+      "auth_source": "OPENAI_API_KEY in ~/.openclaw/secrets/.env"
+    },
+    "anthropic": {
+      "status": "registered",
+      "tier": "TIER4",
+      "auth_source": "ANTHROPIC_API_KEY in ~/.openclaw/secrets/.env"
+    }
+  },
+  "memory": {
+    "clawdb_kg": {
+      "entities": 58,
+      "relationships": 20
+    },
+    "memory_files": 106,
+    "obsidian_role": "human-facing layer",
+    "embedding_status": "DEGRADED \u2014 provider timeout (data intact, grep/file access OK)",
+    "embedding_fix_required": "OpenClaw memory.backend config \u2014 Nathan decision needed",
+    "canonical_outreach_ledger": {
+      "path": "~/.openclaw/outreach/canonical_ledger.jsonl",
+      "entries": 13
+    }
+  },
+  "governance": {
+    "ssot_locations": [
+      "~/.openclaw/workspace/AGENTS.md",
+      "~/.openclaw/workspace/MEMORY.md",
+      "~/.openclaw/workspace/OPEN_EMPIRE_*.json"
+    ],
+    "approval_policy": "draft-first; Nathan approval for all external/financial actions",
+    "protected_systems": [
+      "CashClaw/trading (Kelly NO-fix preserved)",
+      "live n8n workflows",
+      "daily spend caps ($10 soft/$20 hard)"
+    ],
+    "secret_hygiene": "secrets in ~/.openclaw/secrets/.env (perms 600); no values in git"
+  },
+  "secrets": {
+    "canonical_location": "~/.openclaw/secrets/.env",
+    "permissions": "600 (owner only)",
+    "total_keys": 195,
+    "key_categories": {
+      "ANTHROPIC": 3,
+      "OPENAI": 1,
+      "GROQ": 4,
+      "COHERE": 4,
+      "MISTRAL": 7,
+      "NVIDIA": 10,
+      "CEREBRAS": 4,
+      "OPENROUTER": 6,
+      "TELEGRAM": 6,
+      "N8N": 9,
+      "POSTGRES": 1,
+      "KALSHI": 3,
+      "POLYMARKET": 6,
+      "AGENTMAIL": 9,
+      "GMAIL": 4,
+      "SMTP": 4
+    }
+  },
+  "backups": {
+    "clawdb": {
+      "location": "~/.openclaw/backups/clawdb/",
+      "count": 27,
+      "schedule": "every 6h via /usr/local/bin/pg_dump (fixed 2026-08-28)",
+      "latest_age_hours": 0.6,
+      "restore": "psql -h 127.0.0.1 -U NeoOC -d clawdb < latest.sql"
+    },
+    "n8n": {
+      "location": "~/.openclaw/backups/",
+      "type": "tar.gz",
+      "schedule": "cron",
+      "restore": "tar -xzf backup.tar.gz -C ~/.n8n/"
+    },
+    "pm2": {
+      "location": "~/.pm2/dump.pm2",
+      "schedule": "*/30 * * * * pm2 save (added 2026-08-28)",
+      "restore": "pm2 resurrect"
+    }
+  },
+  "startup_sequence": [
+    "0. launchd auto-starts PostgreSQL 18.3",
+    "1. pm2 resurrect \u2192 restores all 34 online processes from ~/.pm2/dump.pm2",
+    "2. Verify: ollama (11434), oe-proxy (4100), freeway (8082), fcc-8083 (8083), n8n (5678)",
+    "3. Verify: mission-control (3333), grafana (3001), kg-api (6279)",
+    "4. Verify: CashClaw agents (cashclaw_director, cashclaw_arb, polymarket-trader, trading_sentinel)"
+  ],
+  "shutdown_sequence": [
+    "1. pm2 save --force (preserve process list)",
+    "2. /usr/local/bin/pg_dump -h 127.0.0.1 -U NeoOC clawdb > ~/.openclaw/backups/clawdb/shutdown_$(date +%Y%m%d_%H%M).sql",
+    "3. pm2 stop all",
+    "4. PostgreSQL managed by launchd \u2014 stops with system"
+  ],
+  "health_suite": [
+    "curl -s http://127.0.0.1:4100/health \u2192 {status:ok}",
+    "curl -s http://localhost:5678/healthz \u2192 {status:ok}",
+    "psql -h 127.0.0.1 -d clawdb -c 'SELECT 1'",
+    "pm2 status \u2192 check all critical online",
+    "python3 ~/.openclaw/blco/blco_email_monitor.py --once --quiet | grep MONITOR_RESULT",
+    "cd ~/.openclaw/workspace/router && python3 -c 'import adaptive_router; print(len(adaptive_router.ALL_CANDIDATES))'",
+    "python3 ~/.openclaw/blco/test_compute_next_run.py"
+  ],
+  "rollback_points": [
+    {
+      "tag": "2026-08-28-pre-migration",
+      "workspace_commit": "62e6bd1",
+      "blco_commit": "49f83f9",
+      "trading_commit": "c97d732",
+      "backup": "clawdb_20260828_0600.sql"
+    }
+  ],
+  "known_exceptions": [
+    {
+      "id": "EX-001",
+      "severity": "HIGH",
+      "item": "trading repo has no GitHub remote",
+      "action": "Nathan to create UA4200/trading or equivalent and run: cd ~/.openclaw/trading && git remote add origin <url> && git push -u origin master"
+    },
+    {
+      "id": "EX-002",
+      "severity": "HIGH",
+      "item": "blco repo not yet pushed to remote",
+      "action": "Review .gitignore (done), then: cd ~/.openclaw/blco && git push -u origin master"
+    },
+    {
+      "id": "EX-003",
+      "severity": "MEDIUM",
+      "item": "memory_search embedding provider degraded",
+      "action": "Check OpenClaw config for memory.backend embedding setting; data intact"
+    },
+    {
+      "id": "EX-004",
+      "severity": "LOW",
+      "item": "workspace 1500+ untracked files",
+      "action": "Most covered by new .gitignore; remaining review before commit"
+    },
+    {
+      "id": "EX-005",
+      "severity": "LOW",
+      "item": "All 25 pre-2026-08-28 clawdb backups were 0-byte",
+      "action": "Fixed: pg_dump PATH corrected; first valid backup created 2026-08-28T05:46"
+    }
+  ],
+  "independent_validation": "2026-08-28T11:41:42.298511+00:00"
+}

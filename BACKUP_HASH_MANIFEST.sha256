@@ -1,0 +1,46 @@
+# BACKUP_HASH_MANIFEST.sha256
+# Generated: 2026-08-28T10:50:55Z
+# Agent: AGENT_B1_B2
+# Format: <sha256>  <path>  <size_bytes>  <mtime_utc>
+#
+# NOTE: ~/.openclaw/backups/clawdb/clawdb_20260828_0000.sql and all 24 prior .sql files
+# are EMPTY (0-byte) — SHA256 = e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+# Root cause: cron PATH missing /usr/local/bin. REPAIRED 2026-08-28.
+# First valid clawdb backup: clawdb_20260828_0546.sql (below)
+
+e0682b5cc41d38f0968b772e5a8f9e1c22b89d2fbfd83d7a8f02d5821f0c2d0a  /Users/NeoOC/.openclaw/backups/clawdb/clawdb_20260828_0546.sql  61074  2026-08-28T10:46:20Z
+79887ab0aef9dd01e418b7f5f97de6961cbd714e42f0c916ec83f8268ce69a95  /Users/NeoOC/backups/postgres/clawdb_20260828.sql  61074  2026-08-28T10:46:21Z
+89d32ced36edd67fe97d00ff026427b190c76a536d3aa997c1371a6413c5cf3b  /Users/NeoOC/backups/postgres/clawdb_20260827.sql  61074  2026-08-28T03:06:04Z
+afa6dd4cb44621560c5e65d76940889650010935398141f935c391e6179964a6  /Users/NeoOC/backups/n8n_backup_2026-08-28.tar.gz  13531809  2026-08-28T07:00:33Z
+ce36f3bf300793af5c824c10a2bccc216dbe791e67301a2561408a7ef7bbf0bf  /Users/NeoOC/.pm2/dump.pm2  583768  2026-08-28T02:43:54Z
+d65a87ac30590158c6228c1b73be509232361cc8da052df23b950f1cf1cddcf6  /Users/NeoOC/.openclaw/workspace/router/adaptive_router.py  27659  2026-08-28T10:14:08Z
+f8e939e4bffd83c8f5e70b67a7d4f99cb19d389b92351c35d4d9d7524d5f5c33  /Users/NeoOC/.openclaw/workspace/AGENTS.md  9517  2026-08-28T02:57:59Z
+5ce621d7f899940f2dd7b7040775ed2c728463c7205bbe26e42ed50b3fc7742b  /Users/NeoOC/.openclaw/workspace/router/economic_guard.py  6558  2026-08-28T10:10:51Z
+c5dfe7b195e5a07de446e15ebe51501271245e333ba03decf1f9a821937200e6  /Users/NeoOC/.openclaw/workspace/router/fcc_router.py  11023  2026-08-09T17:46:29Z
+
+# EMPTY FILE INVENTORY (all sha256 = e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855):
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /Users/NeoOC/.openclaw/backups/clawdb/clawdb_20260809_1800.sql  0  2026-08-09T23:00:00Z
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /Users/NeoOC/.openclaw/backups/clawdb/clawdb_20260810_0000.sql  0  2026-08-10T05:00:00Z
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /Users/NeoOC/.openclaw/backups/clawdb/clawdb_20260810_0600.sql  0  2026-08-10T11:00:00Z
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /Users/NeoOC/.openclaw/backups/clawdb/clawdb_20260810_1200.sql  0  2026-08-10T17:00:00Z
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /Users/NeoOC/.openclaw/backups/clawdb/clawdb_20260810_1800.sql  0  2026-08-10T23:00:00Z
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /Users/NeoOC/.openclaw/backups/clawdb/clawdb_20260811_0000.sql  0  2026-08-11T05:00:00Z
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /Users/NeoOC/.openclaw/backups/clawdb/clawdb_20260811_0600.sql  0  2026-08-11T11:00:00Z
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /Users/NeoOC/.openclaw/backups/clawdb/clawdb_20260811_1200.sql  0  2026-08-11T17:00:00Z
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /Users/NeoOC/.openclaw/backups/clawdb/clawdb_20260811_1800.sql  0  2026-08-11T23:00:00Z
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /Users/NeoOC/.openclaw/backups/clawdb/clawdb_20260812_0000.sql  0  2026-08-12T05:00:00Z
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /Users/NeoOC/.openclaw/backups/clawdb/clawdb_20260812_0600.sql  0  2026-08-12T11:00:00Z
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /Users/NeoOC/.openclaw/backups/clawdb/clawdb_20260812_1200.sql  0  2026-08-12T17:00:00Z
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /Users/NeoOC/.openclaw/backups/clawdb/clawdb_20260812_1800.sql  0  2026-08-12T23:00:00Z
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /Users/NeoOC/.openclaw/backups/clawdb/clawdb_20260813_0000.sql  0  2026-08-13T05:00:00Z
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /Users/NeoOC/.openclaw/backups/clawdb/clawdb_20260813_0600.sql  0  2026-08-13T11:00:00Z
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /Users/NeoOC/.openclaw/backups/clawdb/clawdb_20260821_1800.sql  0  2026-08-21T23:00:00Z
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /Users/NeoOC/.openclaw/backups/clawdb/clawdb_20260822_0000.sql  0  2026-08-22T05:00:00Z
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /Users/NeoOC/.openclaw/backups/clawdb/clawdb_20260822_0600.sql  0  2026-08-22T11:00:00Z
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /Users/NeoOC/.openclaw/backups/clawdb/clawdb_20260822_1200.sql  0  2026-08-22T17:00:00Z
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /Users/NeoOC/.openclaw/backups/clawdb/clawdb_20260822_1800.sql  0  2026-08-22T23:00:00Z
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /Users/NeoOC/.openclaw/backups/clawdb/clawdb_20260823_0000.sql  0  2026-08-23T05:00:00Z
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /Users/NeoOC/.openclaw/backups/clawdb/clawdb_20260823_0600.sql  0  2026-08-23T11:00:00Z
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /Users/NeoOC/.openclaw/backups/clawdb/clawdb_20260827_1200.sql  0  2026-08-27T17:00:00Z
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /Users/NeoOC/.openclaw/backups/clawdb/clawdb_20260827_1800.sql  0  2026-08-27T23:00:00Z
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /Users/NeoOC/.openclaw/backups/clawdb/clawdb_20260828_0000.sql  0  2026-08-28T05:00:00Z

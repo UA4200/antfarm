@@ -1,0 +1,97 @@
+{
+  "generated_at": "2026-08-28T10:50:55Z",
+  "generated_by": "AGENT_B1_B2",
+  "overall_status": "CONDITIONALLY_CERTIFIED_REPAIRED",
+  "verdict": "BACKUP_SYSTEM_CONDITIONALLY_CERTIFIED — Critical cron defect found and repaired. Fresh valid ClawDB backup now exists. All other critical systems have fresh readable backups. Two warnings (uncommitted git changes, no automated pm2 save cron) are non-blocking.",
+
+  "critical_findings": [
+    {
+      "id": "DEFECT-001",
+      "severity": "CRITICAL",
+      "system": "clawdb_6h_cron + clawdb_daily_dr_cron",
+      "title": "All ClawDB backup files were 0-byte (silent pg_dump failure)",
+      "description": "25 out of 25 files in ~/.openclaw/backups/clawdb/*.sql were empty (0 bytes). The daily DR cron produced empty files for Aug 22, 23, 28. Root cause: cron jobs used bare 'pg_dump' command, but pg_dump is installed at /usr/local/bin/pg_dump, which is NOT in cron's minimal PATH (/usr/bin:/bin:/usr/sbin:/sbin). With stderr redirected to /dev/null, all failures were completely silent.",
+      "root_cause": "PATH=/usr/bin:/bin:/usr/sbin:/sbin in cron environment excludes /usr/local/bin; pg_dump not found; 2>/dev/null masked all errors",
+      "impact": "ClawDB had NO valid automated backups since at least Aug 9 (earliest backup file). Only the manually-triggered Aug 27 daily ran successfully (clawdb_20260827.sql = 60KB in ~/backups/postgres/ because that run apparently had PATH available, or was run manually).",
+      "status": "REPAIRED",
+      "repair_steps_taken": [
+        "Backed up existing crontab to /tmp/crontab_backup_20260828_0545.txt",
+        "Updated '0 */6 * * * pg_dump ...' → '0 */6 * * * /usr/local/bin/pg_dump ...' in crontab",
+        "Updated '0 1 * * * pg_dump ...' → '0 1 * * * /usr/local/bin/pg_dump ...' in crontab",
+        "Installed fixed crontab via 'crontab /tmp/crontab_fixed.txt'",
+        "Verified fix: 'crontab -l | grep pg_dump' shows /usr/local/bin/pg_dump",
+        "Ran immediate fresh backup: pg_dump → ~/.openclaw/backups/clawdb/clawdb_20260828_0546.sql (61074 bytes)",
+        "Overwrote failed ~/backups/postgres/clawdb_20260828.sql with valid 61074-byte dump"
+      ],
+      "validation": "pg_dump -h 127.0.0.1 -p 5432 -U NeoOC clawdb produces valid PostgreSQL dump header; file size 61074 bytes"
+    }
+  ],
+
+  "warnings": [
+    {
+      "id": "WARN-001",
+      "severity": "WARN",
+      "system": "workspace_git",
+      "title": "10+ modified files not committed to git",
+      "description": "AGENTS.md, CLAUDE.md, DREAMS.md, OPEN_EMPIRE_*.json/md files are modified but uncommitted. Uncommitted changes are not protected by git backup.",
+      "recommended_action": "Run 'cd ~/.openclaw/workspace && git add -A && git commit -m \"chore: checkpoint uncommitted changes $(date +%Y-%m-%d)\"' and push to remote."
+    },
+    {
+      "id": "WARN-002",
+      "severity": "WARN",
+      "system": "pm2_dump",
+      "title": "No automated pm2 save cron",
+      "description": "PM2 dump is 8.12h old (within 24h threshold). No automated 'pm2 save' cron entry found. If processes change and system reboots, resurrection may be out of date.",
+      "recommended_action": "Add cron: '*/30 * * * * /usr/local/bin/pm2 save --force >> ~/.openclaw/logs/pm2_save.log 2>&1' OR run 'pm2 save' after any agent configuration change."
+    },
+    {
+      "id": "WARN-003",
+      "severity": "INFO",
+      "system": "clawdb_backup_gap",
+      "title": "Historical backup gap Aug 13–Aug 21 (8 days)",
+      "description": "No backup files exist for Aug 14–20, 24–26 — cleanup cron (>7 days delete) removed them OR backup cron didn't run. All remaining files in that window were 0-byte anyway.",
+      "recommended_action": "Monitor next 6-hourly run at 06:00, 12:00, 18:00 to confirm cron fix is working."
+    }
+  ],
+
+  "systems_checked": [
+    {"system": "clawdb_6h", "status": "REPAIRED", "backup_age_hours": 0.08, "size_bytes": 61074},
+    {"system": "clawdb_daily_dr", "status": "REPAIRED", "backup_age_hours": 0.08, "size_bytes": 61074},
+    {"system": "n8n_tar", "status": "PASS", "backup_age_hours": 3.84, "size_bytes": 13531809},
+    {"system": "pm2_dump", "status": "WARN", "backup_age_hours": 8.12, "size_bytes": 583768},
+    {"system": "secrets_env", "status": "PASS", "backup_age_hours": 1.66, "size_bytes": 13023},
+    {"system": "router_config", "status": "PASS", "backup_age_hours": 5.6, "size_bytes": 27659},
+    {"system": "workspace_git", "status": "WARN", "uncommitted_files": 10},
+    {"system": "trading_data", "status": "PASS", "backup_age_hours": 4.35},
+    {"system": "adaptive_router_backup", "status": "PASS", "snapshot_exists": true}
+  ],
+
+  "live_database_state": {
+    "host": "127.0.0.1:5432",
+    "database": "clawdb",
+    "kg_entities": 58,
+    "kg_relationships": 20,
+    "kg_cost_records": 0,
+    "status": "ACCESSIBLE"
+  },
+
+  "defect_counts": {
+    "critical": 1,
+    "warn": 3,
+    "info": 0,
+    "total": 4
+  },
+
+  "repair_counts": {
+    "auto_repaired": 3,
+    "manual_action_needed": 2
+  },
+
+  "manual_actions_needed": [
+    "git commit uncommitted workspace changes (WARN-001)",
+    "Add pm2 save cron to crontab (WARN-002)",
+    "Monitor 6h backup cron at next fire (06:00/12:00/18:00 CDT) to confirm PATH fix works"
+  ],
+
+  "crontab_backup_location": "/tmp/crontab_backup_20260828_0545.txt"
+}

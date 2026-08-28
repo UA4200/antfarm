@@ -1,0 +1,42 @@
+{
+  "capability_id": "BACKUP_RECONSTRUCTION",
+  "purpose": "Automated backup and recovery system for all critical OpenClaw state: PostgreSQL clawdb (pg_dump on cron), PM2 process configuration (dump.pm2), and file-based backups of config, trading state, and agent data. Enables full system reconstruction after failure.",
+  "owner": "Nathan Asiegbu",
+  "status": "OPERATIONAL",
+  "repos": [
+    "~/.openclaw/backups/",
+    "~/.pm2/dump.pm2"
+  ],
+  "services": ["PostgreSQL 18.3 (launchd, port=5432)"],
+  "agents": [],
+  "tools": ["pg_dump", "pm2 save", "launchd"],
+  "ports": [5432],
+  "databases": ["clawdb (PostgreSQL 18.3)"],
+  "secrets_metadata": ["PGPASSWORD", "PGUSER"],
+  "model_policy": "No AI needed for backup/restore operations",
+  "startup": "DB managed by macOS launchd (pid=568); backup cron scheduled",
+  "health_check": "ls -t ~/.openclaw/backups/clawdb/*.sql | head -1 && psql -h 127.0.0.1 -p 5432 -U NeoOC -d clawdb -c 'SELECT 1;'",
+  "validation": "PASS: Latest backup from today (2026-08-28 05:46), PM2 dump present (583KB), 46 backup dirs",
+  "approval_gates": ["Nathan approval for restore operations (destructive)"],
+  "rollback": "psql restore from latest .sql backup; pm2 resurrect from dump.pm2",
+  "kpi": "Backup freshness / restore time objective (RTO) / backup success rate",
+  "log_location": "~/.openclaw/logs/backup.log",
+  "live_evidence": {
+    "latest_backup_path": "~/.openclaw/backups/clawdb/clawdb_20260828_0546.sql",
+    "latest_backup_date": "2026-08-28T05:46:00",
+    "latest_backup_size_bytes": 61074,
+    "pm2_dump_exists": true,
+    "pm2_dump_path": "~/.pm2/dump.pm2",
+    "pm2_dump_size_bytes": 583768,
+    "pm2_dump_mtime": "2026-08-27T21:43:00",
+    "backup_dirs_count": 46,
+    "recent_backup_dirs": [
+      "clawdb",
+      "fcc-portmove-20260827_211841",
+      "fcc_20260827_210652",
+      "fcc-upgrade-20260827_165556",
+      "fcc-upgrade-20260827_163811"
+    ],
+    "db_status": "healthy (launchd pid=568, port=5432)"
+  }
+}

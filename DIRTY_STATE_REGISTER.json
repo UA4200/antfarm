@@ -1,0 +1,339 @@
+{
+  "generated_at": "2026-08-28T05:50:00-05:00",
+  "generated_by": "AGENT_E1_E2",
+  "scope": "Canonical repos only (~/.openclaw/workspace, ~/.openclaw/blco)",
+  "workspace": {
+    "path": "~/.openclaw/workspace",
+    "remote": "https://github.com/UA4200/git-github.git",
+    "tracked_modified_files": [
+      {
+        "file": "AGENTS.md",
+        "action": "COMMIT_SAFE",
+        "note": "Agent registry — operational doc, frequently updated"
+      },
+      {
+        "file": "CLAUDE.md",
+        "action": "COMMIT_SAFE",
+        "note": "Claude configuration doc"
+      },
+      {
+        "file": "DREAMS.md",
+        "action": "COMMIT_SAFE",
+        "note": "Dream log / vision doc"
+      },
+      {
+        "file": "OPEN_EMPIRE_DELEGATION_LEDGER_V1.json",
+        "action": "COMMIT_SAFE",
+        "note": "Empire governance JSON — safe"
+      },
+      {
+        "file": "OPEN_EMPIRE_DIRECTIVE_REGISTRY_V1.json",
+        "action": "COMMIT_SAFE",
+        "note": "Empire directive registry — safe"
+      },
+      {
+        "file": "OPEN_EMPIRE_EXECUTION_BENCHMARKS_V1.json",
+        "action": "COMMIT_SAFE",
+        "note": "Benchmark data — safe"
+      },
+      {
+        "file": "OPEN_EMPIRE_PMO_RESEARCH_ENGINE_V1.md",
+        "action": "COMMIT_SAFE",
+        "note": "PMO research doc — safe"
+      },
+      {
+        "file": "OPEN_EMPIRE_SKILL_REGISTRY_V1.json",
+        "action": "COMMIT_SAFE",
+        "note": "Skill registry — safe"
+      },
+      {
+        "file": "OPEN_EMPIRE_SSOT_DEFECT_REGISTER_V1.json",
+        "action": "COMMIT_SAFE",
+        "note": "Defect register — safe"
+      },
+      {
+        "file": "OPEN_EMPIRE_USE_CASE_CAPABILITY_MATRIX_V2.json",
+        "action": "COMMIT_SAFE",
+        "note": "Capability matrix — safe"
+      },
+      {
+        "file": "TODO_NATHAN.md",
+        "action": "COMMIT_SAFE",
+        "note": "Task list — safe"
+      },
+      {
+        "file": "scripts/validation/secrets_presence_check.sh",
+        "action": "COMMIT_SAFE",
+        "note": "Secret presence CHECKER script — does not contain secrets, validates .env existence only"
+      }
+    ],
+    "untracked_notable_items": [
+      {
+        "path": ".clawhub/",
+        "action": "REVIEW_FIRST",
+        "note": "ClaHub config dir — may contain API keys or tokens"
+      },
+      {
+        "path": ".cron/",
+        "action": "REVIEW_FIRST",
+        "note": "Cron definitions — may be system-specific, review before commit"
+      },
+      {
+        "path": ".freeway/",
+        "action": "REVIEW_FIRST",
+        "note": "Free-Way proxy config — may contain API keys"
+      },
+      {
+        "path": ".mcp.json",
+        "action": "DO_NOT_COMMIT",
+        "note": "MCP config — may contain server URLs, tokens, paths. Add to .gitignore"
+      },
+      {
+        "path": ".obsidian/",
+        "action": "REVIEW_FIRST",
+        "note": "Obsidian vault config — likely safe but workspace-specific"
+      },
+      {
+        "path": ".openclaw/",
+        "action": "DO_NOT_COMMIT",
+        "note": "Nested .openclaw dir inside workspace — configs, keys, logs. Exclude from repo"
+      },
+      {
+        "path": ".openclaw-repair/",
+        "action": "DO_NOT_COMMIT",
+        "note": "Repair artifacts — workspace-local, do not track"
+      },
+      {
+        "path": ".patterns/",
+        "action": "REVIEW_FIRST",
+        "note": "Pattern files — inspect before commit"
+      },
+      {
+        "path": ".learnings/",
+        "action": "REVIEW_FIRST",
+        "note": "Learning artifacts — inspect before commit"
+      },
+      {
+        "path": "AUTONOMOUS_ECONOMIC_GOVERNOR_STATUS.json",
+        "action": "REVIEW_FIRST",
+        "note": "May contain financial state or balances"
+      },
+      {
+        "path": "BACKUP_HEALTH_REPORT.json",
+        "action": "COMMIT_SAFE",
+        "note": "System health report — safe"
+      },
+      {
+        "path": "BACKUP_INVENTORY.json",
+        "action": "COMMIT_SAFE",
+        "note": "Backup manifest — safe"
+      },
+      {
+        "path": "C0_SNAPSHOT/",
+        "action": "REVIEW_FIRST",
+        "note": "Snapshot directory — large, inspect contents before committing"
+      },
+      {
+        "path": "C0_SNAPSHOT_20260809_103359/",
+        "action": "REVIEW_FIRST",
+        "note": "Dated snapshot — review if needed or archive"
+      },
+      {
+        "path": "CICD_PLAN.md",
+        "action": "COMMIT_SAFE",
+        "note": "CI/CD planning doc — safe"
+      },
+      {
+        "path": "2026-05-16.md",
+        "action": "COMMIT_SAFE",
+        "note": "Log/journal entry — safe"
+      }
+    ],
+    "summary": {
+      "tracked_modified": 13,
+      "untracked_total": 1542,
+      "untracked_notable_flagged": 17,
+      "all_tracked_modified_action": "COMMIT_SAFE",
+      "do_not_commit_count": 3,
+      "review_first_count": 10,
+      "gitignore_hardening_needed": true,
+      "recommended_additions_to_gitignore": [
+        ".env",
+        "*.env",
+        ".env.*",
+        "secrets/",
+        "*.key",
+        "*.pem",
+        "*.p12",
+        ".mcp.json",
+        ".openclaw/",
+        "*.jsonl",
+        "__pycache__/",
+        "*.pyc",
+        "logs/",
+        "tmp/",
+        "cache/"
+      ]
+    }
+  },
+  "blco": {
+    "path": "~/.openclaw/blco",
+    "remote": "https://github.com/UA4200/blco-pipeline.git",
+    "status": "NO_COMMITS_YET",
+    "tracked_modified_files": [],
+    "untracked_items": [
+      {
+        "path": "BLCO_COMMAND.md",
+        "action": "COMMIT_SAFE",
+        "note": "Command/config doc — safe"
+      },
+      {
+        "path": "apify_client.py",
+        "action": "COMMIT_SAFE",
+        "note": "API client script — verify no hardcoded keys first"
+      },
+      {
+        "path": "blco_daily_sourcer.py",
+        "action": "REVIEW_FIRST",
+        "note": "Lead sourcing script — check for hardcoded API keys"
+      },
+      {
+        "path": "blco_email_monitor.py",
+        "action": "REVIEW_FIRST",
+        "note": "Email monitor — check for hardcoded credentials"
+      },
+      {
+        "path": "blco_preflight_check.py",
+        "action": "REVIEW_FIRST",
+        "note": "Preflight checker — inspect for credentials"
+      },
+      {
+        "path": "blco_weekly_worldwide.py",
+        "action": "REVIEW_FIRST",
+        "note": "Outreach script — check for hardcoded keys"
+      },
+      {
+        "path": "enriched_leads.jsonl",
+        "action": "DO_NOT_COMMIT",
+        "note": "~10MB lead data with PII (company contacts, emails). Add to .gitignore immediately"
+      },
+      {
+        "path": "leads.jsonl",
+        "action": "DO_NOT_COMMIT",
+        "note": "~550KB lead data with PII. Add to .gitignore"
+      },
+      {
+        "path": "master_leads.jsonl",
+        "action": "DO_NOT_COMMIT",
+        "note": "Lead master list with PII. Add to .gitignore"
+      },
+      {
+        "path": "refined_leads.jsonl",
+        "action": "DO_NOT_COMMIT",
+        "note": "Refined lead data with PII. Add to .gitignore"
+      },
+      {
+        "path": "pipeline.jsonl",
+        "action": "DO_NOT_COMMIT",
+        "note": "Pipeline state — may contain deal details"
+      },
+      {
+        "path": "tasks.jsonl",
+        "action": "DO_NOT_COMMIT",
+        "note": "Task log — internal state, do not track"
+      },
+      {
+        "path": "campaign_log.jsonl",
+        "action": "DO_NOT_COMMIT",
+        "note": "Campaign log with contact details — PII risk"
+      },
+      {
+        "path": "buyers/",
+        "action": "DO_NOT_COMMIT",
+        "note": "Buyer contact directory — PII"
+      },
+      {
+        "path": "outreach/",
+        "action": "DO_NOT_COMMIT",
+        "note": "Outreach templates/logs — review carefully"
+      },
+      {
+        "path": "intel/",
+        "action": "REVIEW_FIRST",
+        "note": "Intel/research data — review for sensitive content"
+      },
+      {
+        "path": "reports/",
+        "action": "REVIEW_FIRST",
+        "note": "Weekly reports — review for sensitive content"
+      },
+      {
+        "path": "agent_logs/",
+        "action": "DO_NOT_COMMIT",
+        "note": "Agent run logs — operational data, do not track"
+      },
+      {
+        "path": "logs/",
+        "action": "DO_NOT_COMMIT",
+        "note": "Log directory — do not track"
+      },
+      {
+        "path": "__pycache__/",
+        "action": "DO_NOT_COMMIT",
+        "note": "Python cache — always exclude"
+      },
+      {
+        "path": "docs/",
+        "action": "COMMIT_SAFE",
+        "note": "Documentation — safe to track"
+      },
+      {
+        "path": "frameworks/",
+        "action": "COMMIT_SAFE",
+        "note": "Framework definitions — safe"
+      },
+      {
+        "path": "knowledge/",
+        "action": "COMMIT_SAFE",
+        "note": "Knowledge base — safe to track"
+      },
+      {
+        "path": "scripts/",
+        "action": "REVIEW_FIRST",
+        "note": "Scripts directory — inspect for hardcoded credentials"
+      },
+      {
+        "path": "testing/",
+        "action": "REVIEW_FIRST",
+        "note": "Test files — inspect before committing"
+      }
+    ],
+    "summary": {
+      "untracked_total": 29,
+      "do_not_commit_count": 11,
+      "review_first_count": 9,
+      "commit_safe_count": 5,
+      "gitignore_required": true,
+      "pii_risk": "HIGH — multiple JSONL files contain lead/contact data",
+      "recommended_gitignore_for_blco": [
+        "*.jsonl",
+        "*.env",
+        ".env",
+        "__pycache__/",
+        "*.pyc",
+        "agent_logs/",
+        "logs/",
+        "buyers/",
+        "outreach/emails/",
+        "campaign_log.jsonl",
+        "pipeline.jsonl",
+        "tasks.jsonl",
+        "enriched_leads.jsonl",
+        "leads.jsonl",
+        "master_leads.jsonl",
+        "refined_leads.jsonl",
+        "texas_florida_buyers_2026.md"
+      ]
+    }
+  }
+}

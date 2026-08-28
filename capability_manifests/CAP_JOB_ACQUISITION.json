@@ -1,0 +1,31 @@
+{
+  "capability_id": "JOB_ACQUISITION",
+  "purpose": "Automated job application pipeline using the auto-job-applier skill: fetch job listings, draft cover letters, fill application forms, and log applications. Enables Nathan to apply to multiple positions with minimal manual effort.",
+  "owner": "Nathan Asiegbu",
+  "status": "OPERATIONAL",
+  "repos": ["~/.openclaw/workspace/skills/auto-job-applier/"],
+  "services": [],
+  "agents": ["auto-job-applier skill"],
+  "tools": ["browser automation", "cover letter AI", "form filler"],
+  "ports": [],
+  "databases": [],
+  "secrets_metadata": ["job board credentials (per-site)"],
+  "model_policy": "AI drafting for cover letters; template-first, human review before submit",
+  "startup": "On-demand via skill invocation; no persistent agent",
+  "health_check": "ls ~/.openclaw/workspace/skills/auto-job-applier/SKILL.md",
+  "validation": "PASS: skill directory exists with all required scripts and references",
+  "approval_gates": ["Nathan review before any application submission"],
+  "rollback": "Delete logged application from log_application output",
+  "kpi": "Applications submitted / interview rate / offer rate",
+  "log_location": "~/.openclaw/logs/job_applications.log",
+  "live_evidence": {
+    "skill_dir_exists": true,
+    "skill_path": "~/.openclaw/workspace/skills/auto-job-applier/",
+    "skill_files": ["SKILL.md", "README.md", "_meta.json", "requirements.txt", "skill-card.md"],
+    "scripts_available": ["draft_cover_letter.py", "fetch_resume.py", "fill_application.py", "http_client.py", "log_application.py"],
+    "references_available": ["form_field_mappings.md", "job_boards.md", "screening_questions.md"],
+    "adai_workspace_present": true,
+    "adai_site": "~/.openclaw/workspace/adaienergy-site",
+    "pm2_dedicated_agent": false
+  }
+}

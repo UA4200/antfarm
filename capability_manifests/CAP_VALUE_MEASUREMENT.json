@@ -1,0 +1,46 @@
+{
+  "capability_id": "VALUE_MEASUREMENT",
+  "purpose": "Real-time cost and value tracking for all autonomous AI operations. Combines the FCC Cost Dashboard (Grafana UI), fcc-metrics-exporter (scrapes Free-Way usage), adaptive router telemetry, and economic guard to measure ROI and enforce spend caps.",
+  "owner": "Nathan Asiegbu",
+  "status": "OPERATIONAL",
+  "repos": [
+    "~/.openclaw/workspace/router/economic_guard.py",
+    "~/.openclaw/grafana/data/",
+    "~/.openclaw/logs/adaptive_router_telemetry.jsonl"
+  ],
+  "services": [
+    "grafana (PM2 online) — FCC Cost Dashboard, port=3001",
+    "cost-dashboard (PM2 online)",
+    "fcc-metrics-exporter (scrapes every 5min → fcc_metrics.json + .prom)"
+  ],
+  "agents": ["grafana", "cost-dashboard"],
+  "tools": ["Grafana UI", "fcc_metrics_exporter", "economic_guard"],
+  "ports": [3001],
+  "databases": ["clawdb (kg_cost_records=0 currently)", "fcc_metrics.json", "fcc_metrics.prom"],
+  "secrets_metadata": ["FREEWAY_API_KEY"],
+  "model_policy": "No AI needed for cost measurement",
+  "startup": "Grafana and cost-dashboard auto-start via PM2; fcc-metrics-exporter on 5min cron",
+  "health_check": "curl -sm 3 http://127.0.0.1:3001/ | grep 'FCC Cost Dashboard'",
+  "validation": "PASS: Grafana responding with FCC Cost Dashboard title; economic_guard.py present; 27 telemetry lines",
+  "approval_gates": ["None — read-only telemetry; Nathan approval for spend limit changes"],
+  "rollback": "Restore fcc_metrics.json from backups; telemetry is append-only log",
+  "kpi": "Daily spend vs $0.20 target / free_pct / premium escalation rate",
+  "log_location": "~/.openclaw/logs/adaptive_router_telemetry.jsonl",
+  "live_evidence": {
+    "economic_guard_exists": true,
+    "economic_guard_bytes": 6558,
+    "economic_guard_mtime": "2026-08-28T05:10:00",
+    "telemetry_lines": 27,
+    "last_telemetry": "2026-08-28T10:20:19Z — nemotron-3-super-120b, cost=$0.00, success=true",
+    "grafana_status": "online",
+    "grafana_port": 3001,
+    "grafana_title": "Open Empire — FCC Cost Dashboard",
+    "fcc_metrics_json_exists": true,
+    "fcc_metrics_json_mtime": "2026-08-27T16:30:00",
+    "economic_guard_json_status": "OK",
+    "economic_guard_last_ts": "2026-08-09T17:44:03Z",
+    "daily_limit_soft_usd": 0.1,
+    "daily_limit_hard_usd": 0.2,
+    "kg_cost_records": 0
+  }
+}

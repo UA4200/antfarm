@@ -1,0 +1,43 @@
+{
+  "capability_id": "INCIDENT_REMEDIATION",
+  "purpose": "Gated approval and remediation pipeline for autonomous agent actions requiring human oversight. Includes exec-gateway (command approval), telegram-approvals (Telegram-based approval channel), sovereign proxy (vault-based approval gating), and mission-control UI for real-time ops oversight.",
+  "owner": "Nathan Asiegbu",
+  "status": "OPERATIONAL",
+  "repos": [
+    "~/.openclaw/vault/approvals/",
+    "~/.openclaw/workspace/"
+  ],
+  "services": [
+    "exec-gateway (PM2 online, pid=733)",
+    "telegram-approvals (PM2 online, pid=738)",
+    "alusi-controlled-worker (PM2 online, pid=730)",
+    "mission-control (PM2 online, port=3333)"
+  ],
+  "agents": ["exec-gateway", "telegram-approvals", "alusi-controlled-worker", "sovereign_proxy"],
+  "tools": ["Telegram Bot API", "Mission Control UI", "OpenClaw approval queue"],
+  "ports": [3333],
+  "databases": ["~/.openclaw/vault/approvals/approvals.jsonl"],
+  "secrets_metadata": ["TELEGRAM_BOT_TOKEN", "TELEGRAM_CHAT_ID"],
+  "model_policy": "No AI needed for approval routing; Haiku for remediation suggestions only",
+  "startup": "All approval agents auto-start via PM2 ecosystem",
+  "health_check": "curl -sm 3 http://127.0.0.1:3333/ | grep 'Mission Control'",
+  "validation": "PASS: exec-gateway, telegram-approvals, controlled-worker all online; Mission Control UI responding",
+  "approval_gates": ["All financial actions require Nathan explicit approval", "All external communications require Nathan approval"],
+  "rollback": "Reject pending items in approval queue; restore from vault backup",
+  "kpi": "Approval queue depth / avg approval latency / incidents auto-remediated",
+  "log_location": "~/.openclaw/logs/exec_gateway.log",
+  "live_evidence": {
+    "exec_gateway_status": "online",
+    "exec_gateway_pid": 733,
+    "telegram_approvals_status": "online",
+    "telegram_approvals_pid": 738,
+    "controlled_worker_status": "online",
+    "controlled_worker_pid": 730,
+    "mission_control_status": "online",
+    "mission_control_port": 3333,
+    "mission_control_responding": true,
+    "approval_queue_count": 162,
+    "approvals_jsonl_entries": 1,
+    "approvals_jsonl_status": "APPROVED"
+  }
+}

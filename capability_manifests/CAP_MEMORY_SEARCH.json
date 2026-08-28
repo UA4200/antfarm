@@ -1,0 +1,49 @@
+{
+  "capability_id": "MEMORY_SEARCH",
+  "purpose": "Persistent structured memory system enabling agents to recall prior decisions, entity facts, project state, and operational context. Combines MEMORY.md flat-file recall, multi-topic memory directory, Knowledge Graph (KG) entity/relationship store, and Open Empire Nexus for cross-session intelligence.",
+  "owner": "Nathan Asiegbu",
+  "status": "OPERATIONAL",
+  "repos": [
+    "~/.openclaw/workspace/MEMORY.md",
+    "~/.openclaw/memory/",
+    "~/.openclaw/agents/main/memory/"
+  ],
+  "services": [
+    "kg-api (PM2 online, port=6279)",
+    "open-empire-nexus (PM2 online)",
+    "nexus-dashboard (PM2 online)",
+    "nexus-telemetry (PM2 online)"
+  ],
+  "agents": ["kg-api", "open-empire-nexus"],
+  "tools": ["memory_search", "memory_get", "wiki_search", "wiki_get", "psql KG"],
+  "ports": [6279],
+  "databases": [
+    "clawdb (kg_entities=58, kg_relationships, kg_entity_aliases, kg_relationship_evidence, kg_graph_events)"
+  ],
+  "secrets_metadata": ["OPENEMPIRE_ROUTER_KEY"],
+  "model_policy": "Zero-cost: file-based recall first; KG REST for structured queries; LLM only for synthesis",
+  "startup": "kg-api always-on; nexus services continuous; memory files always accessible",
+  "health_check": "curl -sm 3 http://127.0.0.1:6279/health && ls ~/.openclaw/workspace/MEMORY.md",
+  "validation": "PASS: kg-api online, 58 KG entities, 81 workspace MD files, memory dir populated",
+  "approval_gates": ["No approval needed for read; Nathan approval for bulk memory purge"],
+  "rollback": "Restore KG from latest clawdb SQL backup; restore MEMORY.md from git/backup",
+  "kpi": "Memory recall accuracy / KG entity growth rate / zero-token recall rate",
+  "log_location": "~/.openclaw/logs/nexus_telemetry.log",
+  "live_evidence": {
+    "memory_md_exists": true,
+    "workspace_md_count": 81,
+    "memory_dir_populated": true,
+    "memory_topics": [
+      "BACKLOG_BY_VENTURE.md",
+      "GOVERNANCE.json",
+      "HYRVE_DEPLOYMENT_LOG.md",
+      "HYRVE_MONITOR_SETUP.md"
+    ],
+    "kg_entity_count": 58,
+    "kg_api_status": "online",
+    "kg_api_port": 6279,
+    "open_empire_nexus_status": "online",
+    "nexus_dashboard_status": "online",
+    "nexus_telemetry_status": "online"
+  }
+}

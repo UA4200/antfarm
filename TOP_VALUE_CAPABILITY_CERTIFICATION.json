@@ -1,0 +1,75 @@
+{
+  "generated_at": "2026-08-28T10:45:00+00:00",
+  "generated_by": "AGENT_F1_F2",
+  "capabilities": [
+    {
+      "id": "BLCO_RESPONSE_MONITORING",
+      "status": "OPERATIONAL",
+      "manifest_path": "~/.openclaw/workspace/capability_manifests/CAP_BLCO_RESPONSE_MONITORING.json"
+    },
+    {
+      "id": "EMPIRE_OUTREACH_CONTROL",
+      "status": "DEGRADED",
+      "manifest_path": "~/.openclaw/workspace/capability_manifests/CAP_EMPIRE_OUTREACH_CONTROL.json",
+      "degraded_reason": "Lead sourcing crons PAUSED since 2026-07-19; D7 send not until Sep 3 2026"
+    },
+    {
+      "id": "JOB_ACQUISITION",
+      "status": "OPERATIONAL",
+      "manifest_path": "~/.openclaw/workspace/capability_manifests/CAP_JOB_ACQUISITION.json"
+    },
+    {
+      "id": "ADAI_VALUE_REALIZATION",
+      "status": "OPERATIONAL",
+      "manifest_path": "~/.openclaw/workspace/capability_manifests/CAP_ADAI_VALUE_REALIZATION.json"
+    },
+    {
+      "id": "RESEARCH_AND_IMPLEMENT",
+      "status": "OPERATIONAL",
+      "manifest_path": "~/.openclaw/workspace/capability_manifests/CAP_RESEARCH_AND_IMPLEMENT.json"
+    },
+    {
+      "id": "REPOSITORY_INTAKE",
+      "status": "OPERATIONAL",
+      "manifest_path": "~/.openclaw/workspace/capability_manifests/CAP_REPOSITORY_INTAKE.json"
+    },
+    {
+      "id": "INCIDENT_REMEDIATION",
+      "status": "OPERATIONAL",
+      "manifest_path": "~/.openclaw/workspace/capability_manifests/CAP_INCIDENT_REMEDIATION.json"
+    },
+    {
+      "id": "MEMORY_SEARCH",
+      "status": "OPERATIONAL",
+      "manifest_path": "~/.openclaw/workspace/capability_manifests/CAP_MEMORY_SEARCH.json"
+    },
+    {
+      "id": "BACKUP_RECONSTRUCTION",
+      "status": "OPERATIONAL",
+      "manifest_path": "~/.openclaw/workspace/capability_manifests/CAP_BACKUP_RECONSTRUCTION.json"
+    },
+    {
+      "id": "VALUE_MEASUREMENT",
+      "status": "OPERATIONAL",
+      "manifest_path": "~/.openclaw/workspace/capability_manifests/CAP_VALUE_MEASUREMENT.json"
+    },
+    {
+      "id": "ADAPTIVE_INFERENCE_ROUTING",
+      "status": "OPERATIONAL",
+      "manifest_path": "~/.openclaw/workspace/capability_manifests/CAP_ADAPTIVE_INFERENCE_ROUTING.json"
+    },
+    {
+      "id": "ECONOMIC_GOVERNOR",
+      "status": "OPERATIONAL",
+      "manifest_path": "~/.openclaw/workspace/capability_manifests/CAP_ECONOMIC_GOVERNOR.json",
+      "note": "economic_guard.json snapshot stale (2026-08-09); live telemetry current"
+    }
+  ],
+  "summary": {
+    "operational": 11,
+    "degraded": 1,
+    "offline": 0,
+    "total": 12
+  },
+  "verdict": "TOP_VALUE_CAPABILITY_MANIFESTS_CERTIFIED"
+}

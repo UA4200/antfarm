@@ -1,0 +1,48 @@
+{
+  "capability_id": "RESEARCH_AND_IMPLEMENT",
+  "purpose": "Autonomous research pipeline using BLCO intel enrichment, Open Empire PMO research engine, and the Knowledge Graph (KG) to discover, enrich, and implement data-driven decisions. Combines web research, entity enrichment, and KG storage for persistent structured intelligence.",
+  "owner": "Nathan Asiegbu",
+  "status": "OPERATIONAL",
+  "repos": [
+    "~/.openclaw/blco/research_enricher.py",
+    "~/.openclaw/blco/intel/",
+    "~/.openclaw/blco/research/",
+    "~/.openclaw/workspace/OPEN_EMPIRE_PMO_RESEARCH_ENGINE_V1.md"
+  ],
+  "services": [
+    "nexus-telemetry (PM2 online)",
+    "open-empire-nexus (PM2 online)",
+    "nexus-dashboard (PM2 online)",
+    "kg-api (PM2 online, port 6279)"
+  ],
+  "agents": ["blco-enricher (PM2, stopped/on-demand)", "nexus-telemetry"],
+  "tools": ["web_search", "tavily_extract", "psql/clawdb KG", "kg-api REST"],
+  "ports": [6279],
+  "databases": ["clawdb (kg_entities: 58, kg_relationships, kg_entity_aliases)"],
+  "secrets_metadata": ["OPENEMPIRE_ROUTER_KEY", "TAVILY_API_KEY"],
+  "model_policy": "Free models (command-r7b, nemotron) for bulk enrichment; Haiku for synthesis",
+  "startup": "kg-api always-on; blco-enricher on-demand; nexus-telemetry continuous",
+  "health_check": "curl -sm 3 http://127.0.0.1:6279/health && psql ... -c 'SELECT COUNT(*) FROM kg_entities;'",
+  "validation": "PASS: kg-api running, 58 entities in KG, research_enricher.py exists, intel dir populated",
+  "approval_gates": ["Nathan approval for enrichment campaigns over $1 spend"],
+  "rollback": "Restore KG from clawdb backup; re-run enricher from leads.jsonl",
+  "kpi": "Entities enriched / contact resolution rate / KG growth per week",
+  "log_location": "~/.openclaw/logs/blco_enricher.log",
+  "live_evidence": {
+    "research_enricher_exists": true,
+    "research_enricher_bytes": 4969,
+    "research_enricher_mtime": "2026-05-15T02:06:00",
+    "kg_entity_count": 58,
+    "kg_tables": ["kg_entities", "kg_relationships", "kg_entity_aliases", "kg_relationship_evidence", "kg_graph_events", "kg_cost_records"],
+    "kg_api_status": "online",
+    "kg_api_port": 6279,
+    "nexus_telemetry_status": "online",
+    "intel_files": [
+      "totalenergies_contact_resolution.json",
+      "totalenergies_enrichment.json",
+      "totalenergies_enrichment_summary.md",
+      "wave12_enrichment_results.json"
+    ],
+    "blco_enricher_pm2_status": "stopped (on-demand)"
+  }
+}

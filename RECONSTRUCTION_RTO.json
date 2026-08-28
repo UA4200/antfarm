@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-28T11:37:31.757522+00:00",
+  "total_steps": 17,
+  "automated_steps": 13,
+  "manual_steps": 4,
+  "failed_steps": 0,
+  "missing_artifacts": [
+    "trading GitHub remote URL \u2014 not yet created (Nathan action required)",
+    "blco first push \u2014 .gitignore ready, push pending Nathan approval",
+    "embedding provider re-enablement \u2014 OpenClaw config path unclear"
+  ],
+  "estimated_rto_minutes": 25,
+  "owner_intervention_minutes": 10,
+  "rto_breakdown": {
+    "postgres_restore": "3-5 min",
+    "pm2_resurrect": "2 min",
+    "service_verify": "3 min",
+    "manual_git_remotes": "5-10 min (Nathan)",
+    "embedding_fix": "5 min (Nathan config decision)"
+  }
+}

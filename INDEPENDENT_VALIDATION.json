@@ -1,0 +1,79 @@
+{
+  "generated_at": "2026-08-28T11:41:42.298511+00:00",
+  "generated_by": "Alusi / PMO \u2014 compiled from lane outputs",
+  "phases": [
+    {
+      "phase": "MEMORY",
+      "claim": "Memory data intact, semantic search degraded",
+      "evidence": "grep matches Chicago/revenue in MEMORY.md; KG 58 entities; memory_search timeout=15s",
+      "pass_fail": "PASS_WITH_EXCEPTION",
+      "exception": "embedding provider disabled",
+      "confidence": 0.85
+    },
+    {
+      "phase": "BACKUPS",
+      "claim": "Backup system repaired and certified",
+      "evidence": "clawdb_20260828_0600.sql 60KB, exit=0, restore match=YES; pg_dump cron fixed",
+      "pass_fail": "PASS",
+      "exception": "Pre-Aug-28 backups were 0-byte (historical issue, now fixed)",
+      "confidence": 0.95
+    },
+    {
+      "phase": "RECONSTRUCTION",
+      "claim": "Empire can be rebuilt from canonical sources",
+      "evidence": "DB restore 58/58 match; all 7 functional tests pass; RTO 25min",
+      "pass_fail": "PASS_WITH_EXCEPTIONS",
+      "exception": "trading GitHub remote missing; embedding degraded",
+      "confidence": 0.9
+    },
+    {
+      "phase": "GOLDEN_BASELINE",
+      "claim": "Baseline documents live machine state",
+      "evidence": "19 repos, 40 PM2 procs, 21 inference providers, all facts from exec output",
+      "pass_fail": "PASS",
+      "exception": "None",
+      "confidence": 0.95
+    },
+    {
+      "phase": "SOURCE_CONTROL",
+      "claim": "Source control cleaned and secured",
+      "evidence": "workspace gitignore hardened; blco gitignore created; trading git init+commit; 0 secrets in tracked files",
+      "pass_fail": "PASS_WITH_EXCEPTIONS",
+      "exception": "trading no remote; blco not pushed; 1542 untracked in workspace",
+      "confidence": 0.8
+    },
+    {
+      "phase": "CAPABILITY_MANIFESTS",
+      "claim": "11/12 capabilities operational",
+      "evidence": "PM2 status, port checks, service health, cron verification, import tests",
+      "pass_fail": "PASS_WITH_EXCEPTION",
+      "exception": "EMPIRE_OUTREACH_CONTROL paused (not broken \u2014 dormant)",
+      "confidence": 0.92
+    }
+  ],
+  "overall_verdict": "OPEN_EMPIRE_PRE_MIGRATION_FOUNDATION_CERTIFIED_WITH_EXCEPTIONS",
+  "accepted_exceptions": [
+    "EX-001 trading GitHub remote",
+    "EX-002 blco push",
+    "EX-003 embedding degraded",
+    "EX-004 workspace untracked",
+    "EX-005 RESOLVED"
+  ],
+  "unresolved_p0": [],
+  "unresolved_p1": [
+    "trading GitHub remote (blocks full source control certification)",
+    "embedding provider restore"
+  ],
+  "migration_ready": false,
+  "migration_blockers": [
+    "Nathan must create trading GitHub remote and authorize push",
+    "Nathan must authorize blco push",
+    "Embedding provider fix (or documented exception)"
+  ],
+  "nathan_action_required": [
+    "Create GitHub remote for ~/.openclaw/trading, push c97d732",
+    "Approve blco push to UA4200/blco-pipeline",
+    "Decision on memory_search embedding (fix or accept DEGRADED)",
+    "Authorize MIGRATION_READY when above resolved"
+  ]
+}
