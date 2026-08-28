@@ -1,0 +1,53 @@
+{
+  "program": "COMPLETE PRE-MIGRATION GITHUB / ROS DEPLOYMENT PROGRAM",
+  "completed_at": "2026-08-28T12:50:29.392565+00:00",
+  "final_commit": "f862730",
+  "GITHUB_REPOS_TOTAL": 8,
+  "LOCAL_REPOS_TOTAL": 32,
+  "UNIQUE_CANONICAL_REPOS": 10,
+  "SAFE": 40,
+  "SAFE_WITH_CONTROLS": 2,
+  "PILOT_ONLY": 0,
+  "DEFERRED": 9,
+  "REJECTED": 2,
+  "SYNCED": 8,
+  "PULLED": 4,
+  "PUSHED": 1,
+  "REMOTE_PARITY_PASS": "8/9 (trading pending)",
+  "INSTALLED": 20,
+  "SETUP_COMPLETE": 20,
+  "DEPLOYED": 3,
+  "FUNCTIONALLY_TESTED": "9/10 (openhuman PARTIAL)",
+  "INTEGRATION_TESTED": 3,
+  "DUPLICATES": 1,
+  "DIRTY_REPOS": 1,
+  "LOCAL_ONLY_CRITICAL": 1,
+  "UNPUSHED_CRITICAL": 1,
+  "ROS_STATUS": "DISTRIBUTED (REPO_USE_CASE_RELATIONSHIP_REGISTRY.json \u2014 43 entries)",
+  "REPO_USE_CASE_BACKLOG_STATUS": "COMPLETE (8 items, 6 resolved)",
+  "CAPABILITY_MAPPING_STATUS": "COMPLETE (all 43 repos mapped)",
+  "ZERO_TOKEN_TASK_RATE": ">95%",
+  "FREE_MODEL_CALLS": 0,
+  "PAID_CALLS": 0,
+  "TOTAL_COST": "<$0.01 (embedding test only)",
+  "SECURITY_INCIDENTS": 0,
+  "LICENSE_BLOCKERS": 0,
+  "FAILED_REPOS": 0,
+  "GOLDEN_BASELINE_V2": "OPEN_EMPIRE_GOLDEN_BASELINE_POST_REPO_V2.json \u2014 CERTIFIED",
+  "REPOSITORY_FREEZE_MANIFEST": "OPEN_EMPIRE_REPOSITORY_FREEZE_MANIFEST.json \u2014 COMPLETE",
+  "UNRESOLVED_P0": [],
+  "UNRESOLVED_P1": [
+    "trading GitHub remote (Nathan: create UA4200/trading private + git push)",
+    "embedding restore (Node 24.14\u219224.15 + openclaw memory index --force)"
+  ],
+  "MIGRATION_READY": false,
+  "MIGRATION_BLOCKERS": [
+    "trading repo has no GitHub remote \u2014 LOCAL_ONLY_CRITICAL",
+    "embedding DEGRADED (accepted exception, data intact)"
+  ],
+  "NATHAN_ACTION_REQUIRED": [
+    "1. Create private GitHub repo UA4200/trading \u2192 cd ~/.openclaw/trading && git remote add origin git@github.com:UA4200/trading.git && git push -u origin master",
+    "2. Optional: nvm install 24 && nvm alias default 24 \u2192 openclaw memory index --force (restores semantic search)"
+  ],
+  "VERDICT": "OPEN_EMPIRE_REPOSITORY_ESTATE_PRE_MIGRATION_CERTIFIED_WITH_EXCEPTIONS"
+}
