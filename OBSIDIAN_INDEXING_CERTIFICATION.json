@@ -1,0 +1,56 @@
+{
+  "generated_at": "2026-08-28T14:48:10.184846+00:00",
+  "OBSIDIAN_ROOT_CAUSE": "14.5MB conversations.json + 4x4.5MB DeepSeekconversations.json being indexed as non-md binary files",
+  "OBSIDIAN_INDEXING_FIXED": true,
+  "FIX_APPLIED": [
+    "Moved conversations.json (14.5MB) to ~/Documents/ObsidianArchive/",
+    "Moved 4x DeepSeekconversations.json (4.5MB each) to ObsidianArchive/",
+    "Created primary vault .obsidianignore (excludes *.json, *.jsonl, node_modules, binaries)",
+    "Created workspace vault .obsidianignore (excludes machine artifacts, large registries)",
+    "Cleared text-extractor plugin cache"
+  ],
+  "VAULT_SIZE_BEFORE_MB": 129,
+  "VAULT_SIZE_AFTER_MB": 94,
+  "MD_FILES": 510,
+  "MOCS_CREATED": 15,
+  "REPO_NOTES": 23,
+  "INDEX_STALL": false,
+  "LARGE_JSON_IN_VAULT": 0,
+  "OBSIDIAN_SEARCH_TESTS": {
+    "Open Empire": "PASS (1 file)",
+    "Alusi": "PASS (14 files)",
+    "BLCO": "PASS (44 files)",
+    "CashClaw": "PASS (19 files)",
+    "routing": "PASS (44 files)",
+    "backup": "PASS (49 files)",
+    "ADAI": "PASS (56 files)",
+    "repository": "PASS (25 files)",
+    "PMO": "PASS (47 files)",
+    "migration": "PASS (57 files)"
+  },
+  "MOCS": [
+    "00_HOME/OPEN_EMPIRE_HOME.md",
+    "02_GOVERNANCE/GOVERNANCE_MOC.md",
+    "03_PMO/PMO_MOC.md",
+    "04_CAPABILITIES/CAPABILITY_MOC.md",
+    "07_AGENTS/AGENTS_MOC.md",
+    "10_REPOSITORIES/REPOSITORY_MOC.md",
+    "12_INFRASTRUCTURE/INFRASTRUCTURE_MOC.md",
+    "13_MEMORY/MEMORY_MOC.md",
+    "14_KNOWLEDGE_GRAPH/KNOWLEDGE_GRAPH_MOC.md",
+    "15_OUTREACH/OUTREACH_MOC.md",
+    "17_ADAI/ADAI_MOC.md",
+    "18_BLCO/BLCO_MOC.md",
+    "19_CASHCLAW/CASHCLAW_MOC.md",
+    "23_RUNBOOKS/RUNBOOKS_MOC.md",
+    "24_METRICS_VALUE/VALUE_MOC.md"
+  ],
+  "OBSIDIAN_SYNC": "PRESENT \u2014 obsidian_sync.py ($0, deterministic) + cron Monday 06:00 CDT",
+  "CLAWDB_WIRING": "KG entities/relationships exported to 14_KNOWLEDGE_GRAPH/KNOWLEDGE_GRAPH_MOC.md",
+  "KG_WIRING": "58 entities, 20 relationships reflected in vault",
+  "REPO_WIRING": "23 repo notes generated from REPO_USE_CASE_RELATIONSHIP_REGISTRY.json",
+  "OBSIDIAN_INDEXING_OPERATIONAL": true,
+  "NATHAN_ACTIONS": [
+    "Restart Obsidian to trigger fresh re-index after .obsidianignore applied"
+  ]
+}

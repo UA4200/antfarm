@@ -1,0 +1,44 @@
+{
+  "version": "V2",
+  "generated_at": "2026-08-28T14:48:10.184846+00:00",
+  "name": "OPEN_EMPIRE_FINAL_PRE_MIGRATION_FREEZE_MANIFEST",
+  "repository_estate": {
+    "total_repos": 43,
+    "github_repos": 8,
+    "deployed_and_certified": 3,
+    "installed_and_certified": 17,
+    "synced_reference_only": 11,
+    "deferred": 9,
+    "rejected": 2,
+    "local_only_critical": [
+      "trading (Nathan: create UA4200/trading)"
+    ],
+    "final_commit": "25bd5b3"
+  },
+  "obsidian_estate": {
+    "vault_path": "/Users/NeoOC/Documents/Obsidian Vault",
+    "vault_size_mb": 94,
+    "md_files": 510,
+    "mocs": 15,
+    "repo_notes": 23,
+    "indexing_stall": false,
+    "obsidian_ignore": true,
+    "sync_wired": true,
+    "clawdb_connected": true,
+    "kg_connected": true
+  },
+  "foundation_certification": "OPEN_EMPIRE_PRE_MIGRATION_FOUNDATION_CERTIFIED_WITH_EXCEPTIONS",
+  "repo_estate_certification": "OPEN_EMPIRE_REPOSITORY_ESTATE_PRE_MIGRATION_CERTIFIED_WITH_EXCEPTIONS",
+  "obsidian_certification": "OBSIDIAN_INDEXING_OPERATIONAL",
+  "MIGRATION_READY": false,
+  "migration_blockers": [
+    "Nathan: create UA4200/trading private repo \u2192 git push c97d732",
+    "Recommended: Node 24.14\u219224.15 \u2192 openclaw memory index --force (restores semantic search)",
+    "Recommended: Restart Obsidian to trigger fresh index after .obsidianignore"
+  ],
+  "nathan_action_required": [
+    "1. github.com/new \u2192 name=trading, private=YES \u2192 cd ~/.openclaw/trading && git remote add origin git@github.com:UA4200/trading.git && git push -u origin master",
+    "2. nvm install 24 && nvm alias default 24 (restores embedding search)",
+    "3. Restart Obsidian app (triggers clean re-index)"
+  ]
+}
