@@ -1,6 +1,11 @@
 {
   "generated_at": "2026-08-09T20:30:00Z",
-  "version": "V1",
+  "last_updated": "2026-08-28T10:21:22.952662+00:00",
+  "version": "V1.1",
+  "updated_by": "alusi_openai_integration_2026-08-28",
+  "changelog": [
+    "2026-08-09: Added benchmark_evidence references, updated n8n status (RUNNING confirmed), added Ruflo DEFERRED entry, added decision_criteria based on W1 evidence, added engine_selection_matrix"
+  ],
   "strategies": [
     {
       "strategy_id": "DETERMINISTIC_TOOL",
@@ -34,7 +39,9 @@
         "find",
         "grep"
       ],
-      "validation_requirements": "exit code + output inspection"
+      "validation_requirements": "exit code + output inspection",
+      "benchmark_evidence": "Used in W1 \u2014 exec tool called 14 times for file/shell operations. Zero failures. Latency: <1s per call.",
+      "decision_criteria": "Choose this when: output is deterministic, no reasoning required, task is well-specified as a command."
     },
     {
       "strategy_id": "SINGLE_AGENT",
@@ -61,7 +68,9 @@
         "Claude Code",
         "Groq-70B"
       ],
-      "validation_requirements": "output review + deterministic test where possible"
+      "validation_requirements": "output review + deterministic test where possible",
+      "benchmark_evidence": "W1 used this strategy \u2014 single OpenClaw/Alusi subagent with exec tools completed a full repository audit at quality=5/5 in 188s. Cost < $0.05.",
+      "decision_criteria": "Choose this when: task fits in one context window, reasoning needed but no parallelism benefit, low-medium stakes. Default strategy for most agent tasks."
     },
     {
       "strategy_id": "SINGLE_AGENT_PLUS_TOOLS",
@@ -87,7 +96,9 @@
         "Alusi+exec",
         "Codex"
       ],
-      "validation_requirements": "test execution + output inspection"
+      "validation_requirements": "test execution + output inspection",
+      "benchmark_evidence": "W1 is exactly this pattern \u2014 OpenClaw/Alusi subagent used exec, read, process tools to gather evidence before synthesizing. 188s, quality 5/5. Confirms this is highest-value strategy for analysis tasks.",
+      "decision_criteria": "Choose this when: task requires accessing external state (files, APIs, DBs) AND reasoning about that state. Primary strategy for audit, debugging, implementation tasks."
     },
     {
       "strategy_id": "PARALLEL_SPECIALISTS",
@@ -111,10 +122,13 @@
       ],
       "recommended_engines": [
         "Sessions/subagents",
-        "Ruflo (if available)"
+        "Ruflo (DEFERRED \u2014 not available)"
       ],
       "validation_requirements": "independent merge validator + dedup check",
-      "selection_gate": "CAN work products be generated independently WITHOUT shared state? If NO \u2014 do not use."
+      "selection_gate": "CAN work products be generated independently WITHOUT shared state? If NO \u2014 do not use.",
+      "benchmark_evidence": "Not yet benchmarked. W8 (parallel sub-agents) designed but not yet executed. Ruflo was listed as preferred engine for this strategy but is DEFERRED/BROKEN.",
+      "ruflo_status": "DEFERRED \u2014 CLI broken, not installable. Fall back to OpenClaw Sessions/subagents for parallelism.",
+      "decision_criteria": "Choose when: N independent tasks exist, wall-clock time matters, and you accept 2-5x token cost. Do NOT use for tasks with shared mutable state."
     },
     {
       "strategy_id": "HIERARCHICAL_MULTI_AGENT",
@@ -134,7 +148,9 @@
         "Antfarm",
         "n8n"
       ],
-      "validation_requirements": "phase gates + per-output review"
+      "validation_requirements": "phase gates + per-output review",
+      "benchmark_evidence": "Antfarm (W1 target) confirmed capable \u2014 3 workflows installed (bug-fix/feature-dev/security-audit), each with 6-7 specialized agents. Database shows prior production runs (60KB DB with WAL). n8n also confirmed RUNNING as of 2026-08-09 \u2014 available for workflow integration.",
+      "decision_criteria": "Choose when: task has multiple phases, each requiring different expertise, and phases depend on prior phase outputs. Antfarm is preferred for dev workflows; n8n for API/webhook orchestration."
     },
     {
       "strategy_id": "COMPETITIVE_EXECUTION",
@@ -155,7 +171,9 @@
         "any two independent implementers"
       ],
       "validation_requirements": "adversarial review + judge decision + deterministic test",
-      "selection_gate": "Use ONLY for high-risk/high-value. Never for routine tasks."
+      "selection_gate": "Use ONLY for high-risk/high-value. Never for routine tasks.",
+      "benchmark_evidence": "Not yet benchmarked. Both Claude Code (v2.1.140) and Codex (v0.129.0) confirmed installed and available. Hermes not yet available (deps unmet).",
+      "decision_criteria": "Reserve for: security architecture decisions, capital allocation controls, irreversible migrations. Cost floor is 2x single-agent. Quality ceiling is highest available."
     },
     {
       "strategy_id": "EVENT_DRIVEN_WORKFLOW",
@@ -176,7 +194,9 @@
         "Antfarm",
         "cron+scripts"
       ],
-      "validation_requirements": "test execution + output verification"
+      "validation_requirements": "test execution + output verification",
+      "benchmark_evidence": "n8n confirmed RUNNING 2026-08-09 (healthz OK, port 5678). Prior registry had it as NOT_RUNNING \u2014 CORRECTED. Antfarm DB shows 60KB of prior workflow runs. Both engines ready for event-driven tasks NOW.",
+      "decision_criteria": "Choose when: task repeats on a schedule or trigger, logic is stable enough to codify in a workflow, human oversight at decision points rather than execution steps."
     },
     {
       "strategy_id": "HUMAN_APPROVAL_GATED",
@@ -193,9 +213,124 @@
       "recommended_engines": [
         "any + approval gate"
       ],
-      "validation_requirements": "Nathan explicit approval"
+      "validation_requirements": "Nathan explicit approval",
+      "benchmark_evidence": "Approval system confirmed operational \u2014 sovereign_proxy + telegram-approvals (PM2 id 14) + alusi-controlled-worker (PM2 id 5) all RUNNING. No formal benchmark needed \u2014 production evidence from daily ops.",
+      "decision_criteria": "ALWAYS use when: money moves, secrets change, production data at risk, legal/compliance implications. Gate is Telegram approval from Nathan. Never bypass."
     }
   ],
+  "engine_selection_matrix": {
+    "description": "Quick-reference for choosing the right engine given task type. Based on W1 benchmark evidence + verification data from 2026-08-09.",
+    "matrix": [
+      {
+        "task_type": "Repository/codebase analysis",
+        "primary_engine": "OpenClaw/Alusi (subagent + exec tools)",
+        "alternative": "Claude Code",
+        "evidence": "W1: 188s, quality 5/5, full structural audit of antfarm repo",
+        "strategy": "SINGLE_AGENT_PLUS_TOOLS"
+      },
+      {
+        "task_type": "Multi-file bug fix",
+        "primary_engine": "Claude Code (v2.1.140)",
+        "alternative": "Antfarm bug-fix workflow",
+        "evidence": "Not yet benchmarked \u2014 W3 target",
+        "strategy": "SINGLE_AGENT_PLUS_TOOLS or HIERARCHICAL_MULTI_AGENT"
+      },
+      {
+        "task_type": "Structured dev pipeline (feature/security/bug)",
+        "primary_engine": "Antfarm (v0.5.1)",
+        "alternative": "Claude Code with manual coordination",
+        "evidence": "W1 confirms Antfarm is installed, operational, with 60KB of prior runs",
+        "strategy": "HIERARCHICAL_MULTI_AGENT"
+      },
+      {
+        "task_type": "API integration / webhook automation",
+        "primary_engine": "n8n (v2.8.4, RUNNING)",
+        "alternative": "cron + scripts",
+        "evidence": "healthz confirmed OK 2026-08-09",
+        "strategy": "EVENT_DRIVEN_WORKFLOW"
+      },
+      {
+        "task_type": "Zero-cost batch/draft generation",
+        "primary_engine": "Ollama (v0.17.7, 6 models)",
+        "alternative": "Groq via oe-proxy (free tier)",
+        "evidence": "API confirmed live, 6 models available",
+        "strategy": "SINGLE_AGENT"
+      },
+      {
+        "task_type": "OpenAI-native code generation",
+        "primary_engine": "Codex CLI (v0.129.0)",
+        "alternative": "Claude Code",
+        "evidence": "Binary confirmed present \u2014 OPENAI_API_KEY required",
+        "strategy": "SINGLE_AGENT_PLUS_TOOLS"
+      },
+      {
+        "task_type": "Parallel independent tasks",
+        "primary_engine": "OpenClaw Sessions/subagents",
+        "alternative": "None (Ruflo DEFERRED)",
+        "evidence": "Ruflo not available \u2014 fall back to OpenClaw parallelism",
+        "strategy": "PARALLEL_SPECIALISTS"
+      },
+      {
+        "task_type": "Financial / capital / approval-required",
+        "primary_engine": "ANY + sovereign_proxy approval gate",
+        "alternative": "None \u2014 approval is mandatory",
+        "evidence": "sovereign_proxy + telegram-approvals RUNNING in production",
+        "strategy": "HUMAN_APPROVAL_GATED"
+      }
+    ],
+    "openai_tier3": {
+      "models": [
+        "gpt-4o-mini",
+        "gpt-4.1-mini"
+      ],
+      "use_when": "free path exhausted OR task requires tool_compatibility + cost <$0.001",
+      "cost_usd_per_call_estimate": 0.0001,
+      "quality": "HIGH",
+      "latency": "800-2000ms"
+    },
+    "openai_tier4": {
+      "models": [
+        "gpt-4o",
+        "gpt-4.1",
+        "o3-mini"
+      ],
+      "use_when": "premium reasoning OR complex coding OR long_context with quality gate",
+      "cost_usd_per_call_estimate": 0.001,
+      "quality": "PREMIUM",
+      "latency": "1000-5000ms"
+    }
+  },
+  "ruflo_status": {
+    "engine": "Ruflo",
+    "status": "DEFERRED_BLOCKED",
+    "reason": "CLI not found on system. Binary not in PATH, not in ~/.openclaw recursively. No installable package identified.",
+    "action": "Investigate Ruflo installation method in next PMO review cycle",
+    "impact": "PARALLEL_SPECIALISTS strategy falls back to OpenClaw Sessions/subagents \u2014 capable but not Ruflo-optimized",
+    "verified_date": "2026-08-09"
+  },
+  "pending_benchmarks": {
+    "ready_to_run_now": [
+      "W7 (Ollama \u2014 $0, no blockers)",
+      "W6 (n8n \u2014 confirmed running)",
+      "W8 (OpenClaw parallel)"
+    ],
+    "needs_test_repo": [
+      "W3 (Claude Code bug fix)",
+      "W4 (Codebase nav Q&A)"
+    ],
+    "needs_api_key_check": [
+      "W5 (Codex \u2014 OPENAI_API_KEY)"
+    ],
+    "needs_test_seeding": [
+      "W2 (Antfarm bug-fix \u2014 test repo with seeded bug)"
+    ]
+  },
   "selection_guidance": "PMO must evaluate: complexity, parallelizability, quality threshold, latency, cost, risk, coordination overhead. Never select more agents merely because more are available.",
-  "key_principle": "Use cheapest strategy that reliably satisfies quality and time thresholds."
+  "key_principle": "Use cheapest strategy that reliably satisfies quality and time thresholds.",
+  "evidence_based_defaults": {
+    "default_for_analysis": "SINGLE_AGENT_PLUS_TOOLS via OpenClaw/Alusi \u2014 proven at quality 5/5 in W1",
+    "default_for_zero_cost": "Ollama (local, $0) \u2014 confirmed running with 6 models",
+    "default_for_pipelines": "Antfarm \u2014 confirmed installed with prior runs, or n8n (now confirmed RUNNING)",
+    "avoid_until_proven": "Hermes (deps unmet), Ruflo (DEFERRED)"
+  }
 }

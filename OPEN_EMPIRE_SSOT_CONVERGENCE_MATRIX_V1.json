@@ -1,8 +1,10 @@
 {
   "generated_at": "2026-08-09T21:35:00Z",
+  "last_updated": "2026-08-28T10:21:35.611744+00:00",
+  "update_source": "alusi_openai_integration_2026-08-28",
   "total_systems": 19,
-  "consistent": 16,
-  "defects": 3,
+  "consistent": 18,
+  "defects": 1,
   "systems": [
     {
       "system": "Constitution",
@@ -23,36 +25,36 @@
       "expected": "~/.openclaw/workspace/AGENTS.md",
       "actual": true,
       "consistent": true,
-      "action": "NONE \u2014 corrected IDs 33/34 today"
+      "action": "NONE \u2014 IDs corrected 2026-08-09 (SSOT-006 RESOLVED)"
     },
     {
       "system": "Git (workspace)",
       "expected": "remote=UA4200/git-github",
-      "actual": "3c51457 on master",
+      "actual": "14fd569 on master \u2014 origin https://github.com/UA4200/git-github.git",
       "consistent": true,
-      "action": "COMMIT_REQUIRED \u2014 228 uncommitted files"
+      "action": "COMMIT_REQUIRED \u2014 255 uncommitted files, Nathan review required (SSOT-003 OPEN)"
     },
     {
       "system": "Git (open-empire-nexus)",
       "expected": "UA4200 remote",
-      "actual": "no remote configured",
+      "actual": "no remote configured \u2014 5ad07ce init, 14 dirty files, secret scan CLEAN",
       "consistent": false,
-      "drift": "NO_REMOTE",
-      "action": "ADD_REMOTE \u2014 Nathan decision required"
+      "drift": "NO_REMOTE \u2014 token lacks repo scope",
+      "action": "ADD_REMOTE \u2014 Nathan decision required (SSOT-002 OPEN)"
     },
     {
       "system": "PM2",
       "expected": "all critical services online",
-      "actual": "CashClaw 30-33, freeway 36, grafana 37, oe-proxy 40, kg-api 42",
+      "actual": "CashClaw 30-33, freeway 36, grafana 37, fcc-metrics-exporter 38, oe-proxy 40, kg-api 42, trading_sentinel 33",
       "consistent": true,
-      "action": "NONE \u2014 pm2 save pending"
+      "action": "NONE \u2014 IDs verified and documented 2026-08-09"
     },
     {
       "system": "ClawDB schema",
       "expected": "5 KG tables + 7 operational tables",
-      "actual": "6 KG tables present (schema restored)",
+      "actual": "PostgreSQL 18.3 healthy via launchd port 5432 \u2014 clawdb DB accessible",
       "consistent": true,
-      "action": "SSOT_DEFECT_RESOLVED \u2014 DB lost on restart, recovered"
+      "action": "NONE \u2014 SSOT-001 RESOLVED. PM2 stub removed, native launchd authoritative."
     },
     {
       "system": "KG entities",
@@ -106,10 +108,10 @@
     {
       "system": "api_key_inventory.json",
       "expected": "NOT in workspace git",
-      "actual": "present \u2014 EXCLUDE classification",
-      "consistent": false,
-      "drift": "SENSITIVE_FILE_UNSTAGED",
-      "action": "ADD_TO_GITIGNORE \u2014 do not commit"
+      "actual": "gitignored at line 1 of .gitignore \u2014 CONFIRMED",
+      "consistent": true,
+      "drift": null,
+      "action": "NONE \u2014 SSOT-004 RESOLVED 2026-08-09"
     },
     {
       "system": "Free-Way .env",
@@ -121,14 +123,14 @@
     {
       "system": "n8n",
       "expected": "online port 5678",
-      "actual": "restarting \u2014 previous session healthy",
-      "consistent": "PARTIAL",
-      "action": "MONITOR \u2014 starting after PM2 reload"
+      "actual": "operational \u2014 startup delay 30-60s after PM2 reload is expected",
+      "consistent": true,
+      "action": "NONE \u2014 SSOT-005 ACCEPTED_EXCEPTION/DOCUMENTED"
     },
     {
       "system": "CashClaw trading",
       "expected": "PROTECTED, all 4 agents online",
-      "actual": "PM2 30-33 online",
+      "actual": "PM2 30-33 online \u2014 director, arb, polymarket_trader, trading_sentinel",
       "consistent": true,
       "action": "NONE"
     },
@@ -139,5 +141,28 @@
       "consistent": true,
       "action": "NONE"
     }
-  ]
+  ],
+  "convergence_summary": {
+    "total_systems": 19,
+    "consistent": 18,
+    "inconsistent": 1,
+    "inconsistent_systems": [
+      "Git (open-empire-nexus)"
+    ],
+    "recently_resolved": [
+      "api_key_inventory.json \u2014 SSOT-004 RESOLVED (now gitignored)",
+      "ClawDB schema \u2014 SSOT-001 RESOLVED (PostgreSQL healthy via launchd)",
+      "n8n \u2014 SSOT-005 ACCEPTED_EXCEPTION (startup delay documented)",
+      "AGENTS.md \u2014 SSOT-006 RESOLVED (PM2 IDs corrected)"
+    ],
+    "openai_provider_integration": {
+      "status": "CONSISTENT",
+      "registered_at": "2026-08-28T10:21:35.611452+00:00",
+      "files": [
+        "router/adaptive_router.py",
+        "router/economic_guard.py",
+        "OPEN_EMPIRE_EXECUTION_ENGINE_REGISTRY_V1.json"
+      ]
+    }
+  }
 }
