@@ -1,4 +1,16 @@
 # AGENTS.md - Agent Registry and Health
+<!-- SESSION_2026-08-28 -->
+## Session 2026-08-28 — Pre-Migration Foundation + Repository Estate + Obsidian
+Key achievements this session:
+- BLCO Monitor V2 deployed (WEEKDAY_3X_WEEKLY, cost-policy compliant)
+- OpenAI registered as governed TIER3/4 provider in oe-proxy
+- Pre-Migration Foundation certified (backups fixed, reconstruction proven, golden baseline)
+- Repository Estate: 43 repos classified, 0 UNKNOWN, 9/10 smoke tests PASS
+- Obsidian stall root-cause fixed (−35MB), 15 MOCs + 23 repo notes created
+- KG/ClawDB wired to Obsidian via generated notes
+- MIGRATION_READY = FALSE (trading remote pending Nathan)
+<!-- /SESSION_2026-08-28 -->
+
 Version: 5.0 | Updated: 2026-07-30
 
 ## Active Agents
@@ -11,27 +23,28 @@ Version: 5.0 | Updated: 2026-07-30
 | alusi-discord-adapter | 4 | OK | continuous | Discord channel |
 | alusi-controlled-worker | 5 | OK | continuous | approval worker |
 | alusi-orchestrator | 6 | OK | continuous | multi-agent orchestration |
-| cashclaw_director | 38 | OK | every 5min | LIVE — canonical `trading.agents.director.run`, venv313, V2 API, Kelly NO-fix, `CASHCLAW_DAILY_SPEND_CAP_USD=10` (restarted 2026-08-02, env confirmed) |
-| cashclaw_arb | 39 | OK | every 5min | LIVE — canonical `trading.agents.arb.run`, Kalshi bundle arb + Kalshi↔Polymarket cross-arb (alert mode), `ARB_DAILY_SPEND_CAP_USD=10`, circuit=ok |
-| polymarket-trader | 40 | OK | 15min cycle | LIVE — canonical `trading.agents.polymarket_trader.run`, MLB/MLS/sports-champ strategy, GPT-4o signals, `POLY_DAILY_SPEND_CAP_USD=10` |
-| ollama | 24 | OK | continuous | Local LLM server, port 11434, 6 models |
+| cashclaw_director | 30 | OK | every 5min | LIVE — canonical `trading.agents.director.run`, venv313, V2 API, Kelly NO-fix, `CASHCLAW_DAILY_SPEND_CAP_USD=10` (restarted 2026-08-02, env confirmed) |
+| cashclaw_arb | 31 | OK | every 5min | LIVE — canonical `trading.agents.arb.run`, Kalshi bundle arb + Kalshi↔Polymarket cross-arb (alert mode), `ARB_DAILY_SPEND_CAP_USD=10`, circuit=ok |
+| polymarket-trader | 32 | OK | 15min cycle | LIVE — canonical `trading.agents.polymarket_trader.run`, 2028 election markets, Haiku signals, `POLY_DAILY_SPEND_CAP_USD=10`. Order circuit breaker added 2026-08-09 (stops after 3 consecutive 400s per cycle) |
+| ollama | 22 | OK | continuous | Local LLM server, port 11434, 6 models |
 | hyrvea-monitor | 10 | OK | continuous | Hyrvea pipeline monitor |
 | email-dispatcher | 11 | STOPPED | on-demand | approved email dispatch |
 | openclaw-dashboard | 12 | STOPPED | on-demand | legacy dashboard |
 | open-empire-federation-staging | 33 | OK | every 15min | Python3.14.6, one-shot cron exits after run (stopped=normal), writes latest_federation_state.json |
 | open-empire-lifecycle-staging | 34 | OK | every 15min | Python3.14.6, one-shot cron exits after run (stopped=normal), writes latest_lifecycle_state.json |
-| clawdb | 43 | OK | continuous | PostgreSQL 18.3, port 5432, LC_ALL fixed |
+| clawdb | — | OK | launchd | PostgreSQL 18.3, port 5432 — managed by macOS launchd (pid=568). PM2 stub removed 2026-08-09 (was crash-looping with 776 restarts — port conflict with native instance). DB accessible at port 5432, clawdb DB confirmed healthy |
 | exec-gateway | 13 | OK | continuous | exec approval gateway |
 | telegram-approvals | 14 | OK | continuous | Telegram approval handler |
 | ecosystem.email-dispatcher | 15 | OK | continuous | ecosystem email layer |
 | pnl-audit | 16 | STOPPED | on-demand | P&L audit runner |
 | mission-control | 17 | OK | continuous | Command Center UI port 3333 |
-| trading_sentinel | 41 | OK | every 5min | canonical `trading.agents.sentinel.run`, CashClaw watchdog, reads new + legacy (during transition) trade paths |
-| freeway | 48 | OK | continuous | Free-Way proxy, port 8082, 127.0.0.1 only, 5 providers (openrouter/cohere/cerebras/nvidia/mistral), 72 models, COST_OPTIMIZED_INFERENCE |
-| grafana | 50 | OK | continuous | FCC Cost Dashboard (Node.js), port 3001, http://127.0.0.1:3001, auto-refresh 30s, reads Free-Way /api/usage |
-| fcc-metrics-exporter | 51 | OK | continuous | Scrapes Free-Way usage every 5min → ~/.openclaw/grafana/data/fcc_metrics.json + .prom |
-| kg-api | 52 | OK | continuous | Knowledge Graph read API, port 6279, 127.0.0.1 only, auth=OPENEMPIRE_ROUTER_KEY, 12 endpoints |
-| oe-proxy | 54 | OK | continuous | Governed inference proxy port 4100 — intercepts claude-* requests, routes haiku→Groq free, sonnet→Groq70B/free, opus→Anthropic premium. ANTHROPIC_BASE_URL=http://127.0.0.1:4100 |
+| trading_sentinel | 33 | OK | every 5min | canonical `trading.agents.sentinel.run`, CashClaw watchdog, reads new + legacy (during transition) trade paths. Spend calc fixed 2026-08-09: excludes error/failed trades from cap calculation |
+| freeway | 36 | OK | continuous | Free-Way proxy, port 8082, 127.0.0.1 only, 5 providers (openrouter/cohere/cerebras/nvidia/mistral), 72 models, COST_OPTIMIZED_INFERENCE |
+| grafana | 37 | OK | continuous | FCC Cost Dashboard (Node.js), port 3001, http://127.0.0.1:3001, auto-refresh 30s, reads Free-Way /api/usage |
+| fcc-metrics-exporter | 38 | OK | continuous | Scrapes Free-Way usage every 5min → ~/.openclaw/grafana/data/fcc_metrics.json + .prom |
+| kg-api | 42 | OK | continuous | Knowledge Graph read API, port 6279, 127.0.0.1 only, auth=OPENEMPIRE_ROUTER_KEY, 12 endpoints |
+| oe-proxy | 40 | OK | continuous | Governed inference proxy port 4100 — intercepts claude-* requests, routes haiku→Groq free, sonnet→Groq70B/free, opus→Anthropic premium. ANTHROPIC_BASE_URL=http://127.0.0.1:4100 |
+| fcc-8083 | 46 | OK | continuous | Second Free-Way instance on 127.0.0.1:8083, script `/Users/NeoOC/.openclaw/repos/free_llm_router/installed/Free-Way/fcc-8083-wrapper.cjs`, reads `.env.8083`, provisioned 2026-08-28 by external track. OpenAI-shaped: /v1/models ✅, /v1/chat/completions ✅, /v1/responses ❌ (Codex incompatible). 71 models across cohere/llm7/groq/cerebras/cloudflare/siliconflow/mistral/openrouter. See ~/.openclaw/backups/fcc-portmove-20260827_211841/ for endpoint verification snapshot. |
 
 **Removed 2026-07-31 (Phase 5 cutover):**
 - id=6 (`cashclaw` legacy stub) — superseded, deleted
@@ -147,4 +160,3 @@ Agent cron jobs are created automatically during install.
 - Status: `node ~/.openclaw/workspace/antfarm/dist/cli/cli.js workflow status "<task title>"`
 - Workflows self-advance via agent cron jobs polling SQLite for pending steps.
 <!-- /antfarm:workflows -->
-
