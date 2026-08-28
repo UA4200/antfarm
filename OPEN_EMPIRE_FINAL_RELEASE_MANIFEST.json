@@ -1,0 +1,146 @@
+{
+  "document": "OPEN_EMPIRE_FINAL_RELEASE_MANIFEST",
+  "generated_at": "2026-08-28T18:46:50.958725+00:00",
+  "health_check": "15/15 PASS \u2014 bash ~/.openclaw/workspace/health_check.sh",
+  "shas": {
+    "workspace": "112163d772cd96094d590aa7a6429d87bbc5b937",
+    "blco": "2906b1cb9f163ba82cd9bbaf256fdcfe44e79ebd",
+    "trading": "c97d73259ed0b9bcd217c48da9cd2cbfd3c4a51f",
+    "alusi_core": "15b122ac5cfc120268cfef39dc43f7c67af741da",
+    "open_empire_core": "123eb75bb856eb55566d2dfa2ee133b87ae85c69"
+  },
+  "services": {
+    "cashclaw_director": {
+      "pid": 53109,
+      "restarts": 3,
+      "status": "online",
+      "protected": true
+    },
+    "cashclaw_arb": {
+      "pid": 794,
+      "restarts": 0,
+      "status": "online",
+      "protected": true
+    },
+    "polymarket_trader": {
+      "pid": 809,
+      "restarts": 0,
+      "status": "online",
+      "protected": true
+    },
+    "trading_sentinel": {
+      "pid": 822,
+      "restarts": 0,
+      "status": "online",
+      "protected": true
+    },
+    "freeway_8082": {
+      "pid": 841,
+      "restarts": 0,
+      "status": "online",
+      "protected": true
+    },
+    "fcc_8083": {
+      "pid": 42755,
+      "restarts": 1,
+      "status": "online",
+      "protected": true
+    },
+    "oe_proxy_4100": {
+      "restarts": 2,
+      "status": "online",
+      "protected": true
+    },
+    "n8n_5678": {
+      "pid": 833,
+      "restarts": 0,
+      "status": "online",
+      "protected": true
+    },
+    "grafana_3001": {
+      "pid": 836,
+      "restarts": 0,
+      "status": "online",
+      "protected": true
+    }
+  },
+  "backups": {
+    "latest_clawdb": "~/.openclaw/backups/clawdb/clawdb_20260828_1200.sql",
+    "latest_age_hours": 1.7,
+    "valid_backups": 4,
+    "invalid_0byte_backups": 25,
+    "restore_method": "pg_restore -Fc --no-privileges --no-owner -d clawdb backup.pgdump",
+    "restore_test_result": "17/17 steps PASS (2026-08-28)",
+    "pm2_dump": "~/.pm2/dump.pm2 (40 processes, saved 09:49 CDT)"
+  },
+  "restore_evidence": {
+    "db_restore": "PROVEN (isolated reconstruction_test DB, 58 entities matched)",
+    "service_restore": "pm2 resurrect from dump.pm2 (40/40 processes)",
+    "log": "~/.openclaw/workspace/RECONSTRUCTION_RUN_LOG.jsonl"
+  },
+  "routing": {
+    "free_providers_confirmed": [
+      "cohere",
+      "openrouter",
+      "cerebras",
+      "nvidia",
+      "ollama"
+    ],
+    "unverified_cost": [
+      "groq (403 on 2026-08-28 test \u2014 removed from free pool)"
+    ],
+    "paid_tier3": [
+      "openai/gpt-4o-mini",
+      "openai/gpt-4.1-mini"
+    ],
+    "paid_tier4": [
+      "openai/gpt-4o",
+      "openai/gpt-4.1",
+      "openai/o3-mini",
+      "anthropic/*"
+    ],
+    "freeway_8082": "OPERATIONAL",
+    "fcc_8083": "OPERATIONAL (71 models)",
+    "oe_proxy_4100": "OPERATIONAL (21 providers)",
+    "opencode": "NOT_EVALUATED \u2014 deferred",
+    "groq_status": "UNVERIFIED_COST \u2014 403 on API test"
+  },
+  "deferred_items": [
+    "Groq free-tier verification (check Groq console)",
+    "openhuman entry-point config (TypeScript monorepo, build on-demand)",
+    "Ollama embedding model (nomic-embed-text candidate for 32GB target)",
+    "PR #14 cohere SSE repair (16/16 tests pass, untouched per policy)",
+    "OpenCode integration (deferred per policy)"
+  ],
+  "unresolved_decisions": [
+    "Target machine user account name (affects paths)",
+    "n8n migration strategy (SQLite copy vs fresh setup)",
+    "Obsidian vault sync method (no cloud \u2014 AirDrop or USB recommended)",
+    "Kalshi/Polymarket re-auth on new machine"
+  ],
+  "obsidian": {
+    "vault_md_files": 526,
+    "vault_size_mb": 94,
+    "mocs": 15,
+    "obsidianignore": "PRESENT",
+    "indexing": "OPERATIONAL",
+    "search": "15/15 key terms verified"
+  },
+  "memory": {
+    "chunks": 1027,
+    "vector_index": 1027,
+    "status": "OPERATIONAL",
+    "provider": "openai/text-embedding-3-small"
+  },
+  "privacy_policy": {
+    "private_blco_contacts": "LOCAL or approved private paid only",
+    "private_code": "LOCAL or approved private paid only",
+    "deal_terms": "LOCAL only",
+    "secrets": "NEVER sent to model",
+    "public_sanitized": "confirmed-free providers OK"
+  },
+  "migration_ready": true,
+  "migration_authorized": false,
+  "runbook": "~/.openclaw/workspace/MIGRATION_RUNBOOK.md",
+  "nathan_action_required": "Explicit cutover authorization \u2014 say 'Begin migration'"
+}

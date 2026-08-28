@@ -1,0 +1,106 @@
+{
+  "generated_at": "2026-08-28T18:41:29.438239+00:00",
+  "reconciliation": [
+    {
+      "repo": "workspace",
+      "pmo_owner": "Alusi",
+      "ros_capability": "EMPIRE_ORCHESTRATION",
+      "use_case": "routing/skills/registries",
+      "status": "DEPLOYED_AND_CERTIFIED",
+      "local_sha": "112163d",
+      "remote_sha": "112163d",
+      "blocker": "none"
+    },
+    {
+      "repo": "blco",
+      "pmo_owner": "Alusi",
+      "ros_capability": "BLCO_RESPONSE_MONITORING",
+      "use_case": "BLCO outreach",
+      "status": "DEPLOYED_AND_CERTIFIED",
+      "local_sha": "2906b1c",
+      "remote_sha": "2906b1c",
+      "blocker": "none"
+    },
+    {
+      "repo": "trading",
+      "pmo_owner": "Nathan",
+      "ros_capability": "AUTONOMOUS_TRADING",
+      "use_case": "Kalshi+Polymarket trading",
+      "status": "DEPLOYED_AND_CERTIFIED",
+      "local_sha": "c97d732",
+      "remote_sha": "c97d732",
+      "blocker": "none \u2014 private UA4200/trading confirmed"
+    },
+    {
+      "repo": "alusi-core",
+      "pmo_owner": "Alusi",
+      "ros_capability": "GOVERNANCE",
+      "use_case": "chief-of-staff logic",
+      "status": "SYNCED_REFERENCE_ONLY",
+      "local_sha": "15b122a",
+      "remote_sha": "15b122a",
+      "blocker": "none"
+    },
+    {
+      "repo": "open-empire-core",
+      "pmo_owner": "Nathan",
+      "ros_capability": "EMPIRE_ARCHITECTURE",
+      "use_case": "empire directory/spec",
+      "status": "SYNCED_REFERENCE_ONLY",
+      "local_sha": "123eb75",
+      "remote_sha": "123eb75",
+      "blocker": "none"
+    },
+    {
+      "repo": "free_llm_router",
+      "pmo_owner": "Alusi",
+      "ros_capability": "FREE_INFERENCE_ROUTING",
+      "use_case": "freeway+fcc-8083",
+      "status": "DEPLOYED_AND_CERTIFIED",
+      "local_sha": "HEAD",
+      "remote_sha": "upstream",
+      "blocker": "none \u2014 both ports healthy"
+    },
+    {
+      "repo": "iFixAi",
+      "pmo_owner": "Alusi",
+      "ros_capability": "INCIDENT_REMEDIATION",
+      "use_case": "AI debugging",
+      "status": "SYNCED_REFERENCE_ONLY",
+      "local_sha": "8b56e21",
+      "remote_sha": "8b56e21",
+      "blocker": "69 new commits imported; 0 tests; reference only"
+    },
+    {
+      "repo": "agency-agents",
+      "pmo_owner": "Alusi",
+      "ros_capability": "AGENT_FACTORY",
+      "use_case": "agent templates",
+      "status": "INSTALLED_AND_CERTIFIED",
+      "local_sha": "783f6a7",
+      "remote_sha": "upstream",
+      "blocker": "duplicate in repos/installed/ \u2014 repos/ is canonical"
+    },
+    {
+      "repo": "AI-Trader",
+      "pmo_owner": "N/A",
+      "ros_capability": "N/A",
+      "use_case": "N/A",
+      "status": "REJECTED_WITH_REASON",
+      "local_sha": "N/A",
+      "remote_sha": "N/A",
+      "blocker": "SUPERSEDED by trading/ + ai-hedge-fund sandbox"
+    }
+  ],
+  "duplicate_resolution": {
+    "agency-agents": {
+      "canonical": "~/.openclaw/repos/agency-agents (783f6a7)",
+      "duplicate": "~/.openclaw/repos/installed/agency-agents (same SHA \u2014 safe to leave, do not delete)"
+    },
+    "AI-Trader": {
+      "status": "REJECTED \u2014 capability covered by trading/ and ai-hedge-fund sandbox"
+    }
+  },
+  "all_p0_remotes_verified": true,
+  "zero_unknown": true
+}

@@ -95,7 +95,10 @@ COST_TABLE = {
     "anthropic_opus":   (15.00, 75.00),
 }
 
-FREE_PROVIDERS = {"groq","cohere","openrouter","cerebras","nvidia","ollama"}
+FREE_PROVIDERS = {"cohere","openrouter","cerebras","nvidia","ollama"}
+# Groq: API returned 403 on 2026-08-28 test — cost UNVERIFIED, removed from free pool.
+# Circuit breaker handles Groq failures. Re-add after billing status confirmed.
+UNVERIFIED_COST_PROVIDERS = {"groq"}   # claimed free, not confirmed — scored 0.4 (below confirmed-free 1.0)
 # OpenAI is NOT in FREE_PROVIDERS — always scored with cost penalty
 OPENAI_TIER3_MODELS = {"gpt-4o-mini", "gpt-4.1-mini", "gpt-4.1-nano"}  # low-cost paid
 OPENAI_TIER4_MODELS = {"gpt-4o", "gpt-4.1", "o3-mini"}                  # premium paid
@@ -238,9 +241,11 @@ def score_candidate(provider, model, task_type, has_tools=False):
     if not _state.is_healthy(key):
         return -1.0
 
-    # Cost score: 1.0 for free, scaled down proportionally for paid
+    # Cost score: 1.0 for confirmed-free, 0.4 for unverified-cost, scaled for paid
     if provider in FREE_PROVIDERS:
         cost_score = 1.0
+    elif provider in UNVERIFIED_COST_PROVIDERS:
+        cost_score = 0.4   # below confirmed-free (1.0), above paid tiers
     elif provider == "openai":
         # OpenAI cost scores calibrated against actual $/1M pricing
         # gpt-4o-mini $0.15/$0.60 < haiku $0.80/$4.00 < gpt-4o $2.50/$10
