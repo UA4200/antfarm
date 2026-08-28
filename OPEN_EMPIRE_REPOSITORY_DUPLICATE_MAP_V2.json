@@ -1,0 +1,88 @@
+{
+  "generated_at": "2026-08-09T19:15:00Z",
+  "methodology": "Duplicate detection by matching (remote URL, commit hash) pairs across all discovered repositories.",
+  "duplicate_groups": [
+    {
+      "id": "dup-001",
+      "remote": "https://github.com/msitarzewski/agency-agents",
+      "canonical_remote": "https://github.com/msitarzewski/agency-agents.git",
+      "commit": "783f6a7",
+      "copies": [
+        "/Users/NeoOC/.openclaw/repos/agency-agents",
+        "/Users/NeoOC/.openclaw/repos/installed/agency-agents"
+      ],
+      "canonical": "/Users/NeoOC/.openclaw/repos/installed/agency-agents",
+      "non_canonical": "/Users/NeoOC/.openclaw/repos/agency-agents",
+      "recommendation": "consolidate",
+      "action": "Archive repos/agency-agents (intake copy). Keep repos/installed/agency-agents as the installed reference.",
+      "risk": "LOW — both are clean (0 dirty files), same commit. Safe to remove intake copy."
+    },
+    {
+      "id": "dup-002",
+      "remote": "https://github.com/Samin12/obsidian-openclaw-memory",
+      "canonical_remote": "https://github.com/Samin12/obsidian-openclaw-memory.git",
+      "commit": "aafd7b0",
+      "copies": [
+        "/Users/NeoOC/.openclaw/workspace/skills/obsidian-openclaw-memory",
+        "/Users/NeoOC/.openclaw/repos/installed/obsidian-openclaw-memory"
+      ],
+      "canonical": "/Users/NeoOC/.openclaw/workspace/skills/obsidian-openclaw-memory",
+      "non_canonical": "/Users/NeoOC/.openclaw/repos/installed/obsidian-openclaw-memory",
+      "recommendation": "consolidate",
+      "action": "Archive repos/installed/obsidian-openclaw-memory. Keep workspace/skills/obsidian-openclaw-memory as it is the live skill location loaded by OpenClaw.",
+      "risk": "LOW — both copies are clean (0 dirty files), same commit. The workspace/skills copy is the one that gets loaded by OpenClaw's skill system."
+    }
+  ],
+  "near_duplicates": [
+    {
+      "id": "near-001",
+      "description": "workspace remote mismatch — local workspace may have wrong remote origin",
+      "paths": ["/Users/NeoOC/.openclaw/workspace"],
+      "remote": "https://github.com/UA4200/git-github.git",
+      "issue": "The main operational workspace has 207 uncommitted files and its remote points to UA4200/git-github.git which appears to be a placeholder or unrelated repository. The workspace content is NOT backed up to a matching GitHub repo.",
+      "recommendation": "audit",
+      "action": "Verify whether UA4200/git-github is the correct remote. If not, either remove the remote or push to the correct Open Empire private repo. 207 dirty files = significant unbacked work."
+    },
+    {
+      "id": "near-002",
+      "description": "open-empire-nexus has NO remote origin",
+      "paths": ["/Users/NeoOC/Projects/open-empire-nexus"],
+      "remote": "none",
+      "issue": "open-empire-nexus is a local-only repository with 14 uncommitted files and no remote backup. Any disk failure would destroy this code.",
+      "recommendation": "backup",
+      "action": "Create GitHub repo and push immediately. Suggested: github.com/[your-org]/open-empire-nexus."
+    }
+  ],
+  "archive_candidates_summary": [
+    {
+      "path": "/Users/NeoOC/.openclaw/repos/installed/AI-Youtube-Shorts-Generator",
+      "remote": "https://github.com/SamurAIGPT/AI-Youtube-Shorts-Generator",
+      "reason": "Not referenced in any active PM2 agent or workflow. Clean copy. Safe to archive.",
+      "recommendation": "archive"
+    },
+    {
+      "path": "/Users/NeoOC/.openclaw/repos/installed/Open-Generative-AI",
+      "remote": "https://github.com/Anil-matcha/Open-Generative-AI",
+      "reason": "Not referenced in any active PM2 agent or workflow. Clean copy. Safe to archive.",
+      "recommendation": "archive"
+    },
+    {
+      "path": "/Users/NeoOC/.openclaw/repos/installed/Open-Lovart",
+      "remote": "https://github.com/Anil-matcha/Open-Lovart",
+      "reason": "Not referenced in any active PM2 agent or workflow. Clean copy. Safe to archive.",
+      "recommendation": "archive"
+    },
+    {
+      "path": "/Users/NeoOC/.openclaw/repos/installed/Vibe-Workflow",
+      "remote": "https://github.com/SamurAIGPT/Vibe-Workflow",
+      "reason": "Not referenced in any active PM2 agent or workflow. Clean copy. Safe to archive.",
+      "recommendation": "archive"
+    },
+    {
+      "path": "/Users/NeoOC/.openclaw/repos/installed/postiz-app",
+      "remote": "https://github.com/gitroomhq/postiz-app.git",
+      "reason": "Social media scheduling app. Not referenced in active systems. Clean copy. Safe to archive.",
+      "recommendation": "archive"
+    }
+  ]
+}

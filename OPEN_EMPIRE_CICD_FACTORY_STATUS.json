@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-08-09T20:15:00Z",
+  "status": "DESIGNED \u2014 templates ready, deployment pending per-repo",
+  "pipeline_stages": [
+    "lint",
+    "tests",
+    "security_scan",
+    "secret_scan",
+    "dependency_validation",
+    "governance_validation",
+    "build",
+    "artifact",
+    "staging",
+    "health_validation",
+    "approval",
+    "production_promotion",
+    "rollback"
+  ],
+  "existing_ci": {
+    "UA4200_repos": "6 repos with CI green (deployed 2026-07-30)",
+    "repos": [
+      "alusi-core",
+      "open-empire-core",
+      "git-github",
+      "mission-control",
+      "antfarm",
+      "blco-pipeline"
+    ],
+    "status": "CI active on UA4200 GitHub"
+  },
+  "template_approach": "capability-specific extensions on base template",
+  "secret_scan": "gitleaks (found in Free-Way repo \u2014 .gitleaksignore active)",
+  "governance_validation": "CONSTITUTION.md + AGENTS.md referenced in pipeline hooks",
+  "not_forced_on": "repos where pipeline makes no sense (data-only, config-only)",
+  "verdict": "CICD_FACTORY_DESIGNED"
+}

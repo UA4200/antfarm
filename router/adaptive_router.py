@@ -59,6 +59,15 @@ PROVIDER_CAPS = {
     "ollama/qwen2.5:1.5b":      {"text", "json"},
     "ollama/llama3.2:3b":       {"text"},
     "ollama/tinyllama":         {"text"},
+    # ── OpenAI — TIER 3 (low-cost paid) / TIER 4 (premium) ──────────────────
+    # Placed after free/local tiers. Scored via policy; never default over free.
+    "openai/gpt-4o-mini":       {"text","json","code","reasoning","tools"},
+    "openai/gpt-4.1-mini":      {"text","json","code","tools"},
+    "openai/gpt-4o":            {"text","json","code","reasoning","tools","long_context"},
+    "openai/gpt-4.1":           {"text","json","code","reasoning","tools","long_context"},
+    "openai/o3-mini":           {"text","json","code","reasoning","tools"},
+    # o1-mini: owner-gated — not in ALL_CANDIDATES auto-routing
+    # ── Anthropic — paid escalation ────────────────────────────────────────
     "anthropic/claude-haiku-4-5":  {"text","json","code","reasoning","tools"},
     "anthropic/claude-sonnet-4-5": {"text","json","code","reasoning","tools","long_context"},
     "anthropic/claude-opus-4-5":   {"text","json","code","reasoning","tools","long_context","critical"},
@@ -73,12 +82,23 @@ COST_TABLE = {
     "nvidia":     (0.00, 0.00),
     "mistral":    (0.27, 0.27),
     "ollama":     (0.00, 0.00),
+    # OpenAI tiers — USD per 1M tokens (input, output)
+    "openai_4omini":   (0.15, 0.60),    # TIER 3 — gpt-4o-mini
+    "openai_4dot1mini":(0.40, 1.60),    # TIER 3 — gpt-4.1-mini
+    "openai_4o":       (2.50, 10.00),   # TIER 4 — gpt-4o
+    "openai_4dot1":    (2.00,  8.00),   # TIER 4 — gpt-4.1
+    "openai_o3mini":   (1.10,  4.40),   # TIER 4 — o3-mini (medium reasoning)
+    "openai_o1mini":   (3.00, 12.00),   # TIER 5 — owner-gated
+    # Anthropic tiers
     "anthropic_haiku":  (0.80, 4.00),
     "anthropic_sonnet": (3.00, 15.00),
     "anthropic_opus":   (15.00, 75.00),
 }
 
 FREE_PROVIDERS = {"groq","cohere","openrouter","cerebras","nvidia","ollama"}
+# OpenAI is NOT in FREE_PROVIDERS — always scored with cost penalty
+OPENAI_TIER3_MODELS = {"gpt-4o-mini", "gpt-4.1-mini", "gpt-4.1-nano"}  # low-cost paid
+OPENAI_TIER4_MODELS = {"gpt-4o", "gpt-4.1", "o3-mini"}                  # premium paid
 
 # ── Scoring weights (tunable) ─────────────────────────────────────────
 SCORE_WEIGHTS = {
@@ -104,14 +124,20 @@ ALL_CANDIDATES = [
     ("openrouter","gpt-oss-20b",            "/v1/messages"),
     ("cerebras", "zai-glm-4.7",             "/v1/messages"),
     ("nvidia",   "llama-3.1-nemotron-ultra", "/v1/messages"),
-    # Low-cost
+    # TIER 3 — Low-cost paid
     ("mistral",  "mistral-medium-3",        "/v1/messages"),
-    # Local
+    ("openai",   "gpt-4o-mini",             "openai"),    # $0.15/$0.60 per 1M
+    ("openai",   "gpt-4.1-mini",            "openai"),    # $0.40/$1.60 per 1M
+    # Local (free, slow — fallback)
     ("ollama",   "qwen2.5:3b",              "ollama"),
     ("ollama",   "qwen2.5:1.5b",           "ollama"),
-    # Paid escalation (last resort)
+    # TIER 4 — Premium paid (OpenAI + Anthropic compete via scoring)
+    ("openai",   "gpt-4o",                  "openai"),    # $2.50/$10 per 1M
+    ("openai",   "gpt-4.1",                 "openai"),    # $2.00/$8 per 1M
+    ("openai",   "o3-mini",                 "openai"),    # $1.10/$4.40 reasoning
     ("anthropic","claude-haiku-4-5",        "anthropic"),
     ("anthropic","claude-sonnet-4-5",       "anthropic"),
+    # o1-mini excluded from auto-routing — owner-gated TIER 5
 ]
 
 # ── State management ──────────────────────────────────────────────────
@@ -212,13 +238,26 @@ def score_candidate(provider, model, task_type, has_tools=False):
     if not _state.is_healthy(key):
         return -1.0
 
-    # Cost score: 1.0 for free, scaled down for paid
+    # Cost score: 1.0 for free, scaled down proportionally for paid
     if provider in FREE_PROVIDERS:
         cost_score = 1.0
+    elif provider == "openai":
+        # OpenAI cost scores calibrated against actual $/1M pricing
+        # gpt-4o-mini $0.15/$0.60 < haiku $0.80/$4.00 < gpt-4o $2.50/$10
+        if "4o-mini" in model:
+            cost_score = 0.38   # cheapest paid tier — below Haiku price
+        elif "4.1-mini" in model or "4.1-nano" in model:
+            cost_score = 0.30   # slightly more than gpt-4o-mini, similar to haiku
+        elif "o3-mini" in model:
+            cost_score = 0.18   # reasoning: $1.10 input
+        elif "4.1" in model:
+            cost_score = 0.12   # $2.00 input
+        else:
+            cost_score = 0.10   # gpt-4o: $2.50 input
     elif "haiku" in model:
-        cost_score = 0.3
+        cost_score = 0.28  # haiku $0.80/$4.00 — more expensive than gpt-4o-mini
     elif "sonnet" in model:
-        cost_score = 0.15
+        cost_score = 0.12
     else:
         cost_score = 0.05  # opus/expensive
 
@@ -338,12 +377,119 @@ def call_anthropic_direct(model, messages, system, max_tokens, tools=None):
     return {"text":text,"full_content":content_arr,"stop_reason":d.get("stop_reason","end_turn"),
             "in_tok":usage.get("input_tokens",0),"out_tok":usage.get("output_tokens",0),"lat":lat}
 
+def _openai_key():
+    """Read OpenAI key from canonical secrets. Never logged or printed."""
+    env_file = HOME / ".openclaw/secrets/.env"
+    for l in env_file.read_text(errors="ignore").splitlines():
+        l = l.strip()
+        if l.startswith("OPENAI_API_KEY="):
+            return l.split("=",1)[1].strip().strip('"').strip("'")
+    return os.environ.get("OPENAI_API_KEY","")
+
+
+def call_openai_direct(model, messages, system, max_tokens, tools=None):
+    """
+    Call OpenAI API directly. TIER 3/4 placement — never called over free/zero paths.
+    Supports Anthropic-to-OpenAI message format conversion.
+    Key loaded from ~/.openclaw/secrets/.env — never logged.
+    """
+    key = _openai_key()
+    if not key:
+        raise RuntimeError("OPENAI_API_KEY not configured in ~/.openclaw/secrets/.env")
+
+    # Convert Anthropic-style messages to OpenAI format
+    oai_messages = []
+    if system:
+        oai_messages.append({"role": "system", "content": system})
+    for m in messages:
+        content = m.get("content", "")
+        if isinstance(content, list):
+            content = " ".join(c.get("text","") for c in content if c.get("type")=="text")
+        oai_messages.append({"role": m.get("role","user"), "content": content})
+
+    body = {"model": model, "messages": oai_messages, "max_tokens": max_tokens}
+
+    if tools:
+        oai_tools = []
+        for t in tools:
+            oai_tools.append({
+                "type": "function",
+                "function": {
+                    "name":        t.get("name",""),
+                    "description": t.get("description",""),
+                    "parameters":  t.get("input_schema", {}),
+                }
+            })
+        body["tools"] = oai_tools
+        body["tool_choice"] = "auto"
+
+    data = json.dumps(body).encode()
+    # Authorization header is not logged anywhere
+    req  = urllib.request.Request(
+        "https://api.openai.com/v1/chat/completions",
+        data=data, method="POST",
+        headers={
+            "Authorization": f"Bearer {key}",
+            "Content-Type":  "application/json",
+        }
+    )
+    t0 = time.time()
+    r  = urllib.request.urlopen(req, timeout=60)
+    d  = json.loads(r.read())
+    lat = int((time.time()-t0)*1000)
+
+    if "error" in d:
+        raise RuntimeError(d["error"].get("message", str(d["error"]))[:120])
+
+    choice = d.get("choices",[{}])[0]
+    text   = choice.get("message",{}).get("content","") or ""
+    stop_r = choice.get("finish_reason","stop")
+    usage  = d.get("usage",{})
+
+    # Normalize stop_reason to Anthropic convention
+    stop_map = {"stop":"end_turn","length":"max_tokens","tool_calls":"tool_use"}
+    stop_r   = stop_map.get(stop_r, stop_r)
+
+    # Handle tool calls (convert OAI → Anthropic content format)
+    tool_calls  = choice.get("message",{}).get("tool_calls",[])
+    full_content = ([{"type":"text","text":text}] if text else [])
+    for tc in tool_calls:
+        try:
+            full_content.append({
+                "type":  "tool_use",
+                "id":    tc.get("id",""),
+                "name":  tc.get("function",{}).get("name",""),
+                "input": json.loads(tc.get("function",{}).get("arguments","{}") or "{}"),
+            })
+        except Exception:
+            pass
+
+    if not text and not tool_calls:
+        raise RuntimeError("Empty OpenAI response")
+
+    return {
+        "text":         text,
+        "full_content": full_content,
+        "stop_reason":  stop_r,
+        "in_tok":       usage.get("prompt_tokens",0),
+        "out_tok":      usage.get("completion_tokens",0),
+        "lat":          lat,
+    }
+
+
 def _estimate_cost(provider, model, in_tok, out_tok):
     if provider in FREE_PROVIDERS: return 0.0
-    if "haiku"  in model: tier = "anthropic_haiku"
-    elif "opus" in model: tier = "anthropic_opus"
-    else: tier = "anthropic_sonnet"
-    inp, out = COST_TABLE[tier]
+    if provider == "openai":
+        if "o1-mini" in model:          tier = "openai_o1mini"
+        elif "o3-mini" in model:        tier = "openai_o3mini"
+        elif "4o-mini" in model:        tier = "openai_4omini"
+        elif "4.1-mini" in model or "4.1-nano" in model: tier = "openai_4dot1mini"
+        elif "4.1" in model:            tier = "openai_4dot1"
+        else:                           tier = "openai_4o"
+    elif "haiku"  in model:            tier = "anthropic_haiku"
+    elif "opus"   in model:            tier = "anthropic_opus"
+    else:                               tier = "anthropic_sonnet"
+    inp, out = COST_TABLE.get(tier, (3.00, 15.00))
     return (in_tok * inp + out_tok * out) / 1_000_000
 
 def _telemetry(entry):
@@ -380,6 +526,9 @@ def route(task_type, messages, system, max_tokens, tools=None,
             if endpoint == "anthropic" or provider == "anthropic":
                 res = call_anthropic_direct(model, messages, system, max_tokens, tools)
                 is_premium = True
+            elif provider == "openai":
+                res = call_openai_direct(model, messages, system, max_tokens, tools)
+                is_premium = True   # tracked separately from Anthropic in telemetry
             elif endpoint == "ollama" or provider == "ollama":
                 res = call_ollama(model, messages, system, max_tokens)
             else:

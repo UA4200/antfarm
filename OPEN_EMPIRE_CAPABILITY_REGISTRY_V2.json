@@ -1,0 +1,148 @@
+{
+  "generated_at": "2026-08-09T20:15:00Z",
+  "version": "V2",
+  "capabilities": [
+    {
+      "id": "COST_OPTIMIZED_INFERENCE",
+      "status": "OPERATIONAL",
+      "providers": [
+        "freeway:8082"
+      ],
+      "repos": [
+        "Free-Way"
+      ],
+      "pm2_ids": [
+        48,
+        55
+      ]
+    },
+    {
+      "id": "GOVERNED_ROUTING",
+      "status": "OPERATIONAL",
+      "providers": [
+        "native-router:6251"
+      ],
+      "pm2_ids": [
+        26
+      ]
+    },
+    {
+      "id": "LOCAL_INFERENCE",
+      "status": "OPERATIONAL",
+      "providers": [
+        "ollama:11434"
+      ],
+      "pm2_ids": [
+        24
+      ],
+      "models": 6
+    },
+    {
+      "id": "ADAPTIVE_ROUTING",
+      "status": "OPERATIONAL",
+      "providers": [
+        "oe-proxy:4100"
+      ],
+      "pm2_ids": [
+        55
+      ],
+      "version": "2.0"
+    },
+    {
+      "id": "PREMIUM_ESCALATION_CONTROL",
+      "status": "OPERATIONAL",
+      "audit_log": "~/.openclaw/logs/oe_proxy_calls.jsonl"
+    },
+    {
+      "id": "KNOWLEDGE_GRAPH",
+      "status": "OPERATIONAL",
+      "providers": [
+        "kg-api:6279",
+        "clawdb:5432"
+      ],
+      "pm2_ids": [
+        52
+      ],
+      "entities": 66,
+      "relationships": 23
+    },
+    {
+      "id": "COST_TELEMETRY",
+      "status": "OPERATIONAL",
+      "providers": [
+        "grafana:3001",
+        "fcc-metrics-exporter"
+      ],
+      "pm2_ids": [
+        50,
+        51
+      ]
+    },
+    {
+      "id": "MEMORY_PIPELINE",
+      "status": "OPERATIONAL",
+      "stores": [
+        "memory/active",
+        "memory/compressed",
+        "memory/archive",
+        "OpenClaw wiki"
+      ]
+    },
+    {
+      "id": "TASK_OBSERVER",
+      "status": "OPERATIONAL_GUARDED",
+      "script": "router/task_observer_collector.py",
+      "guardrails": "governance domains blocked"
+    },
+    {
+      "id": "ECONOMIC_GOVERNOR",
+      "status": "OPERATIONAL",
+      "script": "router/economic_guard.py",
+      "clawdb": true
+    },
+    {
+      "id": "OBSIDIAN_HUMAN_VIEW",
+      "status": "OPERATIONAL",
+      "vault": "~/.openclaw/workspace",
+      "moc_files": 5
+    },
+    {
+      "id": "AUTONOMOUS_TRADING",
+      "status": "PROTECTED",
+      "pm2_ids": [
+        38,
+        39,
+        40,
+        41
+      ],
+      "note": "CashClaw \u2014 no modifications"
+    },
+    {
+      "id": "WORKFLOW_AUTOMATION",
+      "status": "OPERATIONAL",
+      "provider": "n8n:5678",
+      "workflows": 14,
+      "oepm_active": 6
+    },
+    {
+      "id": "CICD_FACTORY",
+      "status": "DESIGNED",
+      "spec": "OPEN_EMPIRE_CICD_FACTORY_STATUS.json",
+      "note": "template-based, not yet deployed"
+    },
+    {
+      "id": "CAPABILITY_FACTORY",
+      "status": "DESIGNED",
+      "spec": "OPEN_EMPIRE_CAPABILITY_FACTORY_SPEC.md"
+    },
+    {
+      "id": "REPOSITORY_FACTORY",
+      "status": "DESIGNED",
+      "spec": "OPEN_EMPIRE_REPOSITORY_FACTORY_SPEC.md",
+      "repos_cataloged": 37
+    }
+  ],
+  "total": 16,
+  "operational": 13,
+  "designed": 3
+}

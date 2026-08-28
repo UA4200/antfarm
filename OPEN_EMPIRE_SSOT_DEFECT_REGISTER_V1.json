@@ -1,0 +1,55 @@
+{
+  "generated_at": "2026-08-09T21:35:00Z",
+  "total_defects": 3,
+  "defects": [
+    {
+      "id": "SSOT-001",
+      "system": "ClawDB schema",
+      "description": "Database lost on PM2/PostgreSQL restart \u2014 schema and data wiped",
+      "severity": "HIGH",
+      "status": "RESOLVED \u2014 schema restored, data reseeded",
+      "root_cause": "start_pg.sh restarts PostgreSQL but clawdb database not persisted in pg_dump",
+      "prevention": "Add periodic pg_dump to cron; store backup at ~/.openclaw/backups/clawdb/"
+    },
+    {
+      "id": "SSOT-002",
+      "system": "open-empire-nexus",
+      "description": "No remote origin configured \u2014 single local commit, 14 dirty files",
+      "severity": "MEDIUM",
+      "status": "OPEN \u2014 Nathan decision required",
+      "action": "git remote add origin https://github.com/UA4200/open-empire-nexus.git && git push -u origin main"
+    },
+    {
+      "id": "SSOT-003",
+      "system": "workspace uncommitted files",
+      "description": "228 files uncommitted including api_key_inventory.json (EXCLUDE)",
+      "severity": "MEDIUM",
+      "status": "OPEN \u2014 9 commit groups defined, Nathan review required",
+      "action": "Review OPEN_EMPIRE_WORKSPACE_CHANGESET_REVIEW.json, commit groups 1-9 selectively"
+    },
+    {
+      "id": "SSOT-004",
+      "system": "api_key_inventory.json",
+      "description": "Key inventory file in workspace \u2014 not gitignored",
+      "severity": "HIGH",
+      "status": "ACTION_REQUIRED",
+      "action": "Add to .gitignore immediately: echo 'api_key_inventory.json' >> ~/.openclaw/workspace/.gitignore"
+    },
+    {
+      "id": "SSOT-005",
+      "system": "n8n",
+      "description": "n8n restarting after PM2 reload \u2014 port 5678 temporarily unavailable",
+      "severity": "LOW",
+      "status": "SELF_RESOLVING \u2014 n8n takes 30-60s to start",
+      "action": "Monitor; if still down after 2min: pm2 restart n8n"
+    },
+    {
+      "id": "SSOT-006",
+      "system": "PM2 IDs",
+      "description": "IDs changed after PM2 reload (e.g., old kg-api=52 now kg-api=42)",
+      "severity": "LOW",
+      "status": "DOCUMENTED \u2014 update AGENTS.md/MEMORY.md with new IDs",
+      "action": "Update AGENTS.md with new PM2 IDs after save"
+    }
+  ]
+}

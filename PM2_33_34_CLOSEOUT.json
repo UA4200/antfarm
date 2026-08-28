@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-08-09T20:05:00Z",
+  "pm2_id_33": {
+    "name": "open-empire-federation-staging",
+    "script": "~/.openclaw/workspace/ (Python 3.14.6 one-shot script)",
+    "cadence": "*/15 * * * * (every 15 minutes)",
+    "last_run": "2026-08-09T13:30:07 CDT (confirmed by output file mtime)",
+    "exit_code": 0,
+    "output_file_exists": true,
+    "output_file": "latest_federation_state.json",
+    "pm2_display_status": "stopped (expected — exits after run)",
+    "crash_loop": false,
+    "verdict": "PM2_33_34_EXPECTED_STOPPED_STATE"
+  },
+  "pm2_id_34": {
+    "name": "open-empire-lifecycle-staging",
+    "script": "~/.openclaw/workspace/ (Python 3.14.6 one-shot script)",
+    "cadence": "*/15 * * * * (every 15 minutes)",
+    "last_run": "2026-08-09T13:30:07 CDT (confirmed by output file mtime)",
+    "exit_code": 0,
+    "output_file_exists": true,
+    "output_file": "latest_lifecycle_state.json",
+    "pm2_display_status": "stopped (expected — exits after run)",
+    "crash_loop": false,
+    "verdict": "PM2_33_34_EXPECTED_STOPPED_STATE"
+  },
+  "agents_md_correction": {
+    "old_pm2_ids": "45/46",
+    "corrected_pm2_ids": "33/34",
+    "old_interval": "*/5",
+    "corrected_interval": "*/15",
+    "old_python": "Python3.13",
+    "corrected_python": "Python3.14.6",
+    "correction_applied": true
+  },
+  "final_verdict": "PM2_33_34_EXPECTED_STOPPED_STATE",
+  "note": "Stopped between cron runs is normal PM2 behavior for one-shot scripts. No engineering action required."
+}

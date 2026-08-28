@@ -1,0 +1,226 @@
+{
+  "generated_at": "2026-08-09T15:52:00Z",
+  "generated_by": "Alusi C0.11 — Unified Memory / Knowledge Design",
+  "principle": "Every component has ONE primary responsibility. No overlapping SSOTs. No circular sync.",
+
+  "architecture_layers": [
+    {
+      "layer": 1,
+      "name": "EVENT CAPTURE",
+      "description": "Raw signal from agent execution, tool calls, outcomes",
+      "components": [
+        {
+          "name": "OpenClaw heartbeat loop",
+          "role": "PRIMARY — captures per-cycle events",
+          "input": "PM2 process state, agent outputs, errors",
+          "output": "memory/active/*.md (compressed summaries)",
+          "authoritative_data": "operational event log",
+          "retention": "24h in active, then compressed",
+          "write_authority": "alusi-loop, agent processes",
+          "read_authority": "Alusi, sub-agents (via memory_search)",
+          "sync_direction": "append-only → layer 2"
+        },
+        {
+          "name": "native-router events.jsonl",
+          "role": "SECONDARY — captures routing decisions",
+          "input": "all API calls through native-router",
+          "output": "~/.openclaw/logs/native_router/events.jsonl",
+          "authoritative_data": "governed route audit log",
+          "retention": "rolling, 30 days",
+          "write_authority": "native-router process only",
+          "read_authority": "Alusi, cost telemetry, audit",
+          "sync_direction": "append-only → C0.13 telemetry aggregator"
+        },
+        {
+          "name": "Task Observer (PROPOSED)",
+          "role": "TERTIARY — captures skill quality observations",
+          "input": "agent task outcomes, failure patterns",
+          "output": "workspace/skill-observations/*.json",
+          "authoritative_data": "skill methodology quality signals",
+          "retention": "permanent (proposed improvements)",
+          "write_authority": "Task Observer process (read-only on governance)",
+          "read_authority": "skill_workshop, Alusi",
+          "sync_direction": "→ skill_workshop proposal queue"
+        }
+      ]
+    },
+    {
+      "layer": 2,
+      "name": "RAW MEMORY",
+      "components": [
+        {
+          "name": "memory/active/",
+          "role": "PRIMARY — hot short-term memory",
+          "path": "~/.openclaw/memory/active/",
+          "input": "event summaries (≤300 tokens each)",
+          "output": "context injection for next agent cycle",
+          "authoritative_data": "current task state, last 24h decisions",
+          "retention": "24h rolling",
+          "write_authority": "alusi-loop, agent processes",
+          "read_authority": "any agent, Alusi",
+          "sync_direction": "→ layer 3 compression every 6h"
+        }
+      ]
+    },
+    {
+      "layer": 3,
+      "name": "NORMALIZATION / COMPRESSION",
+      "components": [
+        {
+          "name": "memory compression (6h cycle)",
+          "role": "PRIMARY — dedup, compress, promote to long-term",
+          "input": "memory/active/*.md",
+          "output": "memory/compressed/daily_YYYY-MM-DD.md",
+          "authoritative_data": "daily KPI summaries, key decisions",
+          "retention": "90 days compressed",
+          "write_authority": "alusi-loop compression step",
+          "read_authority": "Alusi, wiki synthesis",
+          "sync_direction": "→ layer 4 long-term"
+        },
+        {
+          "name": "Headroom ContextEngine (PILOT)",
+          "role": "SECONDARY — token compression before inference",
+          "input": "agent prompts (non-governance)",
+          "output": "compressed prompt (15–25% reduction)",
+          "authoritative_data": "none — stateless transform",
+          "retention": "none — per-request",
+          "write_authority": "Headroom plugin",
+          "read_authority": "N/A",
+          "sync_direction": "passthrough — input→output, no persistence",
+          "governance_constraint": "MUST NOT compress: Kelly controls, approval gates, financial schemas, security policy"
+        }
+      ]
+    },
+    {
+      "layer": 4,
+      "name": "LONG-TERM MEMORY",
+      "components": [
+        {
+          "name": "MEMORY.md",
+          "role": "PRIMARY — user profile and runtime state",
+          "path": "~/.openclaw/workspace/MEMORY.md",
+          "input": "Nathan preferences, validated runtime state, key decisions",
+          "output": "injected at every Alusi session start",
+          "authoritative_data": "user identity, priorities, validated status table",
+          "retention": "permanent (versioned)",
+          "write_authority": "Alusi only (Nathan approval for major changes)",
+          "read_authority": "all sessions, all agents",
+          "sync_direction": "→ layer 6 Obsidian (human view)"
+        },
+        {
+          "name": "memory/archive/",
+          "role": "SECONDARY — raw log retention",
+          "path": "~/.openclaw/memory/archive/",
+          "input": "raw event logs, transcripts, records",
+          "output": "audit trail only (never auto-injected)",
+          "authoritative_data": "immutable historical record",
+          "retention": "permanent",
+          "write_authority": "compression pipeline (move-only)",
+          "read_authority": "Alusi deep retrieval (explicit request only)",
+          "sync_direction": "terminal — no further propagation"
+        },
+        {
+          "name": "OpenClaw compiled wiki",
+          "role": "PRIMARY — synthesized knowledge store",
+          "input": "wiki_apply, wiki synthesis from sessions",
+          "output": "source-backed notes, entity pages, decisions",
+          "authoritative_data": "cross-session knowledge, source-evidenced facts",
+          "retention": "permanent (versioned)",
+          "write_authority": "Alusi via wiki_apply, explicit synthesis requests",
+          "read_authority": "memory_search corpus=wiki/all",
+          "sync_direction": "→ layer 6 Obsidian (generated exports)"
+        },
+        {
+          "name": "codebase-memory-mcp",
+          "role": "SECONDARY — code context indexing",
+          "input": "workspace code files",
+          "output": "code context for Claude Code / MCP consumers",
+          "authoritative_data": "codebase structure, function signatures",
+          "retention": "indexed, refreshes on change",
+          "write_authority": "MCP server (read-only on source)",
+          "read_authority": "Claude Code, MCP consumers",
+          "sync_direction": "read-only indexing → MCP responses"
+        }
+      ]
+    },
+    {
+      "layer": 5,
+      "name": "KNOWLEDGE GRAPH",
+      "status": "NOT IMPLEMENTED — CRITICAL GAP",
+      "components": [
+        {
+          "name": "ClawDB Knowledge Graph (PROPOSED)",
+          "role": "PRIMARY — entity + relationship store",
+          "implementation": "PostgreSQL tables in ClawDB (port 5432, already running)",
+          "proposed_schema": {
+            "entities": "id, type (agent/venture/project/repo/decision/model/provider), name, properties JSONB, created_at, updated_at",
+            "relationships": "id, from_entity_id, to_entity_id, relationship_type, weight, properties JSONB, created_at"
+          },
+          "input": "system events, decisions, agent outcomes",
+          "output": "graph queries for context retrieval, cross-entity reasoning",
+          "authoritative_data": "entity relationships, dependency map",
+          "retention": "permanent",
+          "write_authority": "Alusi, approved agents via API",
+          "read_authority": "any agent via SQL/API",
+          "sync_direction": "→ layer 6 Obsidian graph view export",
+          "build_priority": "HIGH — enables C0.7 Task Observer and C0.13 telemetry correlation"
+        }
+      ]
+    },
+    {
+      "layer": 6,
+      "name": "OBSIDIAN HUMAN VIEW",
+      "components": [
+        {
+          "name": "Obsidian workspace vault",
+          "role": "PRIMARY — human knowledge interface",
+          "path": "~/.openclaw/workspace (OPEN — canonical vault)",
+          "input": "generated views from layers 4+5, human notes",
+          "output": "readable knowledge navigation, MOCs, decision records",
+          "authoritative_data": "NONE — it is a VIEW, not an SSOT",
+          "retention": "permanent",
+          "write_authority": "Nathan (human notes), Alusi (generated views only)",
+          "read_authority": "Nathan, any agent with file access",
+          "sync_direction": "human notes → layer 1 ingestion queue (pending implementation)"
+        }
+      ]
+    },
+    {
+      "layer": 7,
+      "name": "CONTEXT RETRIEVAL",
+      "components": [
+        {
+          "name": "memory_search (OpenClaw tool)",
+          "role": "PRIMARY — semantic search across memory+wiki",
+          "input": "query string, corpus selector",
+          "output": "ranked memory snippets with source citations",
+          "search_method": "semantic + BM25 (built-in)",
+          "read_authority": "Alusi, all agents",
+          "sync_direction": "read-only"
+        },
+        {
+          "name": "ClawDB SQL (PROPOSED for KG queries)",
+          "role": "SECONDARY — structured entity/relationship queries",
+          "search_method": "SQL joins, graph traversal",
+          "read_authority": "Alusi, agents via API"
+        }
+      ]
+    }
+  ],
+
+  "gaps_summary": [
+    {"gap": "Knowledge Graph (Layer 5)", "priority": "HIGH", "solution": "Build in ClawDB — no new infrastructure"},
+    {"gap": "Per-tool event capture granularity", "priority": "MEDIUM", "solution": "Extend heartbeat to capture tool-call outcomes → memory/active/"},
+    {"gap": "Human note ingestion pipeline", "priority": "LOW", "solution": "Obsidian → ingestion queue → validation → MEMORY.md or wiki"},
+    {"gap": "Token compression", "priority": "MEDIUM", "solution": "Headroom ContextEngine PILOT (Layer 3)"},
+    {"gap": "Skill observation loop", "priority": "MEDIUM", "solution": "Task Observer → skill_workshop (Layer 1 → skill system)"}
+  ],
+
+  "anti_patterns_to_avoid": [
+    "Writing identical memory into multiple independent stores simultaneously",
+    "Creating new databases for data already in ClawDB",
+    "Circular sync between Obsidian and machine memory",
+    "Auto-promoting arbitrary Obsidian notes to governance",
+    "Compressing governance/financial control prompts"
+  ]
+}

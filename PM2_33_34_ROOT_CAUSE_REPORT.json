@@ -1,0 +1,77 @@
+{
+  "generated_at": "2026-08-09T18:35:01Z",
+  "diagnosis_agent": "subagent:pm2-33-34-root-cause",
+  "diagnosis_summary": "Both id=33 and id=34 are SHORT-LIVED CRON SCRIPTS by design. They run every 15 minutes, write a JSON state file, print output, and exit with code 0. PM2 'stopped' status between cron triggers is EXPECTED NORMAL BEHAVIOR for this pattern. Both scripts ran successfully at 2026-08-09T13:30:07 CDT and their output files are current.",
+  "services": [
+    {
+      "pm2_id": 33,
+      "name": "open-empire-federation-staging",
+      "script_path": "/Users/NeoOC/.openclaw/empire/federation/federation_coordinator.py",
+      "interpreter": "python3 (3.14.6 at /usr/local/bin/python3)",
+      "cron_restart": "*/15 * * * *",
+      "exec_cwd": "/Users/NeoOC/.openclaw/workspace",
+      "output_file": "/Users/NeoOC/.openclaw/empire/federation/latest_federation_state.json",
+      "last_output_timestamp": "2026-08-09T13:30:07 CDT",
+      "root_cause": "Script is a one-shot cron task — it runs, writes JSON, prints output, and exits with code 0. PM2 records this as 'stopped'. This is expected behavior for cron-managed scripts, NOT a crash. Historical error log entries (168 Fatal Python errors) stem from a Python 3.14.3_1 -> 3.14.6 Homebrew upgrade that caused intermittent site module failures during the transition window. Current Python 3.14.6 is stable and functional.",
+      "root_cause_class": "STALE_SERVICE",
+      "root_cause_class_detail": "MISCLASSIFIED_AS_BROKEN — service operates normally as a cron script; 'stopped' between runs is designed behavior",
+      "historical_error_cause": "VERSION_INCOMPATIBILITY (Python 3.14.3_1 partially broken during Homebrew upgrade; resolved in 3.14.6)",
+      "role": "STAGING",
+      "required_by": [],
+      "dependency_consumers": "None identified. latest_federation_state.json is a monitoring artifact; no active reader found in workspace, trading, mission-control, or kg-api codebases.",
+      "agents_md_discrepancy": {
+        "agents_md_claims_id": 45,
+        "actual_pm2_id": 33,
+        "agents_md_claims_cron": "*/5",
+        "actual_cron": "*/15",
+        "agents_md_claims_python": "Python3.13",
+        "actual_python": "Python 3.14.6"
+      },
+      "action_taken": "NO_ACTION — service is operational. No restart attempted. Output file is current (13:30:07 CDT). Next cron trigger at 13:45 CDT will set status back to 'online' briefly.",
+      "current_status": "stopped (NORMAL — between cron triggers; last run 13:30:07 CDT, next run 13:45 CDT)",
+      "restart_count_before": 14,
+      "restart_count_after": 14,
+      "recommendation": "1) Update AGENTS.md to reflect correct PM2 ID (33 not 45), cron interval (*/15 not */5), and Python version (3.14 not 3.13). 2) Clear error log to remove noise from historical Python upgrade: pm2 flush 33. 3) Consider adding --no-autorestart or a wrapper that explicitly exits 0 so PM2 interprets termination as non-error. 4) No restart needed — service is healthy."
+    },
+    {
+      "pm2_id": 34,
+      "name": "open-empire-lifecycle-staging",
+      "script_path": "/Users/NeoOC/.openclaw/empire/lifecycle/lifecycle_manager.py",
+      "interpreter": "python3 (3.14.6 at /usr/local/bin/python3)",
+      "cron_restart": "*/15 * * * *",
+      "exec_cwd": "/Users/NeoOC/.openclaw/workspace",
+      "output_file": "/Users/NeoOC/.openclaw/empire/lifecycle/latest_lifecycle_state.json",
+      "last_output_timestamp": "2026-08-09T13:30:07 CDT",
+      "root_cause": "Same as id=33: one-shot cron script pattern. Writes lifecycle state JSON and exits. PM2 'stopped' between cron triggers is normal. Historical errors (149 Fatal Python errors) from same Python 3.14.3_1 transition. Current 3.14.6 is stable.",
+      "root_cause_class": "STALE_SERVICE",
+      "root_cause_class_detail": "MISCLASSIFIED_AS_BROKEN — service operates normally as a cron script; 'stopped' between runs is designed behavior",
+      "historical_error_cause": "VERSION_INCOMPATIBILITY (Python 3.14.3_1 partially broken during Homebrew upgrade; resolved in 3.14.6)",
+      "role": "STAGING",
+      "required_by": [],
+      "dependency_consumers": "None identified. latest_lifecycle_state.json is a monitoring artifact; no active reader found in workspace, trading, mission-control, or kg-api codebases.",
+      "agents_md_discrepancy": {
+        "agents_md_claims_id": 46,
+        "actual_pm2_id": 34,
+        "agents_md_claims_cron": "*/5",
+        "actual_cron": "*/15",
+        "agents_md_claims_python": "Python3.13",
+        "actual_python": "Python 3.14.6"
+      },
+      "action_taken": "NO_ACTION — service is operational. No restart attempted. Output file is current (13:30:07 CDT). Next cron trigger at 13:45 CDT will set status back to 'online' briefly.",
+      "current_status": "stopped (NORMAL — between cron triggers; last run 13:30:07 CDT, next run 13:45 CDT)",
+      "restart_count_before": 12,
+      "restart_count_after": 12,
+      "recommendation": "1) Update AGENTS.md to reflect correct PM2 ID (34 not 46), cron interval (*/15 not */5), and Python version (3.14 not 3.13). 2) Clear error log: pm2 flush 34. 3) No restart needed — service is healthy."
+    }
+  ],
+  "python_environment": {
+    "which_python3": "/usr/local/bin/python3",
+    "python3_version": "Python 3.14.6",
+    "functional_test": "python3 -c \"import json; print('ok')\" → ok",
+    "historical_broken_version": "python@3.14/3.14.3_1 (Cellar path present in old error traces)",
+    "status": "STABLE — Python 3.14.6 installed and functional"
+  },
+  "cashclaw_safety": {
+    "ids_38_39_40_41": "NOT TOUCHED — confirmed online and unmodified throughout this diagnosis"
+  }
+}

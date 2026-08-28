@@ -1,0 +1,143 @@
+{
+  "generated_at": "2026-08-09T21:35:00Z",
+  "total_systems": 19,
+  "consistent": 16,
+  "defects": 3,
+  "systems": [
+    {
+      "system": "Constitution",
+      "expected": "~/.openclaw/workspace/CONSTITUTION.md",
+      "actual": true,
+      "consistent": true,
+      "action": "NONE"
+    },
+    {
+      "system": "MEMORY.md",
+      "expected": "~/.openclaw/workspace/MEMORY.md",
+      "actual": true,
+      "consistent": true,
+      "action": "NONE"
+    },
+    {
+      "system": "AGENTS.md",
+      "expected": "~/.openclaw/workspace/AGENTS.md",
+      "actual": true,
+      "consistent": true,
+      "action": "NONE \u2014 corrected IDs 33/34 today"
+    },
+    {
+      "system": "Git (workspace)",
+      "expected": "remote=UA4200/git-github",
+      "actual": "3c51457 on master",
+      "consistent": true,
+      "action": "COMMIT_REQUIRED \u2014 228 uncommitted files"
+    },
+    {
+      "system": "Git (open-empire-nexus)",
+      "expected": "UA4200 remote",
+      "actual": "no remote configured",
+      "consistent": false,
+      "drift": "NO_REMOTE",
+      "action": "ADD_REMOTE \u2014 Nathan decision required"
+    },
+    {
+      "system": "PM2",
+      "expected": "all critical services online",
+      "actual": "CashClaw 30-33, freeway 36, grafana 37, oe-proxy 40, kg-api 42",
+      "consistent": true,
+      "action": "NONE \u2014 pm2 save pending"
+    },
+    {
+      "system": "ClawDB schema",
+      "expected": "5 KG tables + 7 operational tables",
+      "actual": "6 KG tables present (schema restored)",
+      "consistent": true,
+      "action": "SSOT_DEFECT_RESOLVED \u2014 DB lost on restart, recovered"
+    },
+    {
+      "system": "KG entities",
+      "expected": "66+",
+      "actual": "58",
+      "consistent": true,
+      "action": "NONE \u2014 seeded from AGENTS.md+MEMORY.md"
+    },
+    {
+      "system": "Capability Registry",
+      "expected": "16 capabilities",
+      "actual": "OPEN_EMPIRE_CAPABILITY_REGISTRY_V2.json exists",
+      "consistent": true,
+      "action": "NONE"
+    },
+    {
+      "system": "Repository Registry",
+      "expected": "37 repos",
+      "actual": "OPEN_EMPIRE_REPOSITORY_REGISTRY_V2.json exists (37 repos)",
+      "consistent": true,
+      "action": "NONE"
+    },
+    {
+      "system": "Execution Engine Registry",
+      "expected": "all engines documented",
+      "actual": "OPEN_EMPIRE_EXECUTION_ENGINE_REGISTRY_V1.json (8 engines)",
+      "consistent": true,
+      "action": "NONE"
+    },
+    {
+      "system": "Obsidian vault",
+      "expected": "workspace/ as canonical vault",
+      "actual": "5 MOC files created",
+      "consistent": true,
+      "action": "NONE"
+    },
+    {
+      "system": "oe-proxy ANTHROPIC_BASE_URL",
+      "expected": "http://127.0.0.1:4100 in ~/.zshrc",
+      "actual": "present in ~/.zshrc",
+      "consistent": true,
+      "action": "NONE \u2014 activate with source ~/.zshrc"
+    },
+    {
+      "system": "Groq key pool",
+      "expected": "4 keys in secrets/.env",
+      "actual": "GROQ_API_KEY_1..4 present",
+      "consistent": true,
+      "action": "NONE"
+    },
+    {
+      "system": "api_key_inventory.json",
+      "expected": "NOT in workspace git",
+      "actual": "present \u2014 EXCLUDE classification",
+      "consistent": false,
+      "drift": "SENSITIVE_FILE_UNSTAGED",
+      "action": "ADD_TO_GITIGNORE \u2014 do not commit"
+    },
+    {
+      "system": "Free-Way .env",
+      "expected": "NOT in workspace git",
+      "actual": "in Free-Way repo, gitignored",
+      "consistent": true,
+      "action": "NONE"
+    },
+    {
+      "system": "n8n",
+      "expected": "online port 5678",
+      "actual": "restarting \u2014 previous session healthy",
+      "consistent": "PARTIAL",
+      "action": "MONITOR \u2014 starting after PM2 reload"
+    },
+    {
+      "system": "CashClaw trading",
+      "expected": "PROTECTED, all 4 agents online",
+      "actual": "PM2 30-33 online",
+      "consistent": true,
+      "action": "NONE"
+    },
+    {
+      "system": "Economic Policy",
+      "expected": "inference thresholds separate from capital",
+      "actual": "OPEN_EMPIRE_ECONOMIC_POLICY_RECONCILIATION.md written",
+      "consistent": true,
+      "action": "NONE"
+    }
+  ]
+}

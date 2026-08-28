@@ -1,0 +1,49 @@
+{
+  "generated_at": "2026-08-09T21:55:00Z",
+  "status": "READY_TO_PUSH — blocked on token scope",
+
+  "local_repo": {
+    "path": "~/projects/open-empire-nexus",
+    "tech_stack": "Next.js 0.1.0 (TypeScript)",
+    "branch": "master",
+    "commits": ["5ad07ce init"],
+    "dirty_files": 14,
+    "has_remote": false,
+    "gitignore_covers": [".env*","*.pem","node_modules",".next/","*.tsbuildinfo","next-env.d.ts"]
+  },
+
+  "secret_scan": {
+    "hardcoded_secrets": "NONE FOUND",
+    "env_references_only": true,
+    "pattern": "process.env.ANTHROPIC_API_KEY (runtime reference, not value)",
+    "files_scanned": ["src/","server/","*.ts","*.mjs","*.json"],
+    "verdict": "CLEAN — safe to push"
+  },
+
+  "github_check": {
+    "repo_exists": false,
+    "checked_at": "2026-08-09T21:48:00Z",
+    "intended_visibility": "PRIVATE",
+    "intended_owner": "UA4200"
+  },
+
+  "blocker": {
+    "type": "TOKEN_SCOPE",
+    "error": "Resource not accessible by personal access token (HTTP 403)",
+    "cause": "GITHUB_API_TOKEN lacks repo creation scope. Fine-grained token or missing 'repo' scope.",
+    "resolution": "Nathan must either: (A) generate a new token with 'repo' scope, or (B) create the repo manually on GitHub.com"
+  },
+
+  "ready_to_execute_commands": {
+    "step_1_create_repo": "gh repo create UA4200/open-empire-nexus --private --description 'Open Empire Nexus' (requires token with repo scope)",
+    "step_2_add_remote": "git -C ~/projects/open-empire-nexus remote add origin https://github.com/UA4200/open-empire-nexus.git",
+    "step_3_first_push": "git -C ~/projects/open-empire-nexus push -u origin master",
+    "no_force_push": true
+  },
+
+  "manual_option": "Nathan can create UA4200/open-empire-nexus as PRIVATE on github.com, then run steps 2+3 above",
+
+  "verdict": "SSOT_002_READY_PENDING_TOKEN_SCOPE",
+  "blocking_migration": true,
+  "resolution_effort": "5 minutes once token or manual repo creation done"
+}

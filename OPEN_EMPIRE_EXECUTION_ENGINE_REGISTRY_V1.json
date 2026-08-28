@@ -1,0 +1,536 @@
+{
+  "generated_at": "2026-08-09T21:17:00Z",
+  "generated_by": "LANE_D_subagent",
+  "host": "Ugo's Mac mini (macOS 12.7.6, Intel x64)",
+  "discovery_method": "shell_probe + filesystem_inspection",
+  "engines": [
+    {
+      "engine_uuid": "claude-code-anthropic",
+      "name": "Claude Code",
+      "type": "INTERACTIVE_CODING_AGENT",
+      "status": "INSTALLED",
+      "version": "2.1.140",
+      "install_path": "/usr/local/bin/claude → /usr/local/lib/node_modules/@anthropic-ai/claude-code/bin/claude.exe",
+      "package": "@anthropic-ai/claude-code",
+      "runtime": "node",
+      "agents_dir": "~/.claude/agents/",
+      "agents_count": 590,
+      "task_classes": [
+        "deep_implementation",
+        "refactoring",
+        "debugging",
+        "test_generation",
+        "codebase_navigation",
+        "architecture_analysis",
+        "multi_file_editing"
+      ],
+      "strengths": [
+        "Deep understanding of large codebases via file-read tools",
+        "Autonomous multi-step coding plans",
+        "590 pre-built agents for specialized tasks",
+        "Integrated shell execution and linting",
+        "Strong at debugging complex errors end-to-end",
+        "Can be given sub-agent role cards"
+      ],
+      "weaknesses": [
+        "Interactive TUI — hard to pipeline without --print flag",
+        "High token usage per session",
+        "Single-file focus by default; needs guidance for cross-repo",
+        "No built-in scheduling or orchestration"
+      ],
+      "parallelism": "low",
+      "coordination_overhead": "none",
+      "setup_overhead": "low",
+      "median_completion_time": "2–15 min per task",
+      "quality": "high",
+      "reliability": "high",
+      "token_usage": "high",
+      "cost": "premium (Anthropic API) OR free via oe-proxy haiku routing",
+      "failure_modes": [
+        "Interactive hang if no --print flag in automation",
+        "Context window overflow on very large repos",
+        "Rate limit if many parallel sessions"
+      ],
+      "best_use_cases": [
+        "Complex feature implementation requiring multi-file changes",
+        "Debugging crashes with full stack trace + codebase context",
+        "Refactoring a module end-to-end",
+        "Writing test suites from scratch"
+      ],
+      "anti_use_cases": [
+        "Simple one-liner generation (too heavy)",
+        "High-frequency automation loops (cost, latency)",
+        "Workflow orchestration (use Antfarm or OpenClaw)"
+      ],
+      "dependencies": ["node >= 18", "Anthropic API key (or oe-proxy)"],
+      "dependencies_met": true,
+      "benchmark_evidence": "not yet run",
+      "can_execute_now": true,
+      "notes": "Binary confirmed at /usr/local/bin/claude. --version triggers TUI (SIGKILL in restricted shell) but is functional. 590 agents in ~/.claude/agents/ covering wide range of specializations."
+    },
+    {
+      "engine_uuid": "antfarm-openclaw",
+      "name": "Antfarm",
+      "type": "WORKFLOW_ORCHESTRATION_ENGINE",
+      "status": "INSTALLED",
+      "version": "0.5.1",
+      "install_path": "~/.openclaw/workspace/antfarm/",
+      "cli_path": "node ~/.openclaw/workspace/antfarm/dist/cli/cli.js",
+      "runtime": "node",
+      "backend": "SQLite (experimental Node.js built-in)",
+      "installed_workflows": ["bug-fix", "feature-dev", "security-audit"],
+      "task_classes": [
+        "multi_step_workflow_execution",
+        "bug_fixing_pipeline",
+        "feature_development_pipeline",
+        "security_audit_pipeline",
+        "task_coordination"
+      ],
+      "strengths": [
+        "Self-advancing workflows via per-agent cron jobs",
+        "No manual orchestration needed — polls SQLite automatically",
+        "Pre-built workflows for common dev tasks",
+        "Integrates with existing OpenClaw ecosystem",
+        "Lightweight (pure Node.js + SQLite)"
+      ],
+      "weaknesses": [
+        "SQLite experimental in current Node — warning on every run",
+        "Only 3 installed workflows (limited out-of-box coverage)",
+        "No parallel execution model (sequential steps)",
+        "No visible UI dashboard"
+      ],
+      "parallelism": "low",
+      "coordination_overhead": "low",
+      "setup_overhead": "low",
+      "median_completion_time": "depends on workflow; minutes to hours",
+      "quality": "medium",
+      "reliability": "medium",
+      "token_usage": "medium",
+      "cost": "low (delegates to configured model)",
+      "failure_modes": [
+        "SQLite lock contention if multiple workflows run simultaneously",
+        "Workflow hangs if agent cron not running"
+      ],
+      "best_use_cases": [
+        "Automated bug-fix cycles on known issue types",
+        "Feature development pipelines with well-defined steps",
+        "Security audit sweeps on codebase",
+        "Background tasks that self-advance without human polling"
+      ],
+      "anti_use_cases": [
+        "Real-time interactive tasks",
+        "Complex multi-agent coordination (use OpenClaw orchestrator)",
+        "Tasks requiring novel workflow logic not covered by 3 presets"
+      ],
+      "dependencies": ["node >= 18"],
+      "dependencies_met": true,
+      "benchmark_evidence": "not yet run",
+      "can_execute_now": true,
+      "notes": "CLI confirmed working. 3 workflows available: bug-fix, feature-dev, security-audit. ExperimentalWarning for SQLite on every call — cosmetic, not functional. Dist structure: cli/, db.js, index.js, installer/, lib/, medic/, server/."
+    },
+    {
+      "engine_uuid": "ruflo",
+      "name": "Ruflo",
+      "type": "UNKNOWN",
+      "status": "NOT_FOUND",
+      "version": null,
+      "install_path": null,
+      "runtime": null,
+      "task_classes": [],
+      "strengths": [],
+      "weaknesses": ["Not installed on this system"],
+      "parallelism": "unknown",
+      "coordination_overhead": "unknown",
+      "setup_overhead": "unknown",
+      "median_completion_time": "unknown",
+      "quality": "unknown",
+      "reliability": "unknown",
+      "token_usage": "unknown",
+      "cost": "unknown",
+      "failure_modes": ["Not installed"],
+      "best_use_cases": [],
+      "anti_use_cases": [],
+      "dependencies": [],
+      "dependencies_met": false,
+      "benchmark_evidence": "not applicable",
+      "can_execute_now": false,
+      "notes": "Searched PATH, ~/.openclaw/repos/installed/, ~/projects/, pip3, npm global. Not found anywhere on system."
+    },
+    {
+      "engine_uuid": "hermes-agent-nousresearch",
+      "name": "Hermes Agent (NousResearch)",
+      "type": "SELF_IMPROVING_AI_AGENT",
+      "status": "INSTALLED",
+      "version": "0.13.0",
+      "install_path": "~/.openclaw/repos/installed/hermes-agent/",
+      "entry_points": ["python3 cli.py", "python3 run_agent.py"],
+      "runtime": "python3",
+      "python_required": ">=3.11",
+      "python_available": "3.14.6",
+      "venv_present": false,
+      "task_classes": [
+        "self_improving_agentic_tasks",
+        "skill_creation_from_experience",
+        "multi_provider_llm_routing",
+        "terminal_interactive_sessions",
+        "telegram_remote_tasks",
+        "batch_task_execution",
+        "mcp_server_hosting"
+      ],
+      "strengths": [
+        "Self-improving loop — creates skills from experience",
+        "Model-agnostic (OpenRouter, Anthropic, OpenAI, NVIDIA, Kimi, etc.)",
+        "Runs on remote infrastructure (VPS, GPU cluster, serverless)",
+        "Built-in Telegram integration for remote command",
+        "Rich TUI with multiline editing and streaming",
+        "Skill Workshop built-in — persists learned procedures",
+        "Mini-SWE runner for software engineering benchmarks",
+        "ACP adapter for agent communication protocol"
+      ],
+      "weaknesses": [
+        "Python dependencies need venv setup (no venv found yet)",
+        "Requires OPENROUTER_API_KEY or equivalent model key",
+        "Heavier setup than Node.js tools",
+        "TUI mode not pipeline-friendly without batch_runner.py"
+      ],
+      "parallelism": "medium",
+      "coordination_overhead": "medium",
+      "setup_overhead": "medium",
+      "median_completion_time": "varies — minutes to hours",
+      "quality": "high",
+      "reliability": "medium (deps unverified)",
+      "token_usage": "configurable",
+      "cost": "configurable (any provider)",
+      "failure_modes": [
+        "ImportError if pip deps not installed in active Python",
+        "Dependency version conflicts with system Python 3.14.6",
+        "API key missing for chosen provider"
+      ],
+      "best_use_cases": [
+        "Long-running autonomous tasks with self-improvement",
+        "Tasks that benefit from learned skill accumulation",
+        "Remote execution via Telegram",
+        "Benchmarking against SWE-bench style tasks",
+        "Multi-model routing experimentation"
+      ],
+      "anti_use_cases": [
+        "Quick one-shot tasks (overhead not worth it)",
+        "Production pipelines until deps verified"
+      ],
+      "dependencies": [
+        "python >= 3.11",
+        "openai >= 2.21.0",
+        "anthropic >= 0.39.0",
+        "rich >= 14.3.3",
+        "prompt_toolkit >= 3.0.52",
+        "pydantic >= 2.12.5",
+        "httpx",
+        "tenacity",
+        "jinja2",
+        "exa-py"
+      ],
+      "dependencies_met": false,
+      "benchmark_evidence": "not yet run",
+      "can_execute_now": false,
+      "notes": "Codebase fully present at ~/.openclaw/repos/installed/hermes-agent/. Version 0.13.0 from pyproject.toml (package.json shows 1.0.0). Python 3.14.6 available but no venv/deps installed. Has batch_runner.py for non-interactive use, MCP server (mcp_serve.py), ACP adapter, rich skill system. To activate: cd ~/.openclaw/repos/installed/hermes-agent && python3 -m venv .venv && source .venv/bin/activate && pip install -e ."
+    },
+    {
+      "engine_uuid": "openai-codex-cli",
+      "name": "OpenAI Codex CLI",
+      "type": "INTERACTIVE_CODING_AGENT",
+      "status": "INSTALLED",
+      "version": "0.129.0",
+      "install_path": "/usr/local/bin/codex → /usr/local/lib/node_modules/@openai/codex/bin/codex.js",
+      "package": "@openai/codex",
+      "runtime": "node",
+      "task_classes": [
+        "code_generation",
+        "code_explanation",
+        "debugging",
+        "interactive_coding",
+        "shell_command_generation"
+      ],
+      "strengths": [
+        "OpenAI-native tooling — tight GPT-4o / o-series integration",
+        "Interactive terminal UI for coding tasks",
+        "Available globally via npm",
+        "Fast for well-scoped generation tasks"
+      ],
+      "weaknesses": [
+        "Requires OPENAI_API_KEY (premium cost)",
+        "Weaker at large multi-file codebase navigation vs Claude Code",
+        "Interactive TUI — needs adaptation for automation",
+        "No agent orchestration or workflow features"
+      ],
+      "parallelism": "low",
+      "coordination_overhead": "none",
+      "setup_overhead": "low",
+      "median_completion_time": "1–10 min per task",
+      "quality": "high",
+      "reliability": "high",
+      "token_usage": "high",
+      "cost": "premium (OPENAI_API_KEY required)",
+      "failure_modes": [
+        "No OPENAI_API_KEY configured",
+        "Interactive hang without --quiet / non-interactive flags",
+        "Rate limiting on gpt-4o"
+      ],
+      "best_use_cases": [
+        "Quick code generation with OpenAI models",
+        "Tasks where GPT-4o/o-series is preferred over Claude",
+        "Shell command generation and explanation",
+        "Code review and explanation"
+      ],
+      "anti_use_cases": [
+        "Large codebase navigation (prefer Claude Code)",
+        "Workflow orchestration (use Antfarm)",
+        "Cost-sensitive automation loops"
+      ],
+      "dependencies": ["node >= 18", "OPENAI_API_KEY env var"],
+      "dependencies_met": true,
+      "benchmark_evidence": "not yet run",
+      "can_execute_now": true,
+      "notes": "Binary confirmed at /usr/local/bin/codex. Version 0.129.0 confirmed. Requires OPENAI_API_KEY in env. Interactive TUI — use with --quiet or pipe for automation."
+    },
+    {
+      "engine_uuid": "n8n-workflow-automation",
+      "name": "n8n",
+      "type": "VISUAL_WORKFLOW_AUTOMATION",
+      "status": "INSTALLED",
+      "version": "2.8.4",
+      "install_path": "~/.npm-global/bin/n8n",
+      "runtime": "node",
+      "database": "~/.n8n/database.sqlite",
+      "default_port": 5678,
+      "task_classes": [
+        "workflow_automation",
+        "api_integration",
+        "webhook_handling",
+        "data_transformation",
+        "scheduled_tasks",
+        "multi_service_orchestration",
+        "email_automation",
+        "notification_routing"
+      ],
+      "strengths": [
+        "Visual workflow builder (browser UI)",
+        "300+ built-in integrations",
+        "Webhook-triggered automation",
+        "HTTP request nodes for any API",
+        "Persistent database with event logs",
+        "AI nodes available for GPT/Claude integration",
+        "Self-hosted — no SaaS cost"
+      ],
+      "weaknesses": [
+        "Currently NOT RUNNING (port 5678 connection refused)",
+        "Requires manual start or PM2 integration",
+        "Complex workflows need browser UI to build",
+        "Heavy memory footprint"
+      ],
+      "parallelism": "high",
+      "coordination_overhead": "low",
+      "setup_overhead": "medium",
+      "median_completion_time": "real-time triggers or scheduled",
+      "quality": "medium",
+      "reliability": "high (when running)",
+      "token_usage": "low (unless AI nodes used)",
+      "cost": "free (self-hosted)",
+      "failure_modes": [
+        "Not running — start with: ~/.npm-global/bin/n8n start",
+        "SQLite lock issues under high load",
+        "Webhook timeout if processing is slow"
+      ],
+      "best_use_cases": [
+        "Multi-service API integrations",
+        "Scheduled data pipelines",
+        "Webhook-to-action routing",
+        "Email/notification automation",
+        "Connecting AI agents to external services"
+      ],
+      "anti_use_cases": [
+        "Deep code generation (use Claude Code / Codex)",
+        "Local file manipulation at scale",
+        "Tasks requiring complex reasoning"
+      ],
+      "dependencies": ["node >= 18"],
+      "dependencies_met": true,
+      "benchmark_evidence": "not yet run",
+      "can_execute_now": false,
+      "start_command": "~/.npm-global/bin/n8n start",
+      "notes": "Installed at ~/.npm-global/bin/n8n. Version 2.8.4. Has SQLite database at ~/.n8n/ with event logs suggesting prior use. Currently NOT running (port 5678 refused). Start with: n8n start OR add to PM2. Has existing workflow history."
+    },
+    {
+      "engine_uuid": "openclaw-alusi-native",
+      "name": "OpenClaw / Alusi Native",
+      "type": "MULTI_AGENT_ORCHESTRATION_PLATFORM",
+      "status": "RUNNING",
+      "version": "current (gateway online)",
+      "install_path": "~/.openclaw/",
+      "runtime": "node + PM2",
+      "pm2_processes": [
+        {"id": 0, "name": "executor", "role": "core task executor"},
+        {"id": 1, "name": "heartbeat", "role": "alusi-loop heartbeat"},
+        {"id": 2, "name": "alusi-gateway", "role": "OpenClaw gateway"},
+        {"id": 3, "name": "alusi-telegram-adapter", "role": "Telegram channel"},
+        {"id": 4, "name": "alusi-discord-adapter", "role": "Discord channel"},
+        {"id": 5, "name": "alusi-controlled-worker", "role": "approval worker"},
+        {"id": 6, "name": "alusi-orchestrator", "role": "multi-agent orchestration"},
+        {"id": 13, "name": "exec-gateway", "role": "exec approval gateway"},
+        {"id": 14, "name": "telegram-approvals", "role": "Telegram approval handler"},
+        {"id": 17, "name": "mission-control", "role": "Command Center UI port 3333"}
+      ],
+      "agents_available": 590,
+      "task_classes": [
+        "multi_agent_orchestration",
+        "approval_gated_workflows",
+        "persistent_background_agents",
+        "telegram_discord_command_handling",
+        "sub_agent_spawning",
+        "trading_automation",
+        "lead_qualification",
+        "memory_management"
+      ],
+      "strengths": [
+        "Full multi-agent orchestration already RUNNING",
+        "Telegram + Discord channels active",
+        "Approval gating (sovereign proxy) built-in",
+        "Sub-agent spawning with session context",
+        "590 specialized Claude agents available",
+        "PM2 managed — auto-restart on failure",
+        "Mission Control UI on port 3333"
+      ],
+      "weaknesses": [
+        "Internal system — not a standalone tool",
+        "Requires OpenClaw config to extend",
+        "No visual workflow builder (unlike n8n)"
+      ],
+      "parallelism": "high",
+      "coordination_overhead": "low",
+      "setup_overhead": "none (already running)",
+      "median_completion_time": "sub-second to minutes",
+      "quality": "high",
+      "reliability": "high",
+      "token_usage": "configurable (oe-proxy routes models)",
+      "cost": "optimized via oe-proxy (haiku→Groq free, sonnet→Groq70B)",
+      "failure_modes": [
+        "Gateway restart if config changes",
+        "PM2 process crash (auto-recovers)"
+      ],
+      "best_use_cases": [
+        "Primary orchestration platform for all agent tasks",
+        "Approval-gated financial or outreach workflows",
+        "Background trading + monitoring agents",
+        "Cross-channel command handling (Telegram, Discord, web)"
+      ],
+      "anti_use_cases": [
+        "Interactive standalone coding sessions (use Claude Code)",
+        "Visual workflow building (use n8n)"
+      ],
+      "dependencies": ["node", "PM2", "anthropic API (or oe-proxy)"],
+      "dependencies_met": true,
+      "benchmark_evidence": "production running — daily ops",
+      "can_execute_now": true,
+      "notes": "This IS the primary execution platform. All other engines plug into it. oe-proxy on port 4100 routes model calls cost-optimally. Mission Control UI at http://127.0.0.1:3333."
+    },
+    {
+      "engine_uuid": "ollama-local-llm",
+      "name": "Ollama (Local LLM Server)",
+      "type": "LOCAL_INFERENCE_ENGINE",
+      "status": "RUNNING",
+      "version": "unknown",
+      "install_path": "/Users/NeoOC/.local/bin/ollama",
+      "pm2_id": 22,
+      "pm2_name": "ollama",
+      "api_port": 11434,
+      "runtime": "native binary",
+      "models_loaded": [
+        {"name": "qwen2.5:3b", "size": "1.9 GB"},
+        {"name": "qwen2.5:1.5b", "size": "986 MB"},
+        {"name": "tinyllama:latest", "size": "637 MB"},
+        {"name": "gemma2:2b", "size": "1.6 GB"},
+        {"name": "phi3:mini", "size": "2.2 GB"},
+        {"name": "llama3.2:3b", "size": "2.0 GB"}
+      ],
+      "task_classes": [
+        "local_inference_no_cost",
+        "batch_text_generation",
+        "draft_generation",
+        "local_rag_backend",
+        "overnight_processing",
+        "privacy_sensitive_tasks"
+      ],
+      "strengths": [
+        "Zero cost per token — fully local",
+        "6 models ready (1.5B to 3B params)",
+        "No API key needed",
+        "Good for batch/overnight tasks",
+        "Privacy-safe (no external calls)"
+      ],
+      "weaknesses": [
+        "Intel Mac mini — no GPU acceleration (CPU only, slow)",
+        "Small models (max 3B) — lower quality than Claude/GPT",
+        "API unreachable during discovery (port 11434 refused mid-test)",
+        "Not suitable for complex reasoning tasks"
+      ],
+      "parallelism": "low",
+      "coordination_overhead": "none",
+      "setup_overhead": "none (running)",
+      "median_completion_time": "30s–3min per prompt (CPU)",
+      "quality": "low-medium",
+      "reliability": "medium",
+      "token_usage": "free",
+      "cost": "$0",
+      "failure_modes": [
+        "Port 11434 connection refused (intermittent in testing)",
+        "CPU inference slow for large prompts",
+        "Model quality insufficient for complex tasks"
+      ],
+      "best_use_cases": [
+        "Draft generation (emails, summaries)",
+        "Overnight batch processing",
+        "Cost-$0 classification tasks",
+        "Local RAG augmentation",
+        "Testing/development without API costs"
+      ],
+      "anti_use_cases": [
+        "Complex reasoning requiring frontier models",
+        "Real-time user-facing responses",
+        "Large code generation tasks"
+      ],
+      "dependencies": ["ollama binary", "sufficient RAM (8GB+)"],
+      "dependencies_met": true,
+      "benchmark_evidence": "PM2 shows online — 6 models confirmed via ollama list",
+      "can_execute_now": true,
+      "notes": "PM2 id 22 shows online. 6 models confirmed via 'ollama list'. Port 11434 API had connection refused in initial test but PM2 shows it running — may need URL or timing check. Use via node_inference tool in OpenClaw."
+    }
+  ],
+  "summary": {
+    "total": 8,
+    "available": 6,
+    "not_found": 1,
+    "not_running": 1,
+    "running_engines": ["openclaw-alusi-native", "ollama-local-llm"],
+    "installed_executable_now": ["claude-code-anthropic", "antfarm-openclaw", "openai-codex-cli"],
+    "installed_needs_start": ["n8n-workflow-automation"],
+    "installed_needs_deps": ["hermes-agent-nousresearch"],
+    "not_found": ["ruflo"],
+    "engine_count_by_type": {
+      "INTERACTIVE_CODING_AGENT": 2,
+      "WORKFLOW_ORCHESTRATION_ENGINE": 1,
+      "SELF_IMPROVING_AI_AGENT": 1,
+      "VISUAL_WORKFLOW_AUTOMATION": 1,
+      "MULTI_AGENT_ORCHESTRATION_PLATFORM": 1,
+      "LOCAL_INFERENCE_ENGINE": 1,
+      "NOT_FOUND": 1
+    }
+  },
+  "recommended_primary_stack": {
+    "orchestration": "openclaw-alusi-native",
+    "deep_coding": "claude-code-anthropic",
+    "pipelines": "antfarm-openclaw",
+    "api_integrations": "n8n-workflow-automation (start first)",
+    "local_cheap_inference": "ollama-local-llm",
+    "openai_preference_tasks": "openai-codex-cli",
+    "not_yet_ready": "hermes-agent-nousresearch (needs venv setup)"
+  }
+}

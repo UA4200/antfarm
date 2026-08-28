@@ -31,6 +31,13 @@ COST_TABLE = {
     "haiku":      (0.80, 4.00),
     "sonnet":     (3.00, 15.00),
     "opus":       (15.00, 75.00),
+    # OpenAI — USD per 1M tokens (input, output)
+    "openai_4omini":    (0.15, 0.60),
+    "openai_4dot1mini": (0.40, 1.60),
+    "openai_4o":        (2.50, 10.00),
+    "openai_4dot1":     (2.00, 8.00),
+    "openai_o3mini":    (1.10, 4.40),
+    "openai_o1mini":    (3.00, 12.00),
 }
 
 FREE_PROVIDERS = {"groq","openrouter","cohere","cerebras","nvidia"}

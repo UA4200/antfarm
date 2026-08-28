@@ -1,0 +1,32 @@
+{
+  "generated_at": "2026-08-09T19:21:16.685524+00:00",
+  "status": "OPERATIONAL_GUARDED",
+  "components": {
+    "observation_dir": "~/.openclaw/workspace/skill-observations/",
+    "proposals_dir": "~/.openclaw/workspace/skill-proposals/",
+    "collector_script": "~/.openclaw/workspace/router/task_observer_collector.py"
+  },
+  "protected_domains": [
+    "constitution",
+    "kelly",
+    "capital",
+    "financial",
+    "security",
+    "approval",
+    "governance",
+    "trading",
+    "cashclaw"
+  ],
+  "integration_points": [
+    "skill_workshop",
+    "PMO",
+    "governance"
+  ],
+  "test_run": {
+    "status": "PASS",
+    "observations_found": 1,
+    "proposals_generated": 0,
+    "note": "1 observation loaded, threshold is 3+ per pattern \u2014 expected behavior"
+  },
+  "verdict": "TASK_OBSERVER_OPERATIONAL_GUARDED"
+}

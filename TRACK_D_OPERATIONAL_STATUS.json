@@ -1,0 +1,31 @@
+{
+  "generated_at": "2026-08-09T20:15:00Z",
+  "mission": "Governed autonomous operations \u2014 Nathan objective \u2192 Alusi \u2192 PMO \u2192 execution \u2192 learning",
+  "components_operational": {
+    "inference_gateway": "oe-proxy:4100 (adaptive routing)",
+    "knowledge_graph": "kg-api:6279 (entity/relationship intelligence)",
+    "task_observer": "collector.py (observation \u2192 proposals)",
+    "economic_guard": "budget enforcement active",
+    "n8n_workflows": "6 OEPM workflows active",
+    "obsidian": "human knowledge interface operational"
+  },
+  "autonomous_loop": {
+    "task_routing": "adaptive_router.py \u2014 dynamic provider selection",
+    "outcome_capture": "adaptive_router_telemetry.jsonl",
+    "observation": "skill-observations/ \u2192 task_observer_collector.py",
+    "proposal": "skill-proposals/ \u2192 skill_workshop (governed approval)",
+    "memory": "memory/ dirs + OpenClaw wiki + ClawDB KG"
+  },
+  "escalation_triggers": [
+    "money/capital threshold",
+    "destructive action",
+    "production risk",
+    "legal/security",
+    "new paid provider",
+    "governance override",
+    "unresolved strategic choice"
+  ],
+  "routine_ops_escalation": false,
+  "cashclaw_autonomy": "PROTECTED \u2014 trading decisions remain in CashClaw agents, not general Alusi loop",
+  "verdict": "TRACK_D_AUTONOMOUS_OPERATIONS_OPERATIONAL"
+}

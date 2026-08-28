@@ -1,0 +1,379 @@
+{
+  "generated_at": "2026-08-09T21:17:00Z",
+  "generated_by": "LANE_D_subagent",
+  "status": "PLAN_ONLY — benchmarks not yet run",
+  "purpose": "Define representative benchmark workloads for each discovered engine to enable apples-to-apples comparison when benchmarks are executed",
+  "benchmark_protocol": {
+    "runs_per_task": 3,
+    "scoring_dimensions": ["latency_seconds", "quality_score_1_to_5", "token_cost_usd", "success_rate_pct", "output_correctness"],
+    "judge": "Claude Sonnet 4.6 (main agent) scores quality on 1-5 rubric",
+    "correctness_method": "deterministic_check_where_possible",
+    "environment": "macOS 12.7.6 Intel Mac mini, same conditions each run"
+  },
+  "benchmarks": [
+    {
+      "engine": "claude-code-anthropic",
+      "engine_version": "2.1.140",
+      "benchmark_status": "NOT_YET_RUN",
+      "workloads": [
+        {
+          "id": "cc-bench-01",
+          "name": "Single-file bug fix",
+          "description": "Given a Python file with 3 intentional bugs (type error, off-by-one, wrong dict key), fix all bugs without breaking other code",
+          "test_repo": "~/.openclaw/workspace/benchmarks/testbed/",
+          "command_template": "claude --print 'Fix all bugs in {file}'",
+          "success_criterion": "All 3 bugs fixed, tests pass, no regressions",
+          "expected_latency_s": "30–120",
+          "expected_quality": 4,
+          "cost_estimate_usd": 0.02
+        },
+        {
+          "id": "cc-bench-02",
+          "name": "Multi-file feature implementation",
+          "description": "Add a new REST endpoint to a Flask app (model, route, tests, docs)",
+          "test_repo": "~/.openclaw/workspace/benchmarks/flask_testbed/",
+          "command_template": "claude --print 'Add GET /api/users/{id} endpoint with tests'",
+          "success_criterion": "Endpoint works, test passes, OpenAPI doc updated",
+          "expected_latency_s": "60–300",
+          "expected_quality": 4,
+          "cost_estimate_usd": 0.05
+        },
+        {
+          "id": "cc-bench-03",
+          "name": "Codebase navigation Q&A",
+          "description": "Answer 5 factual questions about a 1000-line codebase (function names, logic flow, config values)",
+          "test_repo": "~/.openclaw/workspace/benchmarks/nav_testbed/",
+          "command_template": "claude --print 'Answer: {question}'",
+          "success_criterion": "5/5 correct answers verified against ground truth",
+          "expected_latency_s": "20–60",
+          "expected_quality": 5,
+          "cost_estimate_usd": 0.01
+        },
+        {
+          "id": "cc-bench-04",
+          "name": "Test suite generation",
+          "description": "Generate pytest tests for a module with 10 functions — achieve 80%+ coverage",
+          "test_repo": "~/.openclaw/workspace/benchmarks/test_gen_testbed/",
+          "command_template": "claude --print 'Generate comprehensive pytest tests for module.py'",
+          "success_criterion": "Coverage >= 80%, tests are syntactically valid",
+          "expected_latency_s": "60–180",
+          "expected_quality": 4,
+          "cost_estimate_usd": 0.03
+        }
+      ],
+      "notes": "Use claude --print flag for non-interactive mode. Measure wall-clock time with 'time' command. API cost from Anthropic usage dashboard."
+    },
+    {
+      "engine": "antfarm-openclaw",
+      "engine_version": "0.5.1",
+      "benchmark_status": "NOT_YET_RUN",
+      "workloads": [
+        {
+          "id": "af-bench-01",
+          "name": "Bug-fix workflow on known issue",
+          "description": "Run the built-in 'bug-fix' workflow on a seeded bug in a test repo",
+          "command_template": "node ~/.openclaw/workspace/antfarm/dist/cli/cli.js workflow run bug-fix 'Fix the NullPointerException in auth.js'",
+          "success_criterion": "Workflow completes all steps, bug is fixed in output",
+          "expected_latency_s": "60–600",
+          "expected_quality": 3,
+          "cost_estimate_usd": 0.02
+        },
+        {
+          "id": "af-bench-02",
+          "name": "Feature development workflow",
+          "description": "Run 'feature-dev' workflow to add a simple feature to a test module",
+          "command_template": "node ~/.openclaw/workspace/antfarm/dist/cli/cli.js workflow run feature-dev 'Add input validation to user registration'",
+          "success_criterion": "Feature implemented, workflow status shows complete",
+          "expected_latency_s": "120–900",
+          "expected_quality": 3,
+          "cost_estimate_usd": 0.04
+        },
+        {
+          "id": "af-bench-03",
+          "name": "Security audit workflow",
+          "description": "Run 'security-audit' on a test codebase with 3 seeded OWASP vulnerabilities",
+          "command_template": "node ~/.openclaw/workspace/antfarm/dist/cli/cli.js workflow run security-audit 'Audit the auth module for security issues'",
+          "success_criterion": "All 3 vulnerabilities identified in output",
+          "expected_latency_s": "120–600",
+          "expected_quality": 3,
+          "cost_estimate_usd": 0.03
+        },
+        {
+          "id": "af-bench-04",
+          "name": "Workflow status check latency",
+          "description": "Measure time from workflow run to first status update in SQLite",
+          "command_template": "node ~/.openclaw/workspace/antfarm/dist/cli/cli.js workflow status 'task title'",
+          "success_criterion": "Status reflects current step within 30s",
+          "expected_latency_s": "1–30",
+          "expected_quality": null,
+          "cost_estimate_usd": 0.00
+        }
+      ],
+      "notes": "Antfarm self-advances via cron jobs. Measure total wall-clock from 'workflow run' to 'workflow status = complete'. Verify SQLite entries are created correctly."
+    },
+    {
+      "engine": "hermes-agent-nousresearch",
+      "engine_version": "0.13.0",
+      "benchmark_status": "BLOCKED_DEPS_UNMET",
+      "blocker": "Python venv not created; pip dependencies not installed",
+      "setup_steps_required": [
+        "cd ~/.openclaw/repos/installed/hermes-agent",
+        "python3 -m venv .venv",
+        "source .venv/bin/activate",
+        "pip install -e ."
+      ],
+      "workloads": [
+        {
+          "id": "hm-bench-01",
+          "name": "Self-improving skill creation",
+          "description": "Give Hermes a novel task (summarize a PDF), then check if it creates a reusable skill",
+          "command_template": "python3 run_agent.py --task 'Summarize this PDF and save summary to file' --non-interactive",
+          "success_criterion": "Task completed AND new skill created in skills/ directory",
+          "expected_latency_s": "60–300",
+          "expected_quality": 4,
+          "cost_estimate_usd": 0.03
+        },
+        {
+          "id": "hm-bench-02",
+          "name": "Multi-provider model routing",
+          "description": "Run same task with openrouter, anthropic, and openai backends; compare output quality and cost",
+          "command_template": "python3 cli.py --model {provider}/{model}",
+          "success_criterion": "Task completes on all 3 providers, outputs comparable",
+          "expected_latency_s": "30–120",
+          "expected_quality": 4,
+          "cost_estimate_usd": 0.05
+        },
+        {
+          "id": "hm-bench-03",
+          "name": "Telegram remote task",
+          "description": "Send task via Telegram, verify Hermes picks it up and completes it remotely",
+          "command_template": "via Telegram bot",
+          "success_criterion": "Task completes and response arrives in Telegram within 5min",
+          "expected_latency_s": "60–300",
+          "expected_quality": 3,
+          "cost_estimate_usd": 0.02
+        },
+        {
+          "id": "hm-bench-04",
+          "name": "Mini-SWE benchmark run",
+          "description": "Run mini_swe_runner.py on 5 SWE-bench lite instances",
+          "command_template": "python3 mini_swe_runner.py --instances 5",
+          "success_criterion": ">= 2/5 resolved correctly",
+          "expected_latency_s": "600–3600",
+          "expected_quality": 3,
+          "cost_estimate_usd": 0.20
+        }
+      ],
+      "notes": "Run AFTER venv setup. Use batch_runner.py for non-interactive benchmarks. Hermes skill creation should be verified by checking skills/ dir before and after each run."
+    },
+    {
+      "engine": "openai-codex-cli",
+      "engine_version": "0.129.0",
+      "benchmark_status": "NOT_YET_RUN",
+      "workloads": [
+        {
+          "id": "cx-bench-01",
+          "name": "Code generation from spec",
+          "description": "Generate a complete Python class (BankAccount with deposit/withdraw/balance) from a natural language spec",
+          "command_template": "codex 'Write a Python BankAccount class with deposit, withdraw, balance methods and proper error handling'",
+          "success_criterion": "Class is syntactically valid, all methods present, error handling correct",
+          "expected_latency_s": "10–60",
+          "expected_quality": 4,
+          "cost_estimate_usd": 0.02
+        },
+        {
+          "id": "cx-bench-02",
+          "name": "Shell command generation",
+          "description": "Generate a bash one-liner for a non-trivial task (find all Python files modified in last 7 days, count lines)",
+          "command_template": "codex 'Give me a bash command to find all .py files modified in last 7 days and count their total lines'",
+          "success_criterion": "Command is correct, executable, produces right result",
+          "expected_latency_s": "5–30",
+          "expected_quality": 4,
+          "cost_estimate_usd": 0.01
+        },
+        {
+          "id": "cx-bench-03",
+          "name": "Code explanation",
+          "description": "Explain a 50-line obfuscated Python function — identify purpose, inputs, outputs, side effects",
+          "command_template": "codex 'Explain what this function does: {code}'",
+          "success_criterion": "All 4 elements (purpose, inputs, outputs, side effects) correctly identified",
+          "expected_latency_s": "10–45",
+          "expected_quality": 4,
+          "cost_estimate_usd": 0.01
+        }
+      ],
+      "notes": "Requires OPENAI_API_KEY in environment. Use non-interactive mode flags. Compare vs Claude Code on same tasks for head-to-head quality diff."
+    },
+    {
+      "engine": "n8n-workflow-automation",
+      "engine_version": "2.8.4",
+      "benchmark_status": "BLOCKED_NOT_RUNNING",
+      "blocker": "n8n not currently running — start with: ~/.npm-global/bin/n8n start",
+      "workloads": [
+        {
+          "id": "n8n-bench-01",
+          "name": "HTTP webhook to Telegram notification",
+          "description": "Create a workflow: POST /webhook → format message → send Telegram notification. Trigger 10 times, measure delivery rate",
+          "command_template": "via n8n UI at http://127.0.0.1:5678",
+          "success_criterion": "10/10 webhooks result in Telegram messages within 5s",
+          "expected_latency_s": "1–5 per trigger",
+          "expected_quality": 5,
+          "cost_estimate_usd": 0.00
+        },
+        {
+          "id": "n8n-bench-02",
+          "name": "Scheduled API poll + data transformation",
+          "description": "Every 1 minute: fetch Kalshi market list, filter active markets, write to JSON file",
+          "command_template": "via n8n UI — Cron + HTTP Request + Code + Write File nodes",
+          "success_criterion": "File updated correctly on each 1-minute tick for 10 cycles",
+          "expected_latency_s": "60 (cron interval)",
+          "expected_quality": 4,
+          "cost_estimate_usd": 0.00
+        },
+        {
+          "id": "n8n-bench-03",
+          "name": "AI node integration (GPT-4o mini)",
+          "description": "Workflow: receive text input → AI node summarizes → output to file",
+          "command_template": "via n8n UI — Manual Trigger + OpenAI node + Write File",
+          "success_criterion": "Summary generated, saved, quality >= 3/5",
+          "expected_latency_s": "5–15",
+          "expected_quality": 3,
+          "cost_estimate_usd": 0.003
+        }
+      ],
+      "notes": "Start n8n first: ~/.npm-global/bin/n8n start (or add to PM2). UI at http://127.0.0.1:5678. Has existing database — import/export workflows as JSON for reproducible benchmarks."
+    },
+    {
+      "engine": "openclaw-alusi-native",
+      "engine_version": "running (gateway active)",
+      "benchmark_status": "PARTIAL — production metrics available",
+      "workloads": [
+        {
+          "id": "oc-bench-01",
+          "name": "Sub-agent spawn latency",
+          "description": "Measure time from sub-agent spawn request to first tool call in sub-agent",
+          "command_template": "internal — via sessions_yield",
+          "success_criterion": "Sub-agent starts within 10s",
+          "expected_latency_s": "2–10",
+          "expected_quality": 5,
+          "cost_estimate_usd": 0.001
+        },
+        {
+          "id": "oc-bench-02",
+          "name": "Telegram command round-trip",
+          "description": "Send command via Telegram, measure time to response delivery",
+          "command_template": "Telegram message",
+          "success_criterion": "Response delivered within 30s",
+          "expected_latency_s": "5–30",
+          "expected_quality": 4,
+          "cost_estimate_usd": 0.01
+        },
+        {
+          "id": "oc-bench-03",
+          "name": "Parallel sub-agent execution",
+          "description": "Spawn 3 parallel sub-agents for independent research tasks, measure total time vs sequential",
+          "command_template": "internal — sessions_yield x3",
+          "success_criterion": "Parallel completes in <1.5x time of single agent",
+          "expected_latency_s": "30–120",
+          "expected_quality": 4,
+          "cost_estimate_usd": 0.03
+        },
+        {
+          "id": "oc-bench-04",
+          "name": "Approval-gated workflow",
+          "description": "Submit an action requiring approval, measure time from submission to execution after Telegram approval",
+          "command_template": "internal — sovereign_proxy flow",
+          "success_criterion": "Action executes correctly after approval, rejected if not approved within 60s",
+          "expected_latency_s": "human-dependent",
+          "expected_quality": 5,
+          "cost_estimate_usd": 0.01
+        }
+      ],
+      "notes": "Production system — benchmarks should be run in non-production window. Focus on latency and reliability metrics. Cost governance via oe-proxy means actual API costs lower than raw Anthropic rates."
+    },
+    {
+      "engine": "ollama-local-llm",
+      "engine_version": "unknown",
+      "benchmark_status": "NOT_YET_RUN",
+      "workloads": [
+        {
+          "id": "ol-bench-01",
+          "name": "Draft email generation (qwen2.5:3b)",
+          "description": "Generate a professional follow-up email from a brief prompt",
+          "command_template": "ollama run qwen2.5:3b 'Write a professional follow-up email to a client who hasn't responded in 3 days'",
+          "success_criterion": "Email is professional, coherent, on-topic, quality >= 3/5",
+          "expected_latency_s": "30–120 (CPU)",
+          "expected_quality": 3,
+          "cost_estimate_usd": 0.00
+        },
+        {
+          "id": "ol-bench-02",
+          "name": "Classification task (tinyllama)",
+          "description": "Classify 20 strings as positive/negative/neutral sentiment",
+          "command_template": "ollama run tinyllama 'Classify sentiment: {text}'",
+          "success_criterion": ">= 75% accuracy vs ground truth labels",
+          "expected_latency_s": "10–60 (CPU)",
+          "expected_quality": 2,
+          "cost_estimate_usd": 0.00
+        },
+        {
+          "id": "ol-bench-03",
+          "name": "Code explanation (phi3:mini)",
+          "description": "Explain a 20-line Python function in plain English",
+          "command_template": "ollama run phi3:mini 'Explain this code: {code}'",
+          "success_criterion": "Explanation is factually correct, quality >= 2/5",
+          "expected_latency_s": "30–90 (CPU)",
+          "expected_quality": 3,
+          "cost_estimate_usd": 0.00
+        },
+        {
+          "id": "ol-bench-04",
+          "name": "Model comparison: qwen2.5:1.5b vs qwen2.5:3b",
+          "description": "Run same summarization task on both sizes, compare quality vs latency tradeoff",
+          "command_template": "ollama run {model} 'Summarize in 3 bullets: {text}'",
+          "success_criterion": "Quantify quality delta between 1.5b and 3b vs latency difference",
+          "expected_latency_s": "20–90 (CPU)",
+          "expected_quality": "varies",
+          "cost_estimate_usd": 0.00
+        }
+      ],
+      "notes": "All runs are $0 cost. Intel CPU only — expect 10–30 tokens/sec depending on model. Primary value: zero-cost draft generation and classification. API endpoint: http://localhost:11434/api/generate"
+    }
+  ],
+  "execution_plan": {
+    "phase_1_quick_wins": {
+      "estimated_time_hours": 1,
+      "run_order": ["ol-bench-01", "ol-bench-02", "cx-bench-01", "af-bench-01"],
+      "rationale": "Ollama is $0, Codex is fast. Antfarm smoke test."
+    },
+    "phase_2_claude_code": {
+      "estimated_time_hours": 2,
+      "run_order": ["cc-bench-03", "cc-bench-01", "cc-bench-04", "cc-bench-02"],
+      "rationale": "Nav Q&A first (cheap), then bug fix, test gen, feature dev."
+    },
+    "phase_3_platform": {
+      "estimated_time_hours": 1,
+      "run_order": ["oc-bench-01", "oc-bench-02", "oc-bench-03"],
+      "rationale": "OpenClaw latency benchmarks during low-traffic window."
+    },
+    "phase_4_n8n": {
+      "estimated_time_hours": 2,
+      "prerequisites": ["Start n8n: ~/.npm-global/bin/n8n start"],
+      "run_order": ["n8n-bench-01", "n8n-bench-02", "n8n-bench-03"],
+      "rationale": "Requires n8n running — do in dedicated session."
+    },
+    "phase_5_hermes": {
+      "estimated_time_hours": 3,
+      "prerequisites": [
+        "cd ~/.openclaw/repos/installed/hermes-agent",
+        "python3 -m venv .venv && source .venv/bin/activate && pip install -e ."
+      ],
+      "run_order": ["hm-bench-01", "hm-bench-02", "hm-bench-04"],
+      "rationale": "Requires venv setup first. Most expensive in setup time."
+    }
+  },
+  "scoring_matrix_template": {
+    "columns": ["engine", "workload_id", "run_1_latency_s", "run_2_latency_s", "run_3_latency_s", "avg_latency_s", "quality_r1", "quality_r2", "quality_r3", "avg_quality", "cost_usd", "success_rate_pct", "notes"],
+    "to_be_filled_when_benchmarks_run": true
+  }
+}

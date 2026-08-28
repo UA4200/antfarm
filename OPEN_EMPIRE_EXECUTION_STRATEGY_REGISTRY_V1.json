@@ -1,0 +1,201 @@
+{
+  "generated_at": "2026-08-09T20:30:00Z",
+  "version": "V1",
+  "strategies": [
+    {
+      "strategy_id": "DETERMINISTIC_TOOL",
+      "best_task_patterns": [
+        "file operations",
+        "git commands",
+        "SQL queries",
+        "hashing",
+        "linting",
+        "security scanning",
+        "health checks",
+        "schema validation"
+      ],
+      "complexity_range": "low",
+      "parallelism_requirement": "none",
+      "quality_profile": "exact \u2014 no hallucination risk",
+      "speed_profile": "fastest",
+      "cost_profile": "$0 \u2014 no inference",
+      "coordination_cost": "none",
+      "failure_modes": [
+        "missing binary",
+        "permissions",
+        "timeout"
+      ],
+      "recommended_engines": [
+        "bash",
+        "python",
+        "git",
+        "psql",
+        "jq",
+        "find",
+        "grep"
+      ],
+      "validation_requirements": "exit code + output inspection"
+    },
+    {
+      "strategy_id": "SINGLE_AGENT",
+      "best_task_patterns": [
+        "document generation",
+        "analysis requiring context",
+        "planning",
+        "synthesis",
+        "classification with reasoning"
+      ],
+      "complexity_range": "low-medium",
+      "parallelism_requirement": "none",
+      "quality_profile": "good \u2014 single reasoning thread",
+      "speed_profile": "fast",
+      "cost_profile": "free tier for most tasks",
+      "coordination_cost": "none",
+      "failure_modes": [
+        "context overflow",
+        "hallucination",
+        "reasoning gap"
+      ],
+      "recommended_engines": [
+        "Alusi/Sonnet",
+        "Claude Code",
+        "Groq-70B"
+      ],
+      "validation_requirements": "output review + deterministic test where possible"
+    },
+    {
+      "strategy_id": "SINGLE_AGENT_PLUS_TOOLS",
+      "best_task_patterns": [
+        "implementation with file access",
+        "debugging with code execution",
+        "research with web access",
+        "repository analysis"
+      ],
+      "complexity_range": "medium-high",
+      "parallelism_requirement": "none",
+      "quality_profile": "high \u2014 reasoning + evidence",
+      "speed_profile": "medium",
+      "cost_profile": "free-to-low tier",
+      "coordination_cost": "low",
+      "failure_modes": [
+        "tool failure",
+        "context overflow",
+        "permission denied"
+      ],
+      "recommended_engines": [
+        "Claude Code",
+        "Alusi+exec",
+        "Codex"
+      ],
+      "validation_requirements": "test execution + output inspection"
+    },
+    {
+      "strategy_id": "PARALLEL_SPECIALISTS",
+      "best_task_patterns": [
+        "auditing independent repositories",
+        "independent research lanes",
+        "concurrent security scans",
+        "parallel benchmark runs",
+        "independent document generation"
+      ],
+      "complexity_range": "medium",
+      "parallelism_requirement": "HIGH \u2014 tasks must be independent",
+      "quality_profile": "good per lane \u2014 requires merge validation",
+      "speed_profile": "fast (wall-clock) \u2014 slow (total tokens)",
+      "cost_profile": "2-5x token multiplier \u2014 justified only by wall-clock savings",
+      "coordination_cost": "medium \u2014 merge + dedup required",
+      "failure_modes": [
+        "coordination overhead exceeds benefit",
+        "conflicting outputs",
+        "merge errors"
+      ],
+      "recommended_engines": [
+        "Sessions/subagents",
+        "Ruflo (if available)"
+      ],
+      "validation_requirements": "independent merge validator + dedup check",
+      "selection_gate": "CAN work products be generated independently WITHOUT shared state? If NO \u2014 do not use."
+    },
+    {
+      "strategy_id": "HIERARCHICAL_MULTI_AGENT",
+      "best_task_patterns": [
+        "complex multi-phase projects",
+        "orchestrated pipelines",
+        "master+worker patterns"
+      ],
+      "complexity_range": "high",
+      "parallelism_requirement": "partial",
+      "quality_profile": "high with proper orchestration",
+      "speed_profile": "medium",
+      "cost_profile": "high \u2014 use when task complexity justifies it",
+      "coordination_cost": "high",
+      "recommended_engines": [
+        "Alusi orchestrator",
+        "Antfarm",
+        "n8n"
+      ],
+      "validation_requirements": "phase gates + per-output review"
+    },
+    {
+      "strategy_id": "COMPETITIVE_EXECUTION",
+      "best_task_patterns": [
+        "high-value security architecture",
+        "critical financial controls",
+        "migration architecture",
+        "difficult bugs with multiple viable solutions"
+      ],
+      "complexity_range": "high",
+      "parallelism_requirement": "REQUIRED \u2014 two independent implementations",
+      "quality_profile": "highest \u2014 adversarial validation",
+      "speed_profile": "slow (2x cost)",
+      "cost_profile": "expensive \u2014 justified for high-risk/high-value only",
+      "coordination_cost": "high \u2014 requires judge",
+      "recommended_engines": [
+        "Claude Code + Codex",
+        "any two independent implementers"
+      ],
+      "validation_requirements": "adversarial review + judge decision + deterministic test",
+      "selection_gate": "Use ONLY for high-risk/high-value. Never for routine tasks."
+    },
+    {
+      "strategy_id": "EVENT_DRIVEN_WORKFLOW",
+      "best_task_patterns": [
+        "recurring automation",
+        "scheduled execution",
+        "API integrations",
+        "notification routing",
+        "approval plumbing"
+      ],
+      "complexity_range": "low-medium",
+      "parallelism_requirement": "event-triggered",
+      "quality_profile": "consistent \u2014 codified once",
+      "speed_profile": "instant (pre-built)",
+      "cost_profile": "low \u2014 deterministic execution",
+      "recommended_engines": [
+        "n8n",
+        "Antfarm",
+        "cron+scripts"
+      ],
+      "validation_requirements": "test execution + output verification"
+    },
+    {
+      "strategy_id": "HUMAN_APPROVAL_GATED",
+      "best_task_patterns": [
+        "financial transactions",
+        "production deployment",
+        "secret rotation",
+        "governance changes",
+        "capital deployment",
+        "legal/security risk"
+      ],
+      "complexity_range": "any",
+      "quality_profile": "Nathan-validated",
+      "recommended_engines": [
+        "any + approval gate"
+      ],
+      "validation_requirements": "Nathan explicit approval"
+    }
+  ],
+  "selection_guidance": "PMO must evaluate: complexity, parallelizability, quality threshold, latency, cost, risk, coordination overhead. Never select more agents merely because more are available.",
+  "key_principle": "Use cheapest strategy that reliably satisfies quality and time thresholds."
+}

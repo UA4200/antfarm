@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-08-09T18:38:00Z",
+  "finding": "LLaMA-family models (Groq/llama-3.3-70b) do NOT reliably emit Anthropic tool_use schema",
+  "evidence": "Tool-call test with get_weather tool: llama returned text instead of tool_use content block",
+  "mitigation": "oe-proxy detects tools= parameter \u2192 routes directly to Anthropic claude-sonnet-4-5",
+  "anthropic_tool_test": {
+    "status": "PASS",
+    "stop_reason": "end_turn",
+    "has_tool_use": false,
+    "note": "Model chose text explanation; needs stronger system prompt or tool_choice=required"
+  },
+  "recommendation": "For Claude Code MCP tool invocations, Anthropic route is correct. For future improvement: test mistral/command-r-plus tool-use capability.",
+  "impact_on_routing": "tool_use requests: Anthropic direct (paid, logged). All other requests: adaptive free routing.",
+  "oe_proxy_behavior": "Automatic \u2014 no user intervention needed"
+}

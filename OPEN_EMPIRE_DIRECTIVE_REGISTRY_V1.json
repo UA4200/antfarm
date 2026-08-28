@@ -1,0 +1,200 @@
+{
+  "generated_at": "2026-08-09T20:30:00Z",
+  "version": "V1",
+  "directives": [
+    {
+      "directive_id": "DIR-REPO-001",
+      "name": "REPOSITORY_INTAKE",
+      "objective": "Take a new repository from discovery to production-ready integration",
+      "capability": "REPOSITORY_FACTORY",
+      "inputs": [
+        "repo_path_or_url"
+      ],
+      "skills": [
+        "GIT_REPOSITORY_MANAGEMENT",
+        "SECRET_SCAN",
+        "PMO_PLANNING"
+      ],
+      "agents": [
+        "repo_factory.py",
+        "Alusi"
+      ],
+      "tools": [
+        "git",
+        "gitleaks",
+        "psql (KG registration)"
+      ],
+      "execution_strategy": "SINGLE_AGENT_PLUS_TOOLS",
+      "approval_gates": [
+        "SECRET_SCAN pass required",
+        "license review"
+      ],
+      "kpis": [
+        "secret_risk_clear",
+        "capability_mapped",
+        "registered_in_kg"
+      ],
+      "stages": [
+        "discover",
+        "hash",
+        "secret_scan",
+        "license",
+        "dependency",
+        "capability_fit",
+        "register",
+        "install",
+        "test",
+        "integrate",
+        "cicd",
+        "observe"
+      ]
+    },
+    {
+      "directive_id": "DIR-INC-001",
+      "name": "INCIDENT_REMEDIATION",
+      "objective": "Diagnose and remediate an operational incident without breaking production",
+      "capability": "MEMORY_PIPELINE",
+      "inputs": [
+        "incident_description",
+        "affected_service"
+      ],
+      "skills": [
+        "PMO_PLANNING",
+        "GIT_REPOSITORY_MANAGEMENT"
+      ],
+      "execution_strategy": "SINGLE_AGENT_PLUS_TOOLS",
+      "approval_gates": [
+        "production change requires Nathan approval",
+        "rollback plan required"
+      ],
+      "kpis": [
+        "service_restored",
+        "root_cause_documented",
+        "prevention_proposed"
+      ]
+    },
+    {
+      "directive_id": "DIR-EVAL-001",
+      "name": "MODEL_PROVIDER_EVALUATION",
+      "objective": "Evaluate a new inference provider for integration into the economic router",
+      "capability": "ADAPTIVE_ROUTING",
+      "inputs": [
+        "provider_name",
+        "api_endpoint",
+        "api_key_env_var"
+      ],
+      "skills": [
+        "ADAPTIVE_INFERENCE_ROUTING",
+        "ECONOMIC_GOVERNANCE"
+      ],
+      "execution_strategy": "DETERMINISTIC_TOOL",
+      "approval_gates": [
+        "cost review",
+        "security review for new key"
+      ],
+      "kpis": [
+        "latency_measured",
+        "quality_measured",
+        "cost_verified",
+        "provider_registered"
+      ]
+    },
+    {
+      "directive_id": "DIR-CAP-001",
+      "name": "CAPABILITY_ACTIVATION",
+      "objective": "Activate a defined capability end-to-end including all dependencies",
+      "capability": "CAPABILITY_FACTORY",
+      "inputs": [
+        "capability_name"
+      ],
+      "skills": [
+        "PMO_PLANNING",
+        "GIT_REPOSITORY_MANAGEMENT"
+      ],
+      "execution_strategy": "HIERARCHICAL_MULTI_AGENT",
+      "approval_gates": [
+        "health_check pass",
+        "dependency check"
+      ],
+      "kpis": [
+        "capability_active",
+        "health_check_green",
+        "registered_in_kg"
+      ]
+    },
+    {
+      "directive_id": "DIR-RES-001",
+      "name": "RESEARCH_AND_IMPLEMENT",
+      "objective": "Research a technology/approach and implement if it provides measurable advantage",
+      "capability": "MEMORY_PIPELINE",
+      "inputs": [
+        "research_topic",
+        "capability_target"
+      ],
+      "skills": [
+        "PMO_PLANNING"
+      ],
+      "execution_strategy": "SINGLE_AGENT_PLUS_TOOLS",
+      "approval_gates": [
+        "benchmark required before production",
+        "paid service requires Nathan approval"
+      ],
+      "kpis": [
+        "evidence_collected",
+        "benchmark_run",
+        "adopt_or_reject_decision"
+      ]
+    },
+    {
+      "directive_id": "DIR-JOB-001",
+      "name": "JOB_ACQUISITION",
+      "objective": "Source, qualify, and apply for high-value employment or consulting opportunities",
+      "capability": "ADAI",
+      "inputs": [
+        "role_type",
+        "target_industries",
+        "salary_range"
+      ],
+      "skills": [
+        "PMO_PLANNING"
+      ],
+      "execution_strategy": "SINGLE_AGENT_PLUS_TOOLS",
+      "approval_gates": [
+        "Nathan approval before any application submitted",
+        "salary floor enforced"
+      ],
+      "kpis": [
+        "qualified_opportunities_found",
+        "applications_submitted",
+        "response_rate"
+      ]
+    },
+    {
+      "directive_id": "DIR-DR-001",
+      "name": "DISASTER_RECOVERY",
+      "objective": "Restore Open Empire to known-good state from SSOT after data loss",
+      "capability": "REPOSITORY_FACTORY",
+      "inputs": [
+        "incident_type",
+        "affected_systems"
+      ],
+      "skills": [
+        "GIT_REPOSITORY_MANAGEMENT",
+        "PMO_PLANNING"
+      ],
+      "execution_strategy": "HIERARCHICAL_MULTI_AGENT",
+      "approval_gates": [
+        "Nathan approval for production restoration",
+        "CashClaw manual verification"
+      ],
+      "kpis": [
+        "services_restored",
+        "data_integrity_verified",
+        "post_mortem_written"
+      ]
+    }
+  ],
+  "total": 7,
+  "principle": "Nathan issues objectives. Alusi/PMO match to directive. Directive drives execution.",
+  "extension": "Add new directives as new use cases mature"
+}

@@ -1,0 +1,56 @@
+{
+  "generated_at": "2026-08-09T17:00:00Z",
+  "seed_version": "V1",
+  "result": "SUCCESS",
+
+  "entity_counts": {
+    "AGENT": 11, "CAPABILITY": 8, "MODEL": 7, "PROVIDER": 7,
+    "REPOSITORY": 6, "ROUTER": 5, "VENTURE": 5, "PORTFOLIO": 3,
+    "SERVICE": 2, "RUNTIME": 2, "DASHBOARD": 2,
+    "total": 58
+  },
+
+  "relationship_count": 20,
+  "orphan_edges": 0,
+  "duplicate_edges": 0,
+  "audit_events": 78,
+
+  "sources_used": [
+    {"source": "AGENTS.md",            "entities_derived": 18, "status": "VERIFIED"},
+    {"source": "MEMORY.md",            "entities_derived": 10, "status": "VERIFIED"},
+    {"source": "pm2-topology",         "entities_derived": 18, "status": "VERIFIED"},
+    {"source": "freeway-catalog",       "entities_derived": 7,  "status": "VERIFIED"},
+    {"source": "capability-registry",  "entities_derived": 8,  "status": "VERIFIED"},
+    {"source": "repo-registry",        "entities_derived": 6,  "status": "DERIVED"}
+  ],
+
+  "key_relationships_seeded": [
+    "fcc_router USES Free-Way",
+    "fcc-metrics-exporter MONITORS Free-Way",
+    "grafana DEPENDS_ON fcc-metrics-exporter",
+    "Free-Way PROVIDES COST_OPTIMIZED_INFERENCE",
+    "native-router PROVIDES GOVERNED_ROUTING",
+    "ollama PROVIDES LOCAL_INFERENCE",
+    "clawdb PROVIDES KNOWLEDGE_GRAPH",
+    "cashclaw_director BELONGS_TO CashClaw (PROTECTED)",
+    "cashclaw_arb BELONGS_TO CashClaw (PROTECTED)",
+    "polymarket-trader BELONGS_TO CashClaw (PROTECTED)",
+    "trading_sentinel MONITORS CashClaw (PROTECTED)",
+    "cashclaw_director USES claude-haiku-4-5 (signal_scoring, PROTECTED)"
+  ],
+
+  "protected_entities": [
+    {"name": "cashclaw_director",  "pm2_id": 38, "flag": "CASHCLAW_PROTECTED"},
+    {"name": "cashclaw_arb",       "pm2_id": 39, "flag": "CASHCLAW_PROTECTED"},
+    {"name": "polymarket-trader",  "pm2_id": 40, "flag": "CASHCLAW_PROTECTED"},
+    {"name": "trading_sentinel",   "pm2_id": 41, "flag": "CASHCLAW_PROTECTED"}
+  ],
+
+  "pending_seed_expansions": [
+    "Portfolio → Program → Project hierarchy (needs full PMO data)",
+    "Governance artifacts (CONSTITUTION.md, AGENTS.md as entities)",
+    "Decision records from DECISIONS.md",
+    "Operational exceptions (OER)",
+    "Cost records (link kg_cost_records to Free-Way usage export)"
+  ]
+}

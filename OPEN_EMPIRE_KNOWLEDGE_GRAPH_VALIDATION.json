@@ -1,0 +1,32 @@
+{
+  "generated_at": "2026-08-09T17:00:00Z",
+  "validation_result": "PASSED",
+  "checks": [
+    {"check": "Schema exists",          "result": "PASS", "detail": "5 KG tables created: kg_entities, kg_entity_aliases, kg_relationships, kg_graph_events, kg_cost_records"},
+    {"check": "Indexes created",        "result": "PASS", "detail": "18 indexes including GIN for JSONB and trigram for text search"},
+    {"check": "Update triggers active", "result": "PASS", "detail": "kg_entities_updated_at, kg_relationships_updated_at"},
+    {"check": "Views created",          "result": "PASS", "detail": "kg_active_entities, kg_active_relationships, kg_cost_by_provider, kg_cost_by_venture"},
+    {"check": "Entity count",           "result": "PASS", "detail": "58 active entities across 11 types"},
+    {"check": "Relationship count",     "result": "PASS", "detail": "20 active relationships"},
+    {"check": "Orphan edges",           "result": "PASS", "detail": "0 orphan edges — all edges have valid source and target"},
+    {"check": "Duplicate edges",        "result": "PASS", "detail": "0 duplicate edges — UNIQUE constraint enforced"},
+    {"check": "Ontology compliance",    "result": "PASS", "detail": "All relationship_type values from OPEN_EMPIRE_ONTOLOGY_V1 CHECK constraint"},
+    {"check": "Entity type compliance", "result": "PASS", "detail": "All entity_type values from allowed set CHECK constraint"},
+    {"check": "Self-loop prevention",   "result": "PASS", "detail": "CONSTRAINT kg_rel_no_selfloop active"},
+    {"check": "UUID uniqueness",        "result": "PASS", "detail": "UNIQUE constraint on asset_uuid; all 58 entities have distinct UUIDs"},
+    {"check": "Evidence provenance",    "result": "PASS", "detail": "source_system set on all entities (alusi-seed, pm2-topology, freeway-catalog, fcc-validated, capability-registry, repo-registry)"},
+    {"check": "CashClaw protection",    "result": "PASS", "detail": "4 trading agents flagged CASHCLAW_PROTECTED in metadata; no governance fields modified"},
+    {"check": "Audit trail",            "result": "PASS", "detail": "78 events in kg_graph_events covering entity_created, relationship_created, seed_run"},
+    {"check": "KG API /validate",       "result": "PASS", "detail": "API endpoint confirms valid=true, 0 orphans, 0 duplicates"},
+    {"check": "KG API /entities",       "result": "PASS", "detail": "58 entities returned via API; VENTURE type returns 5 ventures correctly"},
+    {"check": "KG API /graph/capabilities","result":"PASS","detail":"8 capabilities listed, 4 with PROVIDES relationships"},
+    {"check": "API auth",               "result": "PASS", "detail": "OPENEMPIRE_ROUTER_KEY required; Unauthorized returned on bad/missing key"},
+    {"check": "ClawDB existing tables", "result": "PASS", "detail": "7 existing tables (agent_events, trades, approvals, signals, daily_pnl, vault_entries, health_log) untouched"}
+  ],
+  "failed_checks": [],
+  "warnings": [
+    "claude-proxy (PM2 id=28, port 4099) seeded as ROUTER with status=audit_pending — purpose still unclear",
+    "kg_cost_records table exists but no data yet — will populate as Free-Way usage is forwarded",
+    "Portfolio → Program → Project hierarchy partially seeded — full PMO data not yet available"
+  ]
+}

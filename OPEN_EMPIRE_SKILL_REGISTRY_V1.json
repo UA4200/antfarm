@@ -1,0 +1,229 @@
+{
+  "generated_at": "2026-08-09T20:30:00Z",
+  "version": "V1",
+  "total_skills": 10,
+  "skills": [
+    {
+      "skill_uuid": "sk-inf-001",
+      "canonical_name": "ADAPTIVE_INFERENCE_ROUTING",
+      "description": "Route inference requests dynamically to best available provider via scoring",
+      "capabilities_supported": [
+        "ADAPTIVE_ROUTING",
+        "COST_OPTIMIZED_INFERENCE"
+      ],
+      "agents_with_skill": [
+        "Alusi",
+        "oe-proxy"
+      ],
+      "tools_used": [
+        "adaptive_router.py",
+        "Free-Way",
+        "Groq",
+        "OpenRouter"
+      ],
+      "validation_method": "benchmark + latency test",
+      "quality_score": 0.85,
+      "cost_score": 1.0,
+      "success_rate": 0.94,
+      "maturity": "OPERATIONAL"
+    },
+    {
+      "skill_uuid": "sk-kg-001",
+      "canonical_name": "KNOWLEDGE_GRAPH_QUERY",
+      "description": "Query ClawDB entity/relationship graph via KG API",
+      "capabilities_supported": [
+        "KNOWLEDGE_GRAPH"
+      ],
+      "agents_with_skill": [
+        "Alusi",
+        "kg_api.py"
+      ],
+      "tools_used": [
+        "psql",
+        "kg_api:6279"
+      ],
+      "validation_method": "validate endpoint + orphan check",
+      "quality_score": 0.9,
+      "cost_score": 1.0,
+      "success_rate": 1.0,
+      "maturity": "OPERATIONAL"
+    },
+    {
+      "skill_uuid": "sk-obs-001",
+      "canonical_name": "TASK_OBSERVATION",
+      "description": "Record task outcomes, detect patterns, generate guarded skill proposals",
+      "capabilities_supported": [
+        "TASK_OBSERVER"
+      ],
+      "agents_with_skill": [
+        "task_observer_collector.py"
+      ],
+      "tools_used": [
+        "skill-observations/",
+        "skill-proposals/"
+      ],
+      "validation_method": "run collector + count proposals",
+      "quality_score": 0.8,
+      "cost_score": 1.0,
+      "success_rate": 0.9,
+      "maturity": "OPERATIONAL_GUARDED"
+    },
+    {
+      "skill_uuid": "sk-git-001",
+      "canonical_name": "GIT_REPOSITORY_MANAGEMENT",
+      "description": "Clone, inspect, classify, commit, reconcile git repositories",
+      "capabilities_supported": [
+        "REPOSITORY_FACTORY"
+      ],
+      "agents_with_skill": [
+        "Claude Code",
+        "deterministic scripts"
+      ],
+      "tools_used": [
+        "git",
+        "gitleaks",
+        "find"
+      ],
+      "validation_method": "git status + test commit",
+      "quality_score": 0.95,
+      "cost_score": 1.0,
+      "success_rate": 0.98,
+      "maturity": "OPERATIONAL"
+    },
+    {
+      "skill_uuid": "sk-pmo-001",
+      "canonical_name": "PMO_PLANNING",
+      "description": "Decompose objectives into task graphs with engine/strategy selection",
+      "capabilities_supported": [
+        "ECONOMIC_GOVERNOR",
+        "MEMORY_PIPELINE"
+      ],
+      "agents_with_skill": [
+        "Alusi"
+      ],
+      "tools_used": [
+        "Execution Strategy Registry",
+        "Execution Engine Registry"
+      ],
+      "validation_method": "outcome quality + time + cost",
+      "quality_score": 0.85,
+      "cost_score": 0.8,
+      "success_rate": 0.85,
+      "maturity": "OPERATIONAL"
+    },
+    {
+      "skill_uuid": "sk-sec-001",
+      "canonical_name": "SECRET_SCAN",
+      "description": "Scan files for exposed secrets, API keys, credentials",
+      "capabilities_supported": [
+        "REPOSITORY_FACTORY"
+      ],
+      "agents_with_skill": [
+        "deterministic scripts",
+        "gitleaks"
+      ],
+      "tools_used": [
+        "grep",
+        "gitleaks",
+        "truffleHog"
+      ],
+      "validation_method": "zero false negatives on known patterns",
+      "quality_score": 0.9,
+      "cost_score": 1.0,
+      "success_rate": 0.95,
+      "maturity": "OPERATIONAL"
+    },
+    {
+      "skill_uuid": "sk-econ-001",
+      "canonical_name": "ECONOMIC_GOVERNANCE",
+      "description": "Track inference spend, enforce budgets, classify provider cost tiers",
+      "capabilities_supported": [
+        "ECONOMIC_GOVERNOR",
+        "PREMIUM_ESCALATION_CONTROL"
+      ],
+      "agents_with_skill": [
+        "economic_guard.py",
+        "oe-proxy"
+      ],
+      "tools_used": [
+        "economic_guard.py",
+        "adaptive_router_telemetry.jsonl"
+      ],
+      "validation_method": "budget threshold test",
+      "quality_score": 0.9,
+      "cost_score": 1.0,
+      "success_rate": 0.98,
+      "maturity": "OPERATIONAL"
+    },
+    {
+      "skill_uuid": "sk-n8n-001",
+      "canonical_name": "WORKFLOW_AUTOMATION",
+      "description": "Create, trigger, and monitor n8n workflows for recurring automation",
+      "capabilities_supported": [
+        "WORKFLOW_AUTOMATION"
+      ],
+      "agents_with_skill": [
+        "n8n",
+        "Alusi"
+      ],
+      "tools_used": [
+        "n8n:5678",
+        "webhooks"
+      ],
+      "validation_method": "workflow execution test",
+      "quality_score": 0.85,
+      "cost_score": 1.0,
+      "success_rate": 0.9,
+      "maturity": "OPERATIONAL"
+    },
+    {
+      "skill_uuid": "sk-mem-001",
+      "canonical_name": "MEMORY_COMPRESSION",
+      "description": "Compress active memory to daily summaries, archive raw logs",
+      "capabilities_supported": [
+        "MEMORY_PIPELINE"
+      ],
+      "agents_with_skill": [
+        "alusi-loop"
+      ],
+      "tools_used": [
+        "memory/active",
+        "memory/compressed",
+        "memory/archive"
+      ],
+      "validation_method": "compression ratio + context retrieval quality",
+      "quality_score": 0.85,
+      "cost_score": 0.95,
+      "success_rate": 0.92,
+      "maturity": "OPERATIONAL"
+    },
+    {
+      "skill_uuid": "sk-trd-001",
+      "canonical_name": "AUTONOMOUS_TRADING",
+      "description": "Kalshi + Polymarket signal scoring, position sizing, trade execution",
+      "capabilities_supported": [
+        "AUTONOMOUS_TRADING"
+      ],
+      "agents_with_skill": [
+        "cashclaw_director",
+        "cashclaw_arb",
+        "polymarket_trader"
+      ],
+      "tools_used": [
+        "trading.agents.*",
+        "Haiku signal scorer"
+      ],
+      "validation_method": "Kelly compliance + spend cap check",
+      "quality_score": 0.8,
+      "cost_score": 0.85,
+      "success_rate": 0.75,
+      "maturity": "OPERATIONAL",
+      "governance": "PROTECTED \u2014 no modification without Nathan approval"
+    }
+  ],
+  "task_observer_integration": "task_observer_collector.py reads skill-observations/ and proposes improvements via skill_workshop",
+  "protected_skills": [
+    "AUTONOMOUS_TRADING",
+    "SECRET_SCAN \u2014 do not weaken"
+  ]
+}
