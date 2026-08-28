@@ -1,3 +1,32 @@
 api_key_inventory.json
 *.env.local
 system_prompt.md
+
+# === SECRETS / CREDENTIALS (added 2026-08-28 post-audit) ===
+.env
+.env.*
+!*.env.example
+!*.env.template
+secrets/
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+.mcp.json
+**/api_key*
+**/credentials.json
+**/service_account*.json
+
+# === LARGE DATA / PII (should not be in source) ===
+*.jsonl
+!*.example.jsonl
+
+# === RUNTIME STATE ===
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+node_modules/
+*.log
+router_state.json
