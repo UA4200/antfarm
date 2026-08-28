@@ -1,0 +1,293 @@
+{
+  "version": "V2",
+  "baseline_name": "OPEN_EMPIRE_GOLDEN_BASELINE_POST_REPO",
+  "generated_at": "2026-08-28T07:42:00-05:00",
+  "certification_status": "CERTIFIED",
+  "supersedes": "OPEN_EMPIRE_GOLDEN_BASELINE_V1.json",
+  "live_verified_at": "2026-08-28T07:42:00-05:00",
+  "changes_from_v1": [
+    "open-empire-core cloned from UA4200",
+    "alusi-core cloned from UA4200",
+    "OpenClaw-Agent-Command-Center cloned from UA4200",
+    "awesome-openclaw-usecases cloned from UA4200",
+    "blco pushed to UA4200/blco-pipeline (commit 2906b1c)",
+    "trading git init + first commit c97d732 (LOCAL_ONLY — Nathan action pending)",
+    "npm installs completed: openhuman, hermes-agent, OC-Agent-CC",
+    "pip installs completed: iFixAi (venv), ai-hedge-fund (venv), hyperliquid-trading-agent (venv)",
+    "43 repos classified in repository registry",
+    "Backup system repaired (pg_dump PATH fixed, 6h cron active)",
+    "OpenAI registered as TIER3/4 provider in oe-proxy",
+    "Backup count grew to 28 (was 27)",
+    "Latest backup: clawdb_20260828_0647_autotest.sql (60KB)"
+  ],
+  "host": {
+    "os": "macOS 12.7.6 x86_64",
+    "hostname": "Ugos-Mac-mini",
+    "user": "NeoOC",
+    "managed_by_launchd": ["postgresql@18"]
+  },
+  "runtimes": {
+    "node": "v24.14.0",
+    "python3": "3.14.6",
+    "postgres": "18.3",
+    "pm2": "7.0.1",
+    "git": "2.53.0",
+    "n8n": "via PM2 port 5678",
+    "ollama": "PM2 port 11434"
+  },
+  "repository_estate": {
+    "total_repos": 43,
+    "github_repos": 8,
+    "deployed_and_certified": 3,
+    "installed_and_certified": 17,
+    "synced_reference_only": 11,
+    "deferred_with_reason": 9,
+    "rejected_with_reason": 2,
+    "superseded": 1,
+    "local_only_critical": [
+      "trading — Nathan action: create UA4200/trading (private) + push c97d732"
+    ],
+    "pending_installs": []
+  },
+  "ua4200_github_repos": [
+    {
+      "name": "workspace (git-github)",
+      "remote": "UA4200/git-github",
+      "commit": "548e46b",
+      "status": "SYNCED",
+      "pushed": "2026-08-28"
+    },
+    {
+      "name": "blco-pipeline",
+      "remote": "UA4200/blco-pipeline",
+      "commit": "2906b1c",
+      "status": "SYNCED",
+      "pushed": "2026-08-28"
+    },
+    {
+      "name": "trading",
+      "remote": "PENDING",
+      "commit": "c97d732",
+      "status": "LOCAL_ONLY_CRITICAL",
+      "note": "Nathan must create UA4200/trading (private) and push"
+    },
+    {
+      "name": "alusi-core",
+      "remote": "UA4200/alusi-core",
+      "commit": "15b122a",
+      "status": "SYNCED",
+      "pushed": "2026-08-28"
+    },
+    {
+      "name": "open-empire-core",
+      "remote": "UA4200/open-empire-core",
+      "commit": "123eb75",
+      "status": "SYNCED",
+      "pushed": "2026-08-28"
+    },
+    {
+      "name": "antfarm",
+      "remote": "UA4200/antfarm",
+      "commit": "HEAD",
+      "status": "SYNCED",
+      "pushed": "2026-07-30"
+    },
+    {
+      "name": "mission-control",
+      "remote": "UA4200/mission-control",
+      "commit": "HEAD",
+      "status": "SYNCED",
+      "pushed": "2026-07-30"
+    },
+    {
+      "name": "hermes-agent",
+      "remote": "UA4200/hermes-agent",
+      "commit": "44cdf55",
+      "status": "SYNCED",
+      "pushed": "2026-08-28"
+    },
+    {
+      "name": "OpenClaw-Agent-Command-Center",
+      "remote": "UA4200/OpenClaw-Agent-Command-Center",
+      "commit": "a454808",
+      "status": "SYNCED",
+      "pushed": "2026-08-28"
+    },
+    {
+      "name": "awesome-openclaw-usecases",
+      "remote": "UA4200/awesome-openclaw-usecases",
+      "commit": "659895e",
+      "status": "SYNCED",
+      "pushed": "2026-08-28"
+    }
+  ],
+  "services": {
+    "pm2_total": 40,
+    "pm2_online": 34,
+    "pm2_stopped_expected": 6,
+    "live_verified": true,
+    "critical_services": [
+      {"id": 0,  "name": "executor",                       "status": "online"},
+      {"id": 1,  "name": "heartbeat",                      "status": "online"},
+      {"id": 2,  "name": "alusi-gateway",                  "status": "online", "port": null},
+      {"id": 3,  "name": "alusi-telegram-adapter",         "status": "online"},
+      {"id": 4,  "name": "alusi-discord-adapter",          "status": "online"},
+      {"id": 5,  "name": "alusi-controlled-worker",        "status": "online"},
+      {"id": 6,  "name": "alusi-orchestrator",             "status": "online"},
+      {"id": 10, "name": "hyrvea-monitor",                 "status": "online"},
+      {"id": 13, "name": "exec-gateway",                   "status": "online"},
+      {"id": 14, "name": "telegram-approvals",             "status": "online"},
+      {"id": 15, "name": "ecosystem.email-dispatcher",     "status": "online"},
+      {"id": 17, "name": "mission-control",                "status": "online", "port": 3333},
+      {"id": 22, "name": "ollama",                         "status": "online", "port": 11434},
+      {"id": 30, "name": "cashclaw_director",              "status": "online", "cycle": "every 5min"},
+      {"id": 31, "name": "cashclaw_arb",                   "status": "online", "cycle": "every 5min"},
+      {"id": 32, "name": "polymarket-trader",              "status": "online", "cycle": "15min"},
+      {"id": 33, "name": "trading_sentinel",               "status": "online", "cycle": "every 5min"},
+      {"id": 36, "name": "freeway",                        "status": "online", "port": 8082},
+      {"id": 37, "name": "grafana",                        "status": "online", "port": 3001},
+      {"id": 38, "name": "fcc-metrics-exporter",           "status": "online", "cycle": "every 5min"},
+      {"id": 40, "name": "oe-proxy",                       "status": "online", "port": 4100},
+      {"id": 42, "name": "kg-api",                         "status": "online", "port": 6279},
+      {"id": 46, "name": "fcc-8083",                       "status": "online", "port": 8083},
+      {"id": 33, "name": "open-empire-federation-staging", "status": "online", "cycle": "every 15min"},
+      {"id": 34, "name": "open-empire-lifecycle-staging",  "status": "online", "cycle": "every 15min"}
+    ],
+    "expected_stopped": [
+      {"id": 11, "name": "email-dispatcher",      "reason": "on-demand"},
+      {"id": 12, "name": "openclaw-dashboard",    "reason": "legacy"},
+      {"id": 16, "name": "pnl-audit",             "reason": "on-demand"}
+    ]
+  },
+  "databases": {
+    "clawdb": {
+      "engine": "PostgreSQL 18.3",
+      "port": 5432,
+      "managed_by": "launchd (pid ~568)",
+      "entities": 58,
+      "relationships": 20,
+      "backup_count": 28,
+      "latest_backup": "clawdb_20260828_0647_autotest.sql (60KB)",
+      "backup_location": "~/.openclaw/backups/clawdb/",
+      "backup_schedule": "6h cron (fixed — PATH includes /usr/local/bin)",
+      "restore_method": "pg_restore -Fc (avoids \\restrict issue)",
+      "live_verified": true
+    }
+  },
+  "inference": {
+    "oe_proxy": {
+      "port": 4100,
+      "providers_total": 21,
+      "free_providers": 13,
+      "paid_providers": 8,
+      "routing": {
+        "haiku": "Groq free",
+        "sonnet": "Groq70B / free",
+        "opus": "Anthropic premium"
+      }
+    },
+    "ollama": {
+      "port": 11434,
+      "models": 6
+    },
+    "openai": {
+      "status": "OPERATIONAL",
+      "tier": "TIER3/TIER4"
+    },
+    "freeway": {
+      "port": 8082,
+      "providers": 5,
+      "models": 72,
+      "mode": "COST_OPTIMIZED_INFERENCE"
+    },
+    "fcc_8083": {
+      "port": 8083,
+      "providers": 7,
+      "models": 71,
+      "note": "OpenAI-shaped, /v1/responses incompatible with Codex"
+    }
+  },
+  "memory": {
+    "embedding_status": "DEGRADED",
+    "root_cause": "stale providerKey after Node version change",
+    "fix": "Update Node 24.14 → 24.15 + run: openclaw memory index --force",
+    "data_intact": true,
+    "kg_entities": 58,
+    "wiki_status": "OK"
+  },
+  "trading_capital": {
+    "kalshi": "$25.19",
+    "polymarket_us": "$40.00",
+    "total_deployed": "$65.19",
+    "spend_caps": {
+      "cashclaw_director": "$10/day",
+      "polymarket_trader": "$10/day",
+      "arb": "$10/day"
+    }
+  },
+  "npm_installs": {
+    "openhuman": "DONE",
+    "hermes_agent": "DONE",
+    "oc_agent_cc": "DONE"
+  },
+  "pip_installs": {
+    "iFixAi": "DONE (venv)",
+    "ai_hedge_fund": "DONE (venv)",
+    "hyperliquid_trading_agent": "DONE (venv)"
+  },
+  "known_exceptions": [
+    {
+      "id": "EX-001",
+      "severity": "HIGH",
+      "item": "trading GitHub remote missing",
+      "detail": "Local repo has commit c97d732 but no UA4200/trading remote exists",
+      "action": "Nathan: create UA4200/trading (private) on GitHub + git push origin main"
+    },
+    {
+      "id": "EX-002",
+      "severity": "MEDIUM",
+      "item": "embedding provider key mismatch (DEGRADED)",
+      "detail": "openclaw memory embedding fails with stale providerKey",
+      "action": "Update Node v24.14.0 → v24.15+ then run: openclaw memory index --force"
+    },
+    {
+      "id": "EX-003",
+      "severity": "LOW",
+      "item": "PM2 has 6 stopped processes",
+      "detail": "email-dispatcher (id 11), openclaw-dashboard (id 12), pnl-audit (id 16) are intentionally stopped",
+      "action": "No action — expected stopped state"
+    }
+  ],
+  "rollback_points": [
+    {
+      "tag": "2026-08-28-post-repo-estate",
+      "workspace_commit": "548e46b",
+      "blco_commit": "2906b1c",
+      "trading_commit": "c97d732",
+      "alusi_core_commit": "15b122a",
+      "open_empire_core_commit": "123eb75",
+      "db_backup": "clawdb_20260828_0647_autotest.sql",
+      "restore_cmd": "pg_restore -h 127.0.0.1 -U NeoOC -d clawdb -Fc ~/.openclaw/backups/clawdb/clawdb_20260828_0647_autotest.sql"
+    }
+  ],
+  "startup_sequence": [
+    "0. launchd auto-starts PostgreSQL 18.3 (pid ~568, port 5432)",
+    "1. pm2 resurrect  — restores all PM2 processes",
+    "2. pm2 status     — verify 34+ online",
+    "3. curl http://127.0.0.1:4100/health  — oe-proxy",
+    "4. curl http://127.0.0.1:8082/v1/models  — freeway",
+    "5. curl http://localhost:5678/healthz  — n8n",
+    "6. psql -h 127.0.0.1 -d clawdb -c 'SELECT COUNT(*) FROM kg_entities;'"
+  ],
+  "health_suite": [
+    "pm2 status",
+    "curl http://127.0.0.1:4100/health",
+    "curl http://127.0.0.1:8082/v1/models",
+    "curl http://127.0.0.1:8083/v1/models",
+    "curl http://127.0.0.1:3001/",
+    "curl http://localhost:5678/healthz",
+    "psql -h 127.0.0.1 -d clawdb -c 'SELECT COUNT(*) FROM kg_entities;'",
+    "curl http://127.0.0.1:6279/health",
+    "curl http://localhost:11434/api/tags"
+  ]
+}
