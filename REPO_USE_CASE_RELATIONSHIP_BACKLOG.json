@@ -1,0 +1,111 @@
+{
+  "generated_at": "2026-08-28T12:36:42.108538+00:00",
+  "name": "REPO_USE_CASE_RELATIONSHIP_BACKLOG",
+  "items": [
+    {
+      "priority": "P0",
+      "repo": "trading",
+      "capability_gap": "GitHub remote missing",
+      "install_status": "INSTALLED",
+      "setup_status": "DONE",
+      "test_status": "PASS",
+      "deployment_status": "RUNNING",
+      "owner": "Nathan",
+      "blocker": "Needs GitHub account action",
+      "next_action": "Create UA4200/trading private repo + push",
+      "expected_value": "Source backup for live trading system"
+    },
+    {
+      "priority": "P1",
+      "repo": "iFixAi",
+      "capability_gap": "pip install incomplete",
+      "install_status": "INSTALLED (venv done)",
+      "setup_status": "PENDING",
+      "test_status": "PASS",
+      "deployment_status": "NOT_DEPLOYED",
+      "owner": "Alusi",
+      "blocker": "",
+      "next_action": "cd ~/.openclaw/repos/iFixAi && python3 -m venv venv && venv/bin/pip install -r requirements.txt",
+      "expected_value": "AI debugging acceleration"
+    },
+    {
+      "priority": "P1",
+      "repo": "openhuman",
+      "capability_gap": "npm install incomplete",
+      "install_status": "INSTALLED (npm done)",
+      "setup_status": "PENDING",
+      "test_status": "PARTIAL (entry-point TBD)",
+      "deployment_status": "NOT_DEPLOYED",
+      "owner": "Alusi",
+      "blocker": "Needs main entry-point config",
+      "next_action": "cd ~/.openclaw/repos/openhuman && npm install",
+      "expected_value": "Outreach humanization"
+    },
+    {
+      "priority": "P1",
+      "repo": "hermes-agent",
+      "capability_gap": "npm install incomplete",
+      "install_status": "INSTALLED (npm done)",
+      "setup_status": "PENDING",
+      "test_status": "PASS",
+      "deployment_status": "NOT_DEPLOYED",
+      "owner": "Alusi",
+      "blocker": "",
+      "next_action": "cd ~/.openclaw/repos/installed/hermes-agent && npm install",
+      "expected_value": "Agent messaging layer"
+    },
+    {
+      "priority": "P2",
+      "repo": "OpenClaw-Agent-Command-Center",
+      "capability_gap": "npm install incomplete",
+      "install_status": "INSTALLED (npm done)",
+      "setup_status": "PENDING",
+      "test_status": "PASS",
+      "deployment_status": "NOT_DEPLOYED",
+      "owner": "Alusi",
+      "blocker": "",
+      "next_action": "cd ~/.openclaw/repos/installed/OpenClaw-Agent-Command-Center && npm install",
+      "expected_value": "Agent dashboard (benchmark vs Mission Control)"
+    },
+    {
+      "priority": "P2",
+      "repo": "ai-hedge-fund",
+      "capability_gap": "pip install (sandbox)",
+      "install_status": "INSTALLED (venv done)",
+      "setup_status": "PENDING",
+      "test_status": "PASS",
+      "deployment_status": "SANDBOX_ONLY",
+      "owner": "Alusi",
+      "blocker": "",
+      "next_action": "cd ~/.openclaw/repos/installed/ai-hedge-fund && python3 -m venv venv && venv/bin/pip install -r requirements.txt",
+      "expected_value": "Trading strategy reference (sandbox)"
+    },
+    {
+      "priority": "P2",
+      "repo": "hyperliquid-trading-agent",
+      "capability_gap": "pip install (sandbox)",
+      "install_status": "INSTALLED (venv done)",
+      "setup_status": "PENDING",
+      "test_status": "PASS",
+      "deployment_status": "SANDBOX_ONLY",
+      "owner": "Alusi",
+      "blocker": "",
+      "next_action": "cd ~/.openclaw/repos/installed/hyperliquid-trading-agent && python3 -m venv venv && venv/bin/pip install -r requirements.txt",
+      "expected_value": "DEX reference (sandbox)"
+    },
+    {
+      "priority": "EMBED",
+      "repo": "OpenClaw memory",
+      "capability_gap": "embedding provider key mismatch",
+      "install_status": "PRESENT",
+      "setup_status": "BROKEN",
+      "test_status": "FAIL",
+      "deployment_status": "DEGRADED",
+      "owner": "Nathan",
+      "blocker": "Node 24.14 < required 24.15 for openclaw CLI",
+      "next_action": "1. Update Node: nvm install 24 && nvm use 24\n2. Run: openclaw memory index --force",
+      "expected_value": "Semantic memory search restoration"
+    }
+  ],
+  "updated_at": "2026-08-28T12:43:09.420498+00:00"
+}

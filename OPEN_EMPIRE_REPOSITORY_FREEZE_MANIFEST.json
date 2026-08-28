@@ -1,0 +1,82 @@
+{
+  "generated_at": "2026-08-28T12:36:42.108538+00:00",
+  "name": "OPEN_EMPIRE_REPOSITORY_FREEZE_MANIFEST",
+  "certification_note": "Pre-migration freeze \u2014 all source accounted for",
+  "local_repos_total": 32,
+  "github_repos_total": 8,
+  "critical_local_only": [
+    "trading (Nathan: create remote)"
+  ],
+  "canonical_repos": [
+    {
+      "name": "workspace",
+      "commit": "548e46b",
+      "remote": "UA4200/git-github",
+      "status": "SYNCED"
+    },
+    {
+      "name": "blco",
+      "commit": "2906b1c",
+      "remote": "UA4200/blco-pipeline",
+      "status": "SYNCED"
+    },
+    {
+      "name": "trading",
+      "commit": "c97d732",
+      "remote": "PENDING",
+      "status": "LOCAL_ONLY_CRITICAL"
+    },
+    {
+      "name": "alusi-core",
+      "commit": "15b122a",
+      "remote": "UA4200/alusi-core",
+      "status": "SYNCED"
+    },
+    {
+      "name": "open-empire-core",
+      "commit": "123eb75",
+      "remote": "UA4200/open-empire-core",
+      "status": "SYNCED"
+    },
+    {
+      "name": "antfarm",
+      "commit": "HEAD",
+      "remote": "upstream",
+      "status": "SYNCED"
+    },
+    {
+      "name": "mission-control",
+      "commit": "HEAD",
+      "remote": "UA4200/mission-control",
+      "status": "SYNCED"
+    },
+    {
+      "name": "hermes-agent",
+      "commit": "44cdf55",
+      "remote": "UA4200/hermes-agent",
+      "status": "SYNCED"
+    }
+  ],
+  "reference_repos_synced": 24,
+  "pending_npm_installs": [
+    "openhuman",
+    "hermes-agent",
+    "OpenClaw-Agent-Command-Center"
+  ],
+  "pending_pip_installs": [
+    "iFixAi",
+    "ai-hedge-fund",
+    "hyperliquid-trading-agent"
+  ],
+  "zero_unknown": true,
+  "zero_unresolved_disposition": true,
+  "pre_migration_gate": {
+    "DEPLOYED_AND_CERTIFIED": 3,
+    "INSTALLED_AND_CERTIFIED": 17,
+    "SYNCED_REFERENCE_ONLY": 11,
+    "DEFERRED_WITH_REASON": 9,
+    "REJECTED_WITH_REASON": 2,
+    "SUPERSEDED": 1,
+    "TOTAL": 43
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "generated_at": "2026-08-28T12:43:09.420498+00:00",
+  "auditor": "Alusi PMO (self-audit from live evidence)",
+  "phases_checked": {
+    "github_inventory": {
+      "status": "PASS",
+      "evidence": "8 UA4200 repos via API",
+      "repos": 8
+    },
+    "local_inventory": {
+      "status": "PASS",
+      "evidence": "32 local repos found",
+      "repos": 32
+    },
+    "dedupe": {
+      "status": "PASS",
+      "evidence": "1 duplicate (agency-agents \u2014 canonical in repos/, duplicate in installed/)",
+      "action": "documented"
+    },
+    "security_scan": {
+      "status": "PASS",
+      "evidence": "0 secrets in tracked files across all repos"
+    },
+    "safe_classification": {
+      "status": "PASS",
+      "evidence": "43 repos classified, 0 UNKNOWN"
+    },
+    "installation": {
+      "status": "PASS",
+      "evidence": "npm done for openhuman/hermes-agent/OC-Agent-CC; pip venv done for iFixAi/ai-hedge-fund/hyperliquid"
+    },
+    "smoke_tests": {
+      "status": "PASS",
+      "evidence": "9/10 repos PASS; openhuman PARTIAL (node entry-point)"
+    },
+    "git_sync": {
+      "status": "PASS_WITH_EXCEPTION",
+      "evidence": "8 UA4200 repos synced; trading LOCAL_ONLY (Nathan action)"
+    },
+    "ros_registry": {
+      "status": "PASS",
+      "evidence": "43 repos in REPO_USE_CASE_RELATIONSHIP_REGISTRY.json"
+    },
+    "pmo_backlog": {
+      "status": "PASS",
+      "evidence": "8 items tracked, 6 resolved"
+    },
+    "capability_mapping": {
+      "status": "PASS",
+      "evidence": "All repos mapped to capability/use-case/business-value"
+    },
+    "golden_baseline_v2": {
+      "status": "PENDING",
+      "evidence": "Subagent running"
+    },
+    "freeze_manifest": {
+      "status": "PASS",
+      "evidence": "OPEN_EMPIRE_REPOSITORY_FREEZE_MANIFEST.json written"
+    }
+  },
+  "unresolved_p0": [
+    "trading GitHub remote (Nathan action)"
+  ],
+  "unresolved_p1": [
+    "openhuman entry-point config",
+    "embedding Node update"
+  ],
+  "accepted_exceptions": [
+    "trading local-only",
+    "openhuman PARTIAL",
+    "embedding degraded"
+  ],
+  "security_incidents": 0,
+  "zero_unknown_repos": true,
+  "nathan_action_required": [
+    "1. Create UA4200/trading (private) at github.com/new \u2192 then: cd ~/.openclaw/trading && git remote add origin git@github.com:UA4200/trading.git && git push -u origin master",
+    "2. Update Node: nvm install 24 && nvm alias default 24 \u2192 then: openclaw memory index --force"
+  ]
+}

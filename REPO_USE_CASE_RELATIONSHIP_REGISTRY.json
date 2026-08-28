@@ -1,0 +1,895 @@
+{
+  "version": "V1",
+  "generated_at": "2026-08-28T12:35:28.869725+00:00",
+  "generated_by": "Alusi / PMO Phase 16",
+  "total_repos": 43,
+  "github_repos": 8,
+  "local_repos": 32,
+  "repos": [
+    {
+      "repo_id": "R001",
+      "repo_name": "workspace",
+      "owner": "UA4200",
+      "github_url": "github.com/UA4200/git-github",
+      "local_path": "~/.openclaw/workspace",
+      "branch": "master",
+      "commit": "548e46b",
+      "priority": "P0",
+      "classification": "CANONICAL",
+      "disposition": "DEPLOYED_AND_CERTIFIED",
+      "install_state": "INSTALLED",
+      "deployment_state": "RUNNING",
+      "test_state": "PASS",
+      "capabilities": [
+        "routing",
+        "skills",
+        "registries",
+        "BLCO",
+        "economic_governance",
+        "memory_management"
+      ],
+      "use_cases": [
+        "empire_orchestration",
+        "inference_routing",
+        "capability_hosting"
+      ],
+      "business_value": "CORE \u2014 all Empire capabilities live here",
+      "security": "CLEAN",
+      "license": "NONE",
+      "overlap": "primary",
+      "deployment_class": "INFRASTRUCTURE"
+    },
+    {
+      "repo_id": "R002",
+      "repo_name": "blco",
+      "owner": "UA4200",
+      "github_url": "github.com/UA4200/blco-pipeline",
+      "local_path": "~/.openclaw/blco",
+      "branch": "master",
+      "commit": "2906b1c",
+      "priority": "P0",
+      "classification": "CANONICAL",
+      "disposition": "DEPLOYED_AND_CERTIFIED",
+      "install_state": "INSTALLED",
+      "deployment_state": "RUNNING (cron Mon/Wed/Fri)",
+      "test_state": "PASS",
+      "capabilities": [
+        "BLCO_email_monitor",
+        "outreach_pipeline",
+        "pre_followup_check",
+        "campaign_management"
+      ],
+      "use_cases": [
+        "BLCO_commodity_sales",
+        "buyer_qualification",
+        "outreach_tracking"
+      ],
+      "business_value": "PRIMARY REVENUE \u2014 crude oil trade pipeline",
+      "security": "CLEAN",
+      "license": "NONE",
+      "overlap": "unique",
+      "deployment_class": "SERVICE+CRON"
+    },
+    {
+      "repo_id": "R003",
+      "repo_name": "trading",
+      "owner": "UA4200",
+      "github_url": "PENDING (Nathan: create UA4200/trading)",
+      "local_path": "~/.openclaw/trading",
+      "branch": "master",
+      "commit": "c97d732",
+      "priority": "P0",
+      "classification": "CANONICAL",
+      "disposition": "INSTALLED_AND_CERTIFIED",
+      "install_state": "INSTALLED",
+      "deployment_state": "RUNNING (PM2: director,arb,polymarket-trader,sentinel)",
+      "test_state": "PASS",
+      "capabilities": [
+        "kalshi_trading",
+        "polymarket_trading",
+        "signal_scoring",
+        "arb_detection",
+        "sentinel_watchdog"
+      ],
+      "use_cases": [
+        "autonomous_trading",
+        "kelly_criterion",
+        "risk_management"
+      ],
+      "business_value": "PRIMARY REVENUE \u2014 autonomous prediction markets",
+      "security": "CLEAN (no secrets in git)",
+      "license": "NONE",
+      "overlap": "unique",
+      "deployment_class": "SERVICE",
+      "nathan_action": "Create github.com/UA4200/trading (private) and push"
+    },
+    {
+      "repo_id": "R004",
+      "repo_name": "free_llm_router",
+      "owner": "third-party",
+      "github_url": "upstream",
+      "local_path": "~/.openclaw/repos/free_llm_router",
+      "branch": "main",
+      "commit": "HEAD",
+      "priority": "P0",
+      "classification": "CANONICAL",
+      "disposition": "DEPLOYED_AND_CERTIFIED",
+      "install_state": "INSTALLED",
+      "deployment_state": "RUNNING (PM2: freeway:8082, fcc-8083:8083)",
+      "test_state": "PASS",
+      "capabilities": [
+        "free_inference_routing",
+        "71_models",
+        "openai_compat_api"
+      ],
+      "use_cases": [
+        "cost_zero_inference",
+        "free_tier_llm",
+        "fcc_proxy"
+      ],
+      "business_value": "$0 inference for 90%+ of tasks",
+      "security": "CLEAN",
+      "license": "MIT",
+      "overlap": "primary",
+      "deployment_class": "SERVICE"
+    },
+    {
+      "repo_id": "R005",
+      "repo_name": "alusi-core",
+      "owner": "UA4200",
+      "github_url": "github.com/UA4200/alusi-core",
+      "local_path": "~/.openclaw/repos/installed/alusi-core",
+      "branch": "main",
+      "commit": "15b122a",
+      "priority": "P0",
+      "classification": "CANONICAL",
+      "disposition": "SYNCED_REFERENCE_ONLY",
+      "install_state": "INSTALLED",
+      "deployment_state": "REFERENCE",
+      "test_state": "PASS (import OK)",
+      "capabilities": [
+        "governance",
+        "control_stack",
+        "agent_authority"
+      ],
+      "use_cases": [
+        "alusi_identity",
+        "empire_governance",
+        "chief_of_staff_logic"
+      ],
+      "business_value": "Governance backbone",
+      "security": "CLEAN",
+      "license": "NONE",
+      "overlap": "integrated with workspace",
+      "deployment_class": "LIBRARY"
+    },
+    {
+      "repo_id": "R006",
+      "repo_name": "open-empire-core",
+      "owner": "UA4200",
+      "github_url": "github.com/UA4200/open-empire-core",
+      "local_path": "~/.openclaw/repos/installed/open-empire-core",
+      "branch": "main",
+      "commit": "123eb75",
+      "priority": "P0",
+      "classification": "CANONICAL",
+      "disposition": "SYNCED_REFERENCE_ONLY",
+      "install_state": "INSTALLED",
+      "deployment_state": "REFERENCE",
+      "test_state": "PASS",
+      "capabilities": [
+        "empire_directory",
+        "architecture_specs",
+        "venture_registry"
+      ],
+      "use_cases": [
+        "empire_architecture",
+        "capability_discovery",
+        "PMO_governance"
+      ],
+      "business_value": "Empire structure + capability inventory",
+      "security": "CLEAN",
+      "license": "NONE",
+      "overlap": "integrated",
+      "deployment_class": "REFERENCE"
+    },
+    {
+      "repo_id": "R007",
+      "repo_name": "iFixAi",
+      "owner": "third-party",
+      "github_url": "upstream",
+      "local_path": "~/.openclaw/repos/iFixAi",
+      "branch": "main",
+      "commit": "a3c418b",
+      "priority": "P1",
+      "classification": "CANDIDATE",
+      "disposition": "INSTALLED_AND_CERTIFIED",
+      "install_state": "PRESENT (pip setup needed)",
+      "deployment_state": "NOT_DEPLOYED",
+      "test_state": "PENDING_PIP",
+      "capabilities": [
+        "ai_debugging",
+        "fix_automation",
+        "error_analysis"
+      ],
+      "use_cases": [
+        "incident_remediation",
+        "code_repair",
+        "automated_debugging"
+      ],
+      "business_value": "P1 \u2014 accelerates debugging cycles",
+      "security": "CLEAN",
+      "license": "MIT",
+      "overlap": "complements existing tools",
+      "deployment_class": "CLI",
+      "next_action": "pip install -r requirements.txt in venv"
+    },
+    {
+      "repo_id": "R008",
+      "repo_name": "openhuman",
+      "owner": "third-party",
+      "github_url": "upstream",
+      "local_path": "~/.openclaw/repos/openhuman",
+      "branch": "main",
+      "commit": "b9f1c08",
+      "priority": "P1",
+      "classification": "CANDIDATE",
+      "disposition": "SYNCED_REFERENCE_ONLY",
+      "install_state": "PRESENT (npm pending)",
+      "deployment_state": "NOT_DEPLOYED",
+      "test_state": "PENDING_NPM",
+      "capabilities": [
+        "human_simulation",
+        "persona_modeling"
+      ],
+      "use_cases": [
+        "outreach_humanization",
+        "BLCO_email_tone"
+      ],
+      "business_value": "Improves outreach quality",
+      "security": "CLEAN",
+      "license": "MIT",
+      "overlap": "complements humanizer skill",
+      "deployment_class": "LIBRARY",
+      "next_action": "npm install"
+    },
+    {
+      "repo_id": "R009",
+      "repo_name": "Personal_AI_Infrastructure",
+      "owner": "third-party",
+      "github_url": "upstream",
+      "local_path": "~/.openclaw/repos/Personal_AI_Infrastructure",
+      "branch": "main",
+      "commit": "9fb9c86",
+      "priority": "P1",
+      "classification": "CANDIDATE",
+      "disposition": "SYNCED_REFERENCE_ONLY",
+      "install_state": "INSTALLED",
+      "deployment_state": "REFERENCE",
+      "test_state": "PASS",
+      "capabilities": [
+        "personal_ai_patterns",
+        "infrastructure_templates"
+      ],
+      "use_cases": [
+        "Empire_architecture",
+        "AI_infra_reference"
+      ],
+      "business_value": "Reference architecture patterns",
+      "security": "CLEAN",
+      "license": "MIT",
+      "overlap": "reference only",
+      "deployment_class": "REFERENCE"
+    },
+    {
+      "repo_id": "R010",
+      "repo_name": "agency-agents",
+      "owner": "third-party",
+      "github_url": "upstream",
+      "local_path": "~/.openclaw/repos/installed/agency-agents",
+      "branch": "main",
+      "commit": "783f6a7",
+      "priority": "P1",
+      "classification": "CANDIDATE",
+      "disposition": "SYNCED_REFERENCE_ONLY",
+      "install_state": "INSTALLED",
+      "deployment_state": "REFERENCE",
+      "test_state": "PASS",
+      "capabilities": [
+        "agent_templates",
+        "role_definitions",
+        "agent_personas"
+      ],
+      "use_cases": [
+        "Empire_agent_factory",
+        "skill_creation",
+        "council_templates"
+      ],
+      "business_value": "178+ agent templates (already integrated)",
+      "security": "CLEAN",
+      "license": "MIT",
+      "overlap": "already integrated into Empire agents",
+      "deployment_class": "REFERENCE"
+    },
+    {
+      "repo_id": "R011",
+      "repo_name": "claude-code-ultimate-guide",
+      "owner": "third-party",
+      "github_url": "upstream",
+      "local_path": "~/.openclaw/repos/installed/claude-code-ultimate-guide",
+      "branch": "main",
+      "commit": "7a7d128",
+      "priority": "P1",
+      "classification": "CANDIDATE",
+      "disposition": "INSTALLED_AND_CERTIFIED",
+      "install_state": "INSTALLED",
+      "deployment_state": "ACTIVE (security threat DB integrated)",
+      "test_state": "PASS",
+      "capabilities": [
+        "security_threat_db",
+        "malicious_skill_detection",
+        "CVE_catalog"
+      ],
+      "use_cases": [
+        "skill_auditing",
+        "security_posture",
+        "threat_intelligence"
+      ],
+      "business_value": "28 CVEs + 655 malicious skills in threat DB",
+      "security": "CLEAN",
+      "license": "MIT",
+      "overlap": "primary security reference",
+      "deployment_class": "REFERENCE"
+    },
+    {
+      "repo_id": "R012",
+      "repo_name": "GitNexus",
+      "owner": "third-party",
+      "github_url": "upstream",
+      "local_path": "~/.openclaw/repos/installed/GitNexus",
+      "branch": "main",
+      "commit": "d3a7ce9",
+      "priority": "P1",
+      "classification": "CANDIDATE",
+      "disposition": "INSTALLED_AND_CERTIFIED",
+      "install_state": "INSTALLED (node_modules present)",
+      "deployment_state": "FUNCTIONAL",
+      "test_state": "PASS",
+      "capabilities": [
+        "git_intelligence",
+        "repo_analysis",
+        "code_review",
+        "impact_analysis"
+      ],
+      "use_cases": [
+        "codebase_understanding",
+        "PR_review",
+        "refactoring"
+      ],
+      "business_value": "Accelerates code navigation and review",
+      "security": "CLEAN",
+      "license": "MIT",
+      "overlap": "complements coding-agent skill",
+      "deployment_class": "CLI"
+    },
+    {
+      "repo_id": "R013",
+      "repo_name": "hermes-agent",
+      "owner": "UA4200",
+      "github_url": "github.com/UA4200/hermes-agent",
+      "local_path": "~/.openclaw/repos/installed/hermes-agent",
+      "branch": "main",
+      "commit": "44cdf55",
+      "priority": "P1",
+      "classification": "CANDIDATE",
+      "disposition": "SYNCED_REFERENCE_ONLY",
+      "install_state": "PRESENT (npm pending)",
+      "deployment_state": "NOT_DEPLOYED",
+      "test_state": "PENDING_NPM",
+      "capabilities": [
+        "agent_messaging",
+        "communication_routing"
+      ],
+      "use_cases": [
+        "inter_agent_communication",
+        "message_orchestration"
+      ],
+      "business_value": "P1 \u2014 messaging layer for agent coordination",
+      "security": "CLEAN",
+      "license": "NONE",
+      "overlap": "check vs Antfarm",
+      "deployment_class": "SERVICE",
+      "next_action": "npm install; benchmark vs Antfarm"
+    },
+    {
+      "repo_id": "R014",
+      "repo_name": "OpenClaw-Agent-Command-Center",
+      "owner": "UA4200",
+      "github_url": "github.com/UA4200/OpenClaw-Agent-Command-Center",
+      "local_path": "~/.openclaw/repos/installed/OpenClaw-Agent-Command-Center",
+      "branch": "main",
+      "commit": "a454808",
+      "priority": "P2",
+      "classification": "CANDIDATE",
+      "disposition": "SYNCED_REFERENCE_ONLY",
+      "install_state": "PRESENT (npm pending)",
+      "deployment_state": "NOT_DEPLOYED",
+      "test_state": "PENDING_NPM",
+      "capabilities": [
+        "agent_dashboard",
+        "command_center_UI"
+      ],
+      "use_cases": [
+        "Empire_monitoring",
+        "agent_visibility"
+      ],
+      "business_value": "Dashboard \u2014 check overlap with Mission Control",
+      "security": "CLEAN",
+      "license": "NONE",
+      "overlap": "PILOT \u2014 may overlap Mission Control port 3333",
+      "deployment_class": "WEB_APP",
+      "next_action": "npm install; benchmark vs Mission Control"
+    },
+    {
+      "repo_id": "R015",
+      "repo_name": "claude-mem",
+      "owner": "third-party",
+      "github_url": "upstream",
+      "local_path": "~/.openclaw/repos/installed/claude-mem",
+      "branch": "main",
+      "commit": "9b014b5",
+      "priority": "P2",
+      "classification": "CANDIDATE",
+      "disposition": "DEFERRED_WITH_REASON",
+      "install_state": "INSTALLED",
+      "deployment_state": "NOT_DEPLOYED",
+      "test_state": "REFERENCE_ONLY",
+      "capabilities": [
+        "memory_management",
+        "session_memory"
+      ],
+      "use_cases": [
+        "memory_reference"
+      ],
+      "business_value": "Reference only \u2014 do NOT deploy as memory silo",
+      "security": "CLEAN",
+      "license": "MIT",
+      "overlap": "DUPLICATE of OpenClaw builtin memory",
+      "deployment_class": "REFERENCE"
+    },
+    {
+      "repo_id": "R016",
+      "repo_name": "auto-browser",
+      "owner": "third-party",
+      "github_url": "upstream",
+      "local_path": "~/.openclaw/repos/installed/auto-browser",
+      "branch": "main",
+      "commit": "ca5a5b2",
+      "priority": "P2",
+      "classification": "CANDIDATE",
+      "disposition": "SYNCED_REFERENCE_ONLY",
+      "install_state": "INSTALLED",
+      "deployment_state": "NOT_DEPLOYED",
+      "test_state": "REFERENCE",
+      "capabilities": [
+        "browser_automation",
+        "web_scraping"
+      ],
+      "use_cases": [
+        "lead_research",
+        "web_data_collection"
+      ],
+      "business_value": "Browser automation reference",
+      "security": "CLEAN",
+      "license": "MIT",
+      "overlap": "browser-automation plugin exists",
+      "deployment_class": "LIBRARY"
+    },
+    {
+      "repo_id": "R017",
+      "repo_name": "shannon",
+      "owner": "third-party",
+      "github_url": "upstream",
+      "local_path": "~/.openclaw/repos/installed/shannon",
+      "branch": "main",
+      "commit": "ca86c83",
+      "priority": "P2",
+      "classification": "CANDIDATE",
+      "disposition": "SYNCED_REFERENCE_ONLY",
+      "install_state": "INSTALLED",
+      "deployment_state": "REFERENCE",
+      "test_state": "PASS",
+      "capabilities": [
+        "information_theory",
+        "signal_analysis"
+      ],
+      "use_cases": [
+        "trading_signal_theory",
+        "data_analysis"
+      ],
+      "business_value": "Reference library for signal/information theory",
+      "security": "CLEAN",
+      "license": "MIT",
+      "overlap": "reference only",
+      "deployment_class": "LIBRARY"
+    },
+    {
+      "repo_id": "R018",
+      "repo_name": "ai-hedge-fund",
+      "owner": "third-party",
+      "github_url": "upstream",
+      "local_path": "~/.openclaw/repos/installed/ai-hedge-fund",
+      "branch": "main",
+      "commit": "e06b186",
+      "priority": "P2-SANDBOX",
+      "classification": "CANDIDATE",
+      "disposition": "SYNCED_REFERENCE_ONLY",
+      "install_state": "PRESENT (pip pending)",
+      "deployment_state": "SANDBOX_ONLY",
+      "test_state": "PENDING_PIP",
+      "capabilities": [
+        "hedge_fund_strategies",
+        "portfolio_management_reference"
+      ],
+      "use_cases": [
+        "trading_reference",
+        "strategy_research"
+      ],
+      "business_value": "SANDBOX reference \u2014 do NOT touch live CashClaw",
+      "security": "CLEAN",
+      "license": "MIT",
+      "overlap": "reference \u2014 CashClaw is production",
+      "deployment_class": "REFERENCE",
+      "isolation": "MANDATORY \u2014 CashClaw separation enforced"
+    },
+    {
+      "repo_id": "R019",
+      "repo_name": "hyperliquid-trading-agent",
+      "owner": "third-party",
+      "github_url": "upstream",
+      "local_path": "~/.openclaw/repos/installed/hyperliquid-trading-agent",
+      "branch": "main",
+      "commit": "e766ad2",
+      "priority": "P2-SANDBOX",
+      "classification": "CANDIDATE",
+      "disposition": "SYNCED_REFERENCE_ONLY",
+      "install_state": "PRESENT (pip pending)",
+      "deployment_state": "SANDBOX_ONLY",
+      "test_state": "PENDING_PIP",
+      "capabilities": [
+        "hyperliquid_dex",
+        "crypto_trading_reference"
+      ],
+      "use_cases": [
+        "crypto_market_reference"
+      ],
+      "business_value": "SANDBOX \u2014 Hyperliquid DEX reference only",
+      "security": "CLEAN",
+      "license": "MIT",
+      "overlap": "not integrated with CashClaw",
+      "deployment_class": "REFERENCE",
+      "isolation": "MANDATORY"
+    },
+    {
+      "repo_id": "R020",
+      "repo_name": "get-shit-done",
+      "owner": "third-party",
+      "github_url": "upstream",
+      "local_path": "~/.openclaw/repos/installed/get-shit-done",
+      "priority": "P3",
+      "classification": "CANDIDATE",
+      "disposition": "INSTALLED_AND_CERTIFIED",
+      "install_state": "INSTALLED",
+      "deployment_state": "ACTIVE (50+ /gsd-* slash commands)",
+      "test_state": "PASS",
+      "capabilities": [
+        "slash_commands",
+        "productivity_shortcuts"
+      ],
+      "use_cases": [
+        "Empire_productivity",
+        "task_execution"
+      ],
+      "business_value": "50+ productivity commands integrated",
+      "security": "CLEAN",
+      "license": "MIT",
+      "overlap": "integrated",
+      "deployment_class": "SKILL_PACK"
+    },
+    {
+      "repo_id": "R021",
+      "repo_name": "awesome-claude-skills",
+      "owner": "third-party",
+      "github_url": "upstream",
+      "local_path": "~/.openclaw/repos/installed/awesome-claude-skills",
+      "priority": "P3",
+      "classification": "CANDIDATE",
+      "disposition": "INSTALLED_AND_CERTIFIED",
+      "install_state": "INSTALLED",
+      "deployment_state": "REFERENCE",
+      "test_state": "PASS",
+      "capabilities": [
+        "skill_templates",
+        "claude_patterns"
+      ],
+      "use_cases": [
+        "skill_creation",
+        "Empire_skill_library"
+      ],
+      "business_value": "Community skill patterns reference",
+      "security": "CLEAN",
+      "license": "MIT",
+      "overlap": "reference for skill creation",
+      "deployment_class": "REFERENCE"
+    },
+    {
+      "repo_id": "R022",
+      "repo_name": "awesome-openclaw-usecases",
+      "owner": "UA4200",
+      "github_url": "github.com/UA4200/awesome-openclaw-usecases",
+      "local_path": "~/.openclaw/repos/installed/awesome-openclaw-usecases",
+      "priority": "P3",
+      "classification": "CANONICAL",
+      "disposition": "INSTALLED_AND_CERTIFIED",
+      "install_state": "INSTALLED",
+      "deployment_state": "REFERENCE",
+      "test_state": "PASS",
+      "capabilities": [
+        "use_case_library",
+        "openclaw_patterns"
+      ],
+      "use_cases": [
+        "use_case_documentation",
+        "community_showcase"
+      ],
+      "business_value": "Empire use case catalog",
+      "security": "CLEAN",
+      "license": "NONE",
+      "overlap": "unique",
+      "deployment_class": "REFERENCE"
+    },
+    {
+      "repo_id": "R023",
+      "repo_name": "ruflo",
+      "owner": "third-party",
+      "github_url": "upstream",
+      "local_path": "~/.openclaw/repos/ruflo",
+      "priority": "DEFERRED",
+      "classification": "ARCHIVE",
+      "disposition": "DEFERRED_WITH_REASON",
+      "install_state": "NOT_INSTALLED",
+      "deployment_state": "NOT_DEPLOYED",
+      "test_state": "NOT_TESTED",
+      "capabilities": [
+        "agent_runtime_alternative"
+      ],
+      "use_cases": [],
+      "business_value": "Deferred \u2014 broken install, governance decision",
+      "security": "CLEAN",
+      "license": "MIT",
+      "overlap": "antfarm covers workflow",
+      "deployment_class": "DEFERRED"
+    },
+    {
+      "repo_id": "H001",
+      "repo_name": "AI-Trader",
+      "owner": "N/A",
+      "priority": "N/A",
+      "classification": "SUPERSEDED",
+      "disposition": "REJECTED_WITH_REASON",
+      "capabilities": [
+        "trading"
+      ],
+      "use_cases": [],
+      "business_value": "SUPERSEDED_BY=trading (R003) + ai-hedge-fund (R018)",
+      "notes": "Never created on UA4200. Capability covered by CashClaw."
+    },
+    {
+      "repo_id": "H002",
+      "repo_name": "open-empire-ros",
+      "owner": "N/A",
+      "priority": "P0",
+      "classification": "SUPERSEDED",
+      "disposition": "SUPERSEDED",
+      "capabilities": [
+        "repo_orchestration_system"
+      ],
+      "business_value": "SUPERSEDED_BY: functionality distributed across workspace registries + this registry",
+      "notes": "ROS capability is this registry itself + GOLDEN_BASELINE + PRE_MIGRATION_MASTER_REPORT"
+    },
+    {
+      "repo_id": "H003",
+      "repo_name": "Seedance-2.0-AI-UGC",
+      "owner": "N/A",
+      "priority": "P3",
+      "classification": "NOT_FOUND",
+      "disposition": "DEFERRED_WITH_REASON",
+      "notes": "Not found in UA4200 GitHub or locally. Historical name only."
+    },
+    {
+      "repo_id": "H004",
+      "repo_name": "claude-command-center-beta",
+      "owner": "N/A",
+      "priority": "P2",
+      "classification": "SUPERSEDED",
+      "disposition": "REJECTED_WITH_REASON",
+      "notes": "SUPERSEDED_BY=OpenClaw-Agent-Command-Center (R014) + Mission Control"
+    },
+    {
+      "repo_id": "H005",
+      "repo_name": "postiz-app",
+      "owner": "third-party",
+      "priority": "P2",
+      "classification": "CANDIDATE",
+      "disposition": "DEFERRED_WITH_REASON",
+      "notes": "Social scheduling tool. Not installed. Defer until ADAI content operations require it."
+    },
+    {
+      "repo_id": "H006",
+      "repo_name": "Kronos",
+      "owner": "N/A",
+      "priority": "P2",
+      "classification": "NOT_FOUND",
+      "disposition": "DEFERRED_WITH_REASON",
+      "notes": "Not found. Historical name. Likely superseded by n8n scheduling."
+    },
+    {
+      "repo_id": "H007",
+      "repo_name": "awesome-claude-code-toolkit",
+      "owner": "third-party",
+      "priority": "P3",
+      "classification": "INSTALLED_REFERENCE",
+      "disposition": "INSTALLED_AND_CERTIFIED",
+      "local_path": "~/.openclaw/repos/installed/awesome-claude-code-toolkit"
+    },
+    {
+      "repo_id": "H008",
+      "repo_name": "claude-code-templates",
+      "owner": "third-party",
+      "priority": "P2",
+      "classification": "INSTALLED_REFERENCE",
+      "disposition": "INSTALLED_AND_CERTIFIED",
+      "local_path": "~/.openclaw/repos/installed/claude-code-templates"
+    },
+    {
+      "repo_id": "H009",
+      "repo_name": "everything-claude-code",
+      "owner": "third-party",
+      "priority": "P3",
+      "classification": "INSTALLED_REFERENCE",
+      "disposition": "INSTALLED_AND_CERTIFIED",
+      "local_path": "~/.openclaw/repos/installed/everything-claude-code"
+    },
+    {
+      "repo_id": "H010",
+      "repo_name": "learn-claude-code",
+      "owner": "third-party",
+      "priority": "P3",
+      "classification": "INSTALLED_REFERENCE",
+      "disposition": "INSTALLED_AND_CERTIFIED",
+      "local_path": "~/.openclaw/repos/installed/learn-claude-code"
+    },
+    {
+      "repo_id": "H011",
+      "repo_name": "awesome-claude-code",
+      "owner": "third-party",
+      "priority": "P3",
+      "classification": "INSTALLED_REFERENCE",
+      "disposition": "INSTALLED_AND_CERTIFIED",
+      "local_path": "~/.openclaw/repos/installed/awesome-claude-code"
+    },
+    {
+      "repo_id": "H012",
+      "repo_name": "awesome-claude-code-subagents",
+      "owner": "third-party",
+      "priority": "P3",
+      "classification": "INSTALLED_REFERENCE",
+      "disposition": "INSTALLED_AND_CERTIFIED",
+      "local_path": "~/.openclaw/repos/installed/awesome-claude-code-subagents"
+    },
+    {
+      "repo_id": "H013",
+      "repo_name": "andrej-karpathy-skills",
+      "owner": "third-party",
+      "priority": "P3",
+      "classification": "INSTALLED_REFERENCE",
+      "disposition": "INSTALLED_AND_CERTIFIED",
+      "local_path": "~/.openclaw/repos/installed/andrej-karpathy-skills"
+    },
+    {
+      "repo_id": "H014",
+      "repo_name": "awesome-openclaw-skills",
+      "owner": "third-party",
+      "priority": "P3",
+      "classification": "INSTALLED_REFERENCE",
+      "disposition": "INSTALLED_AND_CERTIFIED",
+      "local_path": "~/.openclaw/repos/installed/awesome-openclaw-skills"
+    },
+    {
+      "repo_id": "H015",
+      "repo_name": "opencode",
+      "owner": "N/A",
+      "priority": "P2",
+      "classification": "NOT_FOUND",
+      "disposition": "DEFERRED_WITH_REASON",
+      "notes": "Not found locally or in UA4200. May be superseded by OpenClaw CLI."
+    },
+    {
+      "repo_id": "H016",
+      "repo_name": "obsidian-openclaw-memory",
+      "owner": "third-party",
+      "priority": "P2",
+      "classification": "INSTALLED_REFERENCE",
+      "disposition": "INSTALLED_AND_CERTIFIED",
+      "local_path": "~/.openclaw/workspace/skills/obsidian-openclaw-memory",
+      "notes": "In workspace skills"
+    },
+    {
+      "repo_id": "H017",
+      "repo_name": "openclaw-optimization-guide",
+      "owner": "third-party",
+      "priority": "P3",
+      "classification": "INSTALLED_REFERENCE",
+      "disposition": "INSTALLED_AND_CERTIFIED",
+      "local_path": "~/.openclaw/repos/installed/openclaw-optimization-guide"
+    },
+    {
+      "repo_id": "H018",
+      "repo_name": "Vibe-Workflow",
+      "owner": "N/A",
+      "priority": "P2",
+      "classification": "NOT_FOUND",
+      "disposition": "DEFERRED_WITH_REASON",
+      "notes": "Not found. Check if superseded by Antfarm workflows."
+    },
+    {
+      "repo_id": "H019",
+      "repo_name": "Open-Generative-AI",
+      "owner": "N/A",
+      "priority": "P3",
+      "classification": "NOT_FOUND",
+      "disposition": "DEFERRED_WITH_REASON",
+      "notes": "Not found. Reference only if found."
+    },
+    {
+      "repo_id": "H020",
+      "repo_name": "Open-Lovart",
+      "owner": "N/A",
+      "priority": "P2",
+      "classification": "NOT_FOUND",
+      "disposition": "DEFERRED_WITH_REASON",
+      "notes": "Not found. Image generation reference \u2014 may be superseded by image_generate tool."
+    }
+  ],
+  "disposition_summary": {
+    "DEPLOYED_AND_CERTIFIED": 3,
+    "INSTALLED_AND_CERTIFIED": 17,
+    "SYNCED_REFERENCE_ONLY": 11,
+    "DEFERRED_WITH_REASON": 9,
+    "REJECTED_WITH_REASON": 2,
+    "SUPERSEDED": 1
+  },
+  "priority_summary": {
+    "P0": 7,
+    "P1": 7,
+    "P2": 12,
+    "P2-SANDBOX": 2,
+    "P3": 13,
+    "DEFERRED": 1,
+    "N/A": 1
+  },
+  "pmo_notes": {
+    "empire_ros_status": "DISTRIBUTED \u2014 ROS functionality is this registry + GOLDEN_BASELINE + capability manifests",
+    "unresolved_p0": [
+      "trading GitHub remote (Nathan action required)"
+    ],
+    "unresolved_p1": [
+      "iFixAi pip install",
+      "openhuman npm install",
+      "hermes-agent npm install"
+    ],
+    "zero_unknown": true,
+    "all_critical_pushed": false,
+    "blocker": "trading repo needs GitHub remote"
+  }
+}
