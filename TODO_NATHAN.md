@@ -1,5 +1,5 @@
 # TODO_NATHAN.md — Items Nathan Needs to Provide
-Version: 3.0 | Updated: 2026-05-08 | Scrubbed against ~/.openclaw/secrets/.env
+Version: 4.0 | Updated: 2026-08-27 | Scrubbed against ~/.openclaw/secrets/.env
 
 ---
 
@@ -28,9 +28,9 @@ Version: 3.0 | Updated: 2026-05-08 | Scrubbed against ~/.openclaw/secrets/.env
 
 ---
 
-## 🟡 ACTION REQUIRED — PollyReach Activation
+## ✅ CONFIRMED — PollyReach
 
-✅ COMPLETE — Activated 2026-05-09. Alusi phone: **+1 (571) 725-2743** | Inbound prompt set | 10-min poller active | Test call delivered to Nathan successfully.
+Activated 2026-05-09. Alusi phone: **+1 (571) 725-2743** | Inbound prompt set | 10-min poller active | Test call delivered successfully.
 
 ---
 
@@ -38,7 +38,7 @@ Version: 3.0 | Updated: 2026-05-08 | Scrubbed against ~/.openclaw/secrets/.env
 
 | # | Item | Why | Notes |
 |---|------|-----|-------|
-| ~~5~~ | ~~Obsidian vault path~~ | ✅ DONE 2026-05-19 — vault at `~/Documents/Obsidian Vault`, cron active, syncing daily | — |
+| ~~5~~ | ~~Obsidian vault path~~ | ✅ DONE — vault at `~/Documents/Obsidian Vault`, cron active, syncing daily | — |
 | 6 | YouTube Channel ID + Handle | content-skill-pack ideation + yt-titles lookup | — |
 | 7 | Content output path | Where content-skill-pack saves files | — |
 | 8 | Product image for Seedance | First A/B test ad | Needs `ENHANCOR_API_KEY` first |
@@ -48,11 +48,11 @@ Version: 3.0 | Updated: 2026-05-08 | Scrubbed against ~/.openclaw/secrets/.env
 
 ---
 
-## ⚠️ ACTION NEEDED — Secrets Present but Config Mismatch
+## ✅ CLEARED — Previously Reported Configuration Issues
 
 | # | Item | Issue | Fix |
 |---|------|-------|-----|
-| 12 | `DATABASE_URL` | Still uses old default password `openclaw_strong_pw_change_me` | Update to match `CLAWDB_PASSWORD` |
+| 12 | `DATABASE_URL` | Old default password was reported | ✅ Fixed and confirmed against the rotated ClawDB password |
 
 ---
 
@@ -99,24 +99,24 @@ Version: 3.0 | Updated: 2026-05-08 | Scrubbed against ~/.openclaw/secrets/.env
 
 ---
 
-## ✅ COMPLETED TODAY — 2026-05-16
+## ✅ CONFIRMED COMPLETE — Current Records
 
 | Item | Status | Notes |
 |---|---|---|
 | Obsidian vault indexing | ✅ FIXED | obsidian_sync.sh now points to correct vault |
 | CI/CD implementation | ✅ LIVE | `~/.openclaw/bin/cicd_health.sh` — cron 1am daily |
 | Empire injection script | ✅ CONFIRMED RAN | 20+ repos in ~/.openclaw/repos/installed/ |
-| CashClaw director | ✅ STOPPED | pm2 id 7, stopped per Nathan order 19:44 CDT |
-| ClawDB password | ✅ ROTATED | New password in .env, ALTER ROLE confirmed |
-| DATABASE_URL | ✅ FIXED | Updated with new ClawDB password |
-| Discord #agent-logs | ✅ CREATED | Channel ID: 1505383212443242666 |
+| CashClaw stack | ✅ LIVE | Canonical agents under `~/.openclaw/trading/`; director, arb, Polymarket trader, and sentinel are recorded as live |
+| ClawDB password | ✅ ROTATED | New password stored in secrets; database role change confirmed |
+| DATABASE_URL | ✅ FIXED | Updated with current ClawDB password |
+| Discord #agent-logs | ✅ CREATED | Channel ID: `1505383212443242666` |
 | DISCORD_AGENT_LOGS_CHANNEL_ID | ✅ WIRED | In secrets/.env |
 | HeyGen API | ✅ CONFIRMED | 1,500 credits, avatars live |
 | AgentMail | ✅ CONFIRMED | neooc@agentmail.to live, SMTP/IMAP wired |
 | Launch prep doc | ✅ WRITTEN | ~/.openclaw/workspace/projects/BLCO/LAUNCH_PREP.md |
 | PMO N8N research directive | ✅ ISSUED | ~/.openclaw/workspace/directives/PMO_N8N_RESEARCH.md |
 
-## 🔴 STILL BLOCKING
+## 🔴 STILL BLOCKING / NEEDS NATHAN
 
 | Item | Blocker |
 |---|---|
@@ -126,3 +126,10 @@ Version: 3.0 | Updated: 2026-05-08 | Scrubbed against ~/.openclaw/secrets/.env
 | TELEGRAM_BOT_TOKEN_BLCO | Still missing |
 | Twitter API keys | Still missing (auto-post blocked) |
 | ENHANCOR_API_KEY | Still missing (Seedance blocked) |
+
+## 📌 NEXT DECISIONS
+
+1. Provide or confirm the missing BLCO, Twitter, and Enhancor credentials when those launches are authorized.
+2. Decide the YouTube channel, content output path, and Seedance target audience/product image.
+3. Provide resumex.dev username/token if job-search automation is still wanted.
+4. Provide the Discord channel ID for agent logs only if it differs from the confirmed `#agent-logs` channel above.

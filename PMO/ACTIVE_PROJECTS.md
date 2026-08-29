@@ -8,7 +8,7 @@
 **New Events (48h):** 0  
 **Critical Blockers:** BLOCKER-001 (Anthropic API credit exhausted), BLOCKER-003 (blco-enricher stopped)  
 **Stalled Tasks:** Campaign #001 stalled since 5/13 (86 days) — **36 DAYS OVERDUE vs. target close date 6/30**  
-**Latest Check:** 2026-08-06 18:00 CDT (Daily Ops — Checkpoint #2)
+**Latest Check:** 2026-08-28 18:00 CDT (Daily Ops — 6pm Checkpoint)
 **Next Actions:**
 1. **URGENT:** Nathan API credit decision ($50+) to unblock enrichment
 2. Restart `blco-enricher` (id=12) once API restored
@@ -117,13 +117,13 @@
 
 ---
 
-**Last Checkpoint:** 2026-08-06 18:00 CDT (Daily Ops — Checkpoint #2 delivered)
+**Last Checkpoint:** 2026-08-28 18:00 CDT (Daily Ops — 6pm Checkpoint)
 **PMO Authority:** Alusi (Chief of Staff)
-**Next Checkpoint:** 2026-08-07 06:00 CDT (morning ops)
+**Next Checkpoint:** 2026-08-29 06:00 CDT (morning ops)
 
 ---
 
-## Daily PMO Summary (2026-08-05 — 6:02 PM CDT)
+## Daily PMO Summary (2026-08-28 — 6:00 PM CDT)
 
 **Ventures Status:**
 - 🟢 **CashClaw:** 4/4 agents ONLINE, 35h+ active, 5min cycles stable. **P&L tracking offline (pnl-audit stopped).**
@@ -170,4 +170,4 @@
 
 ---
 
-*Active Empire Projects — Last Updated 2026-08-05 18:00 CDT (Daily Ops)*
+*Active Empire Projects — Last Updated 2026-08-28 18:00 CDT (Daily Ops)*

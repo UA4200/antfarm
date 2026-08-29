@@ -1,55 +1,111 @@
 {
   "generated_at": "2026-08-09T21:35:00Z",
-  "total_defects": 3,
+  "last_updated": "2026-08-10T00:35:00Z",
+  "update_source": "PMO SSOT closeout subagent — verified machine state 2026-08-09",
+  "total_defects": 6,
+  "defects_open": 2,
+  "defects_resolved": 4,
   "defects": [
     {
       "id": "SSOT-001",
       "system": "ClawDB schema",
-      "description": "Database lost on PM2/PostgreSQL restart \u2014 schema and data wiped",
+      "description": "Database lost on PM2/PostgreSQL restart — schema and data wiped",
       "severity": "HIGH",
-      "status": "RESOLVED \u2014 schema restored, data reseeded",
-      "root_cause": "start_pg.sh restarts PostgreSQL but clawdb database not persisted in pg_dump",
-      "prevention": "Add periodic pg_dump to cron; store backup at ~/.openclaw/backups/clawdb/"
+      "status": "RESOLVED",
+      "resolution_date": "2026-08-09",
+      "resolution_evidence": "PostgreSQL 18.3 confirmed running via macOS launchd (pid=568) at port 5432. PM2 clawdb stub removed 2026-08-09 (was crash-looping with 776 restarts — port conflict with native instance). clawdb DB confirmed accessible and healthy.",
+      "root_cause": "PM2-managed start_pg.sh was conflicting with native launchd PostgreSQL instance. PM2 stub crash-looped. Native launchd instance is authoritative and stable.",
+      "prevention": "Add periodic pg_dump to cron; store backup at ~/.openclaw/backups/clawdb/. Native launchd instance should NOT be managed via PM2.",
+      "action": "NONE — monitor via launchd, no PM2 intervention needed"
     },
     {
       "id": "SSOT-002",
       "system": "open-empire-nexus",
-      "description": "No remote origin configured \u2014 single local commit, 14 dirty files",
+      "description": "No remote origin configured — single local commit (5ad07ce init), 14 dirty untracked files",
       "severity": "MEDIUM",
-      "status": "OPEN \u2014 Nathan decision required",
-      "action": "git remote add origin https://github.com/UA4200/open-empire-nexus.git && git push -u origin main"
+      "status": "OPEN",
+      "status_detail": "NATHAN_DECISION_REQUIRED",
+      "last_checked": "2026-08-09",
+      "current_state": {
+        "repo_path": "~/projects/open-empire-nexus/",
+        "commits": 1,
+        "last_commit": "5ad07ce init",
+        "dirty_files": 14,
+        "remote_configured": false,
+        "secret_scan": "CLEAN — no secrets detected in untracked files",
+        "github_token_status": "INSUFFICIENT_SCOPE — current token lacks repo scope for programmatic push"
+      },
+      "blocker": "GitHub token lacks repo scope. Two resolution paths: (A) Nathan regenerates token with repo scope, or (B) Nathan manually creates UA4200/open-empire-nexus repo on GitHub and provides credentials.",
+      "action": "AWAITING_NATHAN — once token/repo available: git remote add origin https://github.com/UA4200/open-empire-nexus.git && git push -u origin main"
     },
     {
       "id": "SSOT-003",
       "system": "workspace uncommitted files",
-      "description": "228 files uncommitted including api_key_inventory.json (EXCLUDE)",
+      "description": "255 files uncommitted across 10 commit groups (updated count 2026-08-09)",
       "severity": "MEDIUM",
-      "status": "OPEN \u2014 9 commit groups defined, Nathan review required",
-      "action": "Review OPEN_EMPIRE_WORKSPACE_CHANGESET_REVIEW.json, commit groups 1-9 selectively"
+      "status": "OPEN",
+      "status_detail": "PENDING_NATHAN_REVIEW",
+      "last_checked": "2026-08-09",
+      "current_state": {
+        "uncommitted_file_count": 255,
+        "commit_groups": 10,
+        "excluded_sensitive": ["api_key_inventory.json — gitignored (SSOT-004 RESOLVED)"],
+        "workspace_remote": "origin https://github.com/UA4200/git-github.git",
+        "branch": "master",
+        "last_commit": "14fd569 docs(reports): C0/P0 output reports, Claude hardening, Obsidian, KG status"
+      },
+      "blocker": "Nathan must review 10 commit groups before any git add/commit. No selective staging should occur without explicit approval.",
+      "action": "Review OPEN_EMPIRE_WORKSPACE_CHANGESET_REVIEW.json — commit groups 1-10 require Nathan approval before staging"
     },
     {
       "id": "SSOT-004",
       "system": "api_key_inventory.json",
-      "description": "Key inventory file in workspace \u2014 not gitignored",
+      "description": "Key inventory file in workspace — not gitignored (original finding)",
       "severity": "HIGH",
-      "status": "ACTION_REQUIRED",
-      "action": "Add to .gitignore immediately: echo 'api_key_inventory.json' >> ~/.openclaw/workspace/.gitignore"
+      "status": "RESOLVED",
+      "resolution_date": "2026-08-09",
+      "resolution_evidence": ".gitignore line 1 confirmed = 'api_key_inventory.json'. File is excluded from all git operations. No action required.",
+      "action": "NONE — file is gitignored at line 1 of .gitignore"
     },
     {
       "id": "SSOT-005",
       "system": "n8n",
-      "description": "n8n restarting after PM2 reload \u2014 port 5678 temporarily unavailable",
+      "description": "n8n restarting after PM2 reload — port 5678 temporarily unavailable",
       "severity": "LOW",
-      "status": "SELF_RESOLVING \u2014 n8n takes 30-60s to start",
-      "action": "Monitor; if still down after 2min: pm2 restart n8n"
+      "status": "ACCEPTED_EXCEPTION",
+      "status_detail": "DOCUMENTED",
+      "resolution_date": "2026-08-09",
+      "resolution_evidence": "n8n startup delay (30-60s after PM2 reload) is expected behavior. Service is operational. No fix required — this is a known startup characteristic, not a defect.",
+      "action": "MONITOR — if still unavailable after 2min post-reload: pm2 restart n8n"
     },
     {
       "id": "SSOT-006",
       "system": "PM2 IDs",
       "description": "IDs changed after PM2 reload (e.g., old kg-api=52 now kg-api=42)",
       "severity": "LOW",
-      "status": "DOCUMENTED \u2014 update AGENTS.md/MEMORY.md with new IDs",
-      "action": "Update AGENTS.md with new PM2 IDs after save"
+      "status": "RESOLVED",
+      "resolution_date": "2026-08-09",
+      "resolution_evidence": "AGENTS.md updated 2026-08-09 with all corrected PM2 IDs. Registry now reflects: CashClaw 30-33, freeway 36, grafana 37, fcc-metrics-exporter 38, oe-proxy 40, kg-api 42, trading_sentinel 33 (corrected). MEMORY.md also carries updated IDs.",
+      "action": "NONE — IDs documented. Re-verify after any future pm2 delete/start cycles."
     }
-  ]
+  ],
+  "summary": {
+    "defects_total": 6,
+    "defects_open": 2,
+    "defects_resolved": 3,
+    "defects_accepted_exception": 1,
+    "open_list": ["SSOT-002", "SSOT-003"],
+    "resolved_list": ["SSOT-001", "SSOT-004", "SSOT-006"],
+    "accepted_exception_list": ["SSOT-005"],
+    "nathan_decisions_required": [
+      {
+        "defect": "SSOT-002",
+        "decision": "GitHub token scope (repo) OR manual repo creation at UA4200/open-empire-nexus to unblock nexus push"
+      },
+      {
+        "defect": "SSOT-003",
+        "decision": "Review and approve 10 commit groups before any workspace git staging begins"
+      }
+    ]
+  }
 }

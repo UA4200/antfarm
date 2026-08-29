@@ -1,200 +1,580 @@
 {
-  "generated_at": "2026-08-09T20:30:00Z",
-  "version": "V1",
+  "generated_at": "2026-08-09T19:35:00Z",
+  "version": "V1.1",
+  "total": 17,
+  "change_log": "V1→V1.1: preserved DIR-REPO-001 through DIR-DR-001 (7 original stubs); added DIR-REPO-002 through DIR-SSOT-001 (10 full directive packages)",
+  "principle": "Nathan issues objectives. Alusi/PMO match to directive. Directive drives execution.",
+  "extension": "Add new directives as new use cases mature",
   "directives": [
     {
       "directive_id": "DIR-REPO-001",
       "name": "REPOSITORY_INTAKE",
       "objective": "Take a new repository from discovery to production-ready integration",
       "capability": "REPOSITORY_FACTORY",
-      "inputs": [
-        "repo_path_or_url"
-      ],
-      "skills": [
-        "GIT_REPOSITORY_MANAGEMENT",
-        "SECRET_SCAN",
-        "PMO_PLANNING"
-      ],
-      "agents": [
-        "repo_factory.py",
-        "Alusi"
-      ],
-      "tools": [
-        "git",
-        "gitleaks",
-        "psql (KG registration)"
-      ],
+      "inputs": ["repo_path_or_url"],
+      "skills": ["GIT_REPOSITORY_MANAGEMENT", "SECRET_SCAN", "PMO_PLANNING"],
+      "agents": ["repo_factory.py", "Alusi"],
+      "tools": ["git", "gitleaks", "psql (KG registration)"],
       "execution_strategy": "SINGLE_AGENT_PLUS_TOOLS",
-      "approval_gates": [
-        "SECRET_SCAN pass required",
-        "license review"
-      ],
-      "kpis": [
-        "secret_risk_clear",
-        "capability_mapped",
-        "registered_in_kg"
-      ],
-      "stages": [
-        "discover",
-        "hash",
-        "secret_scan",
-        "license",
-        "dependency",
-        "capability_fit",
-        "register",
-        "install",
-        "test",
-        "integrate",
-        "cicd",
-        "observe"
-      ]
+      "approval_gates": ["SECRET_SCAN pass required", "license review"],
+      "kpis": ["secret_risk_clear", "capability_mapped", "registered_in_kg"],
+      "stages": ["discover", "hash", "secret_scan", "license", "dependency", "capability_fit", "register", "install", "test", "integrate", "cicd", "observe"]
     },
     {
       "directive_id": "DIR-INC-001",
       "name": "INCIDENT_REMEDIATION",
       "objective": "Diagnose and remediate an operational incident without breaking production",
       "capability": "MEMORY_PIPELINE",
-      "inputs": [
-        "incident_description",
-        "affected_service"
-      ],
-      "skills": [
-        "PMO_PLANNING",
-        "GIT_REPOSITORY_MANAGEMENT"
-      ],
+      "inputs": ["incident_description", "affected_service"],
+      "skills": ["PMO_PLANNING", "GIT_REPOSITORY_MANAGEMENT"],
       "execution_strategy": "SINGLE_AGENT_PLUS_TOOLS",
-      "approval_gates": [
-        "production change requires Nathan approval",
-        "rollback plan required"
-      ],
-      "kpis": [
-        "service_restored",
-        "root_cause_documented",
-        "prevention_proposed"
-      ]
+      "approval_gates": ["production change requires Nathan approval", "rollback plan required"],
+      "kpis": ["service_restored", "root_cause_documented", "prevention_proposed"]
     },
     {
       "directive_id": "DIR-EVAL-001",
       "name": "MODEL_PROVIDER_EVALUATION",
       "objective": "Evaluate a new inference provider for integration into the economic router",
       "capability": "ADAPTIVE_ROUTING",
-      "inputs": [
-        "provider_name",
-        "api_endpoint",
-        "api_key_env_var"
-      ],
-      "skills": [
-        "ADAPTIVE_INFERENCE_ROUTING",
-        "ECONOMIC_GOVERNANCE"
-      ],
+      "inputs": ["provider_name", "api_endpoint", "api_key_env_var"],
+      "skills": ["ADAPTIVE_INFERENCE_ROUTING", "ECONOMIC_GOVERNANCE"],
       "execution_strategy": "DETERMINISTIC_TOOL",
-      "approval_gates": [
-        "cost review",
-        "security review for new key"
-      ],
-      "kpis": [
-        "latency_measured",
-        "quality_measured",
-        "cost_verified",
-        "provider_registered"
-      ]
+      "approval_gates": ["cost review", "security review for new key"],
+      "kpis": ["latency_measured", "quality_measured", "cost_verified", "provider_registered"]
     },
     {
       "directive_id": "DIR-CAP-001",
       "name": "CAPABILITY_ACTIVATION",
       "objective": "Activate a defined capability end-to-end including all dependencies",
       "capability": "CAPABILITY_FACTORY",
-      "inputs": [
-        "capability_name"
-      ],
-      "skills": [
-        "PMO_PLANNING",
-        "GIT_REPOSITORY_MANAGEMENT"
-      ],
+      "inputs": ["capability_name"],
+      "skills": ["PMO_PLANNING", "GIT_REPOSITORY_MANAGEMENT"],
       "execution_strategy": "HIERARCHICAL_MULTI_AGENT",
-      "approval_gates": [
-        "health_check pass",
-        "dependency check"
-      ],
-      "kpis": [
-        "capability_active",
-        "health_check_green",
-        "registered_in_kg"
-      ]
+      "approval_gates": ["health_check pass", "dependency check"],
+      "kpis": ["capability_active", "health_check_green", "registered_in_kg"]
     },
     {
       "directive_id": "DIR-RES-001",
       "name": "RESEARCH_AND_IMPLEMENT",
       "objective": "Research a technology/approach and implement if it provides measurable advantage",
       "capability": "MEMORY_PIPELINE",
-      "inputs": [
-        "research_topic",
-        "capability_target"
-      ],
-      "skills": [
-        "PMO_PLANNING"
-      ],
+      "inputs": ["research_topic", "capability_target"],
+      "skills": ["PMO_PLANNING"],
       "execution_strategy": "SINGLE_AGENT_PLUS_TOOLS",
-      "approval_gates": [
-        "benchmark required before production",
-        "paid service requires Nathan approval"
-      ],
-      "kpis": [
-        "evidence_collected",
-        "benchmark_run",
-        "adopt_or_reject_decision"
-      ]
+      "approval_gates": ["benchmark required before production", "paid service requires Nathan approval"],
+      "kpis": ["evidence_collected", "benchmark_run", "adopt_or_reject_decision"]
     },
     {
       "directive_id": "DIR-JOB-001",
       "name": "JOB_ACQUISITION",
       "objective": "Source, qualify, and apply for high-value employment or consulting opportunities",
       "capability": "ADAI",
-      "inputs": [
-        "role_type",
-        "target_industries",
-        "salary_range"
-      ],
-      "skills": [
-        "PMO_PLANNING"
-      ],
+      "inputs": ["role_type", "target_industries", "salary_range"],
+      "skills": ["PMO_PLANNING"],
       "execution_strategy": "SINGLE_AGENT_PLUS_TOOLS",
-      "approval_gates": [
-        "Nathan approval before any application submitted",
-        "salary floor enforced"
-      ],
-      "kpis": [
-        "qualified_opportunities_found",
-        "applications_submitted",
-        "response_rate"
-      ]
+      "approval_gates": ["Nathan approval before any application submitted", "salary floor enforced"],
+      "kpis": ["qualified_opportunities_found", "applications_submitted", "response_rate"]
     },
     {
       "directive_id": "DIR-DR-001",
       "name": "DISASTER_RECOVERY",
       "objective": "Restore Open Empire to known-good state from SSOT after data loss",
       "capability": "REPOSITORY_FACTORY",
+      "inputs": ["incident_type", "affected_systems"],
+      "skills": ["GIT_REPOSITORY_MANAGEMENT", "PMO_PLANNING"],
+      "execution_strategy": "HIERARCHICAL_MULTI_AGENT",
+      "approval_gates": ["Nathan approval for production restoration", "CashClaw manual verification"],
+      "kpis": ["services_restored", "data_integrity_verified", "post_mortem_written"]
+    },
+    {
+      "directive_id": "DIR-REPO-002",
+      "name": "REPOSITORY_INTAKE_PACKAGE",
+      "objective": "Full governed lifecycle intake of a repository: scan → classify → integrate → monitor",
+      "capability": "REPOSITORY_FACTORY",
       "inputs": [
-        "incident_type",
-        "affected_systems"
+        "repo_path_or_url",
+        "classification_hint (optional)",
+        "target_portfolio"
       ],
       "skills": [
         "GIT_REPOSITORY_MANAGEMENT",
-        "PMO_PLANNING"
+        "REPOSITORY_ANALYSIS",
+        "SECRET_SCAN",
+        "SECURITY_REVIEW",
+        "CI_CD_GENERATION",
+        "PMO_PLANNING",
+        "DATA_NORMALIZATION"
       ],
-      "execution_strategy": "HIERARCHICAL_MULTI_AGENT",
+      "agents": ["Alusi", "repo_factory.py", "kg_api"],
+      "tools": ["git", "gitleaks", "truffleHog", "exec", "read", "write", "psql", "kg_api:6279"],
+      "engines": ["SINGLE_AGENT_PLUS_TOOLS"],
+      "execution_strategy": "DETERMINISTIC_WITH_APPROVAL_GATES",
+      "research_requirements": "Identify repo purpose, dependencies, tech stack, and open-source license",
       "approval_gates": [
-        "Nathan approval for production restoration",
-        "CashClaw manual verification"
+        "SECRET_SCAN pass — zero high-severity findings",
+        "LICENSE_REVIEW — no GPL contamination for proprietary code",
+        "CAPABILITY_FIT — must map to at least one use case",
+        "PRODUCTION_REGISTRATION — Nathan review before KG write"
       ],
       "kpis": [
-        "services_restored",
-        "data_integrity_verified",
-        "post_mortem_written"
-      ]
+        "secret_risk=CLEAR",
+        "license_status=APPROVED",
+        "kg_registered=true",
+        "cicd_pipeline=active",
+        "time_to_operational<2h"
+      ],
+      "validation": "Run repo health check; verify KG entity exists; confirm CI/CD green",
+      "evidence_required": [
+        "gitleaks_report.json",
+        "license_assessment.md",
+        "capability_mapping.json",
+        "kg_entity_id"
+      ],
+      "rollback": "Delete KG entity; revert any CI/CD configs; document failure reason",
+      "memory_writes": ["KG entity", "AGENTS.md if new agent deployed", "use_case_matrix entry"],
+      "escalation": "If SECRET_SCAN finds live credentials → immediately rotate + alert Nathan via Telegram"
+    },
+    {
+      "directive_id": "DIR-RES-002",
+      "name": "RESEARCH_AND_IMPLEMENT_PACKAGE",
+      "objective": "Research a domain/tool/technology and implement a production-grade solution if evidence supports it",
+      "capability": "RESEARCH_SYNTHESIS",
+      "inputs": [
+        "research_topic",
+        "capability_target",
+        "success_criteria",
+        "budget_ceiling_usd (optional)"
+      ],
+      "skills": [
+        "RESEARCH_SYNTHESIS",
+        "BENCHMARK_DESIGN",
+        "COMPETITIVE_ANALYSIS",
+        "PMO_PLANNING",
+        "PROMPT_ENGINEERING",
+        "SOFTWARE_ARCHITECTURE"
+      ],
+      "agents": ["Alusi", "research subagents"],
+      "tools": ["tavily_search", "firecrawl_scrape", "web_fetch", "write", "exec", "pdf"],
+      "engines": ["SINGLE_AGENT_PLUS_TOOLS", "HIERARCHICAL_MULTI_AGENT"],
+      "execution_strategy": "RESEARCH_FIRST_THEN_IMPLEMENT",
+      "research_requirements": "Minimum 3 independent sources; comparison matrix with >2 alternatives",
+      "approval_gates": [
+        "EVIDENCE_GATE — research brief with evidence table complete",
+        "BENCHMARK_GATE — benchmark run and results documented before production deployment",
+        "COST_GATE — paid service requires Nathan approval",
+        "PRODUCTION_GATE — Nathan approval before any production system changes"
+      ],
+      "kpis": [
+        "research_sources>=3",
+        "alternatives_evaluated>=2",
+        "benchmark_run=true",
+        "adopt_or_reject_documented=true",
+        "production_cost_within_budget=true"
+      ],
+      "validation": "Research brief reviewed; benchmark reproducible; implementation health check passes",
+      "evidence_required": [
+        "RESEARCH_BRIEF.md (topic, sources, comparison table, recommendation)",
+        "BENCHMARK_RESULTS.json",
+        "IMPLEMENTATION_NOTES.md"
+      ],
+      "rollback": "Revert implementation; document failure mode; archive research brief",
+      "memory_writes": ["wiki synthesis page", "skill registry if new skill identified", "use case if new domain covered"],
+      "escalation": "If implementation fails after 2 attempts → pause and request Nathan guidance"
+    },
+    {
+      "directive_id": "DIR-INC-002",
+      "name": "INCIDENT_REMEDIATION_PACKAGE",
+      "objective": "Structured detection, triage, diagnosis, fix, post-mortem, and prevention for operational incidents",
+      "capability": "INCIDENT_RESPONSE",
+      "inputs": [
+        "incident_description",
+        "affected_service",
+        "severity (P1/P2/P3)",
+        "detection_timestamp"
+      ],
+      "skills": [
+        "INCIDENT_RESPONSE",
+        "DEBUGGING",
+        "SQL_ANALYSIS",
+        "GIT_REPOSITORY_MANAGEMENT",
+        "PMO_PLANNING"
+      ],
+      "agents": ["Alusi", "trading_sentinel (for trading incidents)"],
+      "tools": ["pm2", "exec", "process", "psql", "read", "Telegram", "git"],
+      "engines": ["SINGLE_AGENT_PLUS_TOOLS"],
+      "execution_strategy": "TRIAGE_DIAGNOSE_FIX_VERIFY",
+      "research_requirements": "Collect logs, metrics, and timeline before attempting any fix",
+      "approval_gates": [
+        "TRIAGE_COMPLETE — severity classified before action",
+        "ROLLBACK_PLAN — documented before any production change",
+        "P1_PRODUCTION_CHANGE — Nathan approval required within 5 minutes",
+        "POST_MORTEM — written within 24h of resolution"
+      ],
+      "kpis": [
+        "P1_MTTR<30min",
+        "P2_MTTR<2h",
+        "P3_MTTR<24h",
+        "root_cause_documented=100%",
+        "repeat_incidents_within_7days=0",
+        "post_mortem_written=true"
+      ],
+      "validation": "Service health check passes; root cause in post-mortem; prevention task created",
+      "evidence_required": [
+        "incident_timeline.md",
+        "root_cause_analysis.md",
+        "fix_commit_or_config_change",
+        "post_mortem.md",
+        "prevention_task_id"
+      ],
+      "rollback": "Execute pre-documented rollback plan; alert Nathan; increment rollback counter",
+      "memory_writes": ["incident log in vault", "post_mortem wiki page", "AGENTS.md if agent changed"],
+      "escalation": "P1 CashClaw incident → immediate Nathan Telegram alert; halt trading sentinel if spend anomaly"
+    },
+    {
+      "directive_id": "DIR-REL-001",
+      "name": "SOFTWARE_RELEASE",
+      "objective": "Deliver a tested, documented, and auditable software release for any Open Empire component",
+      "capability": "SOFTWARE_RELEASE",
+      "inputs": [
+        "repo_name",
+        "version_tag",
+        "release_notes_draft",
+        "environment (staging/production)"
+      ],
+      "skills": [
+        "SOFTWARE_ARCHITECTURE",
+        "CI_CD_GENERATION",
+        "DEBUGGING",
+        "SECURITY_REVIEW",
+        "SECRET_SCAN",
+        "GIT_REPOSITORY_MANAGEMENT"
+      ],
+      "agents": ["Alusi", "Claude Code"],
+      "tools": ["git", "exec", "pm2", "python/pytest", "npm/jest", "write", "gitleaks"],
+      "engines": ["SINGLE_AGENT_PLUS_TOOLS"],
+      "execution_strategy": "BUILD_TEST_SCAN_DEPLOY_VERIFY",
+      "research_requirements": "Confirm all deps at required versions; review breaking changes in changelog",
+      "approval_gates": [
+        "TEST_GATE — all unit/integration tests pass",
+        "SECRET_SCAN_GATE — zero exposed secrets in release artifact",
+        "STAGING_GATE — staging deploy and smoke test pass",
+        "PRODUCTION_GATE — Nathan approval for production deploy"
+      ],
+      "kpis": [
+        "test_pass_rate=100%",
+        "secret_scan=CLEAR",
+        "staging_smoke_test=PASS",
+        "production_deploy_success=true",
+        "rollback_available=true"
+      ],
+      "validation": "Post-deploy health check; smoke tests on production endpoints; version tag confirmed",
+      "evidence_required": [
+        "test_results.json",
+        "gitleaks_report.json",
+        "staging_smoke_test_log",
+        "production_deploy_log",
+        "RELEASE_NOTES.md"
+      ],
+      "rollback": "git revert + pm2 restart previous version; alert via Telegram; document regression",
+      "memory_writes": ["AGENTS.md version updated", "KG version entity", "RELEASE_NOTES.md archived"],
+      "escalation": "If production deploy fails → auto-rollback; alert Nathan; P1 incident protocol"
+    },
+    {
+      "directive_id": "DIR-CAP-002",
+      "name": "CAPABILITY_ACTIVATION_PACKAGE",
+      "objective": "Full end-to-end activation of a defined capability manifest including all deps, health checks, and KG registration",
+      "capability": "CAPABILITY_FACTORY",
+      "inputs": [
+        "capability_name",
+        "manifest_path (or capability_activation_registry entry)",
+        "environment (staging/production)"
+      ],
+      "skills": [
+        "CAPABILITY_ACTIVATION",
+        "SOFTWARE_ARCHITECTURE",
+        "GIT_REPOSITORY_MANAGEMENT",
+        "PMO_PLANNING",
+        "TASK_DECOMPOSITION",
+        "SQL_ANALYSIS"
+      ],
+      "agents": ["Alusi"],
+      "tools": ["exec", "pm2", "psql", "kg_api:6279", "git", "process", "write"],
+      "engines": ["HIERARCHICAL_MULTI_AGENT"],
+      "execution_strategy": "DEPENDENCY_ORDERED_ACTIVATION",
+      "research_requirements": "Confirm all required_repositories, required_services, required_secrets present before start",
+      "approval_gates": [
+        "DEPENDENCY_CHECK — all required services, repos, secrets verified present",
+        "STAGING_HEALTH_CHECK — all health_checks green in staging",
+        "PRODUCTION_APPROVAL — Nathan approval for production activation",
+        "KG_REGISTRATION — capability registered before marking OPERATIONAL"
+      ],
+      "kpis": [
+        "all_health_checks=GREEN",
+        "kg_registered=true",
+        "mission_control_visible=true",
+        "startup_order_followed=true",
+        "activation_time<4h"
+      ],
+      "validation": "Run all health_checks from manifest; verify KG entity; confirm Mission Control status",
+      "evidence_required": [
+        "dependency_check_report.json",
+        "health_check_results.json",
+        "kg_entity_id",
+        "activation_log.md"
+      ],
+      "rollback": "Follow manifest shutdown_order; delete KG entity if registration incomplete; notify Nathan",
+      "memory_writes": ["AGENTS.md updated", "use_case_matrix current_state updated", "KG entity created"],
+      "escalation": "If health checks fail after 3 retries → escalate to Nathan; halt activation"
+    },
+    {
+      "directive_id": "DIR-EVAL-002",
+      "name": "MODEL_PROVIDER_EVALUATION_PACKAGE",
+      "objective": "Full benchmarked evaluation of a new inference provider including cost, quality, latency, and security before routing integration",
+      "capability": "ADAPTIVE_ROUTING",
+      "inputs": [
+        "provider_name",
+        "api_endpoint",
+        "api_key_env_var",
+        "models_to_evaluate",
+        "task_types_to_test"
+      ],
+      "skills": [
+        "PROVIDER_EVALUATION",
+        "BENCHMARK_DESIGN",
+        "ADAPTIVE_INFERENCE_ROUTING",
+        "ECONOMIC_GOVERNANCE",
+        "SECURITY_REVIEW",
+        "COST_OPTIMIZATION"
+      ],
+      "agents": ["Alusi"],
+      "tools": ["exec", "write", "oe-proxy", "Free-Way", "economic_guard.py"],
+      "engines": ["DETERMINISTIC_TOOL"],
+      "execution_strategy": "MEASURE_BEFORE_ROUTE",
+      "research_requirements": "Run minimum 20 benchmark prompts across 3 task categories; compare against Groq baseline",
+      "approval_gates": [
+        "SECURITY_GATE — API key stored in env only; no hardcoding",
+        "COST_GATE — Nathan approval if monthly cost >$5",
+        "QUALITY_GATE — quality_score must meet baseline before routing",
+        "INTEGRATION_GATE — Nathan approval to add to production router"
+      ],
+      "kpis": [
+        "benchmark_prompts>=20",
+        "latency_p50_measured=true",
+        "latency_p95_measured=true",
+        "quality_score_measured=true",
+        "cost_per_1k_tokens_measured=true",
+        "security_review=PASS"
+      ],
+      "validation": "Benchmark report reviewed; provider registered in Free-Way config; test route successful",
+      "evidence_required": [
+        "BENCHMARK_REPORT.json (latency, quality, cost per model)",
+        "security_review_notes.md",
+        "routing_config_diff"
+      ],
+      "rollback": "Remove provider from router config; delete env var; alert Nathan",
+      "memory_writes": ["provider entry in KG", "routing_config updated", "AGENTS.md if new proxy deployed"],
+      "escalation": "If provider returns >10% error rate → remove immediately; do not activate"
+    },
+    {
+      "directive_id": "DIR-JOB-002",
+      "name": "JOB_ACQUISITION_PACKAGE",
+      "objective": "Source, screen, customize applications for, and track high-value career/consulting opportunities",
+      "capability": "JOB_ACQUISITION",
+      "inputs": [
+        "role_types[]",
+        "target_industries[]",
+        "salary_floor_usd",
+        "location_preference",
+        "resume_path",
+        "linkedin_profile_url"
+      ],
+      "skills": [
+        "ATS_RESUME_MATCHING",
+        "RESEARCH_SYNTHESIS",
+        "CONTENT_GENERATION",
+        "COMPETITIVE_ANALYSIS",
+        "PROMPT_ENGINEERING"
+      ],
+      "agents": ["Alusi (auto-job-applier skill)"],
+      "tools": ["web_search", "tavily_search", "browser", "write", "firecrawl_scrape"],
+      "engines": ["SINGLE_AGENT_PLUS_TOOLS"],
+      "execution_strategy": "DISCOVER_SCORE_CUSTOMIZE_SUBMIT",
+      "research_requirements": "Research company culture, hiring manager background, and role-specific tech stack before customizing",
+      "approval_gates": [
+        "SALARY_GATE — no application if salary <floor",
+        "QUALITY_GATE — resume ATS match score >75% before submit",
+        "SUBMISSION_GATE — Nathan must approve every application before it is submitted",
+        "RESPONSE_TRACKING_GATE — Nathan approval before any follow-up outreach"
+      ],
+      "kpis": [
+        "qualified_opps_per_week>=3",
+        "ats_match_score>75%",
+        "application_approval_rate=100%",
+        "response_rate>15%",
+        "offers_within_60_days"
+      ],
+      "validation": "Application log tracked; all submissions Nathan-approved; follow-up scheduled",
+      "evidence_required": [
+        "job_opportunity_scorecard.json",
+        "tailored_resume_pdf",
+        "cover_letter_draft.md",
+        "nathans_approval_log"
+      ],
+      "rollback": "Withdraw application if Nathan rejects post-submit; notify recruiter politely",
+      "memory_writes": ["job_pipeline.jsonl", "AGENTS.md if auto-applier agent activated"],
+      "escalation": "If salary floor not met → reject automatically and log reason; never submit below floor"
+    },
+    {
+      "directive_id": "DIR-BLCO-001",
+      "name": "BLCO_BUYER_QUALIFICATION_PACKAGE",
+      "objective": "Source, score, and qualify BLCO crude oil buyers through due diligence with Nathan-gated outreach",
+      "capability": "WORKFLOW_AUTOMATION",
+      "inputs": [
+        "lead_source (web/referral/database)",
+        "target_geography",
+        "min_volume_barrels",
+        "qualification_criteria"
+      ],
+      "skills": [
+        "BLCO_QUALIFICATION",
+        "BUYER_DUE_DILIGENCE",
+        "RESEARCH_SYNTHESIS",
+        "CONTENT_GENERATION",
+        "MARKET_INTELLIGENCE"
+      ],
+      "agents": ["Alusi", "blco_broker"],
+      "tools": ["web_search", "firecrawl_scrape", "write", "Telegram", "n8n:5678"],
+      "engines": ["EVENT_DRIVEN_WORKFLOW"],
+      "execution_strategy": "SOURCE_SCORE_DRAFT_GATE_SEND",
+      "research_requirements": "Verify company registration; check sanctions lists; confirm refinery/trading license",
+      "approval_gates": [
+        "SANCTIONS_CHECK — buyer not on OFAC/EU/UN sanctions lists",
+        "LICENSE_CHECK — buyer has valid trading/refinery license",
+        "OUTREACH_GATE — Nathan approves every outreach draft before send",
+        "LOI_GATE — Nathan reviews LOI before any commitment",
+        "FINANCIAL_GATE — Nathan approves any financial document exchange"
+      ],
+      "kpis": [
+        "qualified_leads_per_week>=2",
+        "sanctions_check=CLEAR",
+        "outreach_approval_rate=100%",
+        "response_rate>10%",
+        "qualified_buyers_in_pipeline"
+      ],
+      "validation": "Lead scored against BLCO_COMMAND.md criteria; outreach log maintained; KG entity created",
+      "evidence_required": [
+        "buyer_scorecard.json",
+        "sanctions_check_log",
+        "license_verification",
+        "outreach_draft_approved_by_nathan",
+        "communication_log.jsonl"
+      ],
+      "rollback": "Cease outreach; mark lead DISQUALIFIED in pipeline; document reason",
+      "memory_writes": ["leads.jsonl", "buyer_kg_entity", "weekly_report.md"],
+      "escalation": "Sanctions hit → immediate halt + alert Nathan; do not send any communication"
+    },
+    {
+      "directive_id": "DIR-DR-002",
+      "name": "DISASTER_RECOVERY_PACKAGE",
+      "objective": "Full restoration of Open Empire services and data to known-good state within RTO targets after any failure",
+      "capability": "DISASTER_RECOVERY",
+      "inputs": [
+        "incident_type (data_loss/hardware_failure/software_corruption/credential_compromise)",
+        "affected_systems[]",
+        "last_known_good_backup_path",
+        "rto_target_hours"
+      ],
+      "skills": [
+        "GIT_REPOSITORY_MANAGEMENT",
+        "SQL_ANALYSIS",
+        "DATA_NORMALIZATION",
+        "PMO_PLANNING",
+        "INCIDENT_RESPONSE",
+        "DEBUGGING"
+      ],
+      "agents": ["Alusi", "Nathan (human required)"],
+      "tools": ["git", "pg_dump", "psql", "rsync", "exec", "pm2", "process"],
+      "engines": ["HIERARCHICAL_MULTI_AGENT"],
+      "execution_strategy": "ASSESS_ISOLATE_RESTORE_VERIFY_HARDEN",
+      "research_requirements": "Identify failure blast radius before any restore attempt; verify backup integrity",
+      "approval_gates": [
+        "BLAST_RADIUS_GATE — full impact assessment before action",
+        "BACKUP_INTEGRITY_GATE — verify backup hash before restore",
+        "CASHCLAW_GATE — Nathan manually verifies CashClaw positions before trading restart",
+        "PRODUCTION_RESTORE_GATE — Nathan approval for each production service restoration",
+        "POST_MORTEM_GATE — post_mortem written within 24h"
+      ],
+      "kpis": [
+        "RTO<4h",
+        "RPO<24h",
+        "data_integrity_verified=true",
+        "all_services_restored=true",
+        "post_mortem_written=true",
+        "hardening_tasks_created=true"
+      ],
+      "validation": "All PM2 services green; DB integrity check passes; CashClaw positions verified; health checks pass",
+      "evidence_required": [
+        "blast_radius_assessment.md",
+        "backup_integrity_report.json",
+        "restore_log.md",
+        "service_health_checks_post_restore.json",
+        "post_mortem.md",
+        "hardening_tasks.md"
+      ],
+      "rollback": "N/A — this IS the rollback directive; escalate to Nathan if restore fails",
+      "memory_writes": ["incident_log vault entry", "post_mortem wiki page", "AGENTS.md if topology changed", "DR runbook updated"],
+      "escalation": "CashClaw credential compromise → immediate key rotation + Kalshi/Polymarket account lock; Nathan call"
+    },
+    {
+      "directive_id": "DIR-SSOT-001",
+      "name": "SSOT_CONVERGENCE_PACKAGE",
+      "objective": "Converge all Open Empire system state to a single, consistent, committed source of truth with zero orphaned records",
+      "capability": "MEMORY_PIPELINE",
+      "inputs": [
+        "scope (full/partial)",
+        "target_systems[]",
+        "uncommitted_file_count",
+        "divergence_report_path"
+      ],
+      "skills": [
+        "GIT_REPOSITORY_MANAGEMENT",
+        "DATA_NORMALIZATION",
+        "SQL_ANALYSIS",
+        "MEMORY_MANAGEMENT",
+        "KNOWLEDGE_EXTRACTION",
+        "PMO_PLANNING",
+        "TASK_DECOMPOSITION"
+      ],
+      "agents": ["Alusi", "Nathan (approval)"],
+      "tools": ["git", "psql", "exec", "write", "wiki_apply", "memory_search", "kg_api:6279"],
+      "engines": ["DETERMINISTIC_TOOL", "SINGLE_AGENT_PLUS_TOOLS"],
+      "execution_strategy": "AUDIT_NORMALIZE_COMMIT_VERIFY_LOCK",
+      "research_requirements": "Full audit of all canonical repos for uncommitted changes, orphan KG edges, stale memory entries before any writes",
+      "approval_gates": [
+        "AUDIT_COMPLETE_GATE — full divergence report before any writes",
+        "SCHEMA_GATE — all records pass canonical schema validation",
+        "COMMIT_GATE — Nathan reviews all staged changes before git commit",
+        "KG_GATE — orphan edge count =0 before declaring CONVERGED",
+        "MIGRATION_UNLOCK_GATE — SSOT_CONVERGED status required before Mac Mini migration proceeds"
+      ],
+      "kpis": [
+        "uncommitted_canonical_files=0",
+        "kg_orphan_edges=0",
+        "memory_staleness<1h",
+        "ssot_defects=0",
+        "all_repos_have_remote=true",
+        "convergence_declared_by_nathan=true"
+      ],
+      "validation": "git status clean on all canonical repos; KG integrity check passes; memory recall test passes",
+      "evidence_required": [
+        "ssot_audit_report.json",
+        "git_status_all_repos.txt",
+        "kg_integrity_report.json",
+        "convergence_declaration_signed_by_nathan.md"
+      ],
+      "rollback": "Revert any premature writes; restore from last known-good backup; re-audit",
+      "memory_writes": ["AGENTS.md SSOT status updated", "KG convergence_event entity", "wiki synthesis: SSOT state"],
+      "escalation": "If KG corruption detected → halt all writes; run DR-002; alert Nathan immediately"
     }
-  ],
-  "total": 7,
-  "principle": "Nathan issues objectives. Alusi/PMO match to directive. Directive drives execution.",
-  "extension": "Add new directives as new use cases mature"
+  ]
 }

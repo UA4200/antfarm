@@ -1,101 +1,191 @@
 {
-  "generated_at": "2026-08-28T11:40:33.790224+00:00",
-  "registry": {
-    "workspace": {
-      "canonical_path": "~/.openclaw/workspace",
-      "remote": "github.com/UA4200/git-github.git",
+  "generated_at": "2026-08-28T11:12:00-05:00",
+  "description": "P0 and P1 canonical/active repositories only",
+  "canonical_repos": [
+    {
+      "repo_id": "R033",
+      "name": "workspace",
+      "canonical_path": "/Users/NeoOC/.openclaw/workspace",
+      "remote": "https://github.com/UA4200/git-github.git",
+      "branch": "master",
+      "commit": "62e6bd1",
       "priority": "P0",
-      "status": "CANONICAL",
-      "install_state": "INSTALLED",
-      "backup_covered": true
+      "status": "ACTIVE",
+      "install_state": "CORE",
+      "backup_covered": false,
+      "alert": "253 DIRTY FILES — large uncommitted changeset. Commit or stash urgently.",
+      "notes": "Primary OpenClaw workspace. git-github remote. 253 dirty — highest urgency clean-up."
     },
-    "blco": {
-      "canonical_path": "~/.openclaw/blco",
-      "remote": "github.com/UA4200/blco-pipeline.git",
+    {
+      "repo_id": "R044",
+      "name": "trading",
+      "canonical_path": "/Users/NeoOC/.openclaw/trading",
+      "remote": "none",
+      "branch": "master",
+      "commit": "c97d732",
       "priority": "P0",
-      "status": "CANONICAL",
-      "install_state": "INSTALLED",
-      "backup_covered": true
+      "status": "ACTIVE",
+      "install_state": "CORE",
+      "backup_covered": false,
+      "alert": "LOCAL-ONLY — no remote backup. 2 dirty files.",
+      "notes": "CashClaw + Kalshi + Polymarket trading core. Contains live agent logic. Push to remote immediately."
     },
-    "trading": {
-      "canonical_path": "~/.openclaw/trading",
-      "remote": "NONE",
+    {
+      "repo_id": "R045",
+      "name": "blco-pipeline",
+      "canonical_path": "/Users/NeoOC/.openclaw/blco",
+      "remote": "https://github.com/UA4200/blco-pipeline.git",
+      "branch": "master",
+      "commit": "49f83f9",
       "priority": "P0",
-      "status": "CANONICAL",
-      "install_state": "INSTALLED",
-      "backup_covered": true
+      "status": "ACTIVE",
+      "install_state": "CORE",
+      "backup_covered": true,
+      "alert": "21 dirty files — active work uncommitted.",
+      "notes": "BLCO commodity pipeline. Active. Commit pending changes."
     },
-    "free_llm_router": {
-      "canonical_path": "~/.openclaw/repos/free_llm_router",
-      "remote": "upstream",
+    {
+      "repo_id": "R036",
+      "name": "antfarm",
+      "canonical_path": "/Users/NeoOC/.openclaw/workspace/antfarm",
+      "remote": "https://github.com/snarktank/antfarm.git",
+      "branch": "main",
+      "commit": "a442ad7",
       "priority": "P0",
-      "status": "CANONICAL",
+      "status": "ACTIVE",
       "install_state": "INSTALLED",
-      "backup_covered": true
+      "backup_covered": true,
+      "notes": "Core workflow engine. 1 dirty file. MIT license."
     },
-    "antfarm": {
-      "canonical_path": "~/.openclaw/workspace/antfarm",
-      "remote": "upstream",
+    {
+      "repo_id": "R046",
+      "name": "Free-Way",
+      "canonical_path": "/Users/NeoOC/.openclaw/repos/free_llm_router/installed/Free-Way",
+      "remote": "https://github.com/GoDiao/Free-Way.git",
+      "branch": "main",
+      "commit": "80af6bd",
       "priority": "P0",
-      "status": "CANONICAL",
+      "status": "ACTIVE",
       "install_state": "INSTALLED",
-      "backup_covered": true
+      "backup_covered": true,
+      "notes": "Free-Way LLM router powering fcc-8082/8083. 9 dirty files from local config patches."
     },
-    "mission-control": {
-      "canonical_path": "~/.openclaw/workspace/mission-control",
-      "remote": "github.com/UA4200/mission-control.git",
+    {
+      "repo_id": "R042",
+      "name": "mission-control",
+      "canonical_path": "/Users/NeoOC/.openclaw/workspace/mission-control",
+      "remote": "https://github.com/UA4200/mission-control.git",
+      "branch": "main",
+      "commit": "6c5f5f5",
       "priority": "P0",
-      "status": "CANONICAL",
+      "status": "ACTIVE",
       "install_state": "INSTALLED",
-      "backup_covered": true
+      "backup_covered": true,
+      "notes": "Command Center UI on port 3333. Clean."
     },
-    "iFixAi": {
-      "canonical_path": "~/.openclaw/repos/iFixAi",
-      "remote": "upstream",
+    {
+      "repo_id": "R032",
+      "name": "anthropic-claude-code",
+      "canonical_path": "/Users/NeoOC/.openclaw/repos/official/anthropic-claude-code",
+      "remote": "https://github.com/anthropics/claude-code",
+      "branch": "main",
+      "commit": "6b070c3",
+      "priority": "P0",
+      "status": "REFERENCE",
+      "install_state": "INSTALLED",
+      "backup_covered": true,
+      "notes": "Official Anthropic source. Proprietary license. Reference only."
+    },
+    {
+      "repo_id": "R002",
+      "name": "agency-agents",
+      "canonical_path": "/Users/NeoOC/.openclaw/repos/agency-agents",
+      "remote": "https://github.com/msitarzewski/agency-agents",
+      "branch": "main",
+      "commit": "783f6a7",
       "priority": "P1",
       "status": "CANDIDATE",
-      "install_state": "PRESENT",
-      "backup_covered": false
+      "install_state": "INSTALLED",
+      "backup_covered": true,
+      "notes": "MIT. Canonical copy. Duplicate in installed/ to be removed."
     },
-    "openhuman": {
-      "canonical_path": "~/.openclaw/repos/openhuman",
-      "remote": "upstream",
+    {
+      "repo_id": "R007",
+      "name": "GitNexus",
+      "canonical_path": "/Users/NeoOC/.openclaw/repos/installed/GitNexus",
+      "remote": "https://github.com/abhigyanpatwari/GitNexus.git",
+      "branch": "main",
+      "commit": "d3a7ce9",
       "priority": "P1",
-      "status": "CANDIDATE",
-      "install_state": "PRESENT",
-      "backup_covered": false
+      "status": "ACTIVE",
+      "install_state": "INSTALLED",
+      "backup_covered": true,
+      "notes": "Active via gitnexus-* skills. PolyForm NC — noncommercial."
     },
-    "Personal_AI_Infrastructure": {
-      "canonical_path": "~/.openclaw/repos/Personal_AI_Infrastructure",
-      "remote": "upstream",
+    {
+      "repo_id": "R039",
+      "name": "gstack",
+      "canonical_path": "/Users/NeoOC/.openclaw/workspace/gstack",
+      "remote": "https://github.com/garrytan/gstack",
+      "branch": "main",
+      "commit": "394db326f",
       "priority": "P1",
-      "status": "CANDIDATE",
-      "install_state": "PRESENT",
-      "backup_covered": false
+      "status": "ACTIVE",
+      "install_state": "INSTALLED",
+      "backup_covered": true,
+      "notes": "Active gstack skills installed. Very recent upstream. Clean."
     },
-    "agency-agents": {
-      "canonical_path": "~/.openclaw/repos/installed/agency-agents",
-      "remote": "upstream",
+    {
+      "repo_id": "R003",
+      "name": "iFixAi",
+      "canonical_path": "/Users/NeoOC/.openclaw/repos/iFixAi",
+      "remote": "https://github.com/ifixai-ai/iFixAi",
+      "branch": "main",
+      "commit": "a3c418b",
       "priority": "P1",
       "status": "CANDIDATE",
       "install_state": "INSTALLED",
-      "backup_covered": false
+      "backup_covered": true,
+      "notes": "Apache-2.0. 1 dirty file. Pending integration assessment."
     },
-    "claude-code-ultimate-guide": {
-      "canonical_path": "~/.openclaw/repos/installed/claude-code-ultimate-guide",
-      "remote": "upstream",
+    {
+      "repo_id": "R004",
+      "name": "openhuman",
+      "canonical_path": "/Users/NeoOC/.openclaw/repos/openhuman",
+      "remote": "https://github.com/tinyhumansai/openhuman",
+      "branch": "main",
+      "commit": "b9f1c08",
       "priority": "P1",
       "status": "CANDIDATE",
       "install_state": "INSTALLED",
-      "backup_covered": false
+      "backup_covered": true,
+      "notes": "GPL-3.0 — review before commercial use. 1 dirty file."
     },
-    "GitNexus": {
-      "canonical_path": "~/.openclaw/repos/installed/GitNexus",
-      "remote": "upstream",
+    {
+      "repo_id": "R001",
+      "name": "Personal_AI_Infrastructure",
+      "canonical_path": "/Users/NeoOC/.openclaw/repos/Personal_AI_Infrastructure",
+      "remote": "https://github.com/danielmiessler/Personal_AI_Infrastructure",
+      "branch": "main",
+      "commit": "9fb9c86",
       "priority": "P1",
-      "status": "CANDIDATE",
+      "status": "REFERENCE",
       "install_state": "INSTALLED",
-      "backup_covered": false
+      "backup_covered": true,
+      "notes": "Daniel Miessler's PAI reference. MIT. 1 dirty file."
+    },
+    {
+      "repo_id": "R022",
+      "name": "claude-code-ultimate-guide",
+      "canonical_path": "/Users/NeoOC/.openclaw/repos/installed/claude-code-ultimate-guide",
+      "remote": "https://github.com/FlorianBruniaux/claude-code-ultimate-guide.git",
+      "branch": "main",
+      "commit": "7a7d128",
+      "priority": "P1",
+      "status": "REFERENCE",
+      "install_state": "INSTALLED",
+      "backup_covered": true,
+      "notes": "CC-BY-SA-4.0. Strategic Claude Code reference."
     }
-  }
+  ]
 }

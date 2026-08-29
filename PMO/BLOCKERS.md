@@ -1,5 +1,5 @@
 # Blockers Register — Open Empire PMO
-**Last Updated:** 2026-08-05 (6:00 PM CDT)
+**Last Updated:** 2026-08-28 (6:00 PM CDT)
 **Maintained by:** Alusi (PMO AI)
 
 ---
@@ -18,10 +18,10 @@
 | **Resolution Options** | (A) Top up Anthropic API $50–$100; (B) Migrate crons to Ollama local; (C) Both |
 | **Recommended Action** | Top up $50 minimum immediately; migrate non-critical crons to Ollama |
 | **Owner** | Nathan (funding decision) |
-| **Status** | OPEN — 84+ days stalled |
+| **Status** | OPEN — 103+ days stalled |
 | **Opened** | Pre-2026-05-12 |
-| **Last Checked** | 2026-08-05 18:00 CDT |
-| **Escalation** | API credit remains zero; Campaign #001 blocked 86 days; revenue blocked; no decision received |
+| **Last Checked** | 2026-08-28 18:00 CDT |
+| **Escalation** | API credit remains zero; Campaign #001 blocked 103+ days; revenue blocked; no decision received |
 
 ---
 
@@ -47,7 +47,7 @@
 | **Owner** | Alusi |
 | **Status** | OPEN |
 | **Opened** | 2026-05-09 |
-| **Last Checked** | 2026-08-05 18:00 CDT |
+| **Last Checked** | 2026-08-28 18:00 CDT |
 
 ---
 
@@ -64,7 +64,7 @@
 | **Owner** | Alusi |
 | **Status** | OPEN |
 | **Priority** | URGENT — restart immediately |
-| **Last Checked** | 2026-08-05 18:00 CDT |
+| **Last Checked** | 2026-08-28 18:00 CDT |
 
 ---
 
@@ -161,10 +161,10 @@
 
 ## PMO Checkpoint Alert (2026-08-05 18:00 CDT)
 
-**STATUS UPDATE — 86 DAYS POST-BLOCKER-001:**
+**STATUS UPDATE — 103+ DAYS POST-BLOCKER-001:**
 - **BLOCKER-001** still OPEN — Anthropic API credit status unknown (impacts enrichment, memory, CI/CD, Campaign #001)
-- **BLCO Campaign #001** stalled 86 days (since 2026-05-13) — ready to execute post-API clarity
-- **BLCO Pipeline Events Today:** 0 (zero new buyer activity; lead database stale 31+ days)
+- **BLCO Campaign #001** stalled 103+ days (since 2026-05-13) — NOW 59+ DAYS OVERDUE vs. target close 6/30
+- **BLCO Pipeline Events Today:** 0 (zero new buyer activity; lead database stale 27+ days)
 - **PM2 Agent Health:** 6 agents down (blco-enricher, pnl-audit, skill-sync, dynamics51, federation-staging, lifecycle-staging); 28 online
 - **CashClaw Trading:** ACTIVE — all 4 agents ONLINE 35h+, executing 5min cycles; P&L tracking offline (pnl-audit stopped)
 - **Revenue:** $0 across all ventures; 86-day BLCO stall, ADAI pre-launch, CashClaw running blind

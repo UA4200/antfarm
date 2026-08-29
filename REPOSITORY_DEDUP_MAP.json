@@ -1,7 +1,58 @@
 {
-  "generated_at": "2026-08-28T11:40:33.790224+00:00",
-  "duplicate_groups": [],
-  "unique_repos": 19,
-  "duplicate_count": 0,
-  "note": "No exact duplicates detected. workspace/git-github share a remote \u2014 workspace is canonical."
+  "generated_at": "2026-08-28T11:12:00-05:00",
+  "summary": "1 confirmed duplicate group found. 2 near-duplicate patterns noted.",
+  "duplicate_groups": [
+    {
+      "group_id": "DUP-001",
+      "name": "agency-agents",
+      "remote_url": "https://github.com/msitarzewski/agency-agents",
+      "copies": [
+        {
+          "path": "/Users/NeoOC/.openclaw/repos/agency-agents",
+          "repo_id": "R002",
+          "head_commit": "783f6a7",
+          "dirty_files": 0,
+          "role": "CANONICAL"
+        },
+        {
+          "path": "/Users/NeoOC/.openclaw/repos/installed/agency-agents",
+          "repo_id": "R012",
+          "head_commit": "783f6a7",
+          "dirty_files": 1,
+          "role": "DUPLICATE"
+        }
+      ],
+      "recommendation": "REMOVE installed/ copy. Keep repos/agency-agents as canonical. Same remote URL, same HEAD commit. Installed/ copy has 1 dirty file — inspect before deletion."
+    }
+  ],
+  "near_duplicates": [
+    {
+      "pattern": "awesome-* collections",
+      "repos": [
+        "/Users/NeoOC/.openclaw/repos/installed/awesome-claude-code",
+        "/Users/NeoOC/.openclaw/repos/installed/awesome-claude-code-subagents",
+        "/Users/NeoOC/.openclaw/repos/installed/awesome-claude-code-toolkit",
+        "/Users/NeoOC/.openclaw/repos/installed/awesome-claude-skills",
+        "/Users/NeoOC/.openclaw/repos/installed/awesome-openclaw-skills"
+      ],
+      "recommendation": "5 separate 'awesome-*' repos with overlapping content. Consolidate to a single curated reference directory or symlink. Not true code duplicates but content-overlap risk."
+    },
+    {
+      "pattern": "Claude Code guide repos",
+      "repos": [
+        "/Users/NeoOC/.openclaw/repos/installed/claude-code-ultimate-guide",
+        "/Users/NeoOC/.openclaw/repos/installed/claude-code-templates",
+        "/Users/NeoOC/.openclaw/repos/installed/learn-claude-code",
+        "/Users/NeoOC/.openclaw/repos/installed/everything-claude-code"
+      ],
+      "recommendation": "4 repos covering Claude Code best practices. Different authors. Keep claude-code-ultimate-guide (P1). Others can be archived."
+    }
+  ],
+  "remote_url_conflicts": [],
+  "dedup_by_basename": {
+    "agency-agents": [
+      "/Users/NeoOC/.openclaw/repos/agency-agents",
+      "/Users/NeoOC/.openclaw/repos/installed/agency-agents"
+    ]
+  }
 }

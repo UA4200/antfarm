@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-08-09T21:38:00Z",
-  "total_entries": 6,
+  "total_entries": 8,
   "total_wall_clock_minutes": 98.8,
   "total_tokens": 156100,
   "total_cost_usd": 0.0,
@@ -109,6 +109,99 @@
       "validation": "all registry files present",
       "reviewer": "Alusi",
       "final_acceptance": "IN_PROGRESS"
+    },
+    {
+      "work_package_id": "WP-007",
+      "parent_objective": "Ruflo Evaluation \u2014 PMO Technology Research",
+      "task_class": "TECHNOLOGY_EVALUATION",
+      "selected_topology": "PARALLEL_SPECIALISTS",
+      "selected_engine": "OpenClaw Subagents (3 parallel + 1 artifacts)",
+      "selection_reason": "Independent research lanes: intake/security/overlap could proceed in parallel without shared state",
+      "alternatives_considered": [
+        "SINGLE_AGENT_SEQUENTIAL",
+        "CLAUDE_CODE"
+      ],
+      "agents": [
+        "ruflo-intake",
+        "ruflo-security",
+        "ruflo-overlap",
+        "ruflo-artifacts"
+      ],
+      "skills": [
+        "repository_analysis",
+        "security_review",
+        "capability_overlap_analysis",
+        "license_review"
+      ],
+      "tools": [
+        "web_fetch",
+        "tavily_search",
+        "exec",
+        "write"
+      ],
+      "model": "claude-sonnet-4-6",
+      "date": "2026-08-09",
+      "wall_clock_minutes": 25,
+      "tokens_approx": 48000,
+      "cost_usd_approx": 0.22,
+      "success": true,
+      "quality": "HIGH",
+      "rework": 0,
+      "human_intervention": 0,
+      "validation": "All 14 artifacts written, machine-verified",
+      "final_decision": "RUFLO_DEFER",
+      "lessons": [
+        "Parallel agents saved ~60% time vs sequential for independent research lanes",
+        "DETERMINISTIC_TOOL (curl/API) faster than subagent for pure fact collection",
+        "Alpha packages with missing compiled output are disqualifying blockers"
+      ]
+    },
+    {
+      "work_package_id": "WP-008",
+      "parent_objective": "SSOT Closeout + Pre-Migration Sprint",
+      "task_class": "SSOT_CONVERGENCE",
+      "selected_topology": "PARALLEL_SPECIALISTS",
+      "selected_engine": "OpenClaw Subagents (4 parallel) + Alusi direct",
+      "selection_reason": "SSOT, registry expansion, benchmark, and golden baseline are fully independent tracks",
+      "alternatives_considered": [
+        "SINGLE_AGENT_SEQUENTIAL"
+      ],
+      "agents": [
+        "ssot-closeout",
+        "registry-expansion",
+        "benchmark-engine",
+        "golden-baseline"
+      ],
+      "skills": [
+        "ssot_convergence",
+        "registry_maintenance",
+        "benchmark_design",
+        "reconstruction_planning"
+      ],
+      "tools": [
+        "exec",
+        "read",
+        "write",
+        "tavily_search"
+      ],
+      "model": "claude-sonnet-4-6",
+      "date": "2026-08-09",
+      "wall_clock_minutes": 22,
+      "tokens_approx": 82000,
+      "cost_usd_approx": 0.38,
+      "success": true,
+      "quality": "HIGH",
+      "rework": 0,
+      "human_intervention": 0,
+      "validation": "All 17/19 required artifacts written; 2 pending (realworld-validation in progress)",
+      "final_decision": "COMPLETE_WITH_NATHAN_DECISIONS_REQUIRED",
+      "lessons": [
+        "4 parallel specialist agents independently produced 17 artifacts in 22min",
+        "n8n was incorrectly marked NOT_RUNNING in prior registry \u2014 live curl check corrected it",
+        "Reconstruction readiness 4/10 \u2014 critical DB/n8n/secrets backups required before migration",
+        "Benchmark W1 (Antfarm audit) executed in 188s, HIGH quality \u2014 parallel subagent competitive with Claude Code for audit tasks"
+      ]
     }
-  ]
+  ],
+  "last_updated": "2026-08-09"
 }

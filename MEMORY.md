@@ -157,3 +157,8 @@ This conversation involved a full technical takeover of an existing local macOS 
 - Phase 6 gate: bypassed by Nathan approval 13:21 CDT
 - Merge SHAs: alusi-core d7cb2e701e8b | open-empire-core 5a52324a04e8 | git-github 3fe7d522bdef
 - Directive: PR14-264d22c (e785769c ROS anchor)
+
+## Promoted From Short-Term Memory (2026-08-29)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-05-12.md:22:52 -->
+- `~/.openclaw/blco/scripts/dashboard.py` — campaign KPI dashboard - `~/.openclaw/blco/scripts/alert_router.py` — Telegram alert routing - `~/.openclaw/infrastructure/full-inject.sh` — 64-repo empire injection script ### BLCO Agent Hierarchy (Created) - `~/.openclaw/workspace/projects/BLCO/agents/BLCO_CEO.md` - `~/.openclaw/workspace/projects/BLCO/agents/VP_SALES.md` - `~/.openclaw/workspace/projects/BLCO/agents/VP_MARKETING.md` - `~/.openclaw/workspace/projects/BLCO/agents/VP_OPERATIONS.md` - `~/.openclaw/workspace/projects/BLCO/agents/TECHNICAL_OPS.md` ### Buyer Memory Vaults (10 created) Path:... [score=0.871 recalls=4 avg=0.572 source=memory/2026-05-12.md:22-52]

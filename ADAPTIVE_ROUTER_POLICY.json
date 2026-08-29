@@ -1,62 +1,127 @@
 {
-  "version": "1.0",
+  "version": "1.1",
   "generated_at": "2026-08-09T18:36:00Z",
   "principle": "No provider is hardcoded as primary. Routing is determined by dynamic scoring at request time.",
-
   "scoring_weights": {
-    "task_fit":    0.30,
-    "quality":     0.20,
-    "cost":        0.20,
+    "task_fit": 0.3,
+    "quality": 0.2,
+    "cost": 0.2,
     "reliability": 0.15,
-    "latency":     0.10,
-    "quota":       0.05,
+    "latency": 0.1,
+    "quota": 0.05,
     "note": "These are starting defaults, not immutable constants. Telemetry informs future adjustment."
   },
-
   "task_classes": [
-    "heartbeat","classify","summarize","extract","json_gen",
-    "general","analysis","coding","complex_coding","long_context",
-    "tool_use","critical"
+    "heartbeat",
+    "classify",
+    "summarize",
+    "extract",
+    "json_gen",
+    "general",
+    "analysis",
+    "coding",
+    "complex_coding",
+    "long_context",
+    "tool_use",
+    "critical"
   ],
-
   "escalation_rules": {
-    "tool_use": "Always route to Anthropic — LLaMA models don't reliably emit tool_use schema",
+    "tool_use": "Always route to Anthropic \u2014 LLaMA models don't reliably emit tool_use schema",
     "critical": "Anthropic preferred; free providers attempted first if capable",
-    "all_free_failed": "Escalate to Anthropic Haiku → log as premium escalation",
+    "all_free_failed": "Escalate to Anthropic Haiku \u2192 log as premium escalation",
     "consecutive_failures_2": "Provider moves to DEGRADED state",
     "consecutive_failures_4": "Provider quarantined for 5 minutes",
-    "quarantine_expired": "Provider enters RETEST state — one attempt allowed",
+    "quarantine_expired": "Provider enters RETEST state \u2014 one attempt allowed",
     "retest_success": "Provider returns to HEALTHY"
   },
-
   "economic_gates": {
-    "free_providers": ["groq","cohere","openrouter","cerebras","nvidia","ollama"],
-    "paid_providers": ["anthropic","mistral"],
+    "free_providers": [
+      "cohere",
+      "openrouter",
+      "cerebras",
+      "nvidia",
+      "ollama"
+    ],
+    "paid_providers": [
+      "anthropic",
+      "mistral"
+    ],
     "free_economic_advantage": "All free providers receive cost_score=1.0 vs 0.05-0.3 for paid",
-    "daily_soft_limit_usd": 0.10,
-    "daily_hard_limit_usd": 0.20,
-    "daily_emergency_usd":  0.50,
-    "monthly_warn_usd":     3.00
+    "daily_soft_limit_usd": 0.1,
+    "daily_hard_limit_usd": 0.2,
+    "daily_emergency_usd": 0.5,
+    "monthly_warn_usd": 3.0,
+    "groq_status": "UNVERIFIED_COST - catalog stale (14 models, no llama-3.3-70b), tier unconfirmed, pricing fields present on subset"
   },
-
-  "circuit_breaker_states": ["HEALTHY","DEGRADED","QUARANTINED","RETEST","HEALTHY"],
-
+  "circuit_breaker_states": [
+    "HEALTHY",
+    "DEGRADED",
+    "QUARANTINED",
+    "RETEST",
+    "HEALTHY"
+  ],
   "groq_key_pool": {
     "slots": 4,
-    "rotation_trigger": ["RATE_LIMIT","rejection"],
-    "quarantine_trigger": ["INVALID_KEY","REVOKED"],
-    "log_policy": "masked fingerprints only — no key values"
+    "rotation_trigger": [
+      "RATE_LIMIT",
+      "rejection"
+    ],
+    "quarantine_trigger": [
+      "INVALID_KEY",
+      "REVOKED"
+    ],
+    "log_policy": "masked fingerprints only \u2014 no key values"
   },
-
   "protected_routes": {
-    "cashclaw_signal_score": "Anthropic Haiku ONLY — never adaptive-routed",
-    "tool_use_requests": "Anthropic direct — schema compatibility requirement"
+    "cashclaw_signal_score": "Anthropic Haiku ONLY \u2014 never adaptive-routed",
+    "tool_use_requests": "Anthropic direct \u2014 schema compatibility requirement"
   },
-
   "telemetry": {
     "file": "~/.openclaw/logs/adaptive_router_telemetry.jsonl",
     "state_file": "~/.openclaw/router/router_state.json",
     "audit_log": "~/.openclaw/logs/oe_proxy_calls.jsonl",
-    "fields": ["ts","task_type","provider","model","is_premium","latency_ms","cost_usd","success","prior_attempts"]
-  }
+    "fields": [
+      "ts",
+      "task_type",
+      "provider",
+      "model",
+      "is_premium",
+      "latency_ms",
+      "cost_usd",
+      "success",
+      "prior_attempts"
+    ]
+  },
+  "verified_free_routes": {
+    "openrouter_nemotron": {
+      "provider": "openrouter",
+      "model": "nvidia/nemotron-3-super-120b-a12b:free",
+      "verified_date": "2026-08-28",
+      "eligibility": "is_free_tier=true via /api/v1/auth/key",
+      "data_restriction": "public_synthetic_sanitized_only",
+      "privacy_classes_allowed": [
+        "PUBLIC",
+        "INTERNAL_SANITIZED"
+      ],
+      "privacy_classes_denied": [
+        "PII",
+        "DEAL_SENSITIVE",
+        "SECRET",
+        "PRIVATE_CODE"
+      ]
+    }
+  },
+  "stale_catalog_entries": [
+    "groq/llama-3.3-70b-versatile (removed from live catalog 2026-08-28)",
+    "cohere/command-r7b (bare id rejected; use command-r7b-12-2024)"
+  ],
+  "privacy_routing": {
+    "PII": "local_ollama_only",
+    "DEAL_SENSITIVE": "local_ollama_only",
+    "PRIVATE_CODE": "local_ollama_preferred",
+    "SECRET": "never_sent_to_model",
+    "PUBLIC": "any_approved_free_route",
+    "INTERNAL": "local_or_approved_free_sanitized"
+  },
+  "updated_at": "2026-08-28T13:30:00Z"
 }

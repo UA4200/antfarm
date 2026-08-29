@@ -1,229 +1,560 @@
 {
-  "generated_at": "2026-08-09T20:30:00Z",
-  "version": "V1",
-  "total_skills": 10,
+  "generated_at": "2026-08-09T19:35:00Z",
+  "version": "V1.1",
+  "total_skills": 35,
+  "change_log": "V1→V1.1: preserved sk-001–sk-010 (10 original); added sk-011–sk-035 (25 new skills)",
+  "protected_skills": [
+    "AUTONOMOUS_TRADING — PROTECTED: no modification without Nathan approval",
+    "SECRET_SCAN — do not weaken"
+  ],
+  "task_observer_integration": "task_observer_collector.py reads skill-observations/ and proposes improvements via skill_workshop",
   "skills": [
     {
       "skill_uuid": "sk-inf-001",
       "canonical_name": "ADAPTIVE_INFERENCE_ROUTING",
       "description": "Route inference requests dynamically to best available provider via scoring",
-      "capabilities_supported": [
-        "ADAPTIVE_ROUTING",
-        "COST_OPTIMIZED_INFERENCE"
-      ],
-      "agents_with_skill": [
-        "Alusi",
-        "oe-proxy"
-      ],
-      "tools_used": [
-        "adaptive_router.py",
-        "Free-Way",
-        "Groq",
-        "OpenRouter"
-      ],
+      "capabilities_supported": ["ADAPTIVE_ROUTING", "COST_OPTIMIZED_INFERENCE"],
+      "agents_with_skill": ["Alusi", "oe-proxy"],
+      "tools_used": ["adaptive_router.py", "Free-Way", "Groq", "OpenRouter"],
       "validation_method": "benchmark + latency test",
       "quality_score": 0.85,
       "cost_score": 1.0,
       "success_rate": 0.94,
-      "maturity": "OPERATIONAL"
+      "maturity": "OPERATIONAL",
+      "last_benchmarked": "2026-08-09",
+      "source": "open-empire-nexus"
     },
     {
       "skill_uuid": "sk-kg-001",
       "canonical_name": "KNOWLEDGE_GRAPH_QUERY",
       "description": "Query ClawDB entity/relationship graph via KG API",
-      "capabilities_supported": [
-        "KNOWLEDGE_GRAPH"
-      ],
-      "agents_with_skill": [
-        "Alusi",
-        "kg_api.py"
-      ],
-      "tools_used": [
-        "psql",
-        "kg_api:6279"
-      ],
+      "capabilities_supported": ["KNOWLEDGE_GRAPH"],
+      "agents_with_skill": ["Alusi", "kg_api.py"],
+      "tools_used": ["psql", "kg_api:6279"],
       "validation_method": "validate endpoint + orphan check",
       "quality_score": 0.9,
       "cost_score": 1.0,
       "success_rate": 1.0,
-      "maturity": "OPERATIONAL"
+      "maturity": "OPERATIONAL",
+      "last_benchmarked": "2026-08-09",
+      "source": "open-empire-nexus"
     },
     {
       "skill_uuid": "sk-obs-001",
       "canonical_name": "TASK_OBSERVATION",
       "description": "Record task outcomes, detect patterns, generate guarded skill proposals",
-      "capabilities_supported": [
-        "TASK_OBSERVER"
-      ],
-      "agents_with_skill": [
-        "task_observer_collector.py"
-      ],
-      "tools_used": [
-        "skill-observations/",
-        "skill-proposals/"
-      ],
+      "capabilities_supported": ["TASK_OBSERVER"],
+      "agents_with_skill": ["task_observer_collector.py"],
+      "tools_used": ["skill-observations/", "skill-proposals/"],
       "validation_method": "run collector + count proposals",
       "quality_score": 0.8,
       "cost_score": 1.0,
       "success_rate": 0.9,
-      "maturity": "OPERATIONAL_GUARDED"
+      "maturity": "OPERATIONAL_GUARDED",
+      "last_benchmarked": "2026-08-09",
+      "source": "open-empire-nexus"
     },
     {
       "skill_uuid": "sk-git-001",
       "canonical_name": "GIT_REPOSITORY_MANAGEMENT",
       "description": "Clone, inspect, classify, commit, reconcile git repositories",
-      "capabilities_supported": [
-        "REPOSITORY_FACTORY"
-      ],
-      "agents_with_skill": [
-        "Claude Code",
-        "deterministic scripts"
-      ],
-      "tools_used": [
-        "git",
-        "gitleaks",
-        "find"
-      ],
+      "capabilities_supported": ["REPOSITORY_FACTORY"],
+      "agents_with_skill": ["Claude Code", "deterministic scripts"],
+      "tools_used": ["git", "gitleaks", "find"],
       "validation_method": "git status + test commit",
       "quality_score": 0.95,
       "cost_score": 1.0,
       "success_rate": 0.98,
-      "maturity": "OPERATIONAL"
+      "maturity": "OPERATIONAL",
+      "last_benchmarked": "2026-08-09",
+      "source": "open-empire-nexus"
     },
     {
       "skill_uuid": "sk-pmo-001",
       "canonical_name": "PMO_PLANNING",
       "description": "Decompose objectives into task graphs with engine/strategy selection",
-      "capabilities_supported": [
-        "ECONOMIC_GOVERNOR",
-        "MEMORY_PIPELINE"
-      ],
-      "agents_with_skill": [
-        "Alusi"
-      ],
-      "tools_used": [
-        "Execution Strategy Registry",
-        "Execution Engine Registry"
-      ],
+      "capabilities_supported": ["ECONOMIC_GOVERNOR", "MEMORY_PIPELINE"],
+      "agents_with_skill": ["Alusi"],
+      "tools_used": ["Execution Strategy Registry", "Execution Engine Registry"],
       "validation_method": "outcome quality + time + cost",
       "quality_score": 0.85,
       "cost_score": 0.8,
       "success_rate": 0.85,
-      "maturity": "OPERATIONAL"
+      "maturity": "OPERATIONAL",
+      "last_benchmarked": "2026-08-09",
+      "source": "open-empire-nexus"
     },
     {
       "skill_uuid": "sk-sec-001",
       "canonical_name": "SECRET_SCAN",
       "description": "Scan files for exposed secrets, API keys, credentials",
-      "capabilities_supported": [
-        "REPOSITORY_FACTORY"
-      ],
-      "agents_with_skill": [
-        "deterministic scripts",
-        "gitleaks"
-      ],
-      "tools_used": [
-        "grep",
-        "gitleaks",
-        "truffleHog"
-      ],
+      "capabilities_supported": ["REPOSITORY_FACTORY", "SECURITY_COMPLIANCE"],
+      "agents_with_skill": ["deterministic scripts", "gitleaks"],
+      "tools_used": ["grep", "gitleaks", "truffleHog"],
       "validation_method": "zero false negatives on known patterns",
       "quality_score": 0.9,
       "cost_score": 1.0,
       "success_rate": 0.95,
-      "maturity": "OPERATIONAL"
+      "maturity": "OPERATIONAL",
+      "last_benchmarked": "2026-08-09",
+      "source": "open-empire-nexus"
     },
     {
       "skill_uuid": "sk-econ-001",
       "canonical_name": "ECONOMIC_GOVERNANCE",
       "description": "Track inference spend, enforce budgets, classify provider cost tiers",
-      "capabilities_supported": [
-        "ECONOMIC_GOVERNOR",
-        "PREMIUM_ESCALATION_CONTROL"
-      ],
-      "agents_with_skill": [
-        "economic_guard.py",
-        "oe-proxy"
-      ],
-      "tools_used": [
-        "economic_guard.py",
-        "adaptive_router_telemetry.jsonl"
-      ],
+      "capabilities_supported": ["ECONOMIC_GOVERNOR", "PREMIUM_ESCALATION_CONTROL"],
+      "agents_with_skill": ["economic_guard.py", "oe-proxy"],
+      "tools_used": ["economic_guard.py", "adaptive_router_telemetry.jsonl"],
       "validation_method": "budget threshold test",
       "quality_score": 0.9,
       "cost_score": 1.0,
       "success_rate": 0.98,
-      "maturity": "OPERATIONAL"
+      "maturity": "OPERATIONAL",
+      "last_benchmarked": "2026-08-09",
+      "source": "open-empire-nexus"
     },
     {
       "skill_uuid": "sk-n8n-001",
       "canonical_name": "WORKFLOW_AUTOMATION",
       "description": "Create, trigger, and monitor n8n workflows for recurring automation",
-      "capabilities_supported": [
-        "WORKFLOW_AUTOMATION"
-      ],
-      "agents_with_skill": [
-        "n8n",
-        "Alusi"
-      ],
-      "tools_used": [
-        "n8n:5678",
-        "webhooks"
-      ],
+      "capabilities_supported": ["WORKFLOW_AUTOMATION"],
+      "agents_with_skill": ["n8n", "Alusi"],
+      "tools_used": ["n8n:5678", "webhooks"],
       "validation_method": "workflow execution test",
       "quality_score": 0.85,
       "cost_score": 1.0,
       "success_rate": 0.9,
-      "maturity": "OPERATIONAL"
+      "maturity": "OPERATIONAL",
+      "last_benchmarked": "2026-08-09",
+      "source": "open-empire-nexus"
     },
     {
       "skill_uuid": "sk-mem-001",
       "canonical_name": "MEMORY_COMPRESSION",
       "description": "Compress active memory to daily summaries, archive raw logs",
-      "capabilities_supported": [
-        "MEMORY_PIPELINE"
-      ],
-      "agents_with_skill": [
-        "alusi-loop"
-      ],
-      "tools_used": [
-        "memory/active",
-        "memory/compressed",
-        "memory/archive"
-      ],
+      "capabilities_supported": ["MEMORY_PIPELINE"],
+      "agents_with_skill": ["alusi-loop"],
+      "tools_used": ["memory/active", "memory/compressed", "memory/archive"],
       "validation_method": "compression ratio + context retrieval quality",
       "quality_score": 0.85,
       "cost_score": 0.95,
       "success_rate": 0.92,
-      "maturity": "OPERATIONAL"
+      "maturity": "OPERATIONAL",
+      "last_benchmarked": "2026-08-09",
+      "source": "open-empire-nexus"
     },
     {
       "skill_uuid": "sk-trd-001",
       "canonical_name": "AUTONOMOUS_TRADING",
       "description": "Kalshi + Polymarket signal scoring, position sizing, trade execution",
-      "capabilities_supported": [
-        "AUTONOMOUS_TRADING"
-      ],
-      "agents_with_skill": [
-        "cashclaw_director",
-        "cashclaw_arb",
-        "polymarket_trader"
-      ],
-      "tools_used": [
-        "trading.agents.*",
-        "Haiku signal scorer"
-      ],
+      "capabilities_supported": ["AUTONOMOUS_TRADING"],
+      "agents_with_skill": ["cashclaw_director", "cashclaw_arb", "polymarket_trader"],
+      "tools_used": ["trading.agents.*", "Haiku signal scorer"],
       "validation_method": "Kelly compliance + spend cap check",
       "quality_score": 0.8,
       "cost_score": 0.85,
       "success_rate": 0.75,
       "maturity": "OPERATIONAL",
-      "governance": "PROTECTED \u2014 no modification without Nathan approval"
+      "last_benchmarked": "2026-08-09",
+      "source": "~/.openclaw/trading/",
+      "governance": "PROTECTED — no modification without Nathan approval"
+    },
+    {
+      "skill_uuid": "sk-repo-011",
+      "canonical_name": "REPOSITORY_ANALYSIS",
+      "description": "Analyze a codebase for structure, dependencies, capability fit, tech debt, and integration readiness",
+      "capabilities_supported": ["REPOSITORY_FACTORY", "RESEARCH_SYNTHESIS"],
+      "agents_with_skill": ["Alusi", "Claude Code"],
+      "tools_used": ["read", "exec", "find", "git log", "psql"],
+      "validation_method": "structured analysis report with capability classification",
+      "quality_score": 0.88,
+      "cost_score": 0.9,
+      "success_rate": 0.92,
+      "maturity": "OPERATIONAL",
+      "last_benchmarked": "2026-08-09",
+      "source": "gitnexus-exploring skill"
+    },
+    {
+      "skill_uuid": "sk-dbg-012",
+      "canonical_name": "DEBUGGING",
+      "description": "Systematic root-cause analysis and fix for software and operational failures",
+      "capabilities_supported": ["INCIDENT_RESPONSE", "REPOSITORY_FACTORY"],
+      "agents_with_skill": ["Alusi", "Claude Code"],
+      "tools_used": ["exec", "read", "process", "pm2 logs", "python-debugpy skill"],
+      "validation_method": "fix confirmed by re-run; regression test passes",
+      "quality_score": 0.87,
+      "cost_score": 0.85,
+      "success_rate": 0.9,
+      "maturity": "OPERATIONAL",
+      "last_benchmarked": "2026-08-09",
+      "source": "gitnexus-debugging skill"
+    },
+    {
+      "skill_uuid": "sk-arch-013",
+      "canonical_name": "SOFTWARE_ARCHITECTURE",
+      "description": "Design system components, interfaces, data flows, and deployment topology",
+      "capabilities_supported": ["CAPABILITY_FACTORY", "REPOSITORY_FACTORY"],
+      "agents_with_skill": ["Alusi"],
+      "tools_used": ["write", "diagram-maker skill", "exec"],
+      "validation_method": "architecture reviewed against SSOT + KG entity model",
+      "quality_score": 0.85,
+      "cost_score": 0.8,
+      "success_rate": 0.88,
+      "maturity": "OPERATIONAL",
+      "last_benchmarked": "2026-08-09",
+      "source": "open-empire-nexus / ADAI"
+    },
+    {
+      "skill_uuid": "sk-res-014",
+      "canonical_name": "RESEARCH_SYNTHESIS",
+      "description": "Multi-source research aggregation, evidence weighting, and structured recommendation output",
+      "capabilities_supported": ["RESEARCH_SYNTHESIS", "MARKET_INTELLIGENCE"],
+      "agents_with_skill": ["Alusi"],
+      "tools_used": ["tavily_search", "firecrawl_scrape", "web_fetch", "write"],
+      "validation_method": "evidence table complete; adopt/reject decision documented",
+      "quality_score": 0.88,
+      "cost_score": 0.85,
+      "success_rate": 0.9,
+      "maturity": "OPERATIONAL",
+      "last_benchmarked": "2026-08-09",
+      "source": "multi-search-engine + tavily skill"
+    },
+    {
+      "skill_uuid": "sk-cicd-015",
+      "canonical_name": "CI_CD_GENERATION",
+      "description": "Generate CI/CD pipeline configs (GitHub Actions, etc.) for a given repo and tech stack",
+      "capabilities_supported": ["REPOSITORY_FACTORY", "SOFTWARE_RELEASE"],
+      "agents_with_skill": ["Alusi"],
+      "tools_used": ["write", "edit", "exec", "git"],
+      "validation_method": "pipeline runs successfully on test push",
+      "quality_score": 0.82,
+      "cost_score": 0.9,
+      "success_rate": 0.85,
+      "maturity": "PILOT",
+      "last_benchmarked": "2026-08-09",
+      "source": "coding-agent skill"
+    },
+    {
+      "skill_uuid": "sk-secrv-016",
+      "canonical_name": "SECURITY_REVIEW",
+      "description": "Review code/configs for vulnerabilities, insecure patterns, and OWASP top-10 issues",
+      "capabilities_supported": ["SECURITY_COMPLIANCE", "REPOSITORY_FACTORY"],
+      "agents_with_skill": ["Alusi"],
+      "tools_used": ["gitleaks", "grep", "read", "exec"],
+      "validation_method": "zero unacknowledged high-severity findings",
+      "quality_score": 0.85,
+      "cost_score": 0.95,
+      "success_rate": 0.88,
+      "maturity": "OPERATIONAL",
+      "last_benchmarked": "2026-08-09",
+      "source": "open-empire-nexus"
+    },
+    {
+      "skill_uuid": "sk-kex-017",
+      "canonical_name": "KNOWLEDGE_EXTRACTION",
+      "description": "Extract structured knowledge from PDFs, web pages, logs, and documents into wiki/KG",
+      "capabilities_supported": ["KNOWLEDGE_GRAPH", "MEMORY_PIPELINE"],
+      "agents_with_skill": ["Alusi"],
+      "tools_used": ["pdf", "firecrawl_scrape", "wiki_apply", "memory_search"],
+      "validation_method": "extracted facts verifiable against source; KG entity created",
+      "quality_score": 0.85,
+      "cost_score": 0.85,
+      "success_rate": 0.88,
+      "maturity": "OPERATIONAL",
+      "last_benchmarked": "2026-08-09",
+      "source": "extract-pdf-compdf + wiki-maintainer skill"
+    },
+    {
+      "skill_uuid": "sk-wfd-018",
+      "canonical_name": "WORKFLOW_DESIGN",
+      "description": "Design multi-step automation workflows with agent roles, triggers, and approval gates",
+      "capabilities_supported": ["WORKFLOW_AUTOMATION", "CAPABILITY_FACTORY"],
+      "agents_with_skill": ["Alusi"],
+      "tools_used": ["antfarm CLI", "n8n:5678", "write", "diagram-maker skill"],
+      "validation_method": "workflow executes end-to-end on test input",
+      "quality_score": 0.83,
+      "cost_score": 0.9,
+      "success_rate": 0.85,
+      "maturity": "OPERATIONAL",
+      "last_benchmarked": "2026-08-09",
+      "source": "antfarm-workflows skill"
+    },
+    {
+      "skill_uuid": "sk-copt-019",
+      "canonical_name": "COST_OPTIMIZATION",
+      "description": "Identify and eliminate wasteful inference spend; route to cheapest sufficient provider",
+      "capabilities_supported": ["ECONOMIC_GOVERNOR", "ADAPTIVE_ROUTING"],
+      "agents_with_skill": ["Alusi", "economic_guard.py", "oe-proxy"],
+      "tools_used": ["oe-proxy logs", "fcc_metrics.json", "Grafana:3001"],
+      "validation_method": "daily cost vs target; provider distribution vs policy",
+      "quality_score": 0.9,
+      "cost_score": 1.0,
+      "success_rate": 0.95,
+      "maturity": "OPERATIONAL",
+      "last_benchmarked": "2026-08-09",
+      "source": "open-empire-nexus / freeway"
+    },
+    {
+      "skill_uuid": "sk-ats-020",
+      "canonical_name": "ATS_RESUME_MATCHING",
+      "description": "Tailor resume/cover letter to job description to maximize ATS score and recruiter relevance",
+      "capabilities_supported": ["JOB_ACQUISITION"],
+      "agents_with_skill": ["Alusi"],
+      "tools_used": ["write", "web_search", "tavily_search"],
+      "validation_method": "ATS keyword match score >80%; hiring manager readability check",
+      "quality_score": 0.82,
+      "cost_score": 0.9,
+      "success_rate": 0.85,
+      "maturity": "PILOT",
+      "last_benchmarked": "2026-08-09",
+      "source": "auto-job-applier skill"
+    },
+    {
+      "skill_uuid": "sk-bdd-021",
+      "canonical_name": "BUYER_DUE_DILIGENCE",
+      "description": "Qualify a BLCO/commodity buyer: financial verification, legitimacy check, LOI review",
+      "capabilities_supported": ["WORKFLOW_AUTOMATION", "MARKET_INTELLIGENCE"],
+      "agents_with_skill": ["Alusi", "blco_broker"],
+      "tools_used": ["web_search", "firecrawl_scrape", "write"],
+      "validation_method": "buyer score meets BLCO_COMMAND.md threshold; Nathan review",
+      "quality_score": 0.8,
+      "cost_score": 0.9,
+      "success_rate": 0.82,
+      "maturity": "PILOT",
+      "last_benchmarked": "2026-08-09",
+      "source": "blco-commodity-outreach skill"
+    },
+    {
+      "skill_uuid": "sk-sig-022",
+      "canonical_name": "SIGNAL_ANALYSIS",
+      "description": "Interpret prediction market signals, price movements, or sensor data for actionable insight",
+      "capabilities_supported": ["AUTONOMOUS_TRADING", "TRADING_OBSERVABILITY", "MARKET_INTELLIGENCE"],
+      "agents_with_skill": ["cashclaw_director", "polymarket_trader", "trading_sentinel"],
+      "tools_used": ["trading.shared.signals", "Haiku scorer", "trades.jsonl"],
+      "validation_method": "backtested signal accuracy vs realized outcomes",
+      "quality_score": 0.78,
+      "cost_score": 0.85,
+      "success_rate": 0.75,
+      "maturity": "OPERATIONAL",
+      "last_benchmarked": "2026-08-09",
+      "source": "~/.openclaw/trading/",
+      "governance": "Read-only analysis only; no trading changes without Nathan"
+    },
+    {
+      "skill_uuid": "sk-sql-023",
+      "canonical_name": "SQL_ANALYSIS",
+      "description": "Write and execute SQL queries against ClawDB for reporting, debugging, and KG maintenance",
+      "capabilities_supported": ["KNOWLEDGE_GRAPH", "OBSERVABILITY", "TRADING_OBSERVABILITY"],
+      "agents_with_skill": ["Alusi"],
+      "tools_used": ["psql", "exec", "kg_api:6279"],
+      "validation_method": "query returns expected schema; results validated against known state",
+      "quality_score": 0.88,
+      "cost_score": 1.0,
+      "success_rate": 0.93,
+      "maturity": "OPERATIONAL",
+      "last_benchmarked": "2026-08-09",
+      "source": "open-empire-nexus / clawdb"
+    },
+    {
+      "skill_uuid": "sk-inc-024",
+      "canonical_name": "INCIDENT_RESPONSE",
+      "description": "Structured detection, triage, diagnosis, fix, and post-mortem for operational incidents",
+      "capabilities_supported": ["INCIDENT_RESPONSE", "OBSERVABILITY"],
+      "agents_with_skill": ["Alusi", "trading_sentinel"],
+      "tools_used": ["pm2", "exec", "process", "Telegram", "psql"],
+      "validation_method": "service restored; root cause documented; prevention proposed",
+      "quality_score": 0.85,
+      "cost_score": 0.9,
+      "success_rate": 0.88,
+      "maturity": "OPERATIONAL",
+      "last_benchmarked": "2026-08-09",
+      "source": "open-empire-nexus"
+    },
+    {
+      "skill_uuid": "sk-blco-025",
+      "canonical_name": "BLCO_QUALIFICATION",
+      "description": "End-to-end BLCO lead qualification: sourcing, scoring, draft outreach, Nathan gating",
+      "capabilities_supported": ["WORKFLOW_AUTOMATION"],
+      "agents_with_skill": ["blco_broker", "Alusi"],
+      "tools_used": ["web_search", "firecrawl_scrape", "write", "Telegram"],
+      "validation_method": "lead passes BLCO_COMMAND.md checklist; outreach draft approved",
+      "quality_score": 0.8,
+      "cost_score": 0.9,
+      "success_rate": 0.82,
+      "maturity": "PILOT",
+      "last_benchmarked": "2026-08-09",
+      "source": "blco-commodity-outreach skill"
+    },
+    {
+      "skill_uuid": "sk-mi-026",
+      "canonical_name": "MARKET_INTELLIGENCE",
+      "description": "Gather, synthesize, and deliver competitive/market intelligence reports on demand or scheduled",
+      "capabilities_supported": ["MARKET_INTELLIGENCE", "RESEARCH_SYNTHESIS"],
+      "agents_with_skill": ["Alusi"],
+      "tools_used": ["tavily_search", "firecrawl_scrape", "web_fetch", "write"],
+      "validation_method": "report covers target market with citations; delivered on schedule",
+      "quality_score": 0.85,
+      "cost_score": 0.85,
+      "success_rate": 0.87,
+      "maturity": "OPERATIONAL",
+      "last_benchmarked": "2026-08-09",
+      "source": "go_live_market_intelligence skill"
+    },
+    {
+      "skill_uuid": "sk-cgen-027",
+      "canonical_name": "CONTENT_GENERATION",
+      "description": "Generate brand-consistent written content: blog posts, social copy, outreach emails, reports",
+      "capabilities_supported": ["CONTENT_GENERATION", "WORKFLOW_AUTOMATION"],
+      "agents_with_skill": ["Alusi"],
+      "tools_used": ["write", "image_generate", "humanizer skill"],
+      "validation_method": "Nathan review pass; brand consistency score met",
+      "quality_score": 0.85,
+      "cost_score": 0.8,
+      "success_rate": 0.88,
+      "maturity": "OPERATIONAL",
+      "last_benchmarked": "2026-08-09",
+      "source": "marketing-skills + humanizer skill"
+    },
+    {
+      "skill_uuid": "sk-dnorm-028",
+      "canonical_name": "DATA_NORMALIZATION",
+      "description": "Transform heterogeneous data sources into canonical Open Empire schemas for KG/SSOT",
+      "capabilities_supported": ["MEMORY_PIPELINE", "KNOWLEDGE_GRAPH"],
+      "agents_with_skill": ["Alusi"],
+      "tools_used": ["exec", "psql", "write", "edit"],
+      "validation_method": "transformed records pass schema validation; 0 KG orphans",
+      "quality_score": 0.85,
+      "cost_score": 1.0,
+      "success_rate": 0.9,
+      "maturity": "OPERATIONAL",
+      "last_benchmarked": "2026-08-09",
+      "source": "open-empire-nexus"
+    },
+    {
+      "skill_uuid": "sk-cap-029",
+      "canonical_name": "CAPABILITY_ACTIVATION",
+      "description": "Activate a defined capability manifest: provision deps, run health checks, register in KG",
+      "capabilities_supported": ["CAPABILITY_FACTORY"],
+      "agents_with_skill": ["Alusi"],
+      "tools_used": ["exec", "pm2", "psql", "kg_api:6279", "process"],
+      "validation_method": "all health checks green; KG entry created; Mission Control shows active",
+      "quality_score": 0.85,
+      "cost_score": 0.9,
+      "success_rate": 0.88,
+      "maturity": "PILOT",
+      "last_benchmarked": "2026-08-09",
+      "source": "open-empire-nexus"
+    },
+    {
+      "skill_uuid": "sk-pev-030",
+      "canonical_name": "PROVIDER_EVALUATION",
+      "description": "Benchmark a new inference provider for latency, quality, cost, and security compliance",
+      "capabilities_supported": ["ADAPTIVE_ROUTING", "ECONOMIC_GOVERNOR"],
+      "agents_with_skill": ["Alusi"],
+      "tools_used": ["exec", "write", "oe-proxy", "Free-Way"],
+      "validation_method": "benchmark report complete; latency/quality/cost all measured",
+      "quality_score": 0.85,
+      "cost_score": 0.9,
+      "success_rate": 0.88,
+      "maturity": "OPERATIONAL",
+      "last_benchmarked": "2026-08-09",
+      "source": "open-empire-nexus"
+    },
+    {
+      "skill_uuid": "sk-bmd-031",
+      "canonical_name": "BENCHMARK_DESIGN",
+      "description": "Design repeatable benchmark suites for models, tools, or workflows with statistical rigor",
+      "capabilities_supported": ["RESEARCH_SYNTHESIS", "ECONOMIC_GOVERNOR"],
+      "agents_with_skill": ["Alusi"],
+      "tools_used": ["exec", "write", "python"],
+      "validation_method": "benchmark produces reproducible results across 3 runs",
+      "quality_score": 0.82,
+      "cost_score": 0.9,
+      "success_rate": 0.85,
+      "maturity": "PILOT",
+      "last_benchmarked": "2026-08-09",
+      "source": "open-empire-nexus"
+    },
+    {
+      "skill_uuid": "sk-pe-032",
+      "canonical_name": "PROMPT_ENGINEERING",
+      "description": "Design, test, and optimize prompts for reliability, cost, and quality across agent tasks",
+      "capabilities_supported": ["CAPABILITY_FACTORY", "WORKFLOW_AUTOMATION"],
+      "agents_with_skill": ["Alusi"],
+      "tools_used": ["exec", "write", "node_inference"],
+      "validation_method": "A/B quality test; cost vs baseline; pass rate >90%",
+      "quality_score": 0.88,
+      "cost_score": 0.85,
+      "success_rate": 0.9,
+      "maturity": "OPERATIONAL",
+      "last_benchmarked": "2026-08-09",
+      "source": "open-empire-nexus / ADAI"
+    },
+    {
+      "skill_uuid": "sk-mm-033",
+      "canonical_name": "MEMORY_MANAGEMENT",
+      "description": "Manage agent memory lifecycle: capture, compress, index, retrieve, expire",
+      "capabilities_supported": ["MEMORY_PIPELINE"],
+      "agents_with_skill": ["Alusi", "alusi-loop"],
+      "tools_used": ["memory_search", "memory_get", "wiki_apply", "exec"],
+      "validation_method": "recall accuracy test; staleness below threshold",
+      "quality_score": 0.85,
+      "cost_score": 1.0,
+      "success_rate": 0.9,
+      "maturity": "OPERATIONAL",
+      "last_benchmarked": "2026-08-09",
+      "source": "obsidian-openclaw-memory skill"
+    },
+    {
+      "skill_uuid": "sk-td-034",
+      "canonical_name": "TASK_DECOMPOSITION",
+      "description": "Break complex objectives into ordered, parallelizable sub-tasks with dependencies mapped",
+      "capabilities_supported": ["ECONOMIC_GOVERNOR", "CAPABILITY_FACTORY"],
+      "agents_with_skill": ["Alusi"],
+      "tools_used": ["taskflow skill", "write"],
+      "validation_method": "task graph completeness; no circular dependencies; all deps resolved",
+      "quality_score": 0.87,
+      "cost_score": 0.95,
+      "success_rate": 0.9,
+      "maturity": "OPERATIONAL",
+      "last_benchmarked": "2026-08-09",
+      "source": "taskflow skill"
+    },
+    {
+      "skill_uuid": "sk-ca-035",
+      "canonical_name": "COMPETITIVE_ANALYSIS",
+      "description": "Analyze competitor capabilities, pricing, positioning, and gaps for strategic advantage",
+      "capabilities_supported": ["MARKET_INTELLIGENCE", "RESEARCH_SYNTHESIS"],
+      "agents_with_skill": ["Alusi"],
+      "tools_used": ["tavily_search", "firecrawl_scrape", "web_fetch", "write"],
+      "validation_method": "analysis covers top 3 competitors with evidence citations",
+      "quality_score": 0.83,
+      "cost_score": 0.85,
+      "success_rate": 0.85,
+      "maturity": "OPERATIONAL",
+      "last_benchmarked": "2026-08-09",
+      "source": "go_live_market_intelligence skill"
     }
   ],
-  "task_observer_integration": "task_observer_collector.py reads skill-observations/ and proposes improvements via skill_workshop",
-  "protected_skills": [
-    "AUTONOMOUS_TRADING",
-    "SECRET_SCAN \u2014 do not weaken"
+  "skills_flagged_missing": [
+    {
+      "canonical_name": "HIPAA_COMPLIANCE_REVIEW",
+      "reason": "Required for healthcare UC-024 before any PHI-adjacent work",
+      "priority": "HIGH",
+      "status": "MISSING"
+    },
+    {
+      "canonical_name": "AUTOMATED_TEST_GENERATION",
+      "reason": "Required to close the 80% test coverage gap in UC-014",
+      "priority": "MEDIUM",
+      "status": "MISSING"
+    },
+    {
+      "canonical_name": "FORMAL_RISK_MODELING",
+      "reason": "Needed for improved Kelly criterion validation in CashClaw",
+      "priority": "LOW",
+      "status": "MISSING"
+    }
   ]
 }
