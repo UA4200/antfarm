@@ -32,10 +32,10 @@ These tools are installed but CANNOT run without their key.
 
 ## 🖥️ APPROVE — App Installs (need your click/approval)
 
-| # | App | Action |
-|---|-----|--------|
-| 1 | Samin Command Center | Review `/tmp/install-samin-cc.sh`, then approve |
-| 2 | Obsidian | Currently downloading — open DMG and drag to /Applications |
+| #   | App                  | Action                                                     |
+| --- | -------------------- | ---------------------------------------------------------- |
+| 1   | Samin Command Center | Review `/tmp/install-samin-cc.sh`, then approve            |
+| 2   | Obsidian             | Currently downloading — open DMG and drag to /Applications |
 
 ---
 
