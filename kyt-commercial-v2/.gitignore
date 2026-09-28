@@ -3,3 +3,5 @@
 *.mp4
 qa/
 __pycache__/
+.venv/
+receipt.txt
