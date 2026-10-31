@@ -1,0 +1,7 @@
+# Inputs and outputs stay local; only the build/QA scripts are tracked.
+*.mp3
+*.mp4
+qa/
+__pycache__/
+.venv/
+receipt.txt
